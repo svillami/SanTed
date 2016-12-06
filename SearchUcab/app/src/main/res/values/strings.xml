@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SearchUcab</string>
+    <string name="about">Información</string>
+    <string name="exit">Salir</string>
+    <string name="openDrawer">open</string>
+    <string name="closeDrawer">close</string>
 </resources>
