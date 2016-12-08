@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+           android:id="@+id/entradagrupo">
         <item
             android:id="@+id/buscador"
             android:checked="true"
@@ -11,19 +12,32 @@
             android:id="@+id/RA3D"
             android:icon="@drawable/buscar"
             android:title="Realidad Aumentada 3D" />
-        <item
-            android:id="@+id/guia"
-            android:icon="@drawable/buscar"
-            android:title="Guia de Usuario" />
 
-        <item
-            android:id="@+id/tips"
-            android:icon="@drawable/buscar"
-            android:title="Tips" />
         <item
             android:id="@+id/busquedanfc"
             android:icon="@drawable/buscar"
             android:title="Busqueda NFC" />
+
+    </group>
+
+    <group android:checkableBehavior="single"
+           android:id="@+id/documentaciongrupo">
+        <item android:title="Documentación">
+            <menu>
+                <item
+                    android:id="@+id/guia"
+                    android:icon="@drawable/buscar"
+                    android:title="Guia de Usuario" />
+
+                <item
+                    android:id="@+id/tips"
+                    android:icon="@drawable/buscar"
+                    android:title="Tips" />
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/salirgrupo">
         <item
             android:id="@+id/salir"
             android:icon="@drawable/buscar"

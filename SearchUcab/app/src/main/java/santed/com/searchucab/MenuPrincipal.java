@@ -3,6 +3,7 @@ package santed.com.searchucab;
 import android.content.Context;
 import android.content.Intent;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -18,6 +19,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.app.ProgressDialog;
 import android.widget.Toast;
+
+import java.util.Random;
 
 
 public class MenuPrincipal extends AppCompatActivity {
@@ -79,6 +82,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
                     case R.id.tips:
                         ////Opción que muestra la guia de uso
+                        createSimpleDialog();
 
                         break;
 
@@ -144,17 +148,33 @@ public class MenuPrincipal extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*public AlertDialog createSimpleDialog() {
+    public AlertDialog createSimpleDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppTheme_Dark_Dialog);
 
-        builder.setIcon(R.drawable.ic_launcher)
-                .setTitle("biblUCABdroide")
-                .setMessage(R.string.info);
+        builder.setIcon(R.drawable.foto_principal)
+                .setTitle("Tip Rápido");
+
+        Random r = new Random();
+        int tip = r.nextInt(4 - 1)+1;
+
+        switch (tip)
+        {
+            case 1:
+                builder.setMessage(R.string.tip1);
+                break;
+            case 2:
+                builder.setMessage(R.string.tip2);
+                break;
+            case 3:
+                builder.setMessage(R.string.tip3);
+                break;
+        }
+
         builder.show();
 
         //"Versión " + "1.0" + "\n" +
         return builder.create();
-    }*/
+    }
 
 }
