@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/buscador"
+            android:checked="true"
+            android:icon="@drawable/buscar"
+            android:title="Buscador" />
+        <item
+            android:id="@+id/RA3D"
+            android:icon="@drawable/buscar"
+            android:title="Realidad Aumentada 3D" />
+        <item
+            android:id="@+id/guia"
+            android:icon="@drawable/buscar"
+            android:title="Guia de Usuario" />
+
+        <item
+            android:id="@+id/tips"
+            android:icon="@drawable/buscar"
+            android:title="Tips" />
+        <item
+            android:id="@+id/busquedanfc"
+            android:icon="@drawable/buscar"
+            android:title="Busqueda NFC" />
+        <item
+            android:id="@+id/salir"
+            android:icon="@drawable/buscar"
+            android:title="Salir" />
+    </group>
+
+</menu>
