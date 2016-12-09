@@ -88,6 +88,8 @@ public class MenuPrincipal extends AppCompatActivity {
 
                     case R.id.busquedanfc:
                         ////Opción que muestra la guia de uso
+                        Intent i = new Intent(MenuPrincipal.this, LecturaNfc.class);
+                        startActivity(i);
 
                         break;
 

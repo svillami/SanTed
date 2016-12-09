@@ -10,12 +10,12 @@
             android:title="Buscador" />
         <item
             android:id="@+id/RA3D"
-            android:icon="@drawable/buscar"
+            android:icon="@drawable/s3d"
             android:title="Realidad Aumentada 3D" />
 
         <item
             android:id="@+id/busquedanfc"
-            android:icon="@drawable/buscar"
+            android:icon="@drawable/nfc"
             android:title="Busqueda NFC" />
 
     </group>
@@ -26,12 +26,12 @@
             <menu>
                 <item
                     android:id="@+id/guia"
-                    android:icon="@drawable/buscar"
+                    android:icon="@drawable/guiausuario"
                     android:title="Guia de Usuario" />
 
                 <item
                     android:id="@+id/tips"
-                    android:icon="@drawable/buscar"
+                    android:icon="@drawable/tips"
                     android:title="Tips" />
             </menu>
         </item>
@@ -40,7 +40,7 @@
     <group android:id="@+id/salirgrupo">
         <item
             android:id="@+id/salir"
-            android:icon="@drawable/buscar"
+            android:icon="@drawable/salida"
             android:title="Salir" />
     </group>
 
