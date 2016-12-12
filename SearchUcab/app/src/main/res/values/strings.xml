@@ -4,4 +4,6 @@
     <string name="exit">Salir</string>
     <string name="openDrawer">open</string>
     <string name="closeDrawer">close</string>
+    <string name="informacion">Aplicación destinada al uso del publico en general para la ubicación de diferentes sitios
+    de la Universidad Catolica Andres Bello. Desarrollada por Tesistas de Ingenieria Informática. </string>
 </resources>

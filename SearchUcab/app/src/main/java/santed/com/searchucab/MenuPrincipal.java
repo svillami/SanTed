@@ -139,7 +139,7 @@ public class MenuPrincipal extends AppCompatActivity {
                 return true;
             case R.id.action_settings:
                 //Llamada para la información
-                //createSimpleDialog();
+                createSimpleDialogInfo();
                 return true;
             case R.id.exit:
                 //Llamada para salir de la app
@@ -176,6 +176,17 @@ public class MenuPrincipal extends AppCompatActivity {
         builder.show();
 
         //"Versión " + "1.0" + "\n" +
+        return builder.create();
+    }
+
+    public AlertDialog createSimpleDialogInfo() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppTheme_Dark_Dialog);
+
+        builder.setIcon(R.mipmap.ic_launcher)
+                .setTitle("Search UCAB")
+                .setMessage(R.string.informacion);
+        builder.show();
         return builder.create();
     }
 
