@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LecturaNfc"></activity>
+        <activity android:name=".LecturaNfc" />
+        <activity android:name=".Buscador" />
+        <activity android:name=".Adaptador_buscador"></activity>
     </application>
 
 </manifest>
