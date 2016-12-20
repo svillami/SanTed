@@ -18,14 +18,14 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="16dp"
             >
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/person_photo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/foto_lugar"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="16dp"
@@ -36,8 +36,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="fish name"
-                android:id="@+id/textFishName"
+                android:id="@+id/primario"
                 android:textColor="@color/black"
+                android:layout_toRightOf="@+id/foto_lugar"
                 android:layout_marginLeft="5dp"/>
 
             <TextView
@@ -45,9 +46,10 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="Small Text"
-                android:id="@+id/textSize"
+                android:id="@+id/secundario"
                 android:layout_marginLeft="5dp"
-                android:layout_below="@id/textFishName"
+                android:layout_below="@id/primario"
+                android:layout_toRightOf="@+id/foto_lugar"
                 android:textColor="#666"/>
 
             <TextView
@@ -55,9 +57,10 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="sd"
-                android:id="@+id/textType"
+                android:id="@+id/terciario"
                 android:layout_marginLeft="5dp"
-                android:layout_below="@id/textSize"
+                android:layout_below="@id/secundario"
+                android:layout_toRightOf="@+id/foto_lugar"
                 android:textColor="#666"/>
 
         </RelativeLayout>

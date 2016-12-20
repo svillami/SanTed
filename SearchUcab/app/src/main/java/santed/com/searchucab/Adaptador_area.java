@@ -36,8 +36,8 @@ public class Adaptador_area extends ArrayAdapter<Area>
             row = inflater.inflate(LayoutResourceId, parent, false);
 
             holder = new Area_holder();
-            holder.nombre = (TextView) row.findViewById(R.id.textFishName);
-            holder.descripcion = (TextView) row.findViewById(R.id.textSize);
+            holder.nombre = (TextView) row.findViewById(R.id.primario);
+            holder.descripcion = (TextView) row.findViewById(R.id.secundario);
             row.setTag(holder);
         }
         else
