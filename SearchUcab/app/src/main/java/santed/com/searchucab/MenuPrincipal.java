@@ -77,7 +77,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
                     case R.id.guia:
                         //Opcion que levanta el buscador y por ende la RA
-
+                        updateDisplay(new guia_de_uso());
                         break;
 
                     case R.id.tips:
@@ -117,11 +117,11 @@ public class MenuPrincipal extends AppCompatActivity {
         System.exit(0);
     }
 
-    /*private void updateDisplay(Fragment fragment) {
+    private void updateDisplay(Fragment fragment) {
 
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
-    }*/
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

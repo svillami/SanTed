@@ -6,7 +6,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
     android:orientation="horizontal"
-    android:padding="10dp"
+    android:padding="6dp"
     tools:context="santed.com.searchucab.Adaptador_buscador">
 
     <android.support.v7.widget.CardView
