@@ -6,4 +6,15 @@
     <string name="closeDrawer">close</string>
     <string name="informacion">Aplicación destinada al uso del publico en general para la ubicación de diferentes sitios
     de la Universidad Catolica Andres Bello. Desarrollada por Tesistas de Ingenieria Informática. </string>
+    <string name="dos">Cuando el usuario toca cualquiera de los botones de acción creados con un AlertDialog.Builder, el sistema descarta el diálogo por ti.
+
+El sistema también descarta el diálogo cuando el usuario toca un elemento en una lista de diálogo, excepto cuando la lista usa botones de selección o casillas de verificación. De lo contrario, puedes descartar el diálogo manualmente llamando adismiss() en tu DialogFragment.
+
+En caso de que necesites realizar determinadas acciones cuando el diálogo desaparezca, puedes implementar el método onDismiss() en tu DialogFragment.
+
+También puedes cancelar un diálogo. Este es un evento especial que indica que el usuario explícitamente abandonó el diálogo sin completar la tarea. Esto ocurre si el usuario presiona el botón Atrás o toca la pantalla fuera del área de diálogo, o si llamas explícitamente a cancel() en el Dialog (como en respuesta a un botón “Cancelar” en el diálogo).
+
+Como se muestra en el ejemplo anterior, puedes responder al evento de cancelación implementando onCancel() en tu clase DialogFragment.
+
+Nota: El sistema llama a onDismiss() con cada evento que invoque el método callbackonCancel(). No obstante, si llamas a Dialog.dismiss() o a DialogFragment.dismiss(), el sistema llama a onDismiss() pero no a onCancel(). Por lo tanto, generalmente debes llamar a dismiss() cuando el usuario presiona el botón positivo en tu diálogo para eliminar el diálogo de la vista.</string>
 </resources>

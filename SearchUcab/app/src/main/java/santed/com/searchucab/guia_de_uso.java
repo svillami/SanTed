@@ -1,8 +1,10 @@
 package santed.com.searchucab;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,19 +52,30 @@ public class guia_de_uso extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             GestureDetector gestureDetector = new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener() {
 
-                @Override public boolean onSingleTapUp(MotionEvent e) {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
                     return true;
                 }
 
             });
+
             @Override
             public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
 
                 View child = rv.findChildViewUnder(e.getX(), e.getY());
-                if(child != null && gestureDetector.onTouchEvent(e)) {
+                if (child != null && gestureDetector.onTouchEvent(e)) {
                     int position = rv.getChildAdapterPosition(child);
-                    Toast.makeText(getActivity(), opcion_lista.get(position).toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), opcion_lista.get(position).toString(), Toast.LENGTH_SHORT).show();
 
+                    if (opcion_lista.get(position).toString() == "Usos de la Realidad Aumentada 3D") {
+                        createSimpleDialog("Realidad Aumentada 3D");
+                    } else if (opcion_lista.get(position).toString() == "¿Cómo usar la busqueda NFC?"){
+                        createSimpleDialog("¿Cómo usar la busqueda NFC?");
+                            } else if (opcion_lista.get(position).toString() == "¿Qué son los Tips?"){
+                        createSimpleDialog("¿Qué son los Tips?");
+                                    } else if (opcion_lista.get(position).toString() == "¿Cómo usar el Buscador?"){
+                        createSimpleDialog("¿Cómo usar el Buscador?");
+                                            }
                 }
 
                 return false;
@@ -78,6 +91,27 @@ public class guia_de_uso extends Fragment {
 
             }
         });
+    }
+
+    // Dialogos por cada opción
+    public AlertDialog createSimpleDialog(String result) {
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AppTheme_Dark_Dialog);
+
+        /*builder.setIcon(R.drawable.foto_principal)
+                .setTitle("El valor del NFC")
+                .setMessage(R.string.informacion);
+        builder.show();*/
+        builder.setTitle(result);
+
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+
+        View v = inflater.inflate(R.layout.dialog_signin, null);
+
+        builder.setView(v);
+        builder.show();
+        return builder.create();
     }
 
 }
