@@ -1,5 +1,6 @@
 package santed.com.searchucab;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 
@@ -63,6 +64,7 @@ public class MenuPrincipal extends AppCompatActivity {
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
 
+                        updateDisplay(new Buscador());
                         break;
 
                     case R.id.RA3D:
@@ -77,6 +79,9 @@ public class MenuPrincipal extends AppCompatActivity {
 
                     case R.id.guia:
                         //Opcion que levanta el buscador y por ende la RA
+
+
+
                         updateDisplay(new guia_de_uso());
                         break;
 

@@ -35,7 +35,7 @@ public class Buscador extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View vista;
-        vista = inflater.inflate(R.layout.fragment_lugar, container);
+        vista = inflater.inflate(R.layout.fragment_lugar, container,false);
 
         rvBuscador = (RecyclerView) vista.findViewById(R.id.lista_lugar);
 
