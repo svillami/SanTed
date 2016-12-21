@@ -38,6 +38,9 @@ public class MenuPrincipal extends AppCompatActivity {
         //Titulo de la Actividad
         //this.setTitle("Prestamos");
 
+        //Instanciamos el nuevo buscador
+        createDisplay(new Buscador());
+
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -120,6 +123,26 @@ public class MenuPrincipal extends AppCompatActivity {
         startActivity(intent);
         finish();
         System.exit(0);
+    }
+
+    /**
+     * Metodo que permite crear una instancia nueva de un fragmento para su posterior manipulacion
+     * @param fragmentoAgregar El fragmento que se desea agregar
+     */
+    public void createDisplay (Fragment fragmentoAgregar)
+    {
+        //Obtenemos el manager de fragmentos
+        FragmentManager managerFragmentos = getFragmentManager();
+
+        //A partir de aqui se comienza a crear el fragmento
+        FragmentTransaction transaccion = managerFragmentos.beginTransaction();
+
+        //Agregamos el fragmento nuevo a la transaccion con su tag pertinente
+        transaccion.add(R.id.frame_container, fragmentoAgregar, "fragmentoBuscador");
+
+        //Ejecutamos la transaccion
+        transaccion.commit();
+
     }
 
     private void updateDisplay(Fragment fragment) {
