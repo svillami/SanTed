@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -182,12 +183,11 @@ public class MenuPrincipal extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppTheme_Dark_Dialog);
 
-        builder.setIcon(R.drawable.foto_principal)
-                .setTitle("Tip Rápido");
+        builder.setIcon(R.drawable.question_mark)
+                .setTitle("¿Sabías que?");
 
         Random r = new Random();
-        int tip = r.nextInt(4 - 1)+1;
-
+        int tip = r.nextInt(31 - 1)+1;
         switch (tip)
         {
             case 1:
@@ -199,9 +199,94 @@ public class MenuPrincipal extends AppCompatActivity {
             case 3:
                 builder.setMessage(R.string.tip3);
                 break;
+            case 4:
+                builder.setMessage(R.string.tip4);
+                break;
+            case 5:
+                builder.setMessage(R.string.tip5);
+                break;
+            case 6:
+                builder.setMessage(R.string.tip6);
+                break;
+            case 7:
+                builder.setMessage(R.string.tip7);
+                break;
+            case 8:
+                builder.setMessage(R.string.tip8);
+                break;
+            case 9:
+                builder.setMessage(R.string.tip9);
+                break;
+            case 10:
+                builder.setMessage(R.string.tip10);
+                break;
+            case 11:
+                builder.setMessage(R.string.tip11);
+                break;
+            case 12:
+                builder.setMessage(R.string.tip12);
+                break;
+            case 13:
+                builder.setMessage(R.string.tip13);
+                break;
+            case 14:
+                builder.setMessage(R.string.tip14);
+                break;
+            case 15:
+                builder.setMessage(R.string.tip15);
+                break;
+            case 16:
+                builder.setMessage(R.string.tip16);
+                break;
+            case 17:
+                builder.setMessage(R.string.tip17);
+                break;
+            case 18:
+                builder.setMessage(R.string.tip18);
+                break;
+            case 19:
+                builder.setMessage(R.string.tip19);
+                break;
+            case 20:
+                builder.setMessage(R.string.tip20);
+                break;
+            case 21:
+                builder.setMessage(R.string.tip21);
+                break;
+            case 22:
+                builder.setMessage(R.string.tip22);
+                break;
+            case 23:
+                builder.setMessage(R.string.tip23);
+                break;
+            case 24:
+                builder.setMessage(R.string.tip24);
+                break;
+            case 25:
+                builder.setMessage(R.string.tip25);
+                break;
+            case 26:
+                builder.setMessage(R.string.tip26);
+                break;
+            case 27:
+                builder.setMessage(R.string.tip27);
+                break;
+            case 28:
+                builder.setMessage(R.string.tip28);
+                break;
+            case 29:
+                builder.setMessage(R.string.tip29);
+                break;
+            case 30:
+                builder.setMessage(R.string.tip30);
+                break;
+
+
         }
 
-        builder.show();
+        AlertDialog dialog = builder.show();
+        TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
+        messageView.setGravity(Gravity.CENTER_HORIZONTAL);
 
         //"Versión " + "1.0" + "\n" +
         return builder.create();

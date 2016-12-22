@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="tip1">Bla Bla</string>
-    <string name="tip2">Ble Ble</string>
-    <string name="tip3">Bli Bli</string>
+    <string name="tip1">Nuestra casa de estudios fue fundada el 24 de octubre de 1953, bajo el amparo de una nueva ley de educación promulgada por el entonces presidente Marcos Pérez Jiménez, pero anteriormente estaba ubicada en el Colegio Seminario de Santa Rosa de Lima en el año 1916 y, posteriormente, se mudó al Colegio San Ignacio de Loyola en la Esquina de Jesuitas.</string>
+    <string name="tip2">En módulo uno piso tres existe una capilla a la que muchos estudiantes acuden antes de presentar sus exámenes. Muchos aseguran que “Sí” funciona.</string>
+    <string name="tip3">Hay unos mini salones en piso cinco y medio para que un grupo se reúna a estudiar o para materias que son vistas por 10 o 15 personas máximo.</string>
+    <string name="tip4">Nuestros estacionamientos poseen sus respectivos nombres. El estructural ubicado detrás del Edificio de Aulas se conoce como Sambilito o, para los nuevo ingresos, Piscina; el que está detrás del Centro Cultural Padre Carlos Guillermo Plaza le dicen Playa; por último, el que está ubicado detrás del Edificio Cincuentenario, subiendo por la colina es El Esequibo.</string>
+    <string name="tip5">Antiguamente en módulo seis, planta baja, el salón de Fotografía poseía un pasillo largo que llevaba a cuatro habitaciones, las cuales tenían todos los equipos necesarios para hacer los revelados de las fotos.</string>
+    <string name="tip6">Nuestra casa de estudios ofertó por un tiempo las carreras de Farmacia, Urbanismo y Arquitectura. Por otro lado, las clases de Teología se imparten en el Instituto de Teología para Religiosos o, conocido por sus siglas, ITER, en Altamira.</string>
+    <string name="tip7">La UCAB cuenta con sedes en Guayana, Los Teques y, la principal, Caracas. La sede de Coro fue cerrada. Por otro lado, y entre sus antiguas extensiones, se encuentra la Universidad Católica del Táchira (UCAT), la cual empezó bajo el amparo de la UCAB hasta que, en 1982, fue autorizada a ser autónoma. </string>
+    <string name="tip8">Durante la construcción de la Biblioteca nueva, existía el Cafetín los Obreros o Narnia, al cual se accedía mediante una puerta que conllevaba a un pasillo donde existía un kiosco que vendía comida.</string>
+    <string name="tip9">Si estás pensando en casarte, lo puedes hacer en tu casa de estudios, ya que la Parroquia María Trono de la Sabiduría auspicia bodas; entre las ceremonias nupciales más conocidas está la del conocido director de orquesta Gustavo Dudamel.</string>
+    <string name="tip10">Un dato que pocos conocen o se imaginan es que las estructuras de la Conferencia Episcopal Venezolana, la Parroquia San Juan Pablo II, Iglesia Nuestra Señora de la Visitación, ubicada en frente de la CEV, y la UCAB poseen estructuras similares hechas con cemento.</string>
+    <string name="tip11">Esta casa de estudios tiene canchas de fútbol, voleibol, básquetbol y, quizá la menos conocida, de béisbol, la cual está más arriba del gimnasio.</string>
+    <string name="tip12">Para los nuevos ingresos, La Católica no tiene piscina y Módulo siete es solamente virtual, no posee estructura física.</string>
+    <string name="tip13">Entre los mitos, se encuentra el que si estudias detrás de la estatua de Andrés Bello, ubicada en los jardines, no te vas a graduar o te irá mal durante tu carrera.</string>
+    <string name="tip14">Antiguamente se tenía una entrada y salida peatonal hacia los lados de Antímano, la cual fue suspendida por seguridad.</string>
+    <string name="tip15">El Edificio del Rectorado, se llama realmente Edificio de Servicios Centrales. Servicios Generales, conocido anteriormente como Mantenimiento, siempre ha quedado a la salida hacia la autopista.</string>
+    <string name="tip16">La Plaza del Estudiante o Plaza Mickey fue denominada así por la forma tan parecida con el muñeco animado.</string>
+    <string name="tip17">El Edificio de Aulas se construyó por partes: primero fueron los módulos uno, dos y tres; después los cinco y seis.</string>
+    <string name="tip18">El Centro Cultural Padre Carlos Guillermo plaza fue nombrado así en honor a nuestro primer rector, Carlos Guillermo Plaza (1953 - 1955). El Auditorio de Ingeniería Guido Arnal lleva el nombre de nuestro quinto rector, el ingeniero Guido Arnal (1972-1990)</string>
+    <string name="tip19">Esta casa de estudios ha tenido siete rectores desde su fundación: los Padres jesuitas Carlos Guillermo Plaza (1953-1955), Pedro Pablo Barnola (1955-1959), Carlos Reyna (1959-1969) y Pío Bello (1969-1972), el ingeniero Guido Arnal (1972-1990), P. Luis Ugalde s.j. (1990-2010) y, desde el 2010, José Francisco Virtuoso.</string>
+    <string name="tip20">La UCAB es una institución educativa sin fines de lucro.</string>
+    <string name="tip21">Los colores de La Católica son el amarillo, blanco, verde y azul.</string>
+    <string name="tip22">Magis proviene del latín Más, tiene aplicaciones en educación (magisterio, clase magistral), en muchas ramas profesionales (magíster), y significa aumentar las propias competencias y capacidades para ponerlas al servicio de los demás (prójimo).</string>
+    <string name="tip23">Nuestro lema en latín es Ut innotescat multiformis sapientia Dei, lo que significa “Para que se conozca la multiforme sabiduría de Dios”.</string>
+    <string name="tip24">El escudo de nuestra casa de estudios fue aprobado por el padre, y entonces rector, Pedro Pablo Barnola en 1955.</string>
+    <string name="tip25">Actualmente la universidad tiene alrededor de 15 centros dedicados a la investigación en Venezuela y más de diez direcciones.</string>
+    <string name="tip26">En un principio, la ley orgánica para la protección de niños, niñas y adolescentes fue una iniciativa del Centro de Investigaciones Jurídicas de la UCAB.</string>
+    <string name="tip27">Somos la primera universidad privada y la tercera en Venezuela, de acuerdo con el QS World University Rankings.</string>
+    <string name="tip28">Nuestra Escuela de Derecho es la única venezolana y la primera en América Latina en haber ganado el Philip C. Jessup International Law Moot Court Competition; además somos la décimo primera universidad mejor posicionada en dicha competencia de todo el mundo.</string>
+    <string name="tip29">En 1991 fue creado el Club Rugby de la Universidad Católica Andrés Bello, el cual Está afiliado a la Federación Venezolana de Rugby y juega sus partidos de local en el campo de fútbol de nuestras canchas. Por otro lado, en 1995 se creó el equipo femenino, el cual organiza a mediados de junio el torneo Seven de las Flores, el único torneo exclusivo de la categoría femenina en Venezuela.</string>
+    <string name="tip30">Fashion Boulevard es el nombre popular de la caminería externa que está enfrente del Edificio de Aulas, por el cual caminan todos los estudiantes, profesores, personal administrativo y obreros de la UCAB.</string>
 </resources>
