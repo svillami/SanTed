@@ -1,8 +1,10 @@
 package santed.com.searchucab;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NdefMessage;
@@ -18,6 +20,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
@@ -56,6 +60,14 @@ public class LecturaNfc extends AppCompatActivity {
         pd.setTitle("Esperando lectura del Tag NFC");
         pd.setMessage("Por favor, Acerque su dispositivo al NFC para su lectura.");
         pd.setCancelable(false);
+        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "CANCELAR", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+
         pd.show();
 
 
@@ -241,9 +253,11 @@ public class LecturaNfc extends AppCompatActivity {
 
             if (result != null) {
 
-                //result devuelve 1E que es el estante correspondiente al libro buscado
-                if (result.equals("1")){
 
+                if (result.equals("1E")){
+                    String mensaje= getString(R.string.mensaje_1);
+                    String titulo= getString(R.string.titulo_1);
+                    createDialogCorrect(titulo,mensaje);
                 }
                 else {
                     String mensaje= "Por favor verifique que sea un NFC de la Ucab";
@@ -255,28 +269,46 @@ public class LecturaNfc extends AppCompatActivity {
 
     }
 
+    //Agregando el Dialogo Correcto
+    public AlertDialog createDialogCorrect(String Titulo, String mensaje) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(LecturaNfc.this, R.style.AppTheme_Dark_Dialog);
+
+        builder.setIcon(R.drawable.nfc_icon)
+                .setTitle(Titulo)
+                .setMessage(mensaje);
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("Retornar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+
+                return;
+            }
+        });
+
+        AlertDialog dialog = builder.show();
+        TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
+        messageView.setGravity(Gravity.CENTER_HORIZONTAL);
 
 
 
-    //Agregando el Dialogo cuando el libro no corresponda al id del tag (Libro Equivocado)
+        return builder.create();
+    }
+
+    //Agregando el Dialogo Incorrecto
     public AlertDialog createSimpleDialog(String result, String var) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(LecturaNfc.this, R.style.AppTheme_Dark_Dialog);
 
-        builder.setIcon(R.drawable.nfc)
+        builder.setIcon(R.drawable.nfc_icon)
                 .setTitle("NFC incorrecto")
                 .setMessage(result + " id: " + var);
-        builder.setCancelable(false)
-                    /*.setNegativeButton("Cerrar", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            Toast.makeText(CallNfc.this, "oprimio Cancelar", Toast.LENGTH_SHORT).show();
+        builder.setCancelable(false);
 
-                            //Redireccionando a las devoluciones
-                            Intent intent = new Intent(CallNfc.this, MenuPrincipal.class);
-                            startActivity(intent);
-                        }
-                    })*/;
-        builder.show();
+        AlertDialog dialog = builder.show();
+        TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
+        messageView.setGravity(Gravity.CENTER_HORIZONTAL);
 
         //Para cerrar la actividad completa
         Runnable progressRunnable = new Runnable() {
@@ -292,4 +324,5 @@ public class LecturaNfc extends AppCompatActivity {
 
         return builder.create();
     }
+
 }
