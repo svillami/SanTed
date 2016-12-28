@@ -7,6 +7,7 @@ import java.util.List;
  * Created by Teddy J Sears on 19/12/2016.
  * Clase que contendra la informacion de un area en particular
  * @version 2.0.0
+ * @// FIXME: 28/12/2016 ELIMINAR CONSTRUCTOR CREADO MOMENTANEAMENTE
  */
 public class Area
 {
@@ -27,6 +28,13 @@ public class Area
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
+    }
+    
+    public Area(String nombre, String descripcion)
+    {
+        super();
+        this.nombre = nombre;
+        this.descripcion = descripcion;        
     }
 
     /**

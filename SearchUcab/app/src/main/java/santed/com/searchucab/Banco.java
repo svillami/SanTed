@@ -7,7 +7,8 @@ import java.util.List;
  * Created by Teddy J Sears on 25/12/2016.
  * Clase que contendra la informacion de un banco en particular
  * @version 2.0.0
- * @// TODO: 28/12/2016 Falta agregar el horario de apertura y cierre 
+ * @// TODO: 28/12/2016 Falta agregar el horario de apertura y cierre
+ * @// FIXME: 28/12/2016 ELIMINAR EL CONSTRUCTOR TEMPORAL CREADO
  */
 public class Banco
 {
@@ -28,6 +29,13 @@ public class Banco
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
+    }
+
+    public Banco(String nombre, String descripcion)
+    {
+        super();
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     /**
