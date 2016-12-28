@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by Teddy J Sears on 25/12/2016.
- * Clase que contendra la informacion de un banco en particular
- * @version 2.0.0
- * @// TODO: 28/12/2016 Falta agregar el horario de apertura y cierre 
+ * Created by Teddy J Sears on 28/12/2016.
+ * Clase que contendra la informacion de un local de comida en particular
+ * @version 1.0.0
+ * @// TODO: 28/12/2016 Falta agregarle la informacion restante 
  */
-public class Banco
+public class Local
 {
     //Atributos de la clase
     private String nombre, descripcion;
@@ -18,12 +18,12 @@ public class Banco
 
 
     /**
-     * Constructor de la clase que recibe todos los datos del banco
-     * @param nombre El nombre que tiene el banco
-     * @param descripcion La descripcion que tiene el banco
-     * * @param informacion Fotos, videos o textos que describiran el banco
+     * Constructor de la clase que recibe todos los datos del local
+     * @param nombre El nombre que tiene el local
+     * @param descripcion La descripcion que tiene el local
+     * * @param informacion Fotos, videos o textos que describiran el local
      */
-    public Banco(String nombre, String descripcion, HashMap<String, List<String>> informacion)
+    public Local(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -32,7 +32,7 @@ public class Banco
 
     /**
      * Getter del atributo nombre
-     * @return El nombre del banco
+     * @return El nombre del local
      */
     public String getNombre()
     {
@@ -41,7 +41,7 @@ public class Banco
 
     /**
      * Setter del atributo nombre
-     * @param nombre El nombre que se le desea asignar al banco
+     * @param nombre El nombre que se le desea asignar al local
      */
     public void setNombre(String nombre)
     {
@@ -50,7 +50,7 @@ public class Banco
 
     /**
      * Getter del atributo descripcion
-     * @return La descripcion del banco
+     * @return La descripcion del local
      */
     public String getDescripcion()
     {
@@ -59,7 +59,7 @@ public class Banco
 
     /**
      * Setter del atributo descripcion
-     * @param descripcion La descripcion del banco
+     * @param descripcion La descripcion del local
      */
     public void setDescripcion(String descripcion)
     {
@@ -68,7 +68,7 @@ public class Banco
 
     /**
      * Getter para obtener toda la informacion relacionada con fotos
-     * @return Lista con todas las fotos que posee este banco
+     * @return Lista con todas las fotos que posee este local
      */
     public List<String> getFotosInformacion()
     {
@@ -77,7 +77,7 @@ public class Banco
 
     /**
      * Getter para obtener toda la informacion relacionada con videos
-     * @return Lista con todos los videos que posee este banco
+     * @return Lista con todos los videos que posee este local
      */
     public List<String> getVideosInformacion()
     {
@@ -86,7 +86,7 @@ public class Banco
 
     /**
      * Getter para obtener toda la informacion relacionada con textos
-     * @return Lista con todos los textos que posee este banco
+     * @return Lista con todos los textos que posee este local
      */
     public List<String> getTextosInformacion()
     {
@@ -94,7 +94,7 @@ public class Banco
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto al banco
+     * Setter para agregar una nueva informacion de tipo foto al local
      * @param fotoInformacion la nueva foto que se le agregara
      */
     public void setFotosInformacion(String fotoInformacion)
@@ -107,7 +107,7 @@ public class Banco
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo video al banco
+     * Setter para agregar una nueva informacion de tipo video al local
      * @param videoInformacion el nuevo video que se le agregara
      */
     public void setVideosInformacion(String videoInformacion)
@@ -120,7 +120,7 @@ public class Banco
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto al banco
+     * Setter para agregar una nueva informacion de tipo foto al local
      * @param textoInformacion el nuevo texto que se le agregara
      */
     public void setTextosInformacion(String textoInformacion)
