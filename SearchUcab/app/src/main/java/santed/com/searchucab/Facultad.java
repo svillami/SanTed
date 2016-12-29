@@ -1,33 +1,34 @@
 package santed.com.searchucab;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by Teddy J Sears on 28/12/2016.
  * Clase que contendra la informacion de una facultad en particular
- * @version 1.0.0
- * @// TODO: 28/12/2016 Revisar si esto necesita de hora_ini, hora fin y agregarle lo de escuelas
+ * @version 1.1.0
  */
 public class Facultad
 {
     //Atributos de la clase
     private String nombre, descripcion;
-    private float longitud, latitud;
-    HashMap<String, List<String>> informacion;
-
+    private float altitud, latitud;
+    private HashMap<String, List<String>> informacion;
+    private List<Escuela> listaEscuelas;
 
     /**
      * Constructor de la clase que recibe todos los datos de la facultad
      * @param nombre El nombre que tiene la facultad
      * @param descripcion La descripcion que tiene la facultad
-     * * @param informacion Fotos, videos o textos que describiran la facultad
+     * @param informacion Fotos, videos o textos que describiran la facultad
      */
     public Facultad(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
+        this.listaEscuelas = new ArrayList<Escuela>();
     }
 
     /**
@@ -130,5 +131,62 @@ public class Facultad
         lista.add(textoInformacion);
         this.informacion.put("texto", lista);
 
+    }
+
+    /**
+     * Getter para obtener la latitud de donde se ubica la Facultad
+     * @return Latitud de la facultad
+     */
+    public float getLatitud() {
+        return latitud;
+    }
+
+    /**
+     * Setter para asignar la latitud de donde se ubica la Facultad
+     * @param latitud que tendra la facultad
+     */
+    public void setLatitud(float latitud) {
+        this.latitud = latitud;
+    }
+
+    /**
+     * Getter para obtener la Altitud de donde se ubica la Facultad
+     * @return Altitud de la Facultad
+     */
+    public float getAltitud() {
+        return altitud;
+    }
+
+    /**
+     * Setter para asignar la altitud de donde se ubica la Facultad
+     * @param altitud que tendra la facultad
+     */
+    public void setAltitud(float altitud) {
+        this.altitud = altitud;
+    }
+
+    /**
+     * Getter para obtener las escuelas que pertenecen a la Facultad
+     * @return Las escuelas pertenecientes a la Facultad
+     */
+    public List<Escuela> getListaEscuelas() {
+        return listaEscuelas;
+    }
+
+    /**
+     * Setter para asignar todas las escuelas que pertenecen a la facultad
+     * @param listaEscuelas Todas las escuelas que tiene la facultad
+     */
+    public void setListaEscuelas(List<Escuela> listaEscuelas) {
+        this.listaEscuelas = listaEscuelas;
+    }
+
+    /**
+     * Setter para asignar una escuela en particular a la facultad
+     * @param escuela Escuela nueva que contendra la facultad
+     */
+    public void AgregarEscuela(Escuela escuela)
+    {
+        this.listaEscuelas.add(escuela);
     }
 }

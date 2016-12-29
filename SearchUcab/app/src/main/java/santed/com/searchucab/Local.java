@@ -6,27 +6,27 @@ import java.util.List;
 /**
  * Created by Teddy J Sears on 28/12/2016.
  * Clase que contendra la informacion de un local de comida en particular
- * @version 1.0.0
+ * @version 1.1.0
  * @// TODO: 28/12/2016 Falta agregarle la informacion restante 
  */
 public class Local
 {
     //Atributos de la clase
-    private String nombre, descripcion;
-    private float longitud, latitud;
-    HashMap<String, List<String>> informacion;
+    private String nombre, especialidad, horaInicio, horaFin;
+    private float altitud, latitud, precioPromedio;
+    private HashMap<String, List<String>> informacion;
 
 
     /**
      * Constructor de la clase que recibe todos los datos del local
      * @param nombre El nombre que tiene el local
-     * @param descripcion La descripcion que tiene el local
-     * * @param informacion Fotos, videos o textos que describiran el local
+     * @param especialidad La especialidad de comida que tiene el local
+     * @param informacion Fotos, videos o textos que describiran el local
      */
-    public Local(String nombre, String descripcion, HashMap<String, List<String>> informacion)
+    public Local(String nombre, String especialidad, HashMap<String, List<String>> informacion)
     {
         this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.especialidad = especialidad;
         this.informacion = informacion;
     }
 
@@ -49,21 +49,21 @@ public class Local
     }
 
     /**
-     * Getter del atributo descripcion
-     * @return La descripcion del local
+     * Getter del atributo especialidad
+     * @return La especialidad culinaria del local
      */
-    public String getDescripcion()
+    public String getEspecialidad()
     {
-        return descripcion;
+        return especialidad;
     }
 
     /**
      * Setter del atributo descripcion
-     * @param descripcion La descripcion del local
+     * @param especialidad La especialidad culinaria del local
      */
-    public void setDescripcion(String descripcion)
+    public void setEspecialidad(String especialidad)
     {
-        this.descripcion = descripcion;
+        this.especialidad = especialidad;
     }
 
     /**
@@ -131,4 +131,86 @@ public class Local
         this.informacion.put("texto", lista);
 
     }
+
+    /**
+     * Getter para obtener la hora en que inicia la prestación de servicio del Local
+     * @return La hora de inicio en que comienza a prestar servicio
+     */
+    public String getHoraInicio() {
+        return horaInicio;
+    }
+
+    /**
+     * Setter para indicar la hora en que comienza a prestar servicio del Local
+     * @param horaInicio La hora en que comienza a prestar servicio
+     */
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    /**
+     * Getter para obtener la hora en que termina la prestación de servicio del Local
+     * @return La hora de cierre del local
+     */
+    public String getHoraFin() {
+        return horaFin;
+    }
+
+    /**
+     * Setter para indicar la hora en que termina la prestación de servicio del Local
+     * @param horaFin La hora de cierre del local
+     */
+    public void setHoraFin(String horaFin) {
+        this.horaFin = horaFin;
+    }
+
+    /**
+     * Getter para obtener la latitud de donde se ubica el Local
+     * @return Latitud del local
+     */
+    public float getLatitud() {
+        return latitud;
+    }
+
+    /**
+     * Setter para asignar la latitud de donde se ubica el Local
+     * @param latitud que tendra el local
+     */
+    public void setLatitud(float latitud) {
+        this.latitud = latitud;
+    }
+
+    /**
+     * Getter para obtener la Altitud de donde se ubica el Local
+     * @return Altitud del local
+     */
+    public float getAltitud() {
+        return altitud;
+    }
+
+    /**
+     * Setter para asignar la altitud de donde se ubica el Local
+     * @param altitud que tendra el local
+     */
+    public void setAltitud(float altitud) {
+        this.altitud = altitud;
+    }
+
+    /**
+     * Getter para indicar el precio en promedio que se gasta al consumir en el local
+     * @return Precio promedio que cuesta un menu en el local
+     */
+    public float getPrecioPromedio() {
+        return precioPromedio;
+    }
+
+    /**
+     * Setter para establecer el precio promedio de un menu en el Local
+     * @param precioPromedio El costo en promedio que cuesta al consumir en el Local
+     */
+    public void setPrecioPromedio(float precioPromedio) {
+        this.precioPromedio = precioPromedio;
+    }
+
+
 }

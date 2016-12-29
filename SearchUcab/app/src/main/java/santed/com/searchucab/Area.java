@@ -1,20 +1,22 @@
 package santed.com.searchucab;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by Teddy J Sears on 19/12/2016.
  * Clase que contendra la informacion de un area en particular
- * @version 2.0.0
+ * @version 2.1.0
  * @// FIXME: 28/12/2016 ELIMINAR CONSTRUCTOR CREADO MOMENTANEAMENTE
  */
 public class Area
 {
     //Atributos de la clase
     private String nombre, descripcion;
-    private float longitud, latitud;
-    HashMap<String, List<String>> informacion;
+    private float altitud, latitud;
+    private HashMap<String, List<String>> informacion;
+    private List<Piso> listaPisos;
 
     /**
      * Constructor que recibe todos los atributos de la clase
@@ -28,6 +30,7 @@ public class Area
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
+        this.listaPisos = new ArrayList<Piso>();
     }
     
     public Area(String nombre, String descripcion)
@@ -137,5 +140,63 @@ public class Area
         lista.add(textoInformacion);
         this.informacion.put("texto", lista);
 
+    }
+
+    /**
+     * Getter para obtener la latitud de donde se ubica el Area
+     * @return Latitud del area
+     */
+    public float getLatitud() {
+        return latitud;
+    }
+
+    /**
+     * Setter para asignar la latitud de donde se ubica el Area
+     * @param latitud que tendra el area
+     */
+    public void setLatitud(float latitud) {
+        this.latitud = latitud;
+    }
+
+    /**
+     * Getter para obtener la Altitud de donde se ubica el Area
+     * @return Altitud del area
+     */
+    public float getAltitud() {
+        return altitud;
+    }
+
+    /**
+     * Setter para asignar la altitud de donde se ubica el Area
+     * @param altitud que tendra el area
+     */
+    public void setAltitud(float altitud) {
+        this.altitud = altitud;
+    }
+
+
+    /**
+     * Getter para obtener todos los pisos de esa area
+     * @return Los pisos del area
+     */
+    public List<Piso> getListaPiso() {
+        return listaPisos;
+    }
+
+    /**
+     * Setter para asignar pisos en particular al area
+     * @param listaPisos Pisos nuevos que contendra el piso
+     */
+    public void setListaDependencia(List<Piso> listaPisos) {
+        this.listaPisos = listaPisos;
+    }
+
+    /**
+     * Setter para asignar un piso en particular al area
+     * @param piso piso nuevo que contendra el area
+     */
+    public void AgregarDependencia(Piso piso)
+    {
+        this.listaPisos.add(piso);
     }
 }

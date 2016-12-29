@@ -6,13 +6,13 @@ import java.util.List;
 /**
  * Created by Teddy J Sears on 28/12/2016.
  * Clase que contendra la informacion de un monumento en particular
- * @version 1.0.0
+ * @version 1.1.0
  */
 public class Monumento
 {
     //Atributos de la clase
     private String nombre, descripcion;
-    private float longitud, latitud;
+    private float altitud, latitud;
     HashMap<String, List<String>> informacion;
 
 
@@ -129,6 +129,38 @@ public class Monumento
         lista.add(textoInformacion);
         this.informacion.put("texto", lista);
 
+    }
+
+    /**
+     * Getter para obtener la latitud de donde se ubica el Monumento
+     * @return Latitud del monumento
+     */
+    public float getLatitud() {
+        return latitud;
+    }
+
+    /**
+     * Setter para asignar la latitud de donde se ubica el Monumento
+     * @param latitud que tendra el monumento
+     */
+    public void setLatitud(float latitud) {
+        this.latitud = latitud;
+    }
+
+    /**
+     * Getter para obtener la Altitud de donde se ubica el Monumento
+     * @return Altitud del monumento
+     */
+    public float getAltitud() {
+        return altitud;
+    }
+
+    /**
+     * Setter para asignar la altitud de donde se ubica el monumento
+     * @param altitud que tendra el monumento
+     */
+    public void setAltitud(float altitud) {
+        this.altitud = altitud;
     }
 
 }

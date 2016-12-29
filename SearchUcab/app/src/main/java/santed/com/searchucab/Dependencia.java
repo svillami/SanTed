@@ -6,21 +6,20 @@ import java.util.List;
 /**
  * Created by Teddy J Sears on 28/12/2016.
  * Clase que contendra la informacion de una dependencia de la universidad en particular
- * @version 1.0.0
- * @// TODO: 28/12/2016 Falta agregar el horario de apertura y cierre 
+ * @version 1.1.0
  */
 public class Dependencia
 {
     //Atributos de la clase
-    private String nombre, descripcion;
-    private float longitud, latitud;
-    HashMap<String, List<String>> informacion;
+    private String nombre, descripcion, horaInicio, horaFin;
+    private float altitud, latitud;
+    private HashMap<String, List<String>> informacion;
 
     /**
      * Constructor de la clase que recibe todos los datos de la dependencia
      * @param nombre El nombre que tiene la dependencia
      * @param descripcion La descripcion que tiene la dependencia
-     * * @param informacion Fotos, videos o textos que describiran la dependencia
+     * @param informacion Fotos, videos o textos que describiran la dependencia
      */
     public Dependencia(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
@@ -129,5 +128,69 @@ public class Dependencia
         lista.add(textoInformacion);
         this.informacion.put("texto", lista);
 
+    }
+
+    /**
+     * Getter para obtener la hora en que inicia la prestación de servicio de la dependencia
+     * @return La hora de inicio en que comienza a prestar servicio
+     */
+    public String getHoraInicio() {
+        return horaInicio;
+    }
+
+    /**
+     * Setter para indicar la hora en que comienza a prestar servicio de la dependencia
+     * @param horaInicio La hora en que comienza a prestar servicio
+     */
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    /**
+     * Getter para obtener la hora en que termina la prestación de servicio de la dependencia
+     * @return La hora de cierre de la dependencia
+     */
+    public String getHoraFin() {
+        return horaFin;
+    }
+
+    /**
+     * Setter para indicar la hora en que termina la prestación de servicio de la dependencia
+     * @param horaFin La hora de cierre de la dependencia
+     */
+    public void setHoraFin(String horaFin) {
+        this.horaFin = horaFin;
+    }
+
+    /**
+     * Getter para obtener la latitud de donde se ubica la Dependencia
+     * @return Latitud de la dependencia
+     */
+    public float getLatitud() {
+        return latitud;
+    }
+
+    /**
+     * Setter para asignar la latitud de donde se ubica la Dependencia
+     * @param latitud que tendra la dependencia
+     */
+    public void setLatitud(float latitud) {
+        this.latitud = latitud;
+    }
+
+    /**
+     * Getter para obtener la Altitud de donde se ubica la dependencia
+     * @return Altitud de la dependencia
+     */
+    public float getAltitud() {
+        return altitud;
+    }
+
+    /**
+     * Setter para asignar la altitud de donde se ubica la Dependencia
+     * @param altitud que tendra la dependencia
+     */
+    public void setAltitud(float altitud) {
+        this.altitud = altitud;
     }
 }

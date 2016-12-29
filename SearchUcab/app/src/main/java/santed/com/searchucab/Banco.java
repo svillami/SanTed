@@ -6,16 +6,15 @@ import java.util.List;
 /**
  * Created by Teddy J Sears on 25/12/2016.
  * Clase que contendra la informacion de un banco en particular
- * @version 2.0.0
- * @// TODO: 28/12/2016 Falta agregar el horario de apertura y cierre
+ * @version 2.1.0
  * @// FIXME: 28/12/2016 ELIMINAR EL CONSTRUCTOR TEMPORAL CREADO
  */
 public class Banco
 {
     //Atributos de la clase
-    private String nombre, descripcion;
-    private float longitud, latitud;
-    HashMap<String, List<String>> informacion;
+    private String nombre, descripcion, horaInicio, horaFin;
+    private float altitud, latitud;
+    private HashMap<String, List<String>> informacion;
 
 
     /**
@@ -138,5 +137,69 @@ public class Banco
         lista.add(textoInformacion);
         this.informacion.put("texto", lista);
 
+    }
+
+    /**
+     * Getter para obtener la latitud de donde se ubica el Banco
+     * @return Latitud del banco
+     */
+    public float getLatitud() {
+        return latitud;
+    }
+
+    /**
+     * Setter para asignar la latitud de donde se ubica el Banco
+     * @param latitud que tendra el banco
+     */
+    public void setLatitud(float latitud) {
+        this.latitud = latitud;
+    }
+
+    /**
+     * Getter para obtener la Altitud de donde se ubica el Banco
+     * @return Altitud del banco
+     */
+    public float getAltitud() {
+        return altitud;
+    }
+
+    /**
+     * Setter para asignar la altitud de donde se ubica el Banco
+     * @param altitud que tendra el banco
+     */
+    public void setAltitud(float altitud) {
+        this.altitud = altitud;
+    }
+
+    /**
+     * Getter para obtener la hora en que inicia la prestación de servicio del banco
+     * @return La hora de inicio en que comienza a prestar servicio
+     */
+    public String getHoraInicio() {
+        return horaInicio;
+    }
+
+    /**
+     * Setter para indicar la hora en que comienza a prestar servicio el banco
+     * @param horaInicio La hora en que comienza a prestar servicio
+     */
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    /**
+     * Getter para obtener la hora en que termina la prestación de servicio del banco
+     * @return La hora de cierre del banco
+     */
+    public String getHoraFin() {
+        return horaFin;
+    }
+
+    /**
+     * Setter para indicar la hora en que termina la prestación de servicio del banco
+     * @param horaFin La hora de cierre del banco
+     */
+    public void setHoraFin(String horaFin) {
+        this.horaFin = horaFin;
     }
 }

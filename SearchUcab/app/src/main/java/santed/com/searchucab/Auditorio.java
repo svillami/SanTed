@@ -6,14 +6,14 @@ import java.util.List;
 /**
  * Created by Teddy J Sears on 28/12/2016.
  * * Clase que contendra la informacion de un auditorio en particular
- * @version 1.0.0
+ * @version 1.1.0
  */
 public class Auditorio
 {
     //Atributos de la clase
     private String nombre, descripcion;
-    private float longitud, latitud;
-    HashMap<String, List<String>> informacion;
+    private float altitud, latitud;
+    private HashMap<String, List<String>> informacion;
 
     /**
      * Constructor de la clase que recibe todos los datos del monumento
@@ -128,5 +128,37 @@ public class Auditorio
         lista.add(textoInformacion);
         this.informacion.put("texto", lista);
 
+    }
+
+    /**
+     * Getter para obtener la latitud de donde se ubica el Auditorio
+     * @return Latitud del auditorio
+     */
+    public float getLatitud() {
+        return latitud;
+    }
+
+    /**
+     * Setter para asignar la latitud de donde se ubica el Auditorio
+     * @param latitud que tendra el auditorio
+     */
+    public void setLatitud(float latitud) {
+        this.latitud = latitud;
+    }
+
+    /**
+     * Getter para obtener la Altitud de donde se ubica el auditorio
+     * @return Altitud del auditorio
+     */
+    public float getAltitud() {
+        return altitud;
+    }
+
+    /**
+     * Setter para asignar la altitud de donde se ubica el Auditorio
+     * @param altitud que tendra el auditorio
+     */
+    public void setAltitud(float altitud) {
+        this.altitud = altitud;
     }
 }
