@@ -45,7 +45,7 @@ public class MenuPrincipal extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        actionBar.setHomeAsUpIndicator(R.drawable.menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
@@ -181,7 +181,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
     public AlertDialog createSimpleDialog() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppTheme_Dark_Dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setIcon(R.drawable.question_mark)
                 .setTitle("¿Sabías que?");
@@ -284,6 +284,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
         }
 
+        //Alinea el texto
         AlertDialog dialog = builder.show();
         TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
         messageView.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -294,12 +295,16 @@ public class MenuPrincipal extends AppCompatActivity {
 
     public AlertDialog createSimpleDialogInfo() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppTheme_Dark_Dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setIcon(R.mipmap.ic_launcher)
                 .setTitle("Search UCAB")
                 .setMessage(R.string.informacion);
-        builder.show();
+        //Alinea el texto
+        AlertDialog dialog = builder.show();
+        TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
+        messageView.setGravity(Gravity.CENTER_HORIZONTAL);
+
         return builder.create();
     }
 

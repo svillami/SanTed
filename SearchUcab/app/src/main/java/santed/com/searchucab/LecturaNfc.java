@@ -57,7 +57,7 @@ public class LecturaNfc extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         pd = new ProgressDialog(LecturaNfc.this);
-        pd.setTitle("Esperando lectura del Tag NFC");
+        //pd.setTitle("Esperando lectura del Tag NFC");
         pd.setMessage("Por favor, Acerque su dispositivo al NFC para su lectura.");
         pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "CANCELAR", new DialogInterface.OnClickListener() {
@@ -272,7 +272,7 @@ public class LecturaNfc extends AppCompatActivity {
     //Agregando el Dialogo Correcto
     public AlertDialog createDialogCorrect(String Titulo, String mensaje) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(LecturaNfc.this, R.style.AppTheme_Dark_Dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(LecturaNfc.this);
 
         builder.setIcon(R.drawable.nfc_icon)
                 .setTitle(Titulo)
@@ -299,7 +299,7 @@ public class LecturaNfc extends AppCompatActivity {
     //Agregando el Dialogo Incorrecto
     public AlertDialog createSimpleDialog(String result, String var) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(LecturaNfc.this, R.style.AppTheme_Dark_Dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(LecturaNfc.this);
 
         builder.setIcon(R.drawable.nfc_icon)
                 .setTitle("NFC incorrecto")
