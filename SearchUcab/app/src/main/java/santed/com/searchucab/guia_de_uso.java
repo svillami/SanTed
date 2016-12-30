@@ -99,19 +99,32 @@ public class guia_de_uso extends Fragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AppTheme_Dark_Dialog);
 
-        /*builder.setIcon(R.drawable.foto_principal)
-                .setTitle("El valor del NFC")
-                .setMessage(R.string.informacion);
-        builder.show();*/
         builder.setTitle(result);
 
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        // Se implememta la opcion de los tips
+        if (result.equals("¿Qué son los Tips?")) {
 
-        View v = inflater.inflate(R.layout.dialog_signin, null);
+            LayoutInflater inflater = getActivity().getLayoutInflater();
 
-        builder.setView(v);
-        builder.show();
+            View v = inflater.inflate(R.layout.dialog_tips, null);
+
+            builder.setView(v);
+
+            builder.show();
+            //return builder.create();
+
+        } else if (result.equals("¿Cómo usar el Buscador?")) {
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+
+            View v = inflater.inflate(R.layout.dialog_signin, null);
+
+            builder.setView(v);
+
+            builder.show();
+            //return builder.create();
+        }
         return builder.create();
+
     }
 
 }

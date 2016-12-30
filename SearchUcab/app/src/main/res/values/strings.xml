@@ -17,4 +17,10 @@ También puedes cancelar un diálogo. Este es un evento especial que indica que 
 Como se muestra en el ejemplo anterior, puedes responder al evento de cancelación implementando onCancel() en tu clase DialogFragment.
 
 Nota: El sistema llama a onDismiss() con cada evento que invoque el método callbackonCancel(). No obstante, si llamas a Dialog.dismiss() o a DialogFragment.dismiss(), el sistema llama a onDismiss() pero no a onCancel(). Por lo tanto, generalmente debes llamar a dismiss() cuando el usuario presiona el botón positivo en tu diálogo para eliminar el diálogo de la vista.</string>
+
+    <string name="dialogo_tips_uno">Disfruta con cada micro tips, estos aparecerán cada vez que entres a la opción de Tips en el menu principal.</string>
+    <string name="dialogo_tips_dos"> Proporcionan información rápida y aleatoria sobre el campus, posee documentación que posiblemente no conoces y
+    que puede serte útil en algún momento dado.</string>
+
 </resources>
+
