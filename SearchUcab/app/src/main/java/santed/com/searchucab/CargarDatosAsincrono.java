@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -44,14 +45,16 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
     //Atributos de la clase
     private int nivel;
     private ArrayList data;
+    private Context contexto;
 
     /**
      * Constructor de la clase para obtener el nivel
      * @param nivel El nivel que indicara que vamos a buscar
      */
-    public CargarDatosAsincrono(int nivel)
+    public CargarDatosAsincrono(int nivel, Context contexto)
     {
         this.nivel = nivel;
+        this.contexto = contexto;
     }
 
     /**
@@ -255,11 +258,15 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
                     }
                 }
             }
+
+            Buscador.EventListener eventListener= (Buscador.EventListener)contexto;
+            eventListener.onNotifyDataSetChanged();
         }
         //Si ha ocurrido un error al crear o manipular el JSON
         catch (JSONException e)
         {
             e.printStackTrace();
+
         }
     }
 }

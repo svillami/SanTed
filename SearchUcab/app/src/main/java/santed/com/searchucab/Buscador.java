@@ -33,6 +33,14 @@ public class Buscador extends Fragment {
     private int nivel;
     private CargarDatosAsincrono cargarDatos;
 
+    public Adaptador_buscador getAdaptador() {
+        return adaptador;
+    }
+
+    public void setAdaptador(Adaptador_buscador adaptador) {
+        this.adaptador = adaptador;
+    }
+
     /**
      * Constructor que inicializa con el nivel de areas mas genericas que se buscan
      */
@@ -42,7 +50,10 @@ public class Buscador extends Fragment {
     }
 
 
-
+    //Define an interface that will notify your activity of data set change
+    public interface EventListener {
+        void onNotifyDataSetChanged();
+    }
 
     @Nullable
     @Override
@@ -61,10 +72,10 @@ public class Buscador extends Fragment {
        // CargarDatos();
 
         //Ejecutamos el cargador Asincrono
-        cargarDatos = new CargarDatosAsincrono(this.nivel);
+        cargarDatos = new CargarDatosAsincrono(this.nivel, getActivity());
 
         try {
-            URL url = new URL("http://192.168.0.103/serverucabdroid/index.php");
+            URL url = new URL("https://santedsearch.000webhostapp.com/pruebaphp.php");
 
             cargarDatos.execute(url);
 
@@ -169,6 +180,8 @@ public class Buscador extends Fragment {
 
         //Setteamos el Adaptador
         rvBuscador.setAdapter(adaptador);
+
+
     }
 }
 

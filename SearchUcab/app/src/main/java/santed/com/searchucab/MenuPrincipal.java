@@ -25,7 +25,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 
-public class MenuPrincipal extends AppCompatActivity {
+public class MenuPrincipal extends AppCompatActivity implements Buscador.EventListener{
 
     private DrawerLayout mDrawerLayout;
     private NavigationView navigationView;
@@ -308,4 +308,12 @@ public class MenuPrincipal extends AppCompatActivity {
         return builder.create();
     }
 
+    @Override
+    public void onNotifyDataSetChanged() {
+        Fragment fragment = getFragmentManager().findFragmentByTag("fragmentoBuscador");
+
+        // you might need to change visibility of `mWrappedAdapter` in the fragment that defines it or create a getter for it so that you can access it here
+        ((Buscador) fragment).getAdaptador().notifyDataSetChanged();
+
+    }
 }
