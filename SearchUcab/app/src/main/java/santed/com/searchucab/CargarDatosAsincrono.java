@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -107,7 +108,6 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
     @Override
     protected String doInBackground(URL... params)
     {
-
         //Informacion que me traera la consulta al webservice
         StringBuilder resultadoConsulta = new StringBuilder();
 
@@ -137,6 +137,8 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
             conection.setDoInput(true);
             conection.setDoOutput(true);
 
+            Log.d("MAGALLANES","golazooooooooooooooooooooooooooooooo");
+
             //Obtenemos la salida de la coneccion
             OutputStream StreamSalida = conection.getOutputStream();
 
@@ -151,7 +153,6 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
             escritor.close();
             StreamSalida.close();
             ////////////////////////////////////////////////////////////
-
 
             //Se guarda el numero del tipo de respuesta que se recibio
             respuestaConsulta = conection.getResponseCode();
@@ -186,6 +187,8 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
         {
             e.printStackTrace();
         }
+
+
 
         return resultadoConsulta.toString();
     }

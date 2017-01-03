@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -39,6 +41,9 @@ public class Buscador extends Fragment {
         this.nivel = 0;
     }
 
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -57,7 +62,17 @@ public class Buscador extends Fragment {
 
         //Ejecutamos el cargador Asincrono
         cargarDatos = new CargarDatosAsincrono(this.nivel);
-        cargarDatos.execute();
+
+        try {
+            URL url = new URL("http://192.168.0.103/serverucabdroid/index.php");
+
+            cargarDatos.execute(url);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
 
         CargarAdaptador();
 
