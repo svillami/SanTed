@@ -41,7 +41,7 @@ public class guia_de_uso extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         
         opcion_lista = new ArrayList<>();
-        opcion_lista.add("¿Cómo usar el Buscador?");
+        opcion_lista.add("¿COMO USAR EL BUSCADOR?");
         opcion_lista.add("Usos de la Realidad Aumentada 3D");
         opcion_lista.add("¿Cómo usar la busqueda NFC?");
         opcion_lista.add("¿Qué son los Tips?");
