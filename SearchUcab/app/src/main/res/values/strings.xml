@@ -22,5 +22,8 @@ Nota: El sistema llama a onDismiss() con cada evento que invoque el método call
     <string name="dialogo_tips_dos"> Proporcionan información rápida y aleatoria sobre el campus, posee documentación que posiblemente no conoces y
     que puede serte útil en algún momento dado.</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
 

@@ -79,6 +79,8 @@ public class MenuPrincipal extends AppCompatActivity implements Buscador.EventLi
                          toast = Toast.makeText(context, text, duration);
                         toast.show();
 
+                        updateDisplay(new Buscador_escrito());
+
                         break;
 
                     case R.id.guia:
