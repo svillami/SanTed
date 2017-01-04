@@ -3,10 +3,13 @@ package santed.com.searchucab;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -31,6 +34,7 @@ public class Buscador extends Fragment {
     private RecyclerView rvBuscador;
     private Adaptador_buscador adaptador;
     private int nivel;
+    private int tipo;
     private CargarDatosAsincrono cargarDatos;
 
     public Adaptador_buscador getAdaptador() {
@@ -46,7 +50,7 @@ public class Buscador extends Fragment {
      */
     public Buscador()
     {
-        this.nivel = 0;
+        this.nivel = -1;
     }
 
 
@@ -60,7 +64,7 @@ public class Buscador extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View vista;
-        vista = inflater.inflate(R.layout.fragment_lugar, container,false);
+        vista = inflater.inflate(R.layout.fragment_lugar, container, false);
 
         rvBuscador = (RecyclerView) vista.findViewById(R.id.lista_lugar);
 
@@ -71,20 +75,19 @@ public class Buscador extends Fragment {
 
        // CargarDatos();
 
-        //Ejecutamos el cargador Asincrono
+        //Instanciamos el cargador asincrono
         cargarDatos = new CargarDatosAsincrono(this.nivel, getActivity());
 
-        try {
-            URL url = new URL("https://santedsearch.000webhostapp.com/pruebaphp.php");
-
+        /*
+        //Sinos encontramos en el primer nivel cargaremos la pagina en esta clase
+        if (this.nivel != -1)
+        {
+            //Le suministramos la URL del webservice y ejecutamos el hilo
+            String url = "https://santedsearch.000webhostapp.com/pruebaphp.php";
             cargarDatos.execute(url);
+        }*/
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-
-
+        //Cargamos el adaptador y los datos en la vista
         CargarAdaptador();
 
         return vista;
@@ -132,18 +135,50 @@ public class Buscador extends Fragment {
 
     }*/
 
+    /**
+     * Metodo que se encarga de llenar el menu principal solamente cuando se inicializa por primera
+     * vez el buscador
+     */
+    public void MenuPrincipal ()
+    {
+        //Creamos un Arreglo de String con las opciones del menu principal
+        data = new ArrayList<String>();
+        data.add("Servicios de Salud");
+        data.add("Servicios de Comida");
+        data.add("Servicios de Deporte");
+        data.add("Servicios Bancarios");
+        data.add("Servicios Administrativos");
+        data.add("Servicios al Cliente");
+        data.add("Laboratorios");
+        data.add("Facultades");
+        data.add("Escuelas");
+    }
 
     public void CargarAdaptador()
     {
 
-        //Linea nueva obtenemos la data
-        data = this.cargarDatos.getData();
+        /*Si estamos en le primer nivel de datos no necesitamos buscar nada en la BD, entonces
+        llenaremos el menu principal directamente aqui */
+        if(this.nivel == -1)
+        {
+            //Llenamos el primer nivel de datos
+            MenuPrincipal();
 
+        }
+       else
+        {
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+        }
+
+        //Instanciamos el adaptador
         adaptador = new Adaptador_buscador(getActivity(), data, nivel);
 
         //Setteamos el listener
         adaptador.setOnclickListener(new View.OnClickListener()
         {
+            //String que tendra el URL del webservice a consultar
+            String url;
 
             //Obtenemos el elemento seleccionado
             @Override
@@ -151,26 +186,47 @@ public class Buscador extends Fragment {
             {
                 //Lo del string y el par de lineas de casteo abajo se eliminaran junto con el toast ya que son pruebas
                 String nombre = null;
-               if (nivel == 0)
-               {
-                   Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
-                   nombre = areaElegida.getNombre();
 
-                   /*Cambiamos el nivel para indicar que la lista debe llenarse con los siguientes
-                    subelementos del area seleccionada*/
-                   nivel = 1;
-                   cargarDatos.setNivel(nivel);
-               }
+                /*Si es el primer nivel se trata del menu principal, sino significara
+                que es una opcion del menu y cada opcion tiene subniveles a la misma altura (arbol)*/
+                if (nivel == -1)
+                {
+                    nombre = (String) data.get(rvBuscador.getChildAdapterPosition(v));
+                    Log.d("SUPERGOL",Integer.toString(rvBuscador.getChildAdapterPosition(v)));
+
+                    /*Cambiamos el nivel para indicar que la lista debe llenarse
+                    con los siguientes
+                    subelementos del area seleccionada
+                    y el tipo para saber cual opcion fue la seleccionada*/
+
+                    nivel = rvBuscador.getChildAdapterPosition(v);
+                    cargarDatos.setNivel(nivel);
+
+                    //Le suministramos la URL del webservice y ejecutamos el hilo
+                    url = "https://santedsearch.000webhostapp.com/pruebaphp.php";
+                }
+                else if (nivel == 1)
+                    {
+                        Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
+                        nombre = areaElegida.getNombre();
+
+                        /*Cambiamos el nivel para indicar que la lista debe llenarse
+                        con los siguientes subelementos del area seleccionada*/
+                        nivel = 2;
+                        cargarDatos.setNivel(nivel);
+                    }
+
+
                // String nombre = data.get(rvBuscador.getChildAdapterPosition(v)).getNombre();
 
-                Toast toast = Toast.makeText(getActivity(), nombre , Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getActivity(), nombre, Toast.LENGTH_SHORT);
                 toast.show();
 
                 //Limpiamos la lista
                 adaptador.LimpiarData();
 
                 //Realizamos la consulta de nuevo
-                cargarDatos.execute();
+                cargarDatos.execute(url);
 
                // CargarDatos();
                 CargarAdaptador();
