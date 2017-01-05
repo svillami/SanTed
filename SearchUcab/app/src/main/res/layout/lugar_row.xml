@@ -8,7 +8,9 @@
     android:orientation="horizontal"
     android:padding="6dp"
     tools:context="santed.com.searchucab.Adaptador_buscador">
+    <!-- Layout que contendra el diseño de cada fila en particular de la lista-->
 
+    <!-- Indicamos que el estilo sera de CardView-->
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,12 +18,14 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:id="@+id/cv">
 
+        <!-- El layout del widget sera Relative y adentro sus atributos-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp"
             >
 
+            <!--Imagen del lugar a buscar-->
             <ImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -31,6 +35,7 @@
                 android:layout_marginRight="16dp"
                 />
 
+            <!-- Texto que tendra el nombre del lugar-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,6 +46,7 @@
                 android:layout_toRightOf="@+id/foto_lugar"
                 android:layout_marginLeft="5dp"/>
 
+            <!-- Texto que tendra la descripcion del lugar-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,6 +58,7 @@
                 android:layout_toRightOf="@+id/foto_lugar"
                 android:textColor="#666"/>
 
+            <!-- Texto que tendra la ubicacion del lugar-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

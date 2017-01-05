@@ -6,6 +6,9 @@
     android:orientation="vertical"
     tools:context="santed.com.searchucab.Buscador">
 
+    <!-- Layout que sera el del fragmento al buscar un lugar y por lo tanto el buscador-->
+
+    <!-- El view donde se manipularan los datos sera de tipo recycler ya que es avanzado-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lista_lugar"
         android:layout_width="match_parent"

@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <!-- Layout que sera el de la actividad principal-->
+
+    <!-- Declaramos un LinearLayout que tendra la barra superior y un frame layout donde
+         estaran los fragmentos a colocar-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,6 +30,7 @@
 
     </LinearLayout>
 
+    <!-- NavigationView que sera la barra la lateral con las opciones pertinentes-->
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
