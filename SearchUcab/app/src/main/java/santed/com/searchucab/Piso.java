@@ -1,5 +1,6 @@
 package santed.com.searchucab;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,27 @@ public class Piso
     private List<Banco> listaBanco;
     private List<Facultad> listaFacultad;
     private List<Dependencia> listaDependencia;
+
+    /**
+     * Constructor que cargara el piso solo con su numero e inicializa la lista de salones
+     * @param nombre El numero del piso
+     */
+    public Piso (int nombre)
+    {
+        this.nombre = nombre;
+        this.listaSalones = new ArrayList<String>();
+    }
+
+    /**
+     * Constructor que recibira el numero y los salones deseados
+     * @param nombre El numero del piso
+     * @param listaSalones Lista de salones que tenga ese piso
+     */
+    public Piso (int nombre, List<String> listaSalones)
+    {
+        this.nombre = nombre;
+        this.listaSalones = listaSalones;
+    }
 
     /**
      * Constructor que recibira todos los datos y lugares que contiene un piso

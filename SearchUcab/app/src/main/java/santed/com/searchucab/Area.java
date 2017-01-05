@@ -37,7 +37,8 @@ public class Area
     {
         super();
         this.nombre = nombre;
-        this.descripcion = descripcion;        
+        this.descripcion = descripcion;
+        this.listaPisos = new ArrayList<Piso>();
     }
 
     /**
@@ -187,7 +188,7 @@ public class Area
      * Setter para asignar pisos en particular al area
      * @param listaPisos Pisos nuevos que contendra el piso
      */
-    public void setListaDependencia(List<Piso> listaPisos) {
+    public void setListaPisos(List<Piso> listaPisos) {
         this.listaPisos = listaPisos;
     }
 
@@ -195,7 +196,7 @@ public class Area
      * Setter para asignar un piso en particular al area
      * @param piso piso nuevo que contendra el area
      */
-    public void AgregarDependencia(Piso piso)
+    public void AgregarPiso(Piso piso)
     {
         this.listaPisos.add(piso);
     }

@@ -59,6 +59,35 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
         String lugar = null;
 
         //Aqui casteamos para saber a que no estamos refiriendo
+        switch(nivel)
+        {
+            case -1:
+
+                nombre = (String) data.get(position);
+                descripcion = "";
+                lugar = "";
+                break;
+
+            /*Sino es el primer nivel significa que cada una de las opciones
+            tendra subniveles a la misma altura (arbol)*/
+            case 1:
+
+                Area area = (Area) data.get(position);
+                nombre = area.getNombre();
+                descripcion = area.getDescripcion();
+                lugar = "N/A";
+                break;
+
+            case 2:
+
+                Banco banco = (Banco) data.get(position);
+                nombre = banco.getNombre();
+                descripcion = banco.getDescripcion();
+                lugar = "N/A";
+                break;
+        }
+
+        /*
         if (nivel == -1)
         {
            nombre = (String) data.get(position);
@@ -68,7 +97,7 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
         }
 
         /*Sino es el primer nivel significa que cada una de las opciones
-         tendra subniveles a la misma altura (arbol)*/
+         tendra subniveles a la misma altura (arbol)
         else if (nivel == 1)
             {
 
@@ -85,7 +114,7 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 lugar = "N/A";
             }
 
-
+        */
 
         holder.Informacion_Principal.setText(nombre);
         holder.Informacion_Secundaria.setText(descripcion);

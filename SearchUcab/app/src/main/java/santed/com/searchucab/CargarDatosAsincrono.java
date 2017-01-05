@@ -27,6 +27,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Teddy J Sears on 01/01/2017.
@@ -35,10 +36,8 @@ import java.util.Iterator;
  * El segundo paramaetro indica el tipo de las unidades de progreso (no se usara)
  * El tercer parametro indica cual sera el tipo de resultado que nos dara el el trabajo que
  * se hizo en el background
- * @// TODO: 01/01/2017 Clase incompleta, falta completar la ultima parte del onpostexecute para
- * llenar el arreglo, setear el onclick listener y basicamente todo lo hace basicamente
- * el mentodo cargarAdaptador en el buscador
- * @version 1.0.0
+ * @// TODO: 05/01/2017 Falta en el onpostexcecute completar el switch para llenar la data de acuerdo a las clases
+ * @version 2.0.0
  */
 public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 {
@@ -251,6 +250,9 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
             //Si la consulta arrojo datos
             if (arregloJSON.length() > 0)
             {
+                Area nuevaArea;
+                Piso nuevoPiso;
+
                 //Obtenemos cada uno de los datos arrojados por el JSON
                 for (int aux = 0; aux < arregloJSON.length(); aux ++)
                 {
@@ -259,6 +261,35 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                     /*Dependiendo del nivel que nos encontremos instanciaremos las clases
                     correspondientes y lo añadimos a la lista*/
+                    switch (nivel)
+                    {
+                        //Servicios de salud
+                        case 0:
+
+                            //Creamos el area con sus datos basicos
+                            nuevaArea = new Area(objetoJSON.getString("nombre"),
+                                    objetoJSON.getString("descripcion"));
+
+                            //Creamos el piso con su numero y salones
+                            nuevoPiso = new Piso(objetoJSON.getInt("nombre"));
+                            nuevoPiso.AgregarSalon(objetoJSON.getString("salon"));
+
+                            //Agregamos el piso al Area
+                            nuevaArea.AgregarPiso(nuevoPiso);
+
+                            break;
+
+                        //Servicios de comida
+                        case 1:
+
+                            nuevaArea = new Area
+                                    (objetoJSON.getString("nombre")
+                                            ,objetoJSON.getString("descripcion"));
+                            data.add(nuevaArea);
+                            break;
+                    }
+
+                    /*
                     if(nivel == 1)
                     {
 
@@ -266,13 +297,14 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                 (objetoJSON.getString("nombre")
                                         ,objetoJSON.getString("descripcion"));
                         data.add(nuevaArea);
-                    }
+                    }*/
                 }
             }
 
             Buscador.EventListener eventListener= (Buscador.EventListener)contexto;
             eventListener.onNotifyDataSetChanged();
         }
+
         //Si ha ocurrido un error al crear o manipular el JSON
         catch (JSONException e)
         {

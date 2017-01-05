@@ -177,8 +177,10 @@ public class Buscador extends Fragment {
         //Setteamos el listener
         adaptador.setOnclickListener(new View.OnClickListener()
         {
-            //String que tendra el URL del webservice a consultar
+            /*String que tendra el URL del webservice a consultar y auxiliar para obtener
+             informacion de las areas */
             String url;
+            Area areaElegida;
 
             //Obtenemos el elemento seleccionado
             @Override
@@ -187,8 +189,53 @@ public class Buscador extends Fragment {
                 //Lo del string y el par de lineas de casteo abajo se eliminaran junto con el toast ya que son pruebas
                 String nombre = null;
 
-                /*Si es el primer nivel se trata del menu principal, sino significara
+                /*Si es el primer nivel (-1) se trata del menu principal, sino significara
                 que es una opcion del menu y cada opcion tiene subniveles a la misma altura (arbol)*/
+
+                //EL NIVEL DE LOS OTROS CASE QUE NO SEA EL -1 SE ELIMINARAN
+                switch (nivel)
+                {
+                    case  -1:
+
+                        nombre = (String) data.get(rvBuscador.getChildAdapterPosition(v));
+                        Log.d("SUPERGOL",Integer.toString(rvBuscador.getChildAdapterPosition(v)));
+
+                        /*Cambiamos el nivel para indicar que la lista debe llenarse
+                        con los siguientes
+                        subelementos del area seleccionada
+                        y el tipo para saber cual opcion fue la seleccionada*/
+                        nivel = rvBuscador.getChildAdapterPosition(v);
+                        cargarDatos.setNivel(nivel);
+
+                        //Le suministramos la URL del webservice y ejecutamos el hilo
+                        url = "https://santedsearch.000webhostapp.com/pruebaphp.php";
+
+                        break;
+
+                    case 0:
+
+                        areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
+                        nombre = areaElegida.getNombre();
+
+                        /*Cambiamos el nivel para indicar que la lista debe llenarse
+                        con los siguientes subelementos del area seleccionada*/
+
+                        cargarDatos.setNivel(nivel);
+                        break;
+
+                    case 1:
+
+                        areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
+                        nombre = areaElegida.getNombre();
+
+                        /*Cambiamos el nivel para indicar que la lista debe llenarse
+                        con los siguientes subelementos del area seleccionada*/
+                        nivel = 2;
+                        cargarDatos.setNivel(nivel);
+                        break;
+                }
+
+                /*
                 if (nivel == -1)
                 {
                     nombre = (String) data.get(rvBuscador.getChildAdapterPosition(v));
@@ -197,7 +244,7 @@ public class Buscador extends Fragment {
                     /*Cambiamos el nivel para indicar que la lista debe llenarse
                     con los siguientes
                     subelementos del area seleccionada
-                    y el tipo para saber cual opcion fue la seleccionada*/
+                    y el tipo para saber cual opcion fue la seleccionada
 
                     nivel = rvBuscador.getChildAdapterPosition(v);
                     cargarDatos.setNivel(nivel);
@@ -211,10 +258,10 @@ public class Buscador extends Fragment {
                         nombre = areaElegida.getNombre();
 
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
-                        con los siguientes subelementos del area seleccionada*/
+                        con los siguientes subelementos del area seleccionada
                         nivel = 2;
                         cargarDatos.setNivel(nivel);
-                    }
+                    }*/
 
 
                // String nombre = data.get(rvBuscador.getChildAdapterPosition(v)).getNombre();
