@@ -7,6 +7,9 @@
     android:orientation="vertical"
     android:weightSum="1">
 
+    <!-- Layout que sera el header de la barra lateral-->
+
+    <!-- El layout sera de tipo linear para facilitar la colocacion de elementos-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -15,6 +18,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+        <!-- El primer textview tendra texto search y el segundo UCAB-->
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"

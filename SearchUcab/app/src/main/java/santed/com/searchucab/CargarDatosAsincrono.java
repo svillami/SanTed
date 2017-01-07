@@ -22,10 +22,12 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Teddy J Sears on 01/01/2017.
@@ -34,12 +36,10 @@ import java.util.Iterator;
  * El segundo paramaetro indica el tipo de las unidades de progreso (no se usara)
  * El tercer parametro indica cual sera el tipo de resultado que nos dara el el trabajo que
  * se hizo en el background
- * @// TODO: 01/01/2017 Clase incompleta, falta completar la ultima parte del onpostexecute para
- * llenar el arreglo, setear el onclick listener y basicamente todo lo hace basicamente
- * el mentodo cargarAdaptador en el buscador
- * @version 1.0.0
+ * @// TODO: 05/01/2017 Falta en el onpostexcecute completar el switch para llenar la data de acuerdo a las clases
+ * @version 2.0.0
  */
-public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
+public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 {
 
     //Atributos de la clase
@@ -57,7 +57,7 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
         this.contexto = contexto;
     }
 
-    /**
+     /**
      * Getter para obtener el valor del nivel
      * @return El nivel al que estamos buscando
      */
@@ -94,22 +94,28 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
     @Override
     protected void onPreExecute() {
 
+        //Instanciamos el tipo de data a almacenar dependiendo de los niveles
         if (nivel == 0)
         {
-            data = new ArrayList<Area>();
+            data = new ArrayList<String>();
         }
+        else if (nivel == 1)
+            {
+                data = new ArrayList<Area>();
+            }
+
     }
 
     /**
      * Metodo para realizar en el background (fuera del thread UI) las operaciones de consulta y
      * todo lo que no necesite interfaz en general.
      * @param params los parametros que se enviaran para que sean utilizados en el background
-     *               (puede ser URL, String, lo que sea se hizo URL para que reciba la pagina de
-     *               una vez)
-     * @return Integer que indica si fallo o no la transaccion
+     *               (puede ser URL, String, lo que sea, se hizo String para manejar las excepciones
+     *               de URL)
+     * @return string que indica si fallo o no la transaccion
      */
     @Override
-    protected String doInBackground(URL... params)
+    protected String doInBackground(String... params)
     {
         //Informacion que me traera la consulta al webservice
         StringBuilder resultadoConsulta = new StringBuilder();
@@ -117,11 +123,11 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
         //Indicara un numero del tipo de respuesta que se recibio
         int respuestaConsulta;
 
-        //Obtenemos la URL a la cual voy a ir
-        URL url = params[0];
-
         //El abrir una coneccion puede fallar asi que lanzamos una excepcion de tipo IO
         try {
+
+            //Obtenemos la URL a la cual voy a ir
+            URL url = new URL(params [0]);
 
             //Abrimos coneccion
             HttpURLConnection conection = (HttpURLConnection) url.openConnection();
@@ -181,17 +187,21 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
                 bfReader.close();
             }
 
-        } catch (IOException e)
+        }
+        catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
         {
             e.printStackTrace();
 
         }
+
         catch(JSONException e)
         {
             e.printStackTrace();
         }
-
-
 
         return resultadoConsulta.toString();
     }
@@ -240,6 +250,9 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
             //Si la consulta arrojo datos
             if (arregloJSON.length() > 0)
             {
+                Area nuevaArea;
+                Piso nuevoPiso;
+
                 //Obtenemos cada uno de los datos arrojados por el JSON
                 for (int aux = 0; aux < arregloJSON.length(); aux ++)
                 {
@@ -248,20 +261,50 @@ public class CargarDatosAsincrono extends AsyncTask<URL, Integer, String>
 
                     /*Dependiendo del nivel que nos encontremos instanciaremos las clases
                     correspondientes y lo añadimos a la lista*/
-                    if(nivel == 0)
+                    switch (nivel)
+                    {
+                        //Servicios de salud
+                        case 0:
+
+                            //Creamos el area con sus datos basicos
+                            nuevaArea = new Area(objetoJSON.getString("nombre"),
+                                    objetoJSON.getString("descripcion"));
+
+                            //Creamos el piso con su numero y salones
+                            nuevoPiso = new Piso(objetoJSON.getInt("nombre"));
+                            nuevoPiso.AgregarSalon(objetoJSON.getString("salon"));
+
+                            //Agregamos el piso al Area
+                            nuevaArea.AgregarPiso(nuevoPiso);
+
+                            break;
+
+                        //Servicios de comida
+                        case 1:
+
+                            nuevaArea = new Area
+                                    (objetoJSON.getString("nombre")
+                                            ,objetoJSON.getString("descripcion"));
+                            data.add(nuevaArea);
+                            break;
+                    }
+
+                    /*
+                    if(nivel == 1)
                     {
 
                         Area nuevaArea = new Area
                                 (objetoJSON.getString("nombre")
                                         ,objetoJSON.getString("descripcion"));
                         data.add(nuevaArea);
-                    }
+                    }*/
                 }
             }
 
             Buscador.EventListener eventListener= (Buscador.EventListener)contexto;
             eventListener.onNotifyDataSetChanged();
         }
+
         //Si ha ocurrido un error al crear o manipular el JSON
         catch (JSONException e)
         {

@@ -6,4 +6,6 @@
     android:layout_height="wrap_content"
     android:background="@color/greentoolbar">
 
+    <!-- Estilo de la barra superior-->
+
 </android.support.v7.widget.Toolbar>
