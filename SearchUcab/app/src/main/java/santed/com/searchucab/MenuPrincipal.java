@@ -52,7 +52,7 @@ public class MenuPrincipal extends AppCompatActivity implements Buscador.EventLi
         //Instanciamos el nuevo buscador
         //createDisplay(new Buscador());
         createDisplay(new Buscador(), "fragmentoBuscador");
-        createDisplay(new Buscador_escrito(), "fragmentoAgregar");
+      //  createDisplay(new Buscador_escrito(), "fragmentoAgregar");
 
         //Obtenemos la barra de acciones superior
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
@@ -98,7 +98,7 @@ public class MenuPrincipal extends AppCompatActivity implements Buscador.EventLi
                         int duration = Toast.LENGTH_SHORT;
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
-                    //    updateDisplay(new Buscador());
+                        updateDisplay(new Buscador());
                     //    updateDisplay(new Buscador_escrito());
                         break;
 

@@ -39,6 +39,7 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
+ * @deprecated Se incoporara al buscador principal
  */
 public class Buscador_escrito extends android.app.Fragment implements SearchView.OnQueryTextListener{
 

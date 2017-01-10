@@ -5,11 +5,15 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -20,8 +24,10 @@ import java.util.ArrayList;
 
 /**
  * @// FIXME: 28/12/2016 ELIMINAR EL CONSTRUCTOR VIEJO DE LA CLASE AREA Y BANCO
+ * @// TODO: 09/01/2017 Programar el onbackpressed para regresar a la lista principal 
  */
-public class Buscador extends Fragment {
+public class Buscador extends Fragment implements SearchView.OnQueryTextListener
+{
 
     /*@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,86 @@ public class Buscador extends Fragment {
     public Buscador()
     {
         this.nivel = -1;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        // What i have added is this
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        inflater.inflate(R.menu.search_main, menu); // No la quita ya que quiero aderir el buscador al actionbar
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView sv = new SearchView(((MenuPrincipal) getActivity()).getSupportActionBar().getThemedContext());
+        MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
+        MenuItemCompat.setActionView(item, sv);
+        sv.setOnQueryTextListener(this);
+        sv.setIconifiedByDefault(false);
+        sv.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Utils.LogDebug("Clicked: ");
+            }
+        });
+
+        MenuItemCompat.setOnActionExpandListener(item, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                // Do something when collapsed
+                //Utils.LogDebug("Closed: ");
+                return true;  // Return true to collapse action view
+            }
+
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                // Do something when expanded
+                //Utils.LogDebug("Openeed: ");
+                return true;  // Return true to expand action view
+            }
+        });
+
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+    /**
+     * Metodo que se ejecutara cuando el usuario haga click en el buscador escrito para buscar
+     * (Search)
+     * @param query Palabra o frase que se quiere buscar en la base de datos (string a enviar)
+     * @return Exito si no hubo ningun error
+     */
+    @Override
+    public boolean onQueryTextSubmit(String query)
+    {
+        //Instanciamos un AsyncTask para la consulta escrita
+        this.cargarDatos = new CargarDatosAsincrono(9, getActivity());
+        this.nivel = 9;
+
+        //Limpiamos la lista que tiene la informacion vieja
+        adaptador.LimpiarData();
+
+        //Ejecutamos la consulta
+        this.cargarDatos.execute(Utility.BUSCADOR_ESCRITO, query);
+
+        //Linea nueva obtenemos la data
+        data = this.cargarDatos.getData();
+
+        //Instanciamos el adaptador
+        adaptador = new Adaptador_buscador(getActivity(), data, nivel);
+
+        //Setteamos el Adaptador
+        rvBuscador.setAdapter(adaptador);
+
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText)
+    {
+        return false;
     }
 
 
@@ -208,7 +294,7 @@ public class Buscador extends Fragment {
                         cargarDatos.setNivel(nivel);
 
                         //Le suministramos la URL del webservice y ejecutamos el hilo
-                        url = "https://santedsearch.000webhostapp.com/pruebaphp.php";
+                        url = Utility.BUSCADOR_LISTA;
 
                         break;
 

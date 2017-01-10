@@ -11,4 +11,8 @@ public class Utility
     public static final int LECTURA_TIMEOUT = 15000;
 
     public static final String METODO_POST = "POST";
+
+    public static final String BUSCADOR_ESCRITO = "http://santedsearch.000webhostapp.com/Buscadorprestamos.php";
+
+    public static final String BUSCADOR_LISTA = "https://santedsearch.000webhostapp.com/pruebaphp.php";
 }

@@ -85,6 +85,15 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 descripcion = banco.getDescripcion();
                 lugar = "N/A";
                 break;
+
+            //En caso de venir del buscador search
+            case 9:
+
+                DataBuscador dataSearch = (DataBuscador) data.get(position);
+                nombre = dataSearch.titulo;
+                descripcion = dataSearch.editorial;
+                lugar = dataSearch.nombreautor;
+                break;
         }
 
         /*

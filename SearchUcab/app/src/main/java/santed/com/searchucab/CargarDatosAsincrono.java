@@ -1,5 +1,6 @@
 package santed.com.searchucab;
 
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -46,6 +47,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
     private int nivel;
     private ArrayList data;
     private Context contexto;
+    ProgressDialog pdLoading;
 
     /**
      * Constructor de la clase para obtener el nivel
@@ -55,6 +57,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
     {
         this.nivel = nivel;
         this.contexto = contexto;
+        this.pdLoading = new ProgressDialog(contexto);
     }
 
      /**
@@ -92,18 +95,30 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
     }
 
     @Override
-    protected void onPreExecute() {
+    protected void onPreExecute()
+    {
 
         //Instanciamos el tipo de data a almacenar dependiendo de los niveles
-        if (nivel == 0)
+        switch (nivel)
         {
-            data = new ArrayList<String>();
-        }
-        else if (nivel == 1)
-            {
-                data = new ArrayList<Area>();
-            }
+            case 0:
+                data = new ArrayList<String>();
+                break;
 
+            case 1:
+                data = new ArrayList<Area>();
+                break;
+
+            case 9:
+                data = new ArrayList<DataBuscador>();
+                break;
+        }
+
+
+        //this method will be running on UI thread
+        pdLoading.setMessage("\tBuscando...");
+        pdLoading.setCancelable(false);
+        pdLoading.show();
     }
 
     /**
@@ -136,8 +151,13 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
             /////////////////////////////////////////////////////////////
             //Creamos un objeto JSON que sera el que se va a enviar
             JSONObject dataEnviar = new JSONObject();
-            //Le agregamos los datos
-            dataEnviar.put("prueba", "0");
+
+            //Si el nivel es 9 significa que estamos usando el buscador escrito
+            if (this.nivel == 9)
+            {
+                //Le agregamos los datos
+                dataEnviar.put("searchQuery", params[1]);
+            }
 
             //Setteamos la conecion para que sea de tipo post
             conection.setRequestMethod(Utility.METODO_POST);
@@ -252,6 +272,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
             {
                 Area nuevaArea;
                 Piso nuevoPiso;
+                DataBuscador nuevoBuscador;
 
                 //Obtenemos cada uno de los datos arrojados por el JSON
                 for (int aux = 0; aux < arregloJSON.length(); aux ++)
@@ -287,6 +308,16 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                             ,objetoJSON.getString("descripcion"));
                             data.add(nuevaArea);
                             break;
+
+                        case 9:
+
+                            nuevoBuscador = new DataBuscador();
+                            nuevoBuscador.codigo = objetoJSON.getInt("Lb_id");
+                            nuevoBuscador.titulo = objetoJSON.getString("Lb_titulo");
+                            nuevoBuscador.nombreautor = objetoJSON.getString("Lb_nombre_autor");
+                            nuevoBuscador.editorial = objetoJSON.getString("Lb_editorial");
+                            data.add(nuevoBuscador);
+                            break;
                     }
 
                     /*
@@ -302,6 +333,10 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
             }
 
             Buscador.EventListener eventListener= (Buscador.EventListener)contexto;
+
+            //this method will be running on UI thread
+            pdLoading.dismiss();
+
             eventListener.onNotifyDataSetChanged();
         }
 
