@@ -59,13 +59,24 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
         this.nivel = -1;
     }
 
+    /**
+     * Metodo que se ejecuta cuando la actividad se crea
+     * @param savedInstanceState
+     */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         // What i have added is this
         setHasOptionsMenu(true);
     }
 
+    /**
+     * SMetodo que se encargara de incorporar la logica del boton superior y el searchbar para
+     * buscar por escrito
+     * @param menu El menu superior que se va a incorporar
+     * @param inflater El inflater que llenara el menu superior
+     */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
@@ -101,6 +112,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
         super.onCreateOptionsMenu(menu,inflater);
     }
+
+
 
     /**
      * Metodo que se ejecutara cuando el usuario haga click en el buscador escrito para buscar

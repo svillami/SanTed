@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @deprecated Se utilizara el adaptador_buscador para incoporar los datos a la interfaz
+ */
 public class Adaptando_buscador_escrito extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public Context context;

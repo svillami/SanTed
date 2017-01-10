@@ -122,8 +122,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
     }
 
     /**
-     * Metodo para realizar en el background (fuera del thread UI) las operaciones de consulta y
-     * todo lo que no necesite interfaz en general.
+     * Metodo para realizar en el background (fuera del thread UI) las operaciones de consulta ytodo lo que no necesite interfaz en general.
      * @param params los parametros que se enviaran para que sean utilizados en el background
      *               (puede ser URL, String, lo que sea, se hizo String para manejar las excepciones
      *               de URL)
