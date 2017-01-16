@@ -31,6 +31,17 @@ public class Local
     }
 
     /**
+     * Constructor de la clase que recibe el nombre y la especialidad del local
+     * @param nombre El nombre que tiene el local
+     * @param especialidad La especialidad de comida que tiene el local
+     */
+    public Local (String nombre, String especialidad)
+    {
+        this.nombre = nombre;
+        this.especialidad = especialidad;
+    }
+
+    /**
      * Getter del atributo nombre
      * @return El nombre del local
      */

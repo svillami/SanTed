@@ -3,7 +3,6 @@ package santed.com.searchucab;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
@@ -125,8 +124,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     public boolean onQueryTextSubmit(String query)
     {
         //Instanciamos un AsyncTask para la consulta escrita
-        this.cargarDatos = new CargarDatosAsincrono(9, getActivity());
-        this.nivel = 9;
+        this.cargarDatos = new CargarDatosAsincrono(10, getActivity());
+        this.nivel = 10;
 
         //Limpiamos la lista que tiene la informacion vieja
         adaptador.LimpiarData();
@@ -290,8 +289,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                 /*Si es el primer nivel (-1) se trata del menu principal, sino significara
                 que es una opcion del menu y cada opcion tiene subniveles a la misma altura (arbol)*/
-
-                //EL NIVEL DE LOS OTROS CASE QUE NO SEA EL -1 SE ELIMINARAN
+                //En todos los niveles se activara la AR excepto en el -1 y en el 10
                 switch (nivel)
                 {
                     case  -1:
@@ -306,31 +304,160 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                         nivel = rvBuscador.getChildAdapterPosition(v);
                         cargarDatos.setNivel(nivel);
 
-                        //Le suministramos la URL del webservice y ejecutamos el hilo
-                        url = Utility.BUSCADOR_LISTA;
+                        /*Le suministramos la URL del webservice dependiendo de la opcion
+                          y ejecutamos el hilo*/
+                        switch (nivel)
+                        {
+                            //Servicios de Salud
+                            case 0:
+                                url = Utility.WEBSERVICE_SALUD;
+                                break;
 
+                            //Servicios de Comida
+                            case 1:
+                                url = Utility.WEBSERVICE_LOCALES;
+                                break;
+
+                            //Servicios de deporte
+                            case 2:
+                                url = Utility.WEBSERVICE_DEPORTES;
+                                break;
+
+                            //Servicios bancarios
+                            case 3:
+
+                                url = Utility.WEBSERVICE_BANCO;
+                                break;
+
+                            //Servicios administrativos
+                            case 4:
+
+                                url = Utility.WEBSERVICE_ADMINISTRATIVOS;
+                                break;
+
+                            //Servicios administrativos
+                            case 5:
+
+                                url = Utility.WEBSERVICE_CLIENTES;
+                                break;
+
+                            //Laboratorios
+                            case 6:
+                                url = Utility.WEBSERVICE_LABORATORIOS;
+                                break;
+
+                            //Facultades
+                            case 7:
+
+                                url = Utility.WEBSERVICE_FACULTAD;
+                                break;
+
+                            //Escuelas
+                            case 8:
+
+                                url = Utility.WEBSERVICE_ESCUELAS;
+                                break;
+
+                        }
+
+                        Toast toast = Toast.makeText(getActivity(), nombre, Toast.LENGTH_SHORT);
+                        toast.show();
+
+                        //Limpiamos la lista
+                        adaptador.LimpiarData();
+
+                        //Realizamos la consulta de nuevo
+                        cargarDatos.execute(url);
+
+                        // CargarDatos();
+                        CargarAdaptador();
                         break;
 
+                    //Servicios de Salud
                     case 0:
 
-                        areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
-                        nombre = areaElegida.getNombre();
-
+                      //  areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
+                       // nombre = areaElegida.getNombre();
+                        Salud salud = (Salud)  data.get(rvBuscador.getChildAdapterPosition(v));
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
                         con los siguientes subelementos del area seleccionada*/
 
-                        cargarDatos.setNivel(nivel);
+                       // cargarDatos.setNivel(nivel);
                         break;
 
+                    //Servicios de Comida
                     case 1:
 
-                        areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
-                        nombre = areaElegida.getNombre();
+                        Local locales = (Local) data.get(rvBuscador.getChildAdapterPosition(v));
+                        //nombre = areaElegida.getNombre();
 
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
                         con los siguientes subelementos del area seleccionada*/
-                        nivel = 2;
-                        cargarDatos.setNivel(nivel);
+                        //nivel = 2;
+                        //cargarDatos.setNivel(nivel);
+                        break;
+
+                    //Servicios de deporte
+                    case 2:
+
+                        Deporte deportes = (Deporte) data.get(rvBuscador.getChildAdapterPosition(v));
+
+                        break;
+
+                    //Servicios Bancarios
+                    case 3:
+
+                        Banco bancoElegido = (Banco) data.get(rvBuscador.getChildAdapterPosition(v));
+                        //nivel = 2;
+                        //cargarDatos.setNivel(nivel);
+                        break;
+
+                    //Servicios Administrativos
+                    case 4:
+
+                        Dependencia dependenciaElegida = (Dependencia)
+                                data.get(rvBuscador.getChildAdapterPosition(v));
+                        //nivel = 2;
+                        //cargarDatos.setNivel(nivel);
+                        break;
+
+                    //Servicios al Cliente
+                    case 5:
+
+                        Dependencia dependenciaElegidaCliente = (Dependencia)
+                                data.get(rvBuscador.getChildAdapterPosition(v));
+                        //nivel = 2;
+                        //cargarDatos.setNivel(nivel);
+                        break;
+
+                    //Laboratorios
+                    case 6:
+
+                        Laboratorio laboratorioElegido = (Laboratorio) data.get(rvBuscador.getChildAdapterPosition(v));
+                        //nivel = 2;
+                        //cargarDatos.setNivel(nivel);
+                        break;
+
+                    //Facultades
+                    case 7:
+
+                        Facultad facultad = (Facultad) data.get(rvBuscador.getChildAdapterPosition(v));
+                        //nivel = 2;
+                        //cargarDatos.setNivel(nivel);
+                        break;
+
+                    //Facultades
+                    case 8:
+
+                        Escuela escuela = (Escuela) data.get(rvBuscador.getChildAdapterPosition(v));
+                        //nivel = 2;
+                        //cargarDatos.setNivel(nivel);
+                        break;
+
+                    //Search escrito
+                    case 10:
+
+                        DataBuscador dataSearch = (DataBuscador) data.get(rvBuscador.getChildAdapterPosition(v));
                         break;
                 }
 
@@ -364,19 +491,6 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
 
                // String nombre = data.get(rvBuscador.getChildAdapterPosition(v)).getNombre();
-
-                Toast toast = Toast.makeText(getActivity(), nombre, Toast.LENGTH_SHORT);
-                toast.show();
-
-                //Limpiamos la lista
-                adaptador.LimpiarData();
-
-                //Realizamos la consulta de nuevo
-                cargarDatos.execute(url);
-
-               // CargarDatos();
-                CargarAdaptador();
-
             }
         });
 

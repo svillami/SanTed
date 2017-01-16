@@ -59,6 +59,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
         String lugar = null;
 
         //Aqui casteamos para saber a que no estamos refiriendo
+        /*Sino es el primer nivel significa que cada una de las opciones
+        tendra subniveles a la misma altura (arbol)*/
         switch(nivel)
         {
             case -1:
@@ -68,17 +70,34 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 lugar = "";
                 break;
 
-            /*Sino es el primer nivel significa que cada una de las opciones
-            tendra subniveles a la misma altura (arbol)*/
-            case 1:
+            //Servicios de salud
+            case 0:
 
-                Area area = (Area) data.get(position);
-                nombre = area.getNombre();
-                descripcion = area.getDescripcion();
+                Salud salud = (Salud) data.get(position);
+                nombre = salud.getNombre();
+                descripcion = salud.getDescripcion();
                 lugar = "N/A";
                 break;
 
+            //Servicios de comida
+            case 1:
+
+                Local local = (Local) data.get(position);
+                nombre = local.getNombre();
+                descripcion = local.getEspecialidad();
+                lugar = "N/A";
+                break;
+
+            //Servicios de deporte
             case 2:
+                Deporte deporte = (Deporte) data.get(position);
+                nombre = deporte.getNombre();
+                descripcion = deporte.getDescripcion();
+                lugar = "N/A";
+                break;
+
+            //Servicios Bancarios
+            case 3:
 
                 Banco banco = (Banco) data.get(position);
                 nombre = banco.getNombre();
@@ -86,8 +105,52 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 lugar = "N/A";
                 break;
 
+            //Servicios administrativos
+            case 4:
+
+                Dependencia dependencia = (Dependencia) data.get(position);
+                nombre = dependencia.getNombre();
+                descripcion = dependencia.getDescripcion();
+                lugar = "N/A";
+                break;
+
+            //Servicios al cliente
+            case 5:
+
+                Dependencia dependenciaCliente = (Dependencia) data.get(position);
+                nombre = dependenciaCliente.getNombre();
+                descripcion = dependenciaCliente.getDescripcion();
+                lugar = "N/A";
+                break;
+
+            //Laboratorios
+            case 6:
+                Laboratorio laboratorio = (Laboratorio) data.get(position);
+                nombre = laboratorio.getNombre();
+                descripcion = laboratorio.getDescripcion();
+                lugar = "N/A";
+                break;
+
+            //Facultades
+            case 7:
+
+                Facultad facultad = (Facultad) data.get(position);
+                nombre = facultad.getNombre();
+                descripcion = facultad.getDescripcion();
+                lugar = "N/A";
+                break;
+
+            //Facultades
+            case 8:
+
+                Escuela escuela = (Escuela) data.get(position);
+                nombre = escuela.getNombre();
+                descripcion = escuela.getDescripcion();
+                lugar = "N/A";
+                break;
+
             //En caso de venir del buscador search
-            case 9:
+            case 10:
 
                 DataBuscador dataSearch = (DataBuscador) data.get(position);
                 nombre = dataSearch.titulo;

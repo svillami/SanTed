@@ -4,25 +4,24 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by Teddy J Sears on 28/12/2016.
- * Clase que contendra la informacion de una escuela en particular
- * @version 1.1.0
+ * Created by Teddy J Sears on 15/01/2017.
+ * Clase que contendra la informacion de un servicio de deporte en particular
+ * @version 1.0.0
  */
-public class Escuela
+public class Deporte
 {
     //Atributos de la clase
     private String nombre, descripcion;
     private float altitud, latitud;
     private HashMap<String, List<String>> informacion;
 
-
     /**
-     * Constructor de la clase que recibe todos los datos de la escuela
-     * @param nombre El nombre que tiene la escuela
-     * @param descripcion La descripcion que tiene la escuela
-     * @param informacion Fotos, videos o textos que describiran la escuela
+     * Constructor de la clase que recibe todos los datos del servicio de deporte
+     * @param nombre El nombre que tiene el servicio de deporte
+     * @param descripcion La descripcion que tiene el servicio de deporte
+     * @param informacion Fotos, videos o textos que describiran el servicio de deporte
      */
-    public Escuela(String nombre, String descripcion, HashMap<String, List<String>> informacion)
+    public Deporte(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -30,11 +29,11 @@ public class Escuela
     }
 
     /**
-     * Constructor de la clase que recibe nombre y descripcion de la escuela
-     * @param nombre El nombre que tiene la escuela
-     * @param descripcion La descripcion que tiene la escuela
+     * Constructor de la clase que recibe nombre y descripcion del servicio de deporte
+     * @param nombre El nombre que tiene el laobratorio
+     * @param descripcion La descripcion que tiene el servicio de deporte
      */
-    public Escuela(String nombre, String descripcion)
+    public Deporte(String nombre, String descripcion)
     {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -42,7 +41,7 @@ public class Escuela
 
     /**
      * Getter del atributo nombre
-     * @return El nombre de la escuela
+     * @return El nombre de la servicio de deporte
      */
     public String getNombre()
     {
@@ -51,7 +50,7 @@ public class Escuela
 
     /**
      * Setter del atributo nombre
-     * @param nombre El nombre que se le desea asignar a la escuela
+     * @param nombre El nombre que se le desea asignar al servicio de deporte
      */
     public void setNombre(String nombre)
     {
@@ -60,7 +59,7 @@ public class Escuela
 
     /**
      * Getter del atributo descripcion
-     * @return La descripcion de la escuela
+     * @return La descripcion del servicio de deporte
      */
     public String getDescripcion()
     {
@@ -69,7 +68,7 @@ public class Escuela
 
     /**
      * Setter del atributo descripcion
-     * @param descripcion La descripcion de la escuela
+     * @param descripcion La descripcion del servicio de deporte
      */
     public void setDescripcion(String descripcion)
     {
@@ -78,7 +77,7 @@ public class Escuela
 
     /**
      * Getter para obtener toda la informacion relacionada con fotos
-     * @return Lista con todas las fotos que posee esta escuela
+     * @return Lista con todas las fotos que posee este servicio de deporte
      */
     public List<String> getFotosInformacion()
     {
@@ -87,7 +86,7 @@ public class Escuela
 
     /**
      * Getter para obtener toda la informacion relacionada con videos
-     * @return Lista con todos los videos que posee esta escuela
+     * @return Lista con todos los videos que posee este servicio de deporte
      */
     public List<String> getVideosInformacion()
     {
@@ -96,7 +95,7 @@ public class Escuela
 
     /**
      * Getter para obtener toda la informacion relacionada con textos
-     * @return Lista con todos los textos que posee esta escuela
+     * @return Lista con todos los textos que posee este servicio de deporte
      */
     public List<String> getTextosInformacion()
     {
@@ -104,7 +103,7 @@ public class Escuela
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto a la escuela
+     * Setter para agregar una nueva informacion de tipo foto al servicio de deporte
      * @param fotoInformacion la nueva foto que se le agregara
      */
     public void setFotosInformacion(String fotoInformacion)
@@ -117,7 +116,7 @@ public class Escuela
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo video a la escuela
+     * Setter para agregar una nueva informacion de tipo video al servicio de deporte
      * @param videoInformacion el nuevo video que se le agregara
      */
     public void setVideosInformacion(String videoInformacion)
@@ -130,7 +129,7 @@ public class Escuela
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto a la escuela
+     * Setter para agregar una nueva informacion de tipo foto al servicio de deporte
      * @param textoInformacion el nuevo texto que se le agregara
      */
     public void setTextosInformacion(String textoInformacion)
@@ -143,32 +142,32 @@ public class Escuela
     }
 
     /**
-     * Getter para obtener la latitud de donde se ubica la Escuela
-     * @return Latitud de la escuela
+     * Getter para obtener la latitud de donde se ubica al servicio de deporte
+     * @return Latitud de la servicio de deporte
      */
     public float getLatitud() {
         return latitud;
     }
 
     /**
-     * Setter para asignar la latitud de donde se ubica la Escuela
-     * @param latitud que tendra la escuela
+     * Setter para asignar la latitud de donde se ubica al servicio de deporte
+     * @param latitud que tendra la servicio de deporte
      */
     public void setLatitud(float latitud) {
         this.latitud = latitud;
     }
 
     /**
-     * Getter para obtener la Altitud de donde se ubica la Escuela
-     * @return Altitud de la escuela
+     * Getter para obtener la Altitud de donde se ubica al servicio de deporte
+     * @return Altitud de la servicio de deporte
      */
     public float getAltitud() {
         return altitud;
     }
 
     /**
-     * Setter para asignar la altitud de donde se ubica la Escuela
-     * @param altitud que tendra la escuela
+     * Setter para asignar la altitud de donde se ubica al servicio de deporte
+     * @param altitud que tendra la servicio de deporte
      */
     public void setAltitud(float altitud) {
         this.altitud = altitud;

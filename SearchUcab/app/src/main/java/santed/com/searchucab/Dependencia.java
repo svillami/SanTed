@@ -14,18 +14,52 @@ public class Dependencia
     private String nombre, descripcion, horaInicio, horaFin;
     private float altitud, latitud;
     private HashMap<String, List<String>> informacion;
+    private boolean administrativo;
 
     /**
      * Constructor de la clase que recibe todos los datos de la dependencia
      * @param nombre El nombre que tiene la dependencia
      * @param descripcion La descripcion que tiene la dependencia
      * @param informacion Fotos, videos o textos que describiran la dependencia
+     * @param administrativo Positivo si la dependencia es de tipo administrativo, falso si es
+     *                       de servicios al cliente
      */
-    public Dependencia(String nombre, String descripcion, HashMap<String, List<String>> informacion)
+    public Dependencia(String nombre, String descripcion,
+                       HashMap<String, List<String>> informacion, boolean administrativo)
     {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
+        this.administrativo = administrativo;
+    }
+
+    /**
+     * Constructor que recibe los datos basicos de la depenencia
+     * @param nombre El nombre de la dependencia
+     * @param descripcion La descripcion de la dependencia
+     * @param administrativo Tipo que indica si la dependencia es o no administrativa
+     */
+    public Dependencia (String nombre, String descripcion, boolean administrativo)
+    {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.administrativo = administrativo;
+    }
+
+    /**
+     * Getter para del atributo administrativo
+     * @return El tipo de dependencia que se tiene
+     */
+    public boolean isAdministrativo() {
+        return administrativo;
+    }
+
+    /**
+     * Setter para el atributo administrativo
+     * @param administrativo Variable que indica si la dependencia es o no de tipo administrativo
+     */
+    public void setAdministrativo(boolean administrativo) {
+        this.administrativo = administrativo;
     }
 
     /**

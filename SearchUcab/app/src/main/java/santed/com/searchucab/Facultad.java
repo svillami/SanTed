@@ -32,6 +32,17 @@ public class Facultad
     }
 
     /**
+     * Constructor de la clase que recibe nombre y descripcion de la facultad
+     * @param nombre El nombre que tiene la facultad
+     * @param descripcion La descripcion que tiene la facultad
+     */
+    public Facultad (String nombre, String descripcion)
+    {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
+    /**
      * Getter del atributo nombre
      * @return El nombre de la facultad
      */

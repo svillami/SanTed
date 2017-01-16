@@ -38,7 +38,7 @@ import java.util.List;
  * El tercer parametro indica cual sera el tipo de resultado que nos dara el el trabajo que
  * se hizo en el background
  * @// TODO: 05/01/2017 Falta en el onpostexcecute completar el switch para llenar la data de acuerdo a las clases
- * @version 2.0.0
+ * @version 2.1.0
  */
 public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 {
@@ -102,14 +102,42 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
         switch (nivel)
         {
             case 0:
-                data = new ArrayList<String>();
+                data = new ArrayList<Salud>();
                 break;
 
             case 1:
-                data = new ArrayList<Area>();
+                data = new ArrayList<Local>();
                 break;
 
-            case 9:
+            case 2:
+                data = new ArrayList<Deporte>();
+                break;
+
+            case 3:
+                data = new ArrayList<Banco>();
+                break;
+
+            case 4:
+                data = new ArrayList<Dependencia>();
+                break;
+
+            case 5:
+                data = new ArrayList<Dependencia>();
+                break;
+
+            case 6:
+                data = new ArrayList<Laboratorio>();
+                break;
+
+            case 7:
+                data = new ArrayList<Facultad>();
+                break;
+
+            case 8:
+                data = new ArrayList<Escuela>();
+                break;
+
+            case 10:
                 data = new ArrayList<DataBuscador>();
                 break;
         }
@@ -152,7 +180,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
             JSONObject dataEnviar = new JSONObject();
 
             //Si el nivel es 9 significa que estamos usando el buscador escrito
-            if (this.nivel == 9)
+            if (this.nivel == 10)
             {
                 //Le agregamos los datos
                 dataEnviar.put("searchQuery", params[1]);
@@ -287,7 +315,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                         case 0:
 
                             //Creamos el area con sus datos basicos
-                            nuevaArea = new Area(objetoJSON.getString("nombre"),
+                           /* nuevaArea = new Area(objetoJSON.getString("nombre"),
                                     objetoJSON.getString("descripcion"));
 
                             //Creamos el piso con su numero y salones
@@ -295,20 +323,86 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                             nuevoPiso.AgregarSalon(objetoJSON.getString("salon"));
 
                             //Agregamos el piso al Area
-                            nuevaArea.AgregarPiso(nuevoPiso);
+                            nuevaArea.AgregarPiso(nuevoPiso);*/
 
+                            Salud nuevaSalud = new Salud(objetoJSON.getString("nombre")
+                                    ,objetoJSON.getString("descripcion"));
+
+                            data.add(nuevaSalud);
                             break;
 
                         //Servicios de comida
                         case 1:
 
-                            nuevaArea = new Area
-                                    (objetoJSON.getString("nombre")
-                                            ,objetoJSON.getString("descripcion"));
-                            data.add(nuevaArea);
+                           Local nuevoLocal = new Local(objetoJSON.getString("nombre")
+                                   ,objetoJSON.getString("especialidad"));
+
+                            data.add(nuevoLocal);
                             break;
 
-                        case 9:
+                        //Servicio de deporte
+                        case 2:
+
+                            Deporte nuevoDeporte = new Deporte(objetoJSON.getString("nombre")
+                                    ,objetoJSON.getString("descripcion"));
+
+                            data.add(nuevoDeporte);
+                            break;
+
+                        //Servicios Bancarios
+                        case 3:
+
+                            Banco nuevoBanco = new Banco(objetoJSON.getString("nombre")
+                                    ,objetoJSON.getString("descripcion"));
+
+                            data.add(nuevoBanco);
+                            break;
+
+                        //Servicios administrativos
+                        case 4:
+
+                            Dependencia nuevaDependencia = new Dependencia(objetoJSON.getString("nombre")
+                                    ,objetoJSON.getString("descripcion"), true);
+
+                            data.add(nuevaDependencia);
+                            break;
+
+                        //Servicios al cliente
+                        case 5:
+
+                            Dependencia nuevaDependenciaCliente = new Dependencia(objetoJSON.getString("nombre")
+                                    ,objetoJSON.getString("descripcion"), false);
+
+                            data.add(nuevaDependenciaCliente);
+                            break;
+
+                        case 6:
+
+                            Laboratorio nuevoLaboratorio = new Laboratorio(objetoJSON.getString("nombre")
+                                    ,objetoJSON.getString("descripcion"));
+
+                            data.add(nuevoLaboratorio);
+                            break;
+
+                        //Facultades
+                        case 7:
+
+                            Facultad nuevaFacultad = new Facultad(objetoJSON.getString("nombre")
+                                    ,objetoJSON.getString("descripcion"));
+
+                            data.add(nuevaFacultad);
+                            break;
+
+                        case 8:
+
+                            Escuela nuevaEscuela = new Escuela(objetoJSON.getString("nombre")
+                                    ,objetoJSON.getString("descripcion"));
+
+                            data.add(nuevaEscuela);
+                            break;
+
+                        //Search escrito
+                        case 10:
 
                             nuevoBuscador = new DataBuscador();
                             nuevoBuscador.codigo = objetoJSON.getInt("Lb_id");

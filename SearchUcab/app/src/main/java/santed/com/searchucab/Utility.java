@@ -14,5 +14,24 @@ public class Utility
 
     public static final String BUSCADOR_ESCRITO = "http://santedsearch.000webhostapp.com/Buscadorprestamos.php";
 
+    @Deprecated
     public static final String BUSCADOR_LISTA = "https://santedsearch.000webhostapp.com/pruebaphp.php";
+
+    public static final String WEBSERVICE_BANCO = "https://santedsearch.000webhostapp.com/Bancos.php";
+
+    public static final String WEBSERVICE_FACULTAD = "https://santedsearch.000webhostapp.com/Facultades.php";
+
+    public static final String WEBSERVICE_ESCUELAS = "https://santedsearch.000webhostapp.com/Escuelas.php";
+
+    public static final String WEBSERVICE_LOCALES = "https://santedsearch.000webhostapp.com/Locales.php";
+
+    public static final String WEBSERVICE_LABORATORIOS = "https://santedsearch.000webhostapp.com/Laboratorios.php";
+
+    public static final String WEBSERVICE_SALUD = "https://santedsearch.000webhostapp.com/Salud.php";
+
+    public static final String WEBSERVICE_DEPORTES = "https://santedsearch.000webhostapp.com/Deportes.php";
+
+    public static final String WEBSERVICE_ADMINISTRATIVOS = "https://santedsearch.000webhostapp.com/Administrativos.php" ;
+
+    public static final String WEBSERVICE_CLIENTES = "https://santedsearch.000webhostapp.com/Clientes.php" ;
 }
