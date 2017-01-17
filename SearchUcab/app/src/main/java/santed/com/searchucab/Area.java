@@ -8,9 +8,8 @@ import java.util.List;
  * Created by Teddy J Sears on 19/12/2016.
  * Clase que contendra la informacion de un area en particular
  * @version 2.1.0
- * @// FIXME: 28/12/2016 ELIMINAR CONSTRUCTOR CREADO MOMENTANEAMENTE
  */
-public class Area
+public class Area extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion;
@@ -32,7 +31,12 @@ public class Area
         this.informacion = informacion;
         this.listaPisos = new ArrayList<Piso>();
     }
-    
+
+    /**
+     * Contrustor que recibe los datos basicos del area
+     * @param nombre Nombre que tendra el area
+     * @param descripcion La descripcion que tendra el area
+     */
     public Area(String nombre, String descripcion)
     {
         super();

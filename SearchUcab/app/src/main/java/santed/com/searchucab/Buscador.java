@@ -39,8 +39,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     private RecyclerView rvBuscador;
     private Adaptador_buscador adaptador;
     private int nivel;
-    private int tipo;
     private CargarDatosAsincrono cargarDatos;
+    private int profundidad;
 
     public Adaptador_buscador getAdaptador() {
         return adaptador;
@@ -161,11 +161,14 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        //Creamos una vista que tendra el fragmento lugar inflada con el contenedor
         View vista;
         vista = inflater.inflate(R.layout.fragment_lugar, container, false);
 
+        //Buscamos el RecyclerView que contendra la lista
         rvBuscador = (RecyclerView) vista.findViewById(R.id.lista_lugar);
 
+        //Seteamos el manager que administrara el buscador en esa vista
         LinearLayoutManager llManager = new LinearLayoutManager(getActivity());
 
         rvBuscador.setLayoutManager(llManager);
@@ -175,6 +178,10 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
         //Instanciamos el cargador asincrono
         cargarDatos = new CargarDatosAsincrono(this.nivel, getActivity());
+
+        /*por defecto la profundidad siempre comenzara en uno, esto servira para ir buscando
+        poco a poco en la ultima opcion por areas*/
+        this.profundidad = 1;
 
         /*
         //Sinos encontramos en el primer nivel cargaremos la pagina en esta clase
@@ -250,6 +257,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
         data.add("Laboratorios");
         data.add("Facultades");
         data.add("Escuelas");
+        data.add("Areas");
     }
 
     public void CargarAdaptador()
@@ -265,8 +273,11 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
         }
        else
         {
-            //Linea nueva obtenemos la data
+            //Obtenemos la data proveniente del Asynctask
             data = this.cargarDatos.getData();
+
+            //Instanciamos de nuevo el AsyncTask para poder usarlo de nuevo
+            this.cargarDatos = new CargarDatosAsincrono(this.nivel, getActivity());
         }
 
         //Instanciamos el adaptador
@@ -278,7 +289,6 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
             /*String que tendra el URL del webservice a consultar y auxiliar para obtener
              informacion de las areas */
             String url;
-            Area areaElegida;
 
             //Obtenemos el elemento seleccionado
             @Override
@@ -356,6 +366,12 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                             case 8:
 
                                 url = Utility.WEBSERVICE_ESCUELAS;
+                                break;
+
+                            //Area primera
+                            case 9:
+
+                                url = Utility.WEBSERVICE_AREAS1;
                                 break;
 
                         }
@@ -452,6 +468,46 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                         Escuela escuela = (Escuela) data.get(rvBuscador.getChildAdapterPosition(v));
                         //nivel = 2;
                         //cargarDatos.setNivel(nivel);
+                        break;
+
+                    //Areas principales
+                    case 9:
+
+                        //Limpiamos la lista
+                        adaptador.LimpiarData();
+
+                        /*De acuerdo a la profundidad que vayamos haremos una consulta
+                        diferente */
+                        //Dependiendo de la profundiad castearemos objetos distintos
+                        switch(profundidad)
+                        {
+                            //Areas en general
+                            case 1:
+
+                                profundidad = 2;
+                                adaptador.setProfundidad(1);
+
+                                //Realizamos la consulta de nuevo
+                                cargarDatos.execute(url);
+                                break;
+
+                            case 2:
+
+                                //Obtenemos el area elegida, la url a consultar y aumentamos la profundidad
+                                Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
+                                url = Utility.WEBSERVICE_AREAS2;
+
+                                //Realizamos la consulta de nuevo
+                                cargarDatos.execute(url, Integer.toString(areaElegida.getId()));
+
+                                profundidad = 3;
+                                cargarDatos.setProfundidad(2);
+                                break;
+                        }
+
+                        // CargarDatos();
+                        CargarAdaptador();
+
                         break;
 
                     //Search escrito

@@ -47,17 +47,19 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
     private int nivel;
     private ArrayList data;
     private Context contexto;
-    ProgressDialog pdLoading;
+    private ProgressDialog pdLoading;
+    private int profundidad;
 
     /**
      * Constructor de la clase para obtener el nivel
-     * @param nivel El nivel que indicara que vamos a buscar
+     * @param nivel El nivel que indicara que vamos a buscar y por defecto la altura sera de 1
      */
     public CargarDatosAsincrono(int nivel, Context contexto)
     {
         this.nivel = nivel;
         this.contexto = contexto;
         this.pdLoading = new ProgressDialog(contexto);
+        this.profundidad = 1;
     }
 
      /**
@@ -137,6 +139,17 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                 data = new ArrayList<Escuela>();
                 break;
 
+            case 9:
+
+                switch (profundidad)
+                {
+                    case 1:
+                        data = new ArrayList<Area>();
+                        break;
+                }
+
+                break;
+
             case 10:
                 data = new ArrayList<DataBuscador>();
                 break;
@@ -147,6 +160,23 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
         pdLoading.setMessage("\tBuscando...");
         pdLoading.setCancelable(false);
         pdLoading.show();
+    }
+
+
+    /**
+     * Getter para el atributo profundidad
+     * @return El nivel de profundidad al que estaremos buscando
+     */
+    public int getProfundidad() {
+        return this.profundidad;
+    }
+
+    /**
+     * Setter para establecer el nivel de profundiad actual
+     * @param profundidad La profundidad a la que nos referiremos
+     */
+    public void setProfundidad(int profundidad) {
+        this.profundidad = profundidad;
     }
 
     /**
@@ -179,8 +209,9 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
             //Creamos un objeto JSON que sera el que se va a enviar
             JSONObject dataEnviar = new JSONObject();
 
-            //Si el nivel es 9 significa que estamos usando el buscador escrito
-            if (this.nivel == 10)
+            /*Si el nivel es 9 significa que estamos desglozando desde areas
+            10 significa que estamos usando el buscador escrito */
+            if (this.nivel == 10 || (this.nivel == 9 && this.profundidad > 1))
             {
                 //Le agregamos los datos
                 dataEnviar.put("searchQuery", params[1]);
@@ -297,8 +328,6 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
             //Si la consulta arrojo datos
             if (arregloJSON.length() > 0)
             {
-                Area nuevaArea;
-                Piso nuevoPiso;
                 DataBuscador nuevoBuscador;
 
                 //Obtenemos cada uno de los datos arrojados por el JSON
@@ -393,12 +422,36 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                             data.add(nuevaFacultad);
                             break;
 
+                        //Escuelas
                         case 8:
 
                             Escuela nuevaEscuela = new Escuela(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"));
 
                             data.add(nuevaEscuela);
+                            break;
+
+                        //Areas y su desgloze
+                        case 9:
+
+                            //Profundidad a la que estaremos buscando
+                            switch (profundidad)
+                            {
+                                case 1:
+
+                                    Area nuevaArea = new Area(objetoJSON.getString("nombre"),
+                                            objetoJSON.getString("descripcion"));
+
+                                    nuevaArea.setId(objetoJSON.getInt("identificacion"));
+
+                                    data.add(nuevaArea);
+                                    break;
+
+                                case 2:
+                                    
+                                    break;
+                            }
+
                             break;
 
                         //Search escrito

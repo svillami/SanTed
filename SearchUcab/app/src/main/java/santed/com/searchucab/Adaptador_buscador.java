@@ -22,14 +22,31 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
     private Context contexto;
     private OnClickListener listener;
     private int nivel;
+    private int profundidad;
 
     public Adaptador_buscador(Context contexto, ArrayList<?> data, int nivel)
     {
         this.data = data;
         this.contexto = contexto;
         this.nivel = nivel;
+        this.profundidad = 1;
     }
 
+    /**
+     * Getter para la profundidad que buscaremos
+     * @return La profundidad que nos encontramos
+     */
+    public int getProfundidad() {
+        return profundidad;
+    }
+
+    /**
+     * Setter para la variable profundidad
+     * @param profundidad La profundidad a la que iremos
+     */
+    public void setProfundidad(int profundidad) {
+        this.profundidad = profundidad;
+    }
 
     @Override
     public Adaptador_buscador.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -48,6 +65,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
 
      //   return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.lugar_row, parent, false));
     }
+
+
 
     @Override
     public void onBindViewHolder(Adaptador_buscador.ViewHolder holder, int position)
@@ -147,6 +166,21 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 nombre = escuela.getNombre();
                 descripcion = escuela.getDescripcion();
                 lugar = "N/A";
+                break;
+
+            //Desgloze areas
+            case 9:
+
+                switch (profundidad)
+                {
+                    case 1:
+
+                        Area area = (Area) data.get(position);
+                        nombre = area.getNombre();
+                        descripcion = area.getDescripcion();
+                        lugar = "N/A";
+                        break;
+                }
                 break;
 
             //En caso de venir del buscador search

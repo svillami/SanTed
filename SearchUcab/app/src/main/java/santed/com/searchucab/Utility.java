@@ -34,4 +34,7 @@ public class Utility
     public static final String WEBSERVICE_ADMINISTRATIVOS = "https://santedsearch.000webhostapp.com/Administrativos.php" ;
 
     public static final String WEBSERVICE_CLIENTES = "https://santedsearch.000webhostapp.com/Clientes.php" ;
+
+    public static final String WEBSERVICE_AREAS1 = "https://santedsearch.000webhostapp.com/Areas.php";
+    public static final String WEBSERVICE_AREAS2 = "https://santedsearch.000webhostapp.com/Areas.php";
 }
