@@ -21,6 +21,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.UnsupportedEncodingException;
@@ -41,6 +43,10 @@ public class LecturaNfc extends AppCompatActivity {
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
 
+    public TextView tderecha;
+    public TextView tfrente;
+    public TextView tizquierda;
+    public TextView tatras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -255,9 +261,12 @@ public class LecturaNfc extends AppCompatActivity {
 
 
                 if (result.equals("1E")){
-                    String mensaje= getString(R.string.mensaje_1);
                     String titulo= getString(R.string.titulo_1);
-                    createDialogCorrect(titulo,mensaje);
+                    String derecha= getString(R.string.mensaje_1_derecha);
+                    String frente= getString(R.string.mensaje_1_frente);
+                    String izquierda= getString(R.string.mensaje_1_izquierda);
+                    String atras= getString(R.string.mensaje_1_atras);
+                    createDialogCorrect(titulo,derecha,frente,izquierda,atras);
                 }
                 else {
                     String mensaje= "Por favor verifique que sea un NFC de la Ucab";
@@ -270,7 +279,7 @@ public class LecturaNfc extends AppCompatActivity {
     }
 
     //Agregando el Dialogo Correcto
-    public AlertDialog createDialogCorrect(String Titulo, String mensaje) {
+    /*public AlertDialog createDialogCorrect(String Titulo, String mensaje) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(LecturaNfc.this);
 
@@ -294,6 +303,47 @@ public class LecturaNfc extends AppCompatActivity {
 
 
         return builder.create();
+    }*/
+
+    //Agregando el Dialogo Correcto
+    public AlertDialog createDialogCorrect(String titulo, String derecha, String frente, String izquierda, String atras) {
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppTheme_Dark_Dialog);
+
+        builder.setIcon(R.drawable.nfc_icon);
+        builder.setTitle(titulo);
+        builder.setCancelable(false);
+
+            LayoutInflater inflater = this.getLayoutInflater();
+            View v = inflater.inflate(R.layout.dialog_nfc, null);
+
+            tderecha=(TextView) v.findViewById(R.id.derecha);
+            tderecha.setText(derecha);
+
+            tfrente=(TextView) v.findViewById(R.id.frente);
+            tfrente.setText(frente);
+
+            tizquierda=(TextView) v.findViewById(R.id.izquierda);
+            tizquierda.setText(izquierda);
+
+            tatras=(TextView) v.findViewById(R.id.atras);
+            tatras.setText(atras);
+
+        builder.setView(v);
+
+        builder.setPositiveButton("Retornar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+
+                return;
+            }
+        });
+
+            builder.show();
+            //return builder.create();
+        return builder.create();
+
     }
 
     //Agregando el Dialogo Incorrecto

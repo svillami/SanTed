@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="titulo_1">prueba1</string>
-    <string name="mensaje_1">prueba2</string>
+    <string name="titulo_1">Usted se Encuenta en el: Area de E/S Metro de Antimano</string>
+    <string name="mensaje_1_derecha">Edificio Cincuentenario</string>
+    <string name="mensaje_1_frente">Estacionamiento de Postgrado</string>
+    <string name="mensaje_1_izquierda">E/S metro de Antímano</string>
+    <string name="mensaje_1_atras">Estacionamiento de Edif. Cincuentenario PB</string>
 </resources>
