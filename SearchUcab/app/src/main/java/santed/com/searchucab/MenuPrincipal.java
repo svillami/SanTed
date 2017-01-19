@@ -24,6 +24,8 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import samples.MainActivity;
+
 /**
  * Clase que manipulara el activity principal de la Aplicacion
  */
@@ -125,7 +127,9 @@ public class MenuPrincipal extends AppCompatActivity implements Buscador.EventLi
                     case R.id.tips:
 
                         ////Opción que muestra la guia de uso
-                        createSimpleDialog();
+                        //createSimpleDialog();
+                        Intent o = new Intent(MenuPrincipal.this, MainActivity.class);
+                        startActivity(o);
 
                         break;
 
