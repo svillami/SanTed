@@ -48,6 +48,7 @@ public class SampleCamFragment extends AbstractArchitectCamFragmentV4{
 	}
 	
 
+
 	@Override
 	public SensorAccuracyChangeListener getSensorAccuracyListener() {
 		return new SensorAccuracyChangeListener() {

@@ -7,6 +7,6 @@ public class SampleCamContentFromNativeActivity extends SampleCamActivity {
 	@Override
 	protected void onPostCreate( final Bundle savedInstanceState ) {
 		super.onPostCreate( savedInstanceState );
-		this.injectData();
+		//this.injectData();
 	}
 }

@@ -384,6 +384,10 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                             Banco nuevoBanco = new Banco(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"));
 
+                            nuevoBanco.setAltitud(Float.parseFloat(objetoJSON.getString("longitud")));
+
+                            nuevoBanco.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+
                             data.add(nuevoBanco);
                             break;
 

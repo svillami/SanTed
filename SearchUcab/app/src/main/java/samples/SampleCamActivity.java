@@ -17,6 +17,8 @@ import com.wikitude.architect.ArchitectView.ArchitectUrlListener;
 import com.wikitude.architect.ArchitectView.CaptureScreenCallback;
 import com.wikitude.architect.ArchitectView.SensorAccuracyChangeListener;
 import com.wikitude.architect.StartupConfiguration.CameraPosition;
+
+import santed.com.searchucab.Entidad;
 import santed.com.searchucab.R;
 
 import java.io.File;
@@ -35,16 +37,19 @@ public class SampleCamActivity extends AbstractArchitectCamActivity {
 
 	@Override
 	public String getARchitectWorldPath() {
-		return getIntent().getExtras().getString(
-				MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_ARCHITECT_WORLD_URL);
+		/*return getIntent().getExtras().getString(
+				MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_ARCHITECT_WORLD_URL);*/
+		return "samples/6_Browsing$Pois_6_Bonus-Capture$Screen/index.html";
+
 	}
 
 	@Override
 	public String getActivityTitle() {
-		return (getIntent().getExtras() != null && getIntent().getExtras().get(
+		/*return (getIntent().getExtras() != null && getIntent().getExtras().get(
 				MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_TITLE_STRING) != null) ? getIntent()
 				.getExtras().getString(MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_TITLE_STRING)
-				: "Test-World";
+				: "Test-World";*/
+		return "Buscando Lugar";
 	}
 
 	@Override
@@ -140,14 +145,16 @@ public class SampleCamActivity extends AbstractArchitectCamActivity {
 
 	@Override
 	protected boolean hasGeo() {
-		return getIntent().getExtras().getBoolean(
-				MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_GEO);
+		/*return getIntent().getExtras().getBoolean(
+				MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_GEO);*/
+		return true;
 	}
 
 	@Override
 	protected boolean hasIR() {
-		return getIntent().getExtras().getBoolean(
-				MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_IR);
+		/*return getIntent().getExtras().getBoolean(
+				MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_IR);*/
+		return true;
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package santed.com.searchucab;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
@@ -20,6 +21,9 @@ import android.widget.Toast;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+
+import samples.MainActivity;
+import samples.SampleCamActivity;
 
 /**
  * @// FIXME: 28/12/2016 ELIMINAR EL CONSTRUCTOR VIEJO DE LA CLASE AREA Y BANCO
@@ -424,6 +428,11 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                     case 3:
 
                         Banco bancoElegido = (Banco) data.get(rvBuscador.getChildAdapterPosition(v));
+
+                        Intent o = new Intent(Buscador.this.getActivity(), SampleCamActivity.class);
+                        o.putExtra("clase",bancoElegido);
+                        startActivity(o);
+
                         //nivel = 2;
                         //cargarDatos.setNivel(nivel);
                         break;

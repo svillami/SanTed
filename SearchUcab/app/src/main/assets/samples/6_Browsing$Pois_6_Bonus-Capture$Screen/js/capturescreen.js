@@ -1,10 +1,10 @@
 // information about server communication. This sample webservice is provided by Wikitude and returns random dummy places near given location
-var ServerInformation = {
+/*var ServerInformation = {
 	POIDATA_SERVER: "https://example.wikitude.com/GetSamplePois/",
 	POIDATA_SERVER_ARG_LAT: "lat",
 	POIDATA_SERVER_ARG_LON: "lon",
 	POIDATA_SERVER_ARG_NR_POIS: "nrPois"
-};
+};*/
 
 // implementation of AR-Experience (aka "World")
 var World = {
@@ -57,12 +57,12 @@ var World = {
 		// loop through POI-information and create an AR.GeoObject (=Marker) per POI
 		for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {
 			var singlePoi = {
-				"id": poiData[currentPlaceNr].id,
-				"latitude": parseFloat(poiData[currentPlaceNr].latitude),
-				"longitude": parseFloat(poiData[currentPlaceNr].longitude),
-				"altitude": parseFloat(poiData[currentPlaceNr].altitude),
-				"title": poiData[currentPlaceNr].name,
-				"description": poiData[currentPlaceNr].description
+				//"id": poiData[currentPlaceNr].id,
+				"latitude": parseFloat(poiData[currentPlaceNr].latitud),
+				"longitude": parseFloat(poiData[currentPlaceNr].longitud),
+				//"altitude": parseFloat(poiData[currentPlaceNr].altitude),
+				"title": poiData[currentPlaceNr].nombre,
+				"description": poiData[currentPlaceNr].descripcion
 			};
 
 			World.markerList.push(new Marker(singlePoi));
@@ -135,7 +135,7 @@ var World = {
 
 		// request data if not already present
 		if (!World.initiallyLoadedData) {
-			World.requestDataFromServer(lat, lon);
+			//World.requestDataFromServer(lat, lon);
 			World.initiallyLoadedData = true;
 		} else if (World.locationUpdateCounter === 0) {
 			// update placemark distance information frequently, you max also update distances only every 10m with some more effort

@@ -18,12 +18,17 @@ import com.wikitude.architect.ArchitectView.ArchitectUrlListener;
 import com.wikitude.architect.ArchitectView.SensorAccuracyChangeListener;
 import com.wikitude.architect.StartupConfiguration;
 import com.wikitude.architect.StartupConfiguration.CameraPosition;
+
+import santed.com.searchucab.Banco;
+import santed.com.searchucab.Entidad;
 import santed.com.searchucab.R;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -67,6 +72,30 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 
 	protected boolean isLoading = false;
 
+	protected JSONArray convertirajson (Entidad entidad){
+
+		JSONArray jsonArray = new JSONArray();
+
+		try{
+
+			JSONObject entidadJson = new JSONObject();
+			if (entidad instanceof Banco){
+				Banco miBanco = (Banco) entidad;
+				entidadJson.put("latitud", miBanco.getLatitud());
+				entidadJson.put("longitud", miBanco.getAltitud());
+				entidadJson.put("nombre", miBanco.getNombre());
+				entidadJson.put("descripcion", miBanco.getDescripcion());
+				jsonArray.put(entidadJson);
+			}
+			return jsonArray;
+
+
+		}catch (JSONException jse){
+			jse.printStackTrace();
+		}
+		return jsonArray;
+	}
+
 	/** Called when the activity is first created. */
 	@SuppressLint("NewApi")
 	@Override
@@ -80,7 +109,8 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 		this.setContentView( this.getContentViewId() );
 		
 		this.setTitle( this.getActivityTitle() );
-		
+
+
 		/*  
 		 *	this enables remote debugging of a WebView on Android 4.4+ when debugging = true in AndroidManifest.xml
 		 *	If you get a compile time error here, ensure to have SDK 19+ used in your ADT/Eclipse.
@@ -176,8 +206,9 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 
 	@Override
 	protected void onPostCreate( final Bundle savedInstanceState ) {
-		super.onPostCreate( savedInstanceState );
-		
+		super.onPostCreate(savedInstanceState);
+		Entidad entidad = (Entidad) getIntent().getSerializableExtra("clase");
+
 		if ( this.architectView != null ) {
 			
 			// call mandatory live-cycle method of architectView
@@ -198,6 +229,8 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 				e1.printStackTrace();
 			}
 		}
+
+		this.injectData(entidad);
 	}
 
 	@Override
@@ -323,7 +356,10 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 		return extensions != null && extensions.contains( "GL_OES_EGL_image_external" );
 	}
 
-	protected void injectData() {
+	protected void injectData(final Entidad entidad) {
+
+
+
 		if (!isLoading) {
 			final Thread t = new Thread(new Runnable() {
 				
@@ -353,7 +389,8 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 					
 					if (lastKnownLocaton!=null && !isFinishing()) {
 						// TODO: you may replace this dummy implementation and instead load POI information e.g. from your database
-						poiData = getPoiInformation(lastKnownLocaton, 20);
+						//poiData = getPoiInformation(lastKnownLocaton, 20);
+						poiData = convertirajson(entidad);
 						callJavaScript("World.loadPoisFromJsonData", new String[] { poiData.toString() });
 					}
 					

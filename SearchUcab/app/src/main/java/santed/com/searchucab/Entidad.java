@@ -1,10 +1,12 @@
 package santed.com.searchucab;
 
+import java.io.Serializable;
+
 /**
  * Created by Teddy J Sears on 16/01/2017.
  * Clase para crear familias de clases y representacion en objetos de las entidades en DB
  */
-public abstract class Entidad
+public abstract class Entidad implements Serializable
 {
     //Atributos de la clase
     private int Id;

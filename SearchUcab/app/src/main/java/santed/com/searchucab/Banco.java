@@ -1,5 +1,6 @@
 package santed.com.searchucab;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * @version 2.1.0
  * @// FIXME: 28/12/2016 ELIMINAR EL CONSTRUCTOR TEMPORAL CREADO
  */
-public class Banco
+public class Banco extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion, horaInicio, horaFin;
@@ -25,6 +26,7 @@ public class Banco
      */
     public Banco(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
+        super();
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
