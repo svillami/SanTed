@@ -46,12 +46,13 @@
 
             <!-- header of UI holding feature buttons -->
             <div id ="header-status" data-role="header" data-position="fixed" data-theme="c">
-                <a href="javascript: World.showRange();" data-icon="gear" data-inline="true" data-mini="true">Range</a>
-                <a href="javascript: World.captureScreen()" data-icon="refresh" >Snapshot</a>
-                <h1></h1>
-            </div>
+                <!-- <a href="javascript: World.showRange();" data-icon="gear" data-inline="true" data-mini="true">Range</a> -->
+                <a href="javascript: World.reloadPlaces()" data-icon="refresh" >Recargar</a>
+                 <a href="javascript: World.captureScreen()" data-icon="refresh" >Compartir</a>
+                 <h1></h1>
+             </div>
 
-            <!-- the radar div - Wikitude SDK radar will be drawn into this div -->
+             <!-- the radar div - Wikitude SDK radar will be drawn into this div -->
             <div class="radarContainer_left" id="radarContainer"></div>
 
             <!-- transparent footer-->
@@ -62,7 +63,7 @@
 
                 <!-- popup displayed when button clicked -->
                 <div data-role="popup" id="popupInfo" class="ui-content" data-theme="e" style="max-width:350px;">
-                  <p style="text-align:right;" id="status-message">Trying to find out where you are</p>
+                  <p style="text-align:right;" id="status-message">Tratando de localizar tu Ubicación</p>
                 </div>
                 
             </div>
@@ -76,8 +77,8 @@
 
                 <!-- header with "close" button -->
                 <div data-role="header" data-theme="c">
-                    <h1>Details</h1>
-                    <a href="#header" data-rel="close">Close</a>
+                    <h1>Detalles</h1>
+                    <a href="#header" data-rel="close">Cerrar</a>
                 </div>
 
                 <!-- content of POI detail page, you may also add thumbnails etc. here if you like -->
@@ -90,10 +91,10 @@
                     <h4 id="poi-detail-description"></h4>
 
                     <!-- distance -->
-                    <h4>Distance: <a id="poi-detail-distance"></a></h4>
+                    <h4>Distancia: <a id="poi-detail-distance"></a></h4>
 
                     <!-- more button-->
-                    <a href="javascript: World.onPoiDetailMoreButtonClicked();" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true">More</a>
+                    <a href="javascript: World.onPoiDetailMoreButtonClicked();" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true">Mas</a>
                 </div>
             </div>
 
@@ -105,7 +106,7 @@
                     <!-- header with close button -->
                     <div data-role="header" data-theme="c">
                         <h1>Range</h1>
-                        <a href="#header" data-rel="close">Close</a>
+                        <a href="#header" data-rel="close">Cerrar</a>
                     </div>
 
                     <!-- distance information, calculated/updated in code  -->

@@ -50,8 +50,8 @@ var World = {
 		World.markerList = [];
 
 		// start loading marker assets
-		World.markerDrawable_idle = new AR.ImageResource("assets/pinsadelante.png");
-		World.markerDrawable_selected = new AR.ImageResource("assets/pinatras.png");
+		World.markerDrawable_idle = new AR.ImageResource("assets/pinsadelante2.png");
+		World.markerDrawable_selected = new AR.ImageResource("assets/pinatras2.png");
 		World.markerDrawable_directionIndicator = new AR.ImageResource("assets/arrow.png");
 
 		// loop through POI-information and create an AR.GeoObject (=Marker) per POI
@@ -71,7 +71,7 @@ var World = {
 		// updates distance information of all placemarks
 		World.updateDistanceToUserValues();
 
-		World.updateStatusMessage(currentPlaceNr + ' places loaded');
+		World.updateStatusMessage(currentPlaceNr + ' lugar encontrado');
 
 		// set distance slider to 100%
 		$("#panel-distance-range").val(100);
@@ -314,7 +314,22 @@ var World = {
 	// helper to sort places by distance, descending
 	sortByDistanceSortingDescending: function(a, b) {
 		return b.distanceToUser - a.distanceToUser;
-	}
+	},
+
+
+	// reload places from content source
+        reloadPlaces: function reloadPlacesFn() {
+            if (!World.isRequestingData) {
+                if (World.userLocation) {
+                    World.requestDataFromServer(World.userLocation.latitude,
+                                                World.userLocation.longitude);
+                } else {
+                    World.updateStatusMessage('Unknown user-location.', true);
+                }
+            } else {
+                World.updateStatusMessage('Already requesting places...', true);
+            }
+        }
 
 };
 

@@ -157,7 +157,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 			this.architectView.onCreate( config );
 		} catch (RuntimeException rex) {
 			this.architectView = null;
-			Toast.makeText(getApplicationContext(), "can't create Architect View", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "No se pudo cargar la AR, por favor intente nuevamente.", Toast.LENGTH_SHORT).show();
 			Log.e(this.getClass().getName(), "Exception in ArchitectView.onCreate()", rex);
 		}
 
