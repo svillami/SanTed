@@ -18,7 +18,7 @@ function Marker(poiData) {
     var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude, poiData.altitude);
 
     // create an AR.ImageDrawable for the marker in idle state
-    this.markerDrawable_idle = new AR.ImageDrawable(World.markerDrawable_idle, 2.5, {
+    this.markerDrawable_idle = new AR.ImageDrawable(World.markerDrawable_idle, 50.5, {
         zOrder: 0,
         opacity: 1.0,
         /*
@@ -28,7 +28,7 @@ function Marker(poiData) {
     });
 
     // create an AR.ImageDrawable for the marker in selected state
-    this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 2.5, {
+    this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 50.5, {
         zOrder: 0,
         opacity: 0.0,
         onClick: null
@@ -56,8 +56,8 @@ function Marker(poiData) {
     /*
         Create an AR.ImageDrawable using the AR.ImageResource for the direction indicator which was created in the World. Set options regarding the offset and anchor of the image so that it will be displayed correctly on the edge of the screen.
     */
-    this.directionIndicatorDrawable = new AR.ImageDrawable(World.markerDrawable_directionIndicator, 0.1, {
-        enabled: false,
+    this.directionIndicatorDrawable = new AR.ImageDrawable(World.markerDrawable_directionIndicator, 0.20, {
+        enabled: true,
         verticalAnchor: AR.CONST.VERTICAL_ANCHOR.TOP
     });
 
@@ -180,7 +180,7 @@ Marker.prototype.setSelected = function(marker) {
     marker.markerDrawable_selected.onClick = Marker.prototype.getOnClickTrigger(marker);
 
     // enables the direction indicator drawable for the current marker
-    marker.directionIndicatorDrawable.enabled = true;
+    marker.directionIndicatorDrawable.enabled = false;
 
     marker.markerObject.drawables.radar = marker.radardrawablesSelected;
 
@@ -229,7 +229,7 @@ Marker.prototype.setDeselected = function(marker) {
     marker.markerDrawable_selected.onClick = null;
 
     // disables the direction indicator drawable for the current marker
-    marker.directionIndicatorDrawable.enabled = false;
+    marker.directionIndicatorDrawable.enabled = true;
     // starts the idle-state animation
     marker.animationGroup_idle.start();
 };

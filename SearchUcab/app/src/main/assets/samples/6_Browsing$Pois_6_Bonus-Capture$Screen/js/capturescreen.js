@@ -50,9 +50,9 @@ var World = {
 		World.markerList = [];
 
 		// start loading marker assets
-		World.markerDrawable_idle = new AR.ImageResource("assets/marker_idle.png");
-		World.markerDrawable_selected = new AR.ImageResource("assets/marker_selected.png");
-		World.markerDrawable_directionIndicator = new AR.ImageResource("assets/indi.png");
+		World.markerDrawable_idle = new AR.ImageResource("assets/pinsadelante.png");
+		World.markerDrawable_selected = new AR.ImageResource("assets/pinatras.png");
+		World.markerDrawable_directionIndicator = new AR.ImageResource("assets/arrow.png");
 
 		// loop through POI-information and create an AR.GeoObject (=Marker) per POI
 		for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {
