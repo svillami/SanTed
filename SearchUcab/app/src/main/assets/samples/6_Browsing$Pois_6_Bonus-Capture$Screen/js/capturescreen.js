@@ -35,6 +35,8 @@ var World = {
 	locationUpdateCounter: 0,
 	updatePlacemarkDistancesEveryXLocationUpdates: 10,
 
+	pData:null,
+
 	// called to inject new POI data
 	loadPoisFromJsonData: function loadPoisFromJsonDataFn(poiData) {
 
@@ -78,6 +80,7 @@ var World = {
 		$("#panel-distance-range").slider("refresh");
 
 		World.initialized = true;
+		World.pData= poiData;
 	},
 
 	// sets/updates distances of all makers so they are available way faster than calling (time-consuming) distanceToUser() method all the time
@@ -318,17 +321,13 @@ var World = {
 
 
 	// reload places from content source
-        reloadPlaces: function reloadPlacesFn() {
-            if (!World.isRequestingData) {
+	reloadPlaces: function reloadPlacesFn() {
                 if (World.userLocation) {
-                    World.requestDataFromServer(World.userLocation.latitude,
-                                                World.userLocation.longitude);
+                    World.loadPoisFromJsonData(World.pData);
                 } else {
-                    World.updateStatusMessage('Unknown user-location.', true);
+                    World.updateStatusMessage('Ubicación del usuario desconocida.', true);
                 }
-            } else {
-                World.updateStatusMessage('Already requesting places...', true);
-            }
+
         }
 
 };
