@@ -35,6 +35,25 @@ public class Utility
 
     public static final String WEBSERVICE_CLIENTES = "https://santedsearch.000webhostapp.com/Clientes.php" ;
 
-    public static final String WEBSERVICE_AREAS1 = "https://santedsearch.000webhostapp.com/Areas.php";
-    public static final String WEBSERVICE_AREAS2 = "https://santedsearch.000webhostapp.com/Areas.php";
+    public static final String WEBSERVICE_AREAS = "https://santedsearch.000webhostapp.com/Areas.php";
+
+    /**
+     * Metodo para obtener la URL para el webservice dependiendo de que tipo de lugar estamos buscando
+     * @param opcion La opcion para saber a cual de todos los lugares nos referimos para buscar
+     * @return
+     */
+    public static final String getWebservice(int opcion)
+    {
+        String URL = "";
+
+        switch (opcion)
+        {
+            case 1:
+
+                URL = "https://santedsearch.000webhostapp.com/AAuditorio.php";
+                break;
+        }
+
+        return URL;
+    }
 }

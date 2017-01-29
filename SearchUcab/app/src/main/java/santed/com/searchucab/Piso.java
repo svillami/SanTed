@@ -9,7 +9,7 @@ import java.util.List;
  * @version 1.0.0
  * @// TODO: 15/01/2017 Incluir Laboratorio, Salud y Deporte
  */
-public class Piso
+public class Piso extends Entidad
 {
     //Atributos de la clase
     private int nombre;
@@ -27,6 +27,7 @@ public class Piso
      */
     public Piso (int nombre)
     {
+        super();
         this.nombre = nombre;
         this.listaSalones = new ArrayList<String>();
     }

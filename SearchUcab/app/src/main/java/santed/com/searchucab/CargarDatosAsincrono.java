@@ -146,6 +146,14 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                     case 1:
                         data = new ArrayList<Area>();
                         break;
+
+                    /*Todos lo que tendra esa area seran entidades se
+                     debio haber hecho esta instanciacion de una vez en vez de todos los cases (
+                     usar entidad en vez del switch*/
+                    case 2:
+
+                        data = new ArrayList<Entidad>();
+                        break;
                 }
 
                 break;
@@ -441,6 +449,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                             //Profundidad a la que estaremos buscando
                             switch (profundidad)
                             {
+                                //Areas en General
                                 case 1:
 
                                     Area nuevaArea = new Area(objetoJSON.getString("nombre"),
@@ -451,8 +460,10 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                     data.add(nuevaArea);
                                     break;
 
+                                //Todos los elementos de esa area
                                 case 2:
-                                    
+
+
                                     break;
                             }
 

@@ -375,7 +375,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                             //Area primera
                             case 9:
 
-                                url = Utility.WEBSERVICE_AREAS1;
+                                url = Utility.WEBSERVICE_AREAS;
                                 break;
 
                         }
@@ -504,13 +504,32 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                                 //Obtenemos el area elegida, la url a consultar y aumentamos la profundidad
                                 Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
-                                url = Utility.WEBSERVICE_AREAS2;
 
-                                //Realizamos la consulta de nuevo
-                                cargarDatos.execute(url, Integer.toString(areaElegida.getId()));
+                                //Iteraremos por cada piso para obtener lugares que contiene
+                                for (int aux = 0; aux < areaElegida.getListaPiso().size(); aux++)
+                                {
+                                    //Obtendremos cada lugar del piso en que nos enontramos
+                                    for (int aux2 = 1; aux2 <= 10; aux2 ++)
+                                    {
+                                         /*Instanciamos de nuevo el AsyncTask
+                                        para poder usarlo de nuevo en cada piso */
+                                        cargarDatos = new CargarDatosAsincrono(nivel, getActivity());
+                                        cargarDatos.setProfundidad(2);
 
-                                profundidad = 3;
-                                cargarDatos.setProfundidad(2);
+                                        url = Utility.getWebservice(aux2);
+
+                                        //Realizamos la consulta de nuevo
+                                        cargarDatos.execute(url, Integer.toString(areaElegida.getId()),
+                                                Integer.toString(areaElegida.getListaPiso().get(aux).getId()));
+
+                                        
+
+                                    }
+
+                                }
+
+                                //profundidad = 3;
+                                // cargarDatos.setProfundidad(2);
                                 break;
                         }
 
