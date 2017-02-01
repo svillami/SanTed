@@ -147,6 +147,8 @@ var World = {
 
 		// helper used to update placemark information every now and then (e.g. every 10 location upadtes fired)
 		World.locationUpdateCounter = (++World.locationUpdateCounter % World.updatePlacemarkDistancesEveryXLocationUpdates);
+
+
 	},
 
 	// fired when user pressed maker in cam
@@ -335,6 +337,16 @@ var World = {
 
 /* forward locationChanges to custom function */
 AR.context.onLocationChanged = World.locationChanged;
+
+AR.context.scene.maxScalingDistance = 2000;
+
+//scene.cullingDistance= 1000;
+
+AR.context.scene.minScalingDistance = 1000;
+
+AR.context.scene.scalingFactor = 0.5;
+
+//scene.globalScale= 40000000.0;
 
 /* forward clicks in empty area to World */
 AR.context.onScreenClick = World.onScreenClick;

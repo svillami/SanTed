@@ -2,7 +2,9 @@ package santed.com.searchucab;
 
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
@@ -288,28 +290,25 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
         adaptador = new Adaptador_buscador(getActivity(), data, nivel);
 
         //Setteamos el listener
-        adaptador.setOnclickListener(new View.OnClickListener()
-        {
+        adaptador.setOnclickListener(new View.OnClickListener() {
             /*String que tendra el URL del webservice a consultar y auxiliar para obtener
              informacion de las areas */
             String url;
 
             //Obtenemos el elemento seleccionado
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 //Lo del string y el par de lineas de casteo abajo se eliminaran junto con el toast ya que son pruebas
                 String nombre = null;
 
                 /*Si es el primer nivel (-1) se trata del menu principal, sino significara
                 que es una opcion del menu y cada opcion tiene subniveles a la misma altura (arbol)*/
                 //En todos los niveles se activara la AR excepto en el -1 y en el 10
-                switch (nivel)
-                {
-                    case  -1:
+                switch (nivel) {
+                    case -1:
 
                         nombre = (String) data.get(rvBuscador.getChildAdapterPosition(v));
-                        Log.d("SUPERGOL",Integer.toString(rvBuscador.getChildAdapterPosition(v)));
+                        Log.d("SUPERGOL", Integer.toString(rvBuscador.getChildAdapterPosition(v)));
 
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
                         con los siguientes
@@ -320,8 +319,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                         /*Le suministramos la URL del webservice dependiendo de la opcion
                           y ejecutamos el hilo*/
-                        switch (nivel)
-                        {
+                        switch (nivel) {
                             //Servicios de Salud
                             case 0:
                                 url = Utility.WEBSERVICE_SALUD;
@@ -396,13 +394,13 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                     //Servicios de Salud
                     case 0:
 
-                      //  areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
-                       // nombre = areaElegida.getNombre();
-                        Salud salud = (Salud)  data.get(rvBuscador.getChildAdapterPosition(v));
+                        //  areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
+                        // nombre = areaElegida.getNombre();
+                        Salud salud = (Salud) data.get(rvBuscador.getChildAdapterPosition(v));
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
                         con los siguientes subelementos del area seleccionada*/
 
-                       // cargarDatos.setNivel(nivel);
+                        // cargarDatos.setNivel(nivel);
                         break;
 
                     //Servicios de Comida
@@ -429,9 +427,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                         Banco bancoElegido = (Banco) data.get(rvBuscador.getChildAdapterPosition(v));
 
-                        Intent o = new Intent(Buscador.this.getActivity(), SampleCamActivity.class);
-                        o.putExtra("clase",bancoElegido);
-                        startActivity(o);
+                        verificarGPS(bancoElegido);
 
                         //nivel = 2;
                         //cargarDatos.setNivel(nivel);
@@ -488,8 +484,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                         /*De acuerdo a la profundidad que vayamos haremos una consulta
                         diferente */
                         //Dependiendo de la profundiad castearemos objetos distintos
-                        switch(profundidad)
-                        {
+                        switch (profundidad) {
                             //Areas en general
                             case 1:
 
@@ -506,11 +501,9 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                 Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
 
                                 //Iteraremos por cada piso para obtener lugares que contiene
-                                for (int aux = 0; aux < areaElegida.getListaPiso().size(); aux++)
-                                {
+                                for (int aux = 0; aux < areaElegida.getListaPiso().size(); aux++) {
                                     //Obtendremos cada lugar del piso en que nos enontramos
-                                    for (int aux2 = 1; aux2 <= 10; aux2 ++)
-                                    {
+                                    for (int aux2 = 1; aux2 <= 10; aux2++) {
                                          /*Instanciamos de nuevo el AsyncTask
                                         para poder usarlo de nuevo en cada piso */
                                         cargarDatos = new CargarDatosAsincrono(nivel, getActivity());
@@ -522,7 +515,6 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                         cargarDatos.execute(url, Integer.toString(areaElegida.getId()),
                                                 Integer.toString(areaElegida.getListaPiso().get(aux).getId()));
 
-                                        
 
                                     }
 
@@ -574,7 +566,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                     }*/
 
 
-               // String nombre = data.get(rvBuscador.getChildAdapterPosition(v)).getNombre();
+                // String nombre = data.get(rvBuscador.getChildAdapterPosition(v)).getNombre();
             }
         });
 
@@ -583,6 +575,22 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
 
     }
+
+    // Verificando que el GPS este encendido
+    public  void verificarGPS (Entidad entidad){
+
+     final   LocationManager manager =(LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            Toast.makeText(getActivity(), "Enciende el GPS en la configuración, para disfrutar de la AR", Toast.LENGTH_LONG).show();
+
+        } else {
+            Intent o = new Intent(Buscador.this.getActivity(), SampleCamActivity.class);
+            o.putExtra("clase",entidad);
+            startActivity(o);}
+    }
+
+
 }
 
 
