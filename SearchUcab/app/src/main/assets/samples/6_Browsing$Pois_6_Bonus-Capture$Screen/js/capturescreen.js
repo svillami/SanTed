@@ -52,8 +52,8 @@ var World = {
 		World.markerList = [];
 
 		// start loading marker assets
-		World.markerDrawable_idle = new AR.ImageResource("assets/pinsadelante2.png");
-		World.markerDrawable_selected = new AR.ImageResource("assets/pinatras2.png");
+		World.markerDrawable_idle = new AR.ImageResource("assets/pinadelante3.png");
+		World.markerDrawable_selected = new AR.ImageResource("assets/pinatras3.png");
 		World.markerDrawable_directionIndicator = new AR.ImageResource("assets/arrow.png");
 
 		// loop through POI-information and create an AR.GeoObject (=Marker) per POI
@@ -338,13 +338,13 @@ var World = {
 /* forward locationChanges to custom function */
 AR.context.onLocationChanged = World.locationChanged;
 
-AR.context.scene.maxScalingDistance = 2000;
+AR.context.scene.maxScalingDistance = 5000;
 
 //scene.cullingDistance= 1000;
 
-AR.context.scene.minScalingDistance = 1000;
+AR.context.scene.minScalingDistance = 900;
 
-AR.context.scene.scalingFactor = 0.5;
+AR.context.scene.scalingFactor = 0.1;
 
 //scene.globalScale= 40000000.0;
 
