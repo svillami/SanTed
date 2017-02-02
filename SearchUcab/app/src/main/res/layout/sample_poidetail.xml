@@ -5,11 +5,11 @@
     android:orientation="vertical"
     tools:context=".Sample1PoiDetailActivity" >
 
-    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dip">
-	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/poi_id" /> 
-	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/poi_id"/>
-    </LinearLayout>
-    
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/toolbar"></include>
+
+
     <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dip">
 	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/poi_name" /> 
 	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/poi_title"/>
