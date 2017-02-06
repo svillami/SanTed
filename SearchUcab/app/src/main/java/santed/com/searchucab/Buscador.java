@@ -464,6 +464,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                         Salud salud = (Salud) data.get(rvBuscador.getChildAdapterPosition(v));
 
                         verificarGPS(salud);
+                        /*Toast toast = Toast.makeText(getActivity(), nombre, Toast.LENGTH_SHORT);
+                        toast.show();*/
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
                         con los siguientes subelementos del areas seleccionada*/
 
