@@ -56,21 +56,41 @@ var World = {
 
 		// Create a button which opens a website in a browser window after a click
 		this.imgButton = new AR.ImageResource("assets/wwwButton.jpg");
-		var pageOneButton = this.createWwwButton("http://n1sco.com/specifications/", 0.1, {
+		var pageOneButton = this.createWwwButton("https://www.youtube.com/watch?v=TN-k5x7sDHs#action=share", 0.1, {
 			offsetX: -0.05,
 			offsetY: 0.2,
 			zOrder: 1
 		});
+
 		video.play(-1);
-		video.pause();
+        video.pause();
+
+		//Agregado
+		var video2 = new AR.VideoDrawable("assets/video.mp4", 0.7, {
+        		//var video = new AR.VideoDrawable("assets/video.mp4", 0.7, {
+        			offsetX: -0.2,
+        			offsetY: -0.12,
+        			isTransparent: true
+        		});
+
+        		// Create a button which opens a website in a browser window after a click
+        this.imgButton = new AR.ImageResource("assets/wwwButton.jpg");
+        		var pageOneButton2 = this.createWwwButton("https://www.google.co.ve/", 0.1, {
+        			offsetX: -0.05,
+        			offsetY: 0.2,
+        			zOrder: 1
+        		});
+
+		video2.play(-1);
+		video2.pause();
+
+		//Fin de agregado
 
 		/*
 			Adding the video to the image target is straight forward and similar like adding any other drawable to an image target.
 
 			Note that this time we use "*" as target name. That means that the AR.Trackable2DObject will respond to any target that is defined in the specified tracker. You can use wildcards to specify more complex name matchings. E.g. 'target_?' to reference 'target_1' through 'target_9' or 'target*' for any targets names that start with 'target'.
 		*/
-
-
 
 
 
@@ -85,6 +105,19 @@ var World = {
 				video.pause();
 			}
 		});
+
+		//agregado
+		var pageOne = new AR.Trackable2DObject(this.tracker, "1*", {
+        			drawables: {
+        				cam: [video2, pageOneButton2]
+        			},
+        			onEnterFieldOfVision: function onEnterFieldOfVisionFn() {
+        				video2.resume();
+        			},
+        			onExitFieldOfVision: function onExitFieldOfVisionFn() {
+        				video2.pause();
+        			}
+        		});
 	},
 
 	createWwwButton: function createWwwButtonFn(url, size, options) {
