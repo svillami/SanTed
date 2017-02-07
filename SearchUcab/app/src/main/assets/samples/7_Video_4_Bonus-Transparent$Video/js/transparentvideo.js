@@ -47,7 +47,7 @@ var World = {
 
 			Adding the transparent H.264 video to a target image is easy and accomplished in the same way as any other video is added. Just make sure to set the isTransparent property of the AR.VideoDrawable to true.
 		*/
-		var video = new AR.VideoDrawable("assets/transparentVideo.mp4", 0.7, {
+		/*var video = new AR.VideoDrawable("assets/transparentVideo.mp4", 0.7, {
 		//var video = new AR.VideoDrawable("assets/video.mp4", 0.7, {
 			offsetX: -0.2,
 			offsetY: -0.12,
@@ -63,10 +63,10 @@ var World = {
 		});
 
 		video.play(-1);
-        video.pause();
+        video.pause();*/
 
 		//Agregado
-		var video2 = new AR.VideoDrawable("assets/video.mp4", 0.7, {
+		/*var video2 = new AR.VideoDrawable("assets/video.mp4", 0.7, {
         		//var video = new AR.VideoDrawable("assets/video.mp4", 0.7, {
         			offsetX: -0.2,
         			offsetY: -0.12,
@@ -82,7 +82,7 @@ var World = {
         		});
 
 		video2.play(-1);
-		video2.pause();
+		video2.pause();*/
 
 		//Fin de agregado
 
@@ -92,22 +92,70 @@ var World = {
 			Note that this time we use "*" as target name. That means that the AR.Trackable2DObject will respond to any target that is defined in the specified tracker. You can use wildcards to specify more complex name matchings. E.g. 'target_?' to reference 'target_1' through 'target_9' or 'target*' for any targets names that start with 'target'.
 		*/
 
+		var nombres = new Array("1","2");
+
+		for (i=0; i < nombres.length; i++)
+		{
 
 
-		var pageOne = new AR.Trackable2DObject(this.tracker, "2*", {
-			drawables: {
-				cam: [video, pageOneButton]
-			},
-			onEnterFieldOfVision: function onEnterFieldOfVisionFn() {
-				video.resume();
-			},
-			onExitFieldOfVision: function onExitFieldOfVisionFn() {
-				video.pause();
-			}
-		});
+			var pageOne = new AR.Trackable2DObject(this.tracker, nombres[i], {
+
+
+            			video: null,
+
+            			drawables:{
+
+            				cam: null
+            			},
+
+            			onEnterFieldOfVision: function onEnterFiedOfVisionFn() {
+
+
+            				if (this.video == null)
+            				{
+
+            					if (this.targetName == "1")
+								{
+								  this.video = new AR.VideoDrawable("assets/video.mp4", 0.7, {
+																					offsetX: -0.2,
+																					offsetY: -0.12,
+																					isTransparent: true
+																				});
+
+								}
+								else
+								{
+									this.video = new AR.VideoDrawable("assets/transparentVideo.mp4", 0.7, {
+																													offsetX: -0.2,
+																													offsetY: -0.12,
+																													isTransparent: true
+																												});
+
+								}
+
+								this.drawables.cam = this.video;
+
+								this.video.play(-1);
+            				}
+            				else
+            				{
+            					this.video.resume();
+            				}
+
+
+
+
+            			},
+            			onExitFieldOfVision: function onExitFieldOfVisionFn() {
+            				this.video.pause();
+            			}
+            		});
+		}
+
+
 
 		//agregado
-		var pageOne = new AR.Trackable2DObject(this.tracker, "1*", {
+		/*var pageOne = new AR.Trackable2DObject(this.tracker, "1*", {
         			drawables: {
         				cam: [video2, pageOneButton2]
         			},
@@ -117,7 +165,7 @@ var World = {
         			onExitFieldOfVision: function onExitFieldOfVisionFn() {
         				video2.pause();
         			}
-        		});
+        		});*/
 	},
 
 	createWwwButton: function createWwwButtonFn(url, size, options) {
