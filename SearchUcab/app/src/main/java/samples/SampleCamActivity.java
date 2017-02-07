@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.hardware.SensorManager;
 import android.location.LocationListener;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -18,7 +19,9 @@ import com.wikitude.architect.ArchitectView.CaptureScreenCallback;
 import com.wikitude.architect.ArchitectView.SensorAccuracyChangeListener;
 import com.wikitude.architect.StartupConfiguration.CameraPosition;
 
+import santed.com.searchucab.Buscador;
 import santed.com.searchucab.Entidad;
+import santed.com.searchucab.MenuPrincipal;
 import santed.com.searchucab.R;
 
 import java.io.File;
@@ -39,8 +42,26 @@ public class SampleCamActivity extends AbstractArchitectCamActivity {
 	public String getARchitectWorldPath() {
 		/*return getIntent().getExtras().getString(
 				MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_ARCHITECT_WORLD_URL);*/
-		return "samples/6_Browsing$Pois_6_Bonus-Capture$Screen/index.html";
+		//return "samples/6_Browsing$Pois_6_Bonus-Capture$Screen/index.html";
 
+
+		Intent intent2 = getIntent();
+		String opcion2 = intent2.getStringExtra(Buscador.OPCION2);
+		Intent intent = getIntent();
+		String opcion = intent.getStringExtra(MenuPrincipal.OPCION);
+
+		//Toast.makeText(getBaseContext(), "Hola: " + opcion, Toast.LENGTH_LONG).show();
+
+		if ((opcion != null) && (opcion.equals("RA3D")))
+
+			return "samples/7_Video_4_Bonus-Transparent$Video/index.html";
+
+		if ((opcion2 != null) && opcion2.equals("Buscador"))
+			return "samples/6_Browsing$Pois_6_Bonus-Capture$Screen/index.html";
+
+
+
+		return "samples/6_Browsing$Pois_6_Bonus-Capture$Screen/index.html";
 	}
 
 	@Override

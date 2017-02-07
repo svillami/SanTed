@@ -342,7 +342,12 @@ AR.context.scene.maxScalingDistance = 5000;
 
 //scene.cullingDistance= 1000;
 
-AR.context.scene.minScalingDistance = 900;
+//Se comenta para la prueba de teddy, esta es la version que debemos usar
+//AR.context.scene.minScalingDistance = 900;
+
+//este se coloca en 1200 para que lo presente en su trabajo
+AR.context.scene.minScalingDistance = 1200;
+
 
 AR.context.scene.scalingFactor = 0.1;
 

@@ -25,6 +25,8 @@ import android.widget.Toast;
 import java.util.Random;
 
 import samples.MainActivity;
+import samples.SampleCamActivity;
+import samples.SampleCamFragment;
 
 /**
  * Clase que manipulara el activity principal de la Aplicacion
@@ -35,7 +37,7 @@ public class MenuPrincipal extends AppCompatActivity implements Buscador.EventLi
     private DrawerLayout mDrawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
-
+    public static final String OPCION = "OPCION";
     /**
      * Metodo sobre escrito que ejecuta todas las instrucciones pertinentes al momento de que se
      * cargue la actividad
@@ -111,10 +113,15 @@ public class MenuPrincipal extends AppCompatActivity implements Buscador.EventLi
                          text = "RA3D";
                          duration = Toast.LENGTH_SHORT;
                          toast = Toast.makeText(context, text, duration);
-                        updateDisplay(new Buscador_escrito());
+                       /* updateDisplay(new Buscador_escrito());
                         toast.show();
 
-                        updateDisplay(new Buscador_escrito());
+                        updateDisplay(new Buscador_escrito());*/
+
+                        Intent p = new Intent(MenuPrincipal.this, SampleCamActivity.class);
+                        //startActivity(p);
+                        p.putExtra(OPCION,text);
+                        startActivity(p);
 
                         break;
 
@@ -127,9 +134,7 @@ public class MenuPrincipal extends AppCompatActivity implements Buscador.EventLi
                     case R.id.tips:
 
                         ////Opción que muestra la guia de uso
-                        //createSimpleDialog();
-                        Intent o = new Intent(MenuPrincipal.this, MainActivity.class);
-                        startActivity(o);
+                        createSimpleDialog();
 
                         break;
 

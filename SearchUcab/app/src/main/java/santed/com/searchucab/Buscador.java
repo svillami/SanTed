@@ -47,6 +47,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     private int nivel;
     private CargarDatosAsincrono cargarDatos;
     private int profundidad;
+    public static final String OPCION2 = "OPCION2";
 
     public Adaptador_buscador getAdaptador() {
         return adaptador;
@@ -587,7 +588,9 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
         } else {
             Intent o = new Intent(Buscador.this.getActivity(), SampleCamActivity.class);
             o.putExtra("clase",entidad);
-            startActivity(o);}
+            o.putExtra(OPCION2, "Buscador");
+            startActivity(o);
+        }
     }
 
 
