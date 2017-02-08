@@ -11,6 +11,8 @@ var World = {
 			onLoaded: this.worldLoaded
 		});
 
+		//this.imgButton = new AR.ImageResource("assets/wwwButton.jpg");
+
 		/*
 			Create a transparent video drawable:
 			This bonus example shows you how to add transparent videos on top of a target. Transparent videos require some extra preparation work.
@@ -71,17 +73,17 @@ var World = {
         			offsetX: -0.2,
         			offsetY: -0.12,
         			isTransparent: true
-        		});
+        		});*/
 
         		// Create a button which opens a website in a browser window after a click
-        this.imgButton = new AR.ImageResource("assets/wwwButton.jpg");
+       /* this.imgButton = new AR.ImageResource("assets/wwwButton.jpg");
         		var pageOneButton2 = this.createWwwButton("https://www.google.co.ve/", 0.1, {
         			offsetX: -0.05,
         			offsetY: 0.2,
         			zOrder: 1
-        		});
+        		});*/
 
-		video2.play(-1);
+		/*video2.play(-1);
 		video2.pause();*/
 
 		//Fin de agregado
@@ -103,6 +105,8 @@ var World = {
 
             			video: null,
 
+            			boton: null,
+
             			drawables:{
 
             				cam: null
@@ -114,26 +118,52 @@ var World = {
             				if (this.video == null)
             				{
 
+
             					if (this.targetName == "1")
 								{
 								  this.video = new AR.VideoDrawable("assets/video.mp4", 0.7, {
-																					offsetX: -0.2,
-																					offsetY: -0.12,
-																					isTransparent: true
-																				});
+									offsetX: -0.2,
+									offsetY: -0.12,
+									isTransparent: false
+								});
 
 								}
 								else
 								{
 									this.video = new AR.VideoDrawable("assets/transparentVideo.mp4", 0.7, {
-																													offsetX: -0.2,
-																													offsetY: -0.12,
-																													isTransparent: true
-																												});
+										offsetX: -0.2,
+										offsetY: -0.12,
+										isTransparent: true
+									});
+
+									var imagen= new AR.ImageResource("assets/wwwButton.jpg");
+									this.boton = new AR.ImageDrawable(imagen, 0.1 ,{
+
+										offsetX: -0.05,
+                                                			offsetY: 0.2,
+                                                			zOrder: 1,
+
+                                                			onClick : function ()
+                                                			{
+                                                			AR.context.openInBrowser("https://www.google.co.ve/");
+                                                			}
+
+
+									});
+
+
+
+								//	this.drawables.cam = [drawableimagen];
+
 
 								}
 
-								this.drawables.cam = this.video;
+								this.drawables.addCamDrawable(this.video);
+								if (this.boton != null)
+								{
+									this.drawables.addCamDrawable(this.boton);
+
+								}
 
 								this.video.play(-1);
             				}
@@ -168,13 +198,13 @@ var World = {
         		});*/
 	},
 
-	createWwwButton: function createWwwButtonFn(url, size, options) {
+	/*createWwwButton: function createWwwButtonFn(url, size, options) {
 		options.onClick = function() {
 			// this call opens a url in a browser window
 			AR.context.openInBrowser(url);
 		};
 		return new AR.ImageDrawable(this.imgButton, size, options);
-	},
+	},*/
 
 	worldLoaded: function worldLoadedFn() {
 		var cssDivInstructions = " style='display: table-cell;vertical-align: middle; text-align: right; width: 50%; padding-right: 15px;'";
