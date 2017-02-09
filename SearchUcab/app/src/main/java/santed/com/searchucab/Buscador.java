@@ -134,18 +134,21 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     {
         this.nivel = 10;
 
-        for (int aux2 = 0; aux2 < 1; aux2++){
-
+        for (int aux2 = 0; aux2 < 10; aux2++)
+        {
 
             //Instanciamos un AsyncTask para la consulta escrita
             this.cargarDatos = new CargarDatosAsincrono(10, getActivity());
 
             this.cargarDatos.setTipoEntidad(aux2);
             cargarDatos.setRecibirRespuesta(Buscador.this);
+
             //Limpiamos la lista que tiene la informacion vieja
             adaptador.LimpiarData();
+
             //Ejecutamos la consulta
             this.cargarDatos.execute(Utility.getWebserviceSearchEscrito(aux2), query);
+
             //Instanciamos el adaptador
             adaptador = new Adaptador_buscador(getActivity(), data, nivel);
 
