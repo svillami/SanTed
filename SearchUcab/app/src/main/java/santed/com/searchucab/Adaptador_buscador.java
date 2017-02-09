@@ -206,70 +206,70 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                             Auditorio auditorio = (Auditorio) data.get(position);
                             nombre = auditorio.getNombre();
                             descripcion = auditorio.getDescripcion();
-                            lugar = Utility.obtenerPiso(auditorio.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(auditorio.getTextosInformacion().get(1));
                         }
                         else if(data.get(position) instanceof Banco)
                         {
                             Banco banco2 = (Banco) data.get(position);
                             nombre = banco2.getNombre();
                             descripcion = banco2.getDescripcion();
-                            lugar = Utility.obtenerPiso(banco2.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(banco2.getTextosInformacion().get(1));
                         }
                         else if(data.get(position) instanceof Dependencia)
                         {
                             Dependencia dependencia2 = (Dependencia) data.get(position);
                             nombre = dependencia2.getNombre();
                             descripcion = dependencia2.getDescripcion();
-                            lugar = Utility.obtenerPiso(dependencia2.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(dependencia2.getTextosInformacion().get(1));
                         }
                         else if(data.get(position) instanceof Deporte)
                         {
                             Deporte deporte2 = (Deporte) data.get(position);
                             nombre = deporte2.getNombre();
                             descripcion = deporte2.getDescripcion();
-                            lugar = Utility.obtenerPiso(deporte2.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(deporte2.getTextosInformacion().get(1));
                         }
                         else if(data.get(position) instanceof Escuela)
                         {
                             Escuela escuela2 = (Escuela) data.get(position);
                             nombre = escuela2.getNombre();
                             descripcion = escuela2.getDescripcion();
-                            lugar = Utility.obtenerPiso(escuela2.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(escuela2.getTextosInformacion().get(1));
                         }
                         else if(data.get(position) instanceof Facultad)
                         {
                             Facultad facultad2 = (Facultad) data.get(position);
                             nombre = facultad2.getNombre();
                             descripcion = facultad2.getDescripcion();
-                            lugar = Utility.obtenerPiso(facultad2.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(facultad2.getTextosInformacion().get(1));
                         }
                         else if(data.get(position) instanceof Laboratorio)
                         {
                             Laboratorio laboratorio2 = (Laboratorio) data.get(position);
                             nombre = laboratorio2.getNombre();
                             descripcion = laboratorio2.getDescripcion();
-                            lugar = Utility.obtenerPiso(laboratorio2.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(laboratorio2.getTextosInformacion().get(1));
                         }
                         else if(data.get(position) instanceof Local)
                         {
                             Local local2 = (Local) data.get(position);
                             nombre = local2.getNombre();
                             descripcion = local2.getEspecialidad();
-                            lugar = Utility.obtenerPiso(local2.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(local2.getTextosInformacion().get(1));
                         }
                         else if(data.get(position) instanceof Monumento)
                         {
                             Monumento monumento2 = (Monumento) data.get(position);
                             nombre = monumento2.getNombre();
                             descripcion = monumento2.getDescripcion();
-                            lugar = Utility.obtenerPiso(monumento2.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(monumento2.getTextosInformacion().get(1));
                         }
                         else if(data.get(position) instanceof Salud)
                         {
                             Salud salud2 = (Salud) data.get(position);
                             nombre = salud2.getNombre();
                             descripcion = salud2.getDescripcion();
-                            lugar = Utility.obtenerPiso(salud2.getTextosInformacion().get(0));
+                            lugar = Utility.obtenerPiso(salud2.getTextosInformacion().get(1));
                         }
                         //Si caemos aqui es porque estamos en la busqueda por area
                         else if (data.get(position) instanceof Area)
@@ -293,70 +293,70 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                     Auditorio auditorio = (Auditorio) data.get(position);
                     nombre = auditorio.getNombre();
                     descripcion = auditorio.getDescripcion();
-                    lugar = Utility.obtenerPiso(auditorio.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(auditorio.getTextosInformacion().get(1));
                 }
                 else if(data.get(position) instanceof Banco)
                 {
                     Banco banco2 = (Banco) data.get(position);
                     nombre = banco2.getNombre();
                     descripcion = banco2.getDescripcion();
-                    lugar = Utility.obtenerPiso(banco2.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(banco2.getTextosInformacion().get(1));
                 }
                 else if(data.get(position) instanceof Dependencia)
                 {
                     Dependencia dependencia2 = (Dependencia) data.get(position);
                     nombre = dependencia2.getNombre();
                     descripcion = dependencia2.getDescripcion();
-                    lugar = Utility.obtenerPiso(dependencia2.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(dependencia2.getTextosInformacion().get(1));
                 }
                 else if(data.get(position) instanceof Deporte)
                 {
                     Deporte deporte2 = (Deporte) data.get(position);
                     nombre = deporte2.getNombre();
                     descripcion = deporte2.getDescripcion();
-                    lugar = Utility.obtenerPiso(deporte2.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(deporte2.getTextosInformacion().get(1));
                 }
                 else if(data.get(position) instanceof Escuela)
                 {
                     Escuela escuela2 = (Escuela) data.get(position);
                     nombre = escuela2.getNombre();
                     descripcion = escuela2.getDescripcion();
-                    lugar = Utility.obtenerPiso(escuela2.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(escuela2.getTextosInformacion().get(1));
                 }
                 else if(data.get(position) instanceof Facultad)
                 {
                     Facultad facultad2 = (Facultad) data.get(position);
                     nombre = facultad2.getNombre();
                     descripcion = facultad2.getDescripcion();
-                    lugar = Utility.obtenerPiso(facultad2.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(facultad2.getTextosInformacion().get(1));
                 }
                 else if(data.get(position) instanceof Laboratorio)
                 {
                     Laboratorio laboratorio2 = (Laboratorio) data.get(position);
                     nombre = laboratorio2.getNombre();
                     descripcion = laboratorio2.getDescripcion();
-                    lugar = Utility.obtenerPiso(laboratorio2.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(laboratorio2.getTextosInformacion().get(1));
                 }
                 else if(data.get(position) instanceof Local)
                 {
                     Local local2 = (Local) data.get(position);
                     nombre = local2.getNombre();
                     descripcion = local2.getEspecialidad();
-                    lugar = Utility.obtenerPiso(local2.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(local2.getTextosInformacion().get(1));
                 }
                 else if(data.get(position) instanceof Monumento)
                 {
                     Monumento monumento2 = (Monumento) data.get(position);
                     nombre = monumento2.getNombre();
                     descripcion = monumento2.getDescripcion();
-                    lugar = Utility.obtenerPiso(monumento2.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(monumento2.getTextosInformacion().get(1));
                 }
                 else if(data.get(position) instanceof Salud)
                 {
                     Salud salud2 = (Salud) data.get(position);
                     nombre = salud2.getNombre();
                     descripcion = salud2.getDescripcion();
-                    lugar = Utility.obtenerPiso(salud2.getTextosInformacion().get(0));
+                    lugar = Utility.obtenerPiso(salud2.getTextosInformacion().get(1));
                 }
                 //Si caemos aqui es porque estamos en la busqueda por area
                 else if (data.get(position) instanceof Area)
