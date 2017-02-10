@@ -136,10 +136,10 @@ var World = {
 										isTransparent: true
 									});
 
-									var imagen= new AR.ImageResource("assets/wwwButton.jpg");
+									var imagen= new AR.ImageResource("assets/informacionlogo.jpeg");
 									this.boton = new AR.ImageDrawable(imagen, 0.1 ,{
 
-										offsetX: -0.05,
+										offsetX: 0.1,
                                                 			offsetY: 0.2,
                                                 			zOrder: 1,
 
@@ -211,7 +211,7 @@ var World = {
 		var cssDivSurfer = " style='display: table-cell;vertical-align: middle; text-align: left; padding-right: 15px; width: 38px'";
 		var cssDivBiker = " style='display: table-cell;vertical-align: middle; text-align: left; padding-right: 15px;'";
 		document.getElementById('loadingMessage').innerHTML =
-			"<div" + cssDivInstructions + ">Scan Target &#35;1 (surfer) or &#35;2 (biker):</div>" +
+			"<div" + cssDivInstructions + ">Imagenes Referenciales:</div>" +
 			"<div" + cssDivSurfer + "><img src='assets/surfer.png'></img></div>" +
 			"<div" + cssDivBiker + "><img src='assets/bike.png'></img></div>";
 
@@ -219,7 +219,7 @@ var World = {
 		setTimeout(function() {
 			var e = document.getElementById('loadingMessage');
 			e.parentElement.removeChild(e);
-		}, 10000);
+		}, 20000);
 	}
 };
 
