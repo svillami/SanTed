@@ -7,17 +7,6 @@
     <string name="closeDrawer">close</string>
     <string name="informacion">Aplicación destinada al uso del público en general para la ubicación de diferentes sitios
     de la Universidad Católica Andres Bello. Desarrollada por Tesistas de Ingeniería Informática. </string>
-    <string name="dos">Cuando el usuario toca cualquiera de los botones de acción creados con un AlertDialog.Builder, el sistema descarta el diálogo por ti.
-
-El sistema también descarta el diálogo cuando el usuario toca un elemento en una lista de diálogo, excepto cuando la lista usa botones de selección o casillas de verificación. De lo contrario, puedes descartar el diálogo manualmente llamando adismiss() en tu DialogFragment.
-
-En caso de que necesites realizar determinadas acciones cuando el diálogo desaparezca, puedes implementar el método onDismiss() en tu DialogFragment.
-
-También puedes cancelar un diálogo. Este es un evento especial que indica que el usuario explícitamente abandonó el diálogo sin completar la tarea. Esto ocurre si el usuario presiona el botón Atrás o toca la pantalla fuera del área de diálogo, o si llamas explícitamente a cancel() en el Dialog (como en respuesta a un botón “Cancelar” en el diálogo).
-
-Como se muestra en el ejemplo anterior, puedes responder al evento de cancelación implementando onCancel() en tu clase DialogFragment.
-
-Nota: El sistema llama a onDismiss() con cada evento que invoque el método callbackonCancel(). No obstante, si llamas a Dialog.dismiss() o a DialogFragment.dismiss(), el sistema llama a onDismiss() pero no a onCancel(). Por lo tanto, generalmente debes llamar a dismiss() cuando el usuario presiona el botón positivo en tu diálogo para eliminar el diálogo de la vista.</string>
 
     <!-- TODO: Dialogos para la guia de uso -->
     <string name="dialogo_tips_uno">Disfruta con cada micro tips, estos aparecerán cada vez que entres a la opción de Tips en el menu principal.</string>
@@ -36,15 +25,38 @@ Nota: El sistema llama a onDismiss() con cada evento que invoque el método call
     <string name="dialogo_busqueda_lista_seis">El boton AYUDA te permite escanear con tu dispositivo diferentes imagenes distintivas, que te indicaran hacia donde debes dirigirte para orientarte mejor.</string>
 
 
-    <string name="dialogo_busqueda_escrito_uno">Puedes hacer una busqueda puntual de lo que quieras encontrar, usa palabras claves tales como: banco mercantil, secretaria o cincuentenario y si consigue coincidencias se desplegará una lista con los sitios que se adecuen a la busqueda.</string>
+    <string name="dialogo_busqueda_escrito_uno">Puedes hacer una busqueda puntual de lo que quieras encontrar, usa palabras claves tales como: banco, secretaria o cincuentenario y si consigue coincidencias se desplegará una lista con los sitios que se adecuen a la busqueda.</string>
     <string name="dialogo_busqueda_escrito_dos">Al entrar en alguna de las opciones, se levantara la Realidad Aumentada, y te mostrará un punto que hace referencia al sitio en cuestión, de acuerdo a su ubicación geográfica. Recuerda encender tu GPS para disfrutar de la experiencia.</string>
     <string name="dialogo_busqueda_escrito_tres">Puedes moverte en diferentes direcciones con tu positivo, siguiendo la dirección que indica la flecha, hasta que logres ver el punto, Si lo tocas, se desplegará una breve información del sitio.</string>
     <string name="dialogo_busqueda_escrito_cuatro">Además de la breve información, te mostrará la distancia a la que te encuentras desde el punto donde estas. En el boton Mas, apreciarás información detallada del punto y podrás acceder al boton de AYUDA. </string>
     <string name="dialogo_busqueda_escrito_cinco">El boton AYUDA te permite escanear con tu dispositivo diferentes imagenes distintivas, que te indicaran hacia donde debes dirigirte para orientarte mejor.</string>
 
     <string name="dialogo_ar_3d_uno">Esta opción te permite escanear monumentos o foto distintivas, que te desplegaran un material visual ya sea, un video o una foto para darte mayor información.</string>
-    <string name="dialogo_ar_3d_dos">Al entrar en esta opción se accionara la camara y podrás ver una lista de imagenes, si enfocas alguna de ellas se mostrará un video o una imagen que te dará mayor información del sitio o el momumento.</string>
+    <string name="dialogo_ar_3d_dos">Al entrar en esta opción se accionara la camara y podrás ver una lista de imagenes, si enfocas alguna de ellas se mostrará un video o una imagen que te dará mayor información del sitio o del momumento.</string>
     <string name="dialogo_ar_3d_tres">Si el video te muestra un boton de información, podrás hacer uso de este, para ir directamente a una página oficial.</string>
+
+    <string name="dialogo_etiqueta_uno">Las etiquetas con números con centro de colores, sirven para ser leidas por la opción Realidad Aumentada 3D, estas te mostrarán de forma puntual, donde te encuentras en ese momento y que hay a tu alrededor. </string>
+    <string name="dialogo_etiqueta_dos">Las etiquetas con fotos, sirven para ser leidas por la opción Realidad Aumentada 3D, estas desplegaran un video informativo del lugar o monumento capturado.</string>
+    <string name="dialogo_etiqueta_tres">Las etiquetas con el indicativo NFC, sirven para ser leidas por la opción Busqueda NFC, estas leeran el NFC correspondiente y te mostrarán de forma puntual donde te encuentras en ese momento y que hay a tu alrededor.</string>
+
+    <string name="dialogo_aviso_uno">Enciende el GPS en la configuración, para distrutar de la AR:</string>
+    <string name="dialogo_msm_uno">Este aviso te indica que tienes el GPS de tu dispositivo deshabilitado o apagado, una vez que lo hayas encendido podrás disfrutar de la experiencia que te ofrece la Realidad Aumentada.</string>
+    <string name="dialogo_aviso_dos">Lo sentimos. Este dispositivo no es compatible con NFC:</string>
+    <string name="dialogo_msm_dos">Este aviso te indica que tu dipositivo no posee una tarjeta NFC integrada que permita leer el contenido de las etiquetas de los NFC.</string>
+    <string name="dialogo_aviso_tres">NFC esta deshabilitado. Enciendalo para ubicarse:</string>
+    <string name="dialogo_msm_tres">Este aviso te indica que el dispositivo posees una tarjeta integrada para lectura de NFC, pero debes encenderla para poder leer el contenido de las mismas.</string>
+    <string name="dialogo_aviso_cuatro">Por favor, Acerque su dispositivo al NFC para su lectura:</string>
+    <string name="dialogo_msm_cuatro">Este aviso te indica que la App esta esperando leer el contenido de un NFC, para esto debes acercar tu dispositivo a la etiqueta NFC, a una distancia de al menos 1 Centimetro para captar la señal de la etiqueta.</string>
+    <string name="dialogo_aviso_cinco">Refrescando la ubicación, sino aparece reintenta desde el menu principal:</string>
+    <string name="dialogo_msm_cinco">Este aviso te indica que el dispositivo esta consultando mediante GPS la ubicación donde te encuentras, en caso de demora intenta nuevamente desde el menu principal.</string>
+    <string name="dialogo_aviso_seis"></string>
+    <string name="dialogo_msm_seis"></string>
+    <string name="dialogo_aviso_siete"></string>
+    <string name="dialogo_msm_siete"></string>
+    <string name="dialogo_aviso_ocho"></string>
+    <string name="dialogo_msm_ocho"></string>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

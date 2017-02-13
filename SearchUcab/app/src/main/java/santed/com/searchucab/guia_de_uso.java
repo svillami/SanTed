@@ -45,6 +45,8 @@ public class guia_de_uso extends Fragment {
         opcion_lista.add("Usos de la Realidad Aumentada 3D");
         opcion_lista.add("¿Cómo usar la busqueda NFC?");
         opcion_lista.add("¿Qué son los Tips?");
+        opcion_lista.add("Tipos de Etiquetas para lectura");
+        opcion_lista.add("Avisos de Interes");
 
         RecyclerView.Adapter adapter = new DataAdapter(opcion_lista);
         recyclerView.setAdapter(adapter);
@@ -77,6 +79,10 @@ public class guia_de_uso extends Fragment {
                         createSimpleDialog("¿Cómo usar el Buscador Lista?");
                                             } else if (opcion_lista.get(position).toString() == "¿Cómo usar el Buscador Escrito?"){
                         createSimpleDialog("¿Cómo usar el Buscador Escrito?");
+                    } else if (opcion_lista.get(position).toString() == "Tipos de Etiquetas para lectura"){
+                        createSimpleDialog("Tipos de Etiquetas para lectura");
+                    } else if (opcion_lista.get(position).toString() == "Avisos de Interes"){
+                        createSimpleDialog("Avisos de Interes");
                     }
                 }
 
@@ -102,6 +108,7 @@ public class guia_de_uso extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AppTheme_Dark_Dialog);
 
         builder.setTitle(result);
+
 
         // Se implememta la opcion de los tips
         if (result.equals("¿Qué son los Tips?")) {
@@ -158,7 +165,26 @@ public class guia_de_uso extends Fragment {
 
             builder.show();
             //return builder.create();
+        } else if (result.equals("Tipos de Etiquetas para lectura")) {
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+
+            View v = inflater.inflate(R.layout.dialog_etiquetas, null);
+
+            builder.setView(v);
+
+            builder.show();
+            //return builder.create();
+        } else if (result.equals("Avisos de Interes")) {
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+
+            View v = inflater.inflate(R.layout.dialog_avisos, null);
+
+            builder.setView(v);
+
+            builder.show();
+            //return builder.create();
         }
+
 
         return builder.create();
 

@@ -30,7 +30,7 @@
                 android:id="@+id/imageView"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="120dp"
                 android:src="@drawable/busqueda_nfc_uno" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:id="@+id/imageView3"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="520dp"
+                android:layout_marginTop="580dp"
                 android:src="@drawable/busqueda_nfc_dos"
                 android:layout_below="@+id/textView3" />
 
@@ -75,7 +75,7 @@
                 android:id="@+id/imageView4"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="930dp"
+                android:layout_marginTop="980dp"
                 android:src="@drawable/busqueda_nfc_tres"
                 android:layout_below="@+id/textView5" />
 
