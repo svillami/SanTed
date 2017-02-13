@@ -7,7 +7,7 @@ var World = {
 
 	createOverlays: function createOverlaysFn() {
 		// Initialize ClientTracker
-		this.tracker = new AR.ClientTracker("assets/prueba.wtc", {
+		this.tracker = new AR.ClientTracker("assets/magazine.wtc", {
 			onLoaded: this.worldLoaded
 		});
 
@@ -94,7 +94,7 @@ var World = {
 			Note that this time we use "*" as target name. That means that the AR.Trackable2DObject will respond to any target that is defined in the specified tracker. You can use wildcards to specify more complex name matchings. E.g. 'target_?' to reference 'target_1' through 'target_9' or 'target*' for any targets names that start with 'target'.
 		*/
 
-		var nombres = new Array("1","2");
+		var nombres = new Array("4","8");
 
 		for (i=0; i < nombres.length; i++)
 		{
@@ -119,7 +119,7 @@ var World = {
             				{
 
 
-            					if (this.targetName == "1")
+            					if (this.targetName == "4")
 								{
 								  this.video = new AR.VideoDrawable("assets/video.mp4", 0.7, {
 									offsetX: -0.2,

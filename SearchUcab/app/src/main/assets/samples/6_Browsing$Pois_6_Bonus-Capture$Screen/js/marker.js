@@ -21,7 +21,8 @@ function Marker(poiData) {
     this.markerDrawable_idle = new AR.ImageDrawable(World.markerDrawable_idle, 7.0, {
         zOrder: 0,
         opacity: 1.0,
-        scale:50,
+      //  scale:50,
+         scale:0.25,
 
         /*
             To react on user interaction, an onClick property can be set for each AR.Drawable. The property is a function which will be called each time the user taps on the drawable. The function called on each tap is returned from the following helper function defined in marker.js. The function returns a function which checks the selected state with the help of the variable isSelected and executes the appropriate function. The clicked marker is passed as an argument.
@@ -33,7 +34,8 @@ function Marker(poiData) {
     this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 7.0, {
         zOrder: 0,
         opacity: 0.0,
-        scale:50,
+       // scale:50,
+        scale:0.25,
         onClick: null
     });
 
@@ -41,8 +43,10 @@ function Marker(poiData) {
     //this.titleLabel = new AR.Label(poiData.title.trunc(10), 1.2, {
     this.titleLabel = new AR.Label(poiData.title, 1.2, {
         zOrder: 1,
-        offsetY: 80, //1.8
-        scale:80,
+        //offsetY: 80, //1.8
+        offsetY: 0.5,
+        //scale:80,
+        scale:0.25,
         style: {
             textColor: '#FFFFFF',
             fontStyle: AR.CONST.FONT_STYLE.BOLD
@@ -53,8 +57,9 @@ function Marker(poiData) {
    // this.descriptionLabel = new AR.Label(poiData.description.trunc(15), 0.8, {
     this.descriptionLabel = new AR.Label("Haz Click, para más Información", 1.2, {
         zOrder: 1,
-        offsetY: 0.6,
-        scale:60,
+        offsetY: 0.1,
+        //scale:60,
+        scale:0.20,
         style: {
             textColor: '#FFFFFF',
             fontStyle: AR.CONST.FONT_STYLE.BOLD
