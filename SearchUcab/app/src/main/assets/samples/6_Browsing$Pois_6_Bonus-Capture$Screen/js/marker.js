@@ -57,7 +57,7 @@ function Marker(poiData) {
     // create an AR.Label for the marker's description
    // this.descriptionLabel = new AR.Label(poiData.description.trunc(15), 0.8, {
    //this.descriptionLabel = new AR.Label("Haz Click, para más Información", 1.2, {
-    this.descriptionLabel = new AR.Label("Haz Click, para más Información", 1.8, {
+    this.descriptionLabel = new AR.Label("Haga Click, para más Información", 1.8, {
         zOrder: 1,
         offsetY: 0.1,
         //scale:60,
@@ -143,7 +143,7 @@ Marker.prototype.getOnClickTrigger = function(marker) {
 
             }
         } else {
-            AR.logger.debug('a animation is already running');
+            AR.logger.debug('Una animación está corriendo en este momento.');
         }
 
 

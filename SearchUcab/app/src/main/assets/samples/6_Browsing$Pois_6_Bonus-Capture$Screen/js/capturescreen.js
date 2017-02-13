@@ -276,7 +276,7 @@ var World = {
 		} else {
 
 			// no places are visible, because the are not loaded yet
-			World.updateStatusMessage('No places available yet', true);
+			World.updateStatusMessage('No hay lugares disponibles todavía', true);
 		}
 	},
 
@@ -298,7 +298,7 @@ var World = {
 
 		// set helper var to avoid requesting places while loading
 		World.isRequestingData = true;
-		World.updateStatusMessage('Requesting places from web-service');
+		World.updateStatusMessage('Pidiendo lugares al web-service');
 
 		// server-url to JSON content provider
 		var serverUrl = ServerInformation.POIDATA_SERVER + "?" + ServerInformation.POIDATA_SERVER_ARG_LAT + "=" + lat + "&" + ServerInformation.POIDATA_SERVER_ARG_LON + "=" + lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=20";
@@ -312,7 +312,7 @@ var World = {
 					To notify the user about connection problems a status message is updated.
 					In your own implementation you may e.g. use an info popup or similar.
 				*/
-				World.updateStatusMessage("Invalid web-service response.", true);
+				World.updateStatusMessage("Respuesta inválida del web-service.", true);
 				World.isRequestingData = false;
 			})
 			.complete(function() {

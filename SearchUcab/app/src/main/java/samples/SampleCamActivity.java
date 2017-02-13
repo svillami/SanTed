@@ -148,7 +148,8 @@ public class SampleCamActivity extends AbstractArchitectCamActivity {
                 if ( grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ) {
                     this.saveScreenCaptureToExternalStorage(SampleCamActivity.this.screenCapture);
                 } else {
-                    Toast.makeText(this, "Please allow access to external storage, otherwise the screen capture can not be saved.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Por favor permita el acceso al almacenamiento externo, de otra manera no se podrá salvar la captura de pantalla.", Toast.LENGTH_SHORT).show();
+
                 }
             }
         }
@@ -203,7 +204,7 @@ public class SampleCamActivity extends AbstractArchitectCamActivity {
                 share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(screenCaptureFile));
 
                 // 3. launch intent-chooser
-                final String chooserTitle = "Share Snaphot";
+                final String chooserTitle = "Compartir Captura";
                 SampleCamActivity.this.startActivity(Intent.createChooser(share, chooserTitle));
 
             } catch (final Exception e) {
@@ -213,7 +214,7 @@ public class SampleCamActivity extends AbstractArchitectCamActivity {
                     @Override
                     public void run() {
                         // show toast message in case something went wrong
-                        Toast.makeText(SampleCamActivity.this, "Unexpected error, " + e, Toast.LENGTH_LONG).show();
+                        Toast.makeText(SampleCamActivity.this, "Error inesperado, " + e, Toast.LENGTH_LONG).show();
                     }
                 });
             }

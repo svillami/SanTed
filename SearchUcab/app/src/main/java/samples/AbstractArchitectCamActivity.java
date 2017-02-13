@@ -92,6 +92,8 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 
 	private Toolbar toolbar;
 
+	private String path;
+
 	protected JSONArray convertirajson (Entidad entidad){
 
 		JSONArray jsonArray = new JSONArray();
@@ -444,7 +446,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 		} catch (RuntimeException rex) {
 			this.architectView = null;
 			Toast.makeText(getApplicationContext(), "No se pudo cargar la AR, por favor intente nuevamente.", Toast.LENGTH_SHORT).show();
-			Log.e(this.getClass().getName(), "Exception in ArchitectView.onCreate()", rex);
+			Log.e(this.getClass().getName(), "Excepción en ArchitectView.onCreate()", rex);
 		}
 
 		// set accuracy listener if implemented, you may e.g. show calibration prompt for compass using this listener
@@ -524,6 +526,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 
 				// <Script src="architect://architect.js"> se debe incluir
 				// load content via url in architectView, ensure '<script src="architect://architect.js"></script>' is part of this HTML file, have a look at wikitude.com's developer section for API references
+				this.path = this.getARchitectWorldPath();
 				this.architectView.load( this.getARchitectWorldPath() );
 
 				if (this.getInitialCullingDistanceMeters() != ArchitectViewHolderInterface.CULLING_DISTANCE_DEFAULT_METERS) {
@@ -549,7 +552,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 			
 			// register accuracy listener in architectView, if set
 			if (this.sensorAccuracyListener!=null) {
-				this.architectView.registerSensorAccuracyChangeListener( this.sensorAccuracyListener );
+				this.architectView.registerSensorAccuracyChangeListener(this.sensorAccuracyListener);
 			}
 		}
 
@@ -682,7 +685,10 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 							
 							@Override
 							public void run() {
-								Toast.makeText(AbstractArchitectCamActivity.this, R.string.location_fetching, Toast.LENGTH_SHORT).show();	
+								if (path.equals("samples/6_Browsing$Pois_6_Bonus-Capture$Screen/index.html"))
+								{
+									Toast.makeText(AbstractArchitectCamActivity.this, R.string.location_fetching, Toast.LENGTH_SHORT).show();
+								}
 							}
 						});
 			

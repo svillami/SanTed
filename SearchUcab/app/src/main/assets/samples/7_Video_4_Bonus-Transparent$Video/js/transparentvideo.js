@@ -160,7 +160,7 @@ var World = {
 
                                                 			onClick : function ()
                                                 			{
-                                                			AR.context.openInBrowser("https://www.google.co.ve/");
+                                                			AR.context.openInBrowser("http://w2.ucab.edu.ve/tl_files/sala_de_prensa/recursos/ucabista/nuevos2001-02/p11.htm");
                                                 			}
 
 
@@ -269,14 +269,17 @@ var World = {
 		var cssDivBiker = " style='display: table-cell;vertical-align: middle; text-align: left; padding-right: 15px;'";
 		document.getElementById('loadingMessage').innerHTML =
 			"<div" + cssDivInstructions + ">Imagenes Referenciales:</div>" +
-			"<div" + cssDivSurfer + "><img src='assets/surfer.png'></img></div>" +
-			"<div" + cssDivBiker + "><img src='assets/bike.png'></img></div>";
+			"<div" + cssDivSurfer + "><img src='assets/uno.png'></img></div>" +
+			"<div" + cssDivBiker + "><img src='assets/dos.png'></img></div>" +
+			"<div" + cssDivSurfer + "><img src='assets/tres.png'></img></div>" +
+			"<div" + cssDivSurfer + "><img src='assets/cinco.png'></img></div>" +
+			"<div" + cssDivBiker + "><img src='assets/cuatro.png'></img></div>";
 
 		// Remove Scan target message after 10 sec.
 		setTimeout(function() {
 			var e = document.getElementById('loadingMessage');
 			e.parentElement.removeChild(e);
-		}, 20000);
+		}, 10000);
 	}
 };
 

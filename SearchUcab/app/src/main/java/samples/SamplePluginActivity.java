@@ -114,7 +114,7 @@ public class SamplePluginActivity extends AbstractArchitectCamActivity {
 								share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(screenCaptureFile));
 		
 								// 3. launch intent-chooser
-								final String chooserTitle = "Share Snaphot";
+								final String chooserTitle = "Compartir captura";
 								SamplePluginActivity.this.startActivity(Intent.createChooser(share, chooserTitle));
 							
 							} catch (final Exception e) {
@@ -124,7 +124,7 @@ public class SamplePluginActivity extends AbstractArchitectCamActivity {
 									@Override
 									public void run() {
 										// show toast message in case something went wrong
-										Toast.makeText(SamplePluginActivity.this, "Unexpected error, " + e, Toast.LENGTH_LONG).show();
+										Toast.makeText(SamplePluginActivity.this, "Error inexperado., " + e, Toast.LENGTH_LONG).show();
 									}
 								});
 							}

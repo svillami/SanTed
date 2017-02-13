@@ -443,8 +443,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                         }
 
-                        Toast toast = Toast.makeText(getActivity(), nombre, Toast.LENGTH_SHORT);
-                        toast.show();
+                        /*Toast toast = Toast.makeText(getActivity(), nombre, Toast.LENGTH_SHORT);
+                        toast.show();*/
 
                         //Limpiamos la lista
                         adaptador.LimpiarData();
@@ -722,14 +722,14 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
      final   LocationManager manager =(LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
 
         if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER) ){
-            Toast.makeText(getActivity(), "Enciende el GPS en la configuración, para disfrutar de la AR", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Encienda el GPS en la configuración, para disfrutar de la AR", Toast.LENGTH_LONG).show();
 
         } else if (!isNetDisponible()){
 
-            Toast.makeText(getActivity(), "Enciende el servicio de red o conectatec a una red WI-FI", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Encienda el servicio de red o conéctese a una red WI-FI", Toast.LENGTH_LONG).show();
 
         } else if (!isOnlineNet()){
-            Toast.makeText(getActivity(), "Verifica tu plan de datos o el estado de la red WI-FI.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Verifique su plan de datos o el estado de la red WI-FI.", Toast.LENGTH_LONG).show();
 
         } else {
             Intent o = new Intent(Buscador.this.getActivity(), SampleCamActivity.class);

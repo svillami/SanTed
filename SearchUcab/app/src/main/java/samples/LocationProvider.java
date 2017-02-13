@@ -90,7 +90,7 @@ public class LocationProvider implements ILocationProvider {
 
 			/** user didn't check a single positioning in the location settings, recommended: handle this event properly in your app, e.g. forward user directly to location-settings, new Intent( Settings.ACTION_LOCATION_SOURCE_SETTINGS ) */
 			if ( !this.gpsProviderEnabled || !this.networkProviderEnabled ) {
-				Toast.makeText( this.context, "\n" + "Activa el GPS y la posición de red en tu configuración ", Toast.LENGTH_LONG ).show();
+				//Toast.makeText( this.context, "\n" + "Activa el GPS y la posición de red en tu configuración ", Toast.LENGTH_LONG ).show();
 			}
 		}
 	}

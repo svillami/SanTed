@@ -46,7 +46,7 @@ public class guia_de_uso extends Fragment {
         opcion_lista.add("¿Cómo usar la busqueda NFC?");
         opcion_lista.add("¿Qué son los Tips?");
         opcion_lista.add("Tipos de Etiquetas para lectura");
-        opcion_lista.add("Avisos de Interes");
+        opcion_lista.add("¿Por qué aparecen estos mensajes?");
 
         RecyclerView.Adapter adapter = new DataAdapter(opcion_lista);
         recyclerView.setAdapter(adapter);
@@ -81,8 +81,8 @@ public class guia_de_uso extends Fragment {
                         createSimpleDialog("¿Cómo usar el Buscador Escrito?");
                     } else if (opcion_lista.get(position).toString() == "Tipos de Etiquetas para lectura"){
                         createSimpleDialog("Tipos de Etiquetas para lectura");
-                    } else if (opcion_lista.get(position).toString() == "Avisos de Interes"){
-                        createSimpleDialog("Avisos de Interes");
+                    } else if (opcion_lista.get(position).toString() == "¿Por qué aparecen estos mensajes?"){
+                        createSimpleDialog("¿Por qué aparecen estos mensajes?");
                     }
                 }
 
@@ -174,7 +174,7 @@ public class guia_de_uso extends Fragment {
 
             builder.show();
             //return builder.create();
-        } else if (result.equals("Avisos de Interes")) {
+        } else if (result.equals("¿Por qué aparecen estos mensajes?")) {
             LayoutInflater inflater = getActivity().getLayoutInflater();
 
             View v = inflater.inflate(R.layout.dialog_avisos, null);
