@@ -266,6 +266,27 @@ public class LecturaNfc extends AppCompatActivity {
                     String frente= getString(R.string.mensaje_1_frente);
                     String izquierda= getString(R.string.mensaje_1_izquierda);
                     String atras= getString(R.string.mensaje_1_atras);
+                    createDialogCorrect(titulo, derecha, frente, izquierda, atras);
+                } else if (result.equals("2E")){
+                    String titulo= getString(R.string.titulo_2);
+                    String derecha= getString(R.string.mensaje_2_derecha);
+                    String frente= getString(R.string.mensaje_2_frente);
+                    String izquierda= getString(R.string.mensaje_2_izquierda);
+                    String atras= getString(R.string.mensaje_2_atras);
+                    createDialogCorrect(titulo,derecha,frente,izquierda,atras);
+                } else if (result.equals("3E")){
+                    String titulo= getString(R.string.titulo_3);
+                    String derecha= getString(R.string.mensaje_3_derecha);
+                    String frente= getString(R.string.mensaje_3_frente);
+                    String izquierda= getString(R.string.mensaje_3_izquierda);
+                    String atras= getString(R.string.mensaje_3_atras);
+                    createDialogCorrect(titulo,derecha,frente,izquierda,atras);
+                } else if (result.equals("4E")){
+                    String titulo= getString(R.string.titulo_4);
+                    String derecha= getString(R.string.mensaje_4_derecha);
+                    String frente= getString(R.string.mensaje_4_frente);
+                    String izquierda= getString(R.string.mensaje_4_izquierda);
+                    String atras= getString(R.string.mensaje_4_atras);
                     createDialogCorrect(titulo,derecha,frente,izquierda,atras);
                 }
                 else {
@@ -353,7 +374,8 @@ public class LecturaNfc extends AppCompatActivity {
 
         builder.setIcon(R.drawable.nfc_icon)
                 .setTitle("NFC incorrecto")
-                .setMessage(result + " id: " + var);
+                .setMessage(result);
+                //.setMessage(result + " id: " + var);
         builder.setCancelable(false);
 
         AlertDialog dialog = builder.show();

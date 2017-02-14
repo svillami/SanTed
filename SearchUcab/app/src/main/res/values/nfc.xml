@@ -5,4 +5,22 @@
     <string name="mensaje_1_frente">Estacionamiento de Postgrado</string>
     <string name="mensaje_1_izquierda">E/S metro de Antímano</string>
     <string name="mensaje_1_atras">Estacionamiento de Edif. Cincuentenario PB</string>
+
+    <string name="titulo_2">Usted se Encuenta en el: Area de Laboratorio</string>
+    <string name="mensaje_2_derecha">Edificio de Modulos</string>
+    <string name="mensaje_2_frente">Edificio de Laboratorios</string>
+    <string name="mensaje_2_izquierda">E/S Hacia el paraiso</string>
+    <string name="mensaje_2_atras">Estacionamiento de Laboratorio</string>
+
+    <string name="titulo_3">Usted se Encuenta en el: Area de Modulo 1</string>
+    <string name="mensaje_3_derecha">Modulos 2,3,4,5 y 6</string>
+    <string name="mensaje_3_frente">Entrada de Modulo 1</string>
+    <string name="mensaje_3_izquierda">Edificio de Laboratorio</string>
+    <string name="mensaje_3_atras">Plaza Mickey y Aula Magna/Iglesia</string>
+
+    <string name="titulo_4">Usted se Encuenta en el: Area de Biblioteca</string>
+    <string name="mensaje_4_derecha">Banco BOD y Aula Magna/Iglesia</string>
+    <string name="mensaje_4_frente">La Biblioteca</string>
+    <string name="mensaje_4_izquierda">Edificio de servicios Generales y Posgrado</string>
+    <string name="mensaje_4_atras">Jardines</string>
 </resources>
