@@ -351,7 +351,7 @@ AR.context.scene.minScalingDistance = 10;
 
 
 //AR.context.scene.scalingFactor = 0.1;
-AR.context.scene.scalingFactor = 0.5;
+AR.context.scene.scalingFactor = 0.25;
 
 
 //scene.globalScale= 40000000.0;
