@@ -11,7 +11,13 @@ var World = {
 			onLoaded: this.worldLoaded
 		});
 
-		//this.imgButton = new AR.ImageResource("assets/wwwButton.jpg");
+		this.imgButton = new AR.ImageResource("assets/informacionlogo.png");
+
+		var pageOneButton = this.createWwwButton("http://w2.ucab.edu.ve/tl_files/sala_de_prensa/recursos/ucabista/nuevos2001-02/p11.htm", 0.1, {
+        			offsetX: -0.05,
+        			offsetY: 0.5,
+        			zOrder: 1
+        		});
 
 		/*
 			Create a transparent video drawable:
@@ -151,8 +157,8 @@ var World = {
 										isTransparent: true
 									});
 
-									var imagen= new AR.ImageResource("assets/informacionlogo.jpeg");
-									this.boton = new AR.ImageDrawable(imagen, 0.1 ,{
+								//	var imagen= new AR.ImageResource("assets/informacionlogo.jpeg");
+									/*this.boton = new AR.ImageDrawable(imagen, 0.1 ,{
 
 										offsetX: 0.1,
                                                 			offsetY: 0.2,
@@ -164,7 +170,9 @@ var World = {
                                                 			}
 
 
-									});
+									}); */
+
+									this.boton = pageOneButton;
 
 
 									this.drawables.addCamDrawable(this.video);
@@ -255,13 +263,13 @@ var World = {
         		});*/
 	},
 
-	/*createWwwButton: function createWwwButtonFn(url, size, options) {
+	createWwwButton: function createWwwButtonFn(url, size, options) {
 		options.onClick = function() {
 			// this call opens a url in a browser window
 			AR.context.openInBrowser(url);
 		};
 		return new AR.ImageDrawable(this.imgButton, size, options);
-	},*/
+	},
 
 	worldLoaded: function worldLoadedFn() {
 		var cssDivInstructions = " style='display: table-cell;vertical-align: middle; text-align: right; width: 50%; padding-right: 15px;'";
