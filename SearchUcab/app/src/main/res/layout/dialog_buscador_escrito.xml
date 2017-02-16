@@ -53,7 +53,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="680dp"
-                android:src="@drawable/buscador_escrito_dos"
+                android:src="@drawable/buscador_lista_cuatro"
                 android:layout_below="@+id/textView2" />
 
             <TextView
@@ -76,7 +76,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="1120dp"
-                android:src="@drawable/buscador_escrito_dos"
+                android:src="@drawable/buscador_escrito_tres"
                 android:layout_below="@+id/textView3" />
 
             <TextView
@@ -99,7 +99,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="1600dp"
-                android:src="@drawable/buscador_escrito_dos"
+                android:src="@drawable/buscador_escrito_cuatro"
                 android:layout_below="@+id/textView4"
                 />
 
@@ -123,7 +123,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="2040dp"
-                android:src="@drawable/buscador_escrito_dos"
+                android:src="@drawable/buscador_escrito_cinco"
                 android:layout_below="@+id/textView5"
                 />
 

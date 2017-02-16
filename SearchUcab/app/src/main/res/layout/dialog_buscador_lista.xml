@@ -54,7 +54,7 @@
                 android:id="@+id/imageView3"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="465dp"
+                android:layout_marginTop="500dp"
                 android:src="@drawable/buscador_lista_tres"
                 android:layout_below="@+id/textView3" />
 
@@ -77,8 +77,8 @@
                 android:id="@+id/imageView4"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="950dp"
-                android:src="@drawable/buscador_escrito_dos"
+                android:layout_marginTop="980dp"
+                android:src="@drawable/buscador_lista_cuatro"
                 android:layout_below="@+id/textView4" />
 
             <TextView
@@ -101,7 +101,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="1390dp"
-                android:src="@drawable/buscador_escrito_dos"
+                android:src="@drawable/buscador_lista_cinco"
                 android:layout_below="@+id/textView5" />
 
             <TextView
@@ -124,7 +124,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="1850dp"
-                android:src="@drawable/buscador_escrito_dos"
+                android:src="@drawable/buscador_lista_seis"
                 android:layout_below="@+id/textView6" />
 
             <TextView
@@ -147,7 +147,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="2300dp"
-                android:src="@drawable/buscador_escrito_dos"
+                android:src="@drawable/buscador_lista_siete"
                 android:layout_below="@+id/textView7"
                 />
             <TextView

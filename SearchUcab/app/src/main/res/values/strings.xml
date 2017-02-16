@@ -21,13 +21,13 @@
     <string name="dialogo_busqueda_lista_dos">En cada opción se mostrará una breve información del sitio que desea buscar, con respecto a ese servicio.</string>
     <string name="dialogo_busqueda_lista_tres">Al entrar en alguna de las opciones, se levantará la Realidad Aumentada, y le mostrará un punto que hace referencia al sitio en cuestión, de acuerdo a su ubicación geográfica. Recuerde encender su GPS para disfrutar de la experiencia.</string>
     <string name="dialogo_busqueda_lista_cuatro">Puede moverse en diferentes direcciones con su dispositivo, siguiendo la dirección que indica la flecha, hasta que logre ver el punto, Si lo toca, se desplegará una breve información del sitio.</string>
-    <string name="dialogo_busqueda_lista_cinco">Además de la breve información, le mostrará la distancia a la que se encuentra desde el punto donde está. En el boton MAS, apreciará información detallada del punto y podrá acceder al boton de AYUDA. </string>
+    <string name="dialogo_busqueda_lista_cinco">Además de la breve información, le mostrará la distancia a la que se encuentra desde el punto donde está. En el botón MAS, apreciará información detallada del punto y podrá acceder al botón de AYUDA. </string>
     <string name="dialogo_busqueda_lista_seis">El botón AYUDA le permite escanear con su dispositivo diferentes imagenes distintivas, que le indicarán hacia donde debe dirigirse para orientarse mejor.</string>
 
 
     <string name="dialogo_busqueda_escrito_uno">Puede hacer una busqueda puntual de lo que quiera encontrar, use palabras claves tales como: banco, secretaría o cincuentenario y si consigue coincidencias se desplegará una lista con los sitios que se adecuen a la búsqueda.</string>
     <string name="dialogo_busqueda_escrito_dos">Al entrar en alguna de las opciones, se levantará la Realidad Aumentada, y le mostrará un punto que hace referencia al sitio en cuestión, de acuerdo a su ubicación geográfica. Recuerde encender su GPS para disfrutar de la experiencia.</string>
-    <string name="dialogo_busqueda_escrito_tres">Puede moverse en diferentes direcciones con su positivo, siguiendo la dirección que indica la flecha, hasta que logre ver el punto, Si lo toca, se desplegará una breve información del sitio.</string>
+    <string name="dialogo_busqueda_escrito_tres">Puede moverse en diferentes direcciones con su dispositivo, siguiendo la dirección que indica la flecha, hasta que logre ver el punto, Si lo toca, se desplegará una breve información del sitio.</string>
     <string name="dialogo_busqueda_escrito_cuatro">Además de la breve información, le mostrará la distancia a la que se encuentra desde el punto donde está. En el botón MAS, apreciará información detallada del punto y podrá acceder al botón de AYUDA. </string>
     <string name="dialogo_busqueda_escrito_cinco">El botón AYUDA le permite escanear con su dispositivo diferentes imágenes distintivas, que le indicarán hacia dónde debe dirigirse para orientarse mejor.</string>
 
