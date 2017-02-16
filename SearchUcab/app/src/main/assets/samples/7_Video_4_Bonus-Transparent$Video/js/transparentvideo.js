@@ -14,8 +14,8 @@ var World = {
 		this.imgButton = new AR.ImageResource("assets/informacionlogo.png");
 
 		var pageOneButton = this.createWwwButton("http://w2.ucab.edu.ve/tl_files/sala_de_prensa/recursos/ucabista/nuevos2001-02/p11.htm", 0.1, {
-        			offsetX: -0.05,
-        			offsetY: 0.5,
+        			offsetX: -0.07,
+        			offsetY: 0.30,
         			zOrder: 1
         		});
 
@@ -151,7 +151,9 @@ var World = {
 								{
 									if (this.video == null)
                                                                                 				{
-									this.video = new AR.VideoDrawable("assets/transparentVideo.mp4", 0.7, {
+									//this.video = new AR.VideoDrawable("assets/transparentVideo.mp4", 0.7, {
+									this.video = new AR.VideoDrawable("assets/despues.mp4", 0.7, {
+
 										offsetX: -0.2,
 										offsetY: -0.12,
 										isTransparent: true
