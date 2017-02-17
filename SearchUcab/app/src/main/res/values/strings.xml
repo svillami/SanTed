@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SearchUcab</string>
     <string name="about">Información</string>
+    <string name="help">Ayuda</string>
     <string name="exit">Salir</string>
     <string name="openDrawer">open</string>
     <string name="closeDrawer">close</string>
@@ -40,6 +41,8 @@ Nota: El sistema llama a onDismiss() con cada evento que invoque el método call
     <string name="poi_id">ID</string>
     <string name="title_activity_sample1_poi_detail">Sample 5.1 POI Detail</string>
     <string name="footer">Sample App</string>
+    <string name="informacionAR3D">Si desea apoyo para conseguir el sitio que busca, por favor oprima el boton Ayuda que se encuentra en la parte superior.</string>
+
 
 </resources>
 
