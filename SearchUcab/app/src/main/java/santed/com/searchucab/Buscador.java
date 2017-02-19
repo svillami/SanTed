@@ -134,7 +134,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     {
         this.nivel = 10;
 
-        for (int aux2 = 0; aux2 < 10; aux2++){
+        for (int aux2 = 0; aux2 < 1; aux2++){
 
 
             //Instanciamos un AsyncTask para la consulta escrita

@@ -916,31 +916,84 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                                 case 0:
 
-                                    nuevaArea = new Area(objetoJSON.getString("nombre"),
-                                            objetoJSON.getString("descripcion"));
-                                    nuevaArea.setId(objetoJSON.getInt("identificacion"));
+                                    //Si son diferentes significa que ya no es la misma areas y no tenemos que agregarle mas pisos
+                                    if (IDaux != objetoJSON.getInt("identificacion"))
+                                    {
+                                        //Evitar que se inserte vacio la primera vez
+                                        if(!PrimeraVez)
+                                        {
+                                            data.add(nuevaArea);
+                                        }
+                                        else
+                                        {
+                                            PrimeraVez = false;
+                                        }
 
-                                    //Creamos un piso nuevo para esa areas y se la agregamos
-                                    Piso nuevoPiso = new Piso(objetoJSON.getString("piso"));
+                                        //Creo la nueva areas y setteo el ID
+                                        nuevaArea = new Area(objetoJSON.getString("nombre"),
+                                                objetoJSON.getString("descripcion"));
+                                        nuevaArea.setId(objetoJSON.getInt("identificacion"));
 
-                                    nuevaArea.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-                                    nuevaArea.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                                        //Creamos un piso nuevo para esa areas y se la agregamos
+                                        Piso nuevoPiso = new Piso(objetoJSON.getString("piso"));
 
-                                    nuevaArea.setTextosInformacion("vacio");
-                                    nuevaArea.setTextosInformacion("vacio");
+                                        nuevaArea.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
+                                        nuevaArea.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
 
-                                    //ESTO DEBE CAMBIARSE POR INFORMACION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                                    nuevaArea.setTextosInformacion(objetoJSON.getString("descripcion"));
+                                        nuevaArea.setTextosInformacion("vacio");
+                                        nuevaArea.setTextosInformacion("vacio");
 
-                                    nuevoPiso.setId(objetoJSON.getInt("identificacionPiso"));
+                                        //ESTO DEBE CAMBIARSE POR INFORMACION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                        nuevaArea.setTextosInformacion(objetoJSON.getString("descripcion"));
 
-                                    data.add(nuevaArea);
+                                        nuevoPiso.setId(objetoJSON.getInt("identificacionPiso"));
+
+                                        //Le agregamos un nuevo salon si no viene nulo en el JSON
+                                        if (objetoJSON.getString("salon") != null && !objetoJSON.getString("salon").equals("NULL"))
+                                        {
+                                            nuevoPiso.AgregarSalon(objetoJSON.getString("salon"));
+
+                                            Log.d("PISO","AGREGO PISOS ARRIBA!!!!!");
+                                        }
+
+                                        //Agregamos el piso al areas
+                                        nuevaArea.AgregarPiso(nuevoPiso);
+
+                                        //Cambiamos el auxiliar
+                                        IDaux = objetoJSON.getInt("identificacion");
+
+                                        Log.d("AUXILIAR", String.valueOf(IDaux));
+                                    }
+                                    else
+                                    {
+                                        //Creamos un piso nuevo para esa areas y se la agregamos
+                                        Piso nuevoPiso = new Piso(objetoJSON.getString("piso"));
+                                        nuevoPiso.setId(objetoJSON.getInt("identificacionPiso"));
+
+                                        //Le agregamos un nuevo salon si no viene nulo en el JSON
+                                        if (objetoJSON.getString("salon") != null && !objetoJSON.getString("salon").equals("NULL"))
+                                        {
+                                            nuevoPiso.AgregarSalon(objetoJSON.getString("salon"));
+
+                                            Log.d("PISO","AGREGO PISOS ABAJO!!!!!");
+
+                                        }
+
+                                        //Agregamos el piso al areas
+                                        nuevaArea.AgregarPiso(nuevoPiso);
+
+                                    }
                                     break;
 
                             }
 
-                            //Le damos la respuesta
-                            this.recibirRespuesta.RecibiendoRespuesta(data);
+                            if (this.tipoEntidad != 0)
+                            {
+
+                                //Le damos la respuesta
+                                this.recibirRespuesta.RecibiendoRespuesta(data);
+                            }
+
 
                             break;
                     }
@@ -954,6 +1007,14 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                         ,objetoJSON.getString("descripcion"));
                         data.add(nuevaArea);
                     }*/
+                }
+
+                if (this.nivel == 10 && this.tipoEntidad == 0)
+                {
+                    this.data.add(nuevaArea);
+
+                    //Le damos la respuesta
+                    this.recibirRespuesta.RecibiendoRespuesta(data);
                 }
             }
 

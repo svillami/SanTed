@@ -27,6 +27,7 @@ import com.wikitude.architect.ArchitectView.SensorAccuracyChangeListener;
 import com.wikitude.architect.StartupConfiguration;
 import com.wikitude.architect.StartupConfiguration.CameraPosition;
 
+import santed.com.searchucab.Area;
 import santed.com.searchucab.Auditorio;
 import santed.com.searchucab.Banco;
 import santed.com.searchucab.Dependencia;
@@ -346,6 +347,32 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 					for (int aux = 1; aux < miSalud.getTextosInformacion().size() ; aux ++)
 					{
 						entidadJson.accumulate("informacion", miSalud.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
+				jsonArray.put(entidadJson);
+			}
+
+			else if (entidad instanceof Area)
+			{
+				Area miArea = (Area) entidad;
+				entidadJson.put("latitud", miArea.getLatitud());
+				entidadJson.put("longitud", miArea.getLongitud());
+				entidadJson.put("nombre", miArea.getNombre());
+				entidadJson.put("descripcion", miArea.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miArea.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 1; aux < miArea.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate("informacion", miArea.getTextosInformacion().get(aux));
 					}
 				}
 				else
