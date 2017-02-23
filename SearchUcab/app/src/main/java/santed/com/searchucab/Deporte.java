@@ -8,7 +8,7 @@ import java.util.List;
  * Clase que contendra la informacion de un servicio de deporte en particular
  * @version 1.0.0
  */
-public class Deporte
+public class Deporte extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion;
@@ -23,6 +23,7 @@ public class Deporte
      */
     public Deporte(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
+        super();
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
@@ -35,6 +36,7 @@ public class Deporte
      */
     public Deporte(String nombre, String descripcion)
     {
+        super();
         this.nombre = nombre;
         this.descripcion = descripcion;
     }

@@ -9,7 +9,7 @@ import java.util.List;
  * @version 1.1.0
  * @// TODO: 28/12/2016 Falta agregarle la informacion restante 
  */
-public class Local
+public class Local extends Entidad
 {
     //Atributos de la clase
     private String nombre, especialidad, horaInicio, horaFin;
@@ -25,6 +25,7 @@ public class Local
      */
     public Local(String nombre, String especialidad, HashMap<String, List<String>> informacion)
     {
+        super();
         this.nombre = nombre;
         this.especialidad = especialidad;
         this.informacion = informacion;
@@ -37,6 +38,7 @@ public class Local
      */
     public Local (String nombre, String especialidad)
     {
+        super();
         this.nombre = nombre;
         this.especialidad = especialidad;
     }

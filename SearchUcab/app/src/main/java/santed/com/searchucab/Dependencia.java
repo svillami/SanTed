@@ -8,7 +8,7 @@ import java.util.List;
  * Clase que contendra la informacion de una dependencia de la universidad en particular
  * @version 1.1.0
  */
-public class Dependencia
+public class Dependencia extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion, horaInicio, horaFin;
@@ -27,6 +27,7 @@ public class Dependencia
     public Dependencia(String nombre, String descripcion,
                        HashMap<String, List<String>> informacion, boolean administrativo)
     {
+        super();
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
@@ -41,6 +42,7 @@ public class Dependencia
      */
     public Dependencia (String nombre, String descripcion, boolean administrativo)
     {
+        super();
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.administrativo = administrativo;

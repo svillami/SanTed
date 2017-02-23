@@ -49,6 +49,22 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
     private Context contexto;
     private ProgressDialog pdLoading;
     private int profundidad;
+    private int tipoEntidad;
+    private RecibirRespuesta recibirRespuesta;
+
+    //Interfaz para recibir la respuesta para el nivel por areas
+    public interface RecibirRespuesta
+    {
+        void RecibiendoRespuesta(ArrayList respuesta);
+    }
+
+    public RecibirRespuesta getRecibirRespuesta() {
+        return recibirRespuesta;
+    }
+
+    public void setRecibirRespuesta(RecibirRespuesta recibirRespuesta) {
+        this.recibirRespuesta = recibirRespuesta;
+    }
 
     /**
      * Constructor de la clase para obtener el nivel
@@ -60,9 +76,27 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
         this.contexto = contexto;
         this.pdLoading = new ProgressDialog(contexto);
         this.profundidad = 1;
+        this.recibirRespuesta = null;
     }
 
-     /**
+    /**
+     * Getter para obtener el tipo de Entidad
+     * @return El tipo de Entidad los cuales estamos buscando
+     */
+    public int getTipoEntidad() {
+        return tipoEntidad;
+    }
+
+
+    /**
+     * Setter para indicar el Tipo de Entidad que estamos buscando
+     * @param tipoEntidad El tipo de entidad con el que trabajaremos
+     */
+    public void setTipoEntidad(int tipoEntidad) {
+        this.tipoEntidad = tipoEntidad;
+    }
+
+    /**
      * Getter para obtener el valor del nivel
      * @return El nivel al que estamos buscando
      */
@@ -338,6 +372,12 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
             {
                 DataBuscador nuevoBuscador;
 
+                //Nos ayudara a manipular las areas agregandoles piso o no de acuerdo a si el ID cambia
+                int IDaux = -1;
+                boolean PrimeraVez = true;
+
+                Area nuevaArea = null;
+
                 //Obtenemos cada uno de los datos arrojados por el JSON
                 for (int aux = 0; aux < arregloJSON.length(); aux ++)
                 {
@@ -452,17 +492,161 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                 //Areas en General
                                 case 1:
 
-                                    Area nuevaArea = new Area(objetoJSON.getString("nombre"),
-                                            objetoJSON.getString("descripcion"));
+                                    //Si son diferentes significa que ya no es la misma area y no tenemos que agregarle mas pisos
+                                    if (IDaux != objetoJSON.getInt("identificacion"))
+                                    {
+                                        //Evitar que se inserte vacio la primera vez
+                                        if(!PrimeraVez)
+                                        {
+                                            data.add(nuevaArea);
+                                        }
+                                        else
+                                        {
+                                            PrimeraVez = false;
+                                        }
 
-                                    nuevaArea.setId(objetoJSON.getInt("identificacion"));
+                                        //Creo la nueva area y setteo el ID
+                                        nuevaArea = new Area(objetoJSON.getString("nombre"),
+                                                objetoJSON.getString("descripcion"));
+                                        nuevaArea.setId(objetoJSON.getInt("identificacion"));
 
-                                    data.add(nuevaArea);
+                                        //Creamos un piso nuevo para esa area y se la agregamos
+                                        Piso nuevoPiso = new Piso(objetoJSON.getString("piso"));
+                                        nuevoPiso.setId(objetoJSON.getInt("identificacionPiso"));
+
+                                        //Le agregamos un nuevo salon si no viene nulo en el JSON
+                                        if (objetoJSON.getString("salon") != null && !objetoJSON.getString("salon").equals("NULL"))
+                                        {
+                                            nuevoPiso.AgregarSalon(objetoJSON.getString("salon"));
+
+                                            Log.d("PISO","AGREGO PISOS ARRIBA!!!!!");
+                                        }
+
+                                        //Agregamos el piso al area
+                                        nuevaArea.AgregarPiso(nuevoPiso);
+
+                                        //Cambiamos el auxiliar
+                                        IDaux = objetoJSON.getInt("identificacion");
+
+                                        Log.d("AUXILIAR", String.valueOf(IDaux));
+                                    }
+                                    else
+                                    {
+                                        //Creamos un piso nuevo para esa area y se la agregamos
+                                        Piso nuevoPiso = new Piso(objetoJSON.getString("piso"));
+                                        nuevoPiso.setId(objetoJSON.getInt("identificacionPiso"));
+
+                                        //Le agregamos un nuevo salon si no viene nulo en el JSON
+                                        if (objetoJSON.getString("salon") != null && !objetoJSON.getString("salon").equals("NULL"))
+                                        {
+                                            nuevoPiso.AgregarSalon(objetoJSON.getString("salon"));
+
+                                            Log.d("PISO","AGREGO PISOS ABAJO!!!!!");
+
+                                        }
+
+                                        //Agregamos el piso al area
+                                        nuevaArea.AgregarPiso(nuevoPiso);
+
+                                    }
+
                                     break;
 
-                                //Todos los elementos de esa area
+                                //Todos los elementos de esa area obtenemos sus datos de acuerdo al que sea
                                 case 2:
 
+                                    switch (this.tipoEntidad)
+                                    {
+
+                                        case 1:
+
+                                            Auditorio nuevoAuditorio = new Auditorio(objetoJSON.getString("nombre"),
+                                                objetoJSON.getString("descripcion"));
+
+                                            nuevoAuditorio.setId(objetoJSON.getInt("identificacion"));
+
+                                            data.add(nuevoAuditorio);
+                                        break;
+
+                                        case 2:
+
+                                            Banco nuevoBanco2 = new Banco(objetoJSON.getString("nombre")
+                                                    ,objetoJSON.getString("descripcion"));
+
+                                            nuevoBanco2.setAltitud(Float.parseFloat(objetoJSON.getString("longitud")));
+
+                                            nuevoBanco2.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+
+                                            data.add(nuevoBanco2);
+                                            break;
+
+                                        case 3:
+
+                                            Dependencia nuevaDependencia2 = new Dependencia(objetoJSON.getString("nombre")
+                                                    ,objetoJSON.getString("descripcion"), true);
+
+                                            data.add(nuevaDependencia2);
+                                            break;
+
+                                        case 4:
+
+                                            Deporte nuevoDeporte2 = new Deporte(objetoJSON.getString("nombre")
+                                                    ,objetoJSON.getString("descripcion"));
+
+                                            data.add(nuevoDeporte2);
+                                            break;
+
+                                        case 5:
+
+                                            Escuela nuevaEscuela2 = new Escuela(objetoJSON.getString("nombre")
+                                                    ,objetoJSON.getString("descripcion"));
+
+                                            data.add(nuevaEscuela2);
+                                            break;
+
+                                        case 6:
+
+                                            Facultad nuevaFacultad2 = new Facultad(objetoJSON.getString("nombre")
+                                                    ,objetoJSON.getString("descripcion"));
+
+                                            data.add(nuevaFacultad2);
+                                            break;
+
+                                        case 7:
+
+                                            Laboratorio nuevoLaboratorio2 = new Laboratorio(objetoJSON.getString("nombre")
+                                                    ,objetoJSON.getString("descripcion"));
+
+                                            data.add(nuevoLaboratorio2);
+                                            break;
+
+                                        case 8:
+
+                                            Local nuevoLocal2 = new Local(objetoJSON.getString("nombre")
+                                                    ,objetoJSON.getString("especialidad"));
+
+                                            data.add(nuevoLocal2);
+                                            break;
+
+                                        case 9:
+
+                                            Monumento nuevoMonumento2 = new Monumento(objetoJSON.getString("nombre")
+                                                    ,objetoJSON.getString("descripcion"));
+
+                                            data.add(nuevoMonumento2);
+                                            break;
+
+                                        case 10:
+
+                                            Salud nuevaSalud2 = new Salud(objetoJSON.getString("nombre")
+                                                    ,objetoJSON.getString("descripcion"));
+
+                                            data.add(nuevaSalud2);
+                                            break;
+                                    }
+
+                                    //Le damos la respuesta
+                                    this.recibirRespuesta.RecibiendoRespuesta(data);
 
                                     break;
                             }

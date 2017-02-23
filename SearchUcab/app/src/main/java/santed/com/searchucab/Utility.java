@@ -52,6 +52,52 @@ public class Utility
 
                 URL = "https://santedsearch.000webhostapp.com/AAuditorio.php";
                 break;
+
+            case 2:
+
+                URL = "https://santedsearch.000webhostapp.com/ABanco.php";
+                break;
+
+            case 3:
+
+                URL = "https://santedsearch.000webhostapp.com/ADependencia.php";
+                break;
+
+            case 4:
+
+                URL = "https://santedsearch.000webhostapp.com/ADeporte.php";
+                break;
+
+            case 5:
+
+                URL = "https://santedsearch.000webhostapp.com/AEscuela.php";
+                break;
+
+            case 6:
+
+                URL = "https://santedsearch.000webhostapp.com/AFacultad.php";
+                break;
+
+            case 7:
+
+                URL = "https://santedsearch.000webhostapp.com/ALaboratorio.php";
+                break;
+
+            case 8:
+
+                URL = "https://santedsearch.000webhostapp.com/ALocal.php";
+                break;
+
+            case 9:
+
+                URL = "https://santedsearch.000webhostapp.com/AMonumento.php";
+                break;
+
+            case 10:
+
+                URL = "https://santedsearch.000webhostapp.com/ASalud.php";
+                break;
+
         }
 
         return URL;

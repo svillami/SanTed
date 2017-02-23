@@ -23,6 +23,7 @@ import android.widget.Toast;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import samples.MainActivity;
 import samples.SampleCamActivity;
@@ -31,7 +32,7 @@ import samples.SampleCamActivity;
  * @// FIXME: 28/12/2016 ELIMINAR EL CONSTRUCTOR VIEJO DE LA CLASE AREA Y BANCO
  * @// TODO: 09/01/2017 Programar el onbackpressed para regresar a la lista principal 
  */
-public class Buscador extends Fragment implements SearchView.OnQueryTextListener
+public class Buscador extends Fragment implements SearchView.OnQueryTextListener, CargarDatosAsincrono.RecibirRespuesta
 {
 
     /*@Override
@@ -158,6 +159,11 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
         return false;
     }
 
+    @Override
+    public void RecibiendoRespuesta(ArrayList respuesta) {
+        this.data.addAll(respuesta);
+    }
+
 
     //Define an interface that will notify your activity of data set change
     public interface EventListener {
@@ -278,10 +284,13 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
             MenuPrincipal();
 
         }
-       else
+       else if (this.profundidad != 2)
         {
             //Obtenemos la data proveniente del Asynctask
             data = this.cargarDatos.getData();
+
+            //Obtenemos la profundidad
+            this.profundidad = this.cargarDatos.getProfundidad();
 
             //Instanciamos de nuevo el AsyncTask para poder usarlo de nuevo
             this.cargarDatos = new CargarDatosAsincrono(this.nivel, getActivity());
@@ -289,6 +298,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
         //Instanciamos el adaptador
         adaptador = new Adaptador_buscador(getActivity(), data, nivel);
+        adaptador.setProfundidad(this.profundidad);
 
         //Setteamos el listener
         adaptador.setOnclickListener(new View.OnClickListener() {
@@ -480,46 +490,97 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                     case 9:
 
                         //Limpiamos la lista
-                        adaptador.LimpiarData();
+                        //adaptador.LimpiarData();
 
                         /*De acuerdo a la profundidad que vayamos haremos una consulta
                         diferente */
                         //Dependiendo de la profundiad castearemos objetos distintos
                         switch (profundidad) {
+
                             //Areas en general
                             case 1:
-
-                                profundidad = 2;
-                                adaptador.setProfundidad(1);
-
-                                //Realizamos la consulta de nuevo
-                                cargarDatos.execute(url);
-                                break;
-
-                            case 2:
 
                                 //Obtenemos el area elegida, la url a consultar y aumentamos la profundidad
                                 Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
 
                                 //Iteraremos por cada piso para obtener lugares que contiene
-                                for (int aux = 0; aux < areaElegida.getListaPiso().size(); aux++) {
-                                    //Obtendremos cada lugar del piso en que nos enontramos
-                                    for (int aux2 = 1; aux2 <= 10; aux2++) {
-                                         /*Instanciamos de nuevo el AsyncTask
-                                        para poder usarlo de nuevo en cada piso */
+                                //  for (int aux = 0; aux < areaElegida.getListaPiso().size(); aux++)
+                                //  {
+                             //   ArrayList auxiliarData1 = null;
+                               // ArrayList auxiliarData2 = new ArrayList<Entidad>();
+                                adaptador.setProfundidad(2);
+
+                                profundidad = 2;
+
+                                //Obtendremos cada lugar del piso en que nos encontramos
+                                for (int aux2 = 1; aux2 <= 2; aux2++)
+                                {
+                                    /*Instanciamos de nuevo el AsyncTask
+                                    para poder usarlo de nuevo en cada piso */
+                                    cargarDatos = new CargarDatosAsincrono(nivel, getActivity());
+                                    cargarDatos.setProfundidad(2);
+
+                                    /*Dependiendo del numero sabremos
+                                     que estamos trabajando (1-auditorio, 2-banco, etc.)*/
+                                    cargarDatos.setTipoEntidad(aux2);
+                                    url = Utility.getWebservice(aux2);
+
+                                    cargarDatos.setRecibirRespuesta(Buscador.this);
+
+                                    //Realizamos la consulta de nuevo
+
+                                    cargarDatos.execute(url, Integer.toString(areaElegida.getId()));
+
+
+                                    //Agregamos la data al auxiliar
+                                    //auxiliarData1 = cargarDatos.getData();
+                                  //  auxiliarData2.addAll(auxiliarData1);
+
+                                 /*   for (int i = 0; i < cargarDatos.getData().size(); i++)
+                                    {
+                                        auxiliarData.add(cargarDatos.getData().get(i));
+                                    }*/
+
+                                }
+
+                                //Creamos un cargardatos auxiliar para almacenar la data
+                              /*  cargarDatos = new CargarDatosAsincrono(nivel, getActivity());
+                                cargarDatos.setProfundidad(2);
+                                cargarDatos.setData(auxiliarData1);*/
+
+                                adaptador.LimpiarData();
+                                break;
+
+                            case 2:
+
+                                /*
+                                Obtenemos el area elegida, la url a consultar y aumentamos la profundidad
+                                Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
+
+                                Iteraremos por cada piso para obtener lugares que contiene
+                                for (int aux = 0; aux < areaElegida.getListaPiso().size(); aux++)
+                                {
+                                    //Obtendremos cada lugar del piso en que nos encontramos
+                                    for (int aux2 = 1; aux2 <= 1; aux2++)
+                                    {
+                                        /*Instanciamos de nuevo el AsyncTask
+                                        para poder usarlo de nuevo en cada piso
                                         cargarDatos = new CargarDatosAsincrono(nivel, getActivity());
                                         cargarDatos.setProfundidad(2);
 
+                                        adaptador.setProfundidad(2);
+
+                                        /*Dependiendo del numero sabremos
+                                         que estamos trabajando (1-auditorio, 2-banco, etc.)
+                                        cargarDatos.setTipoEntidad(aux2);
                                         url = Utility.getWebservice(aux2);
 
                                         //Realizamos la consulta de nuevo
-                                        cargarDatos.execute(url, Integer.toString(areaElegida.getId()),
-                                                Integer.toString(areaElegida.getListaPiso().get(aux).getId()));
+                                        cargarDatos.execute(url, Integer.toString(areaElegida.getId()));
 
+                                    }*/
 
-                                    }
-
-                                }
+                               // }
 
                                 //profundidad = 3;
                                 // cargarDatos.setProfundidad(2);

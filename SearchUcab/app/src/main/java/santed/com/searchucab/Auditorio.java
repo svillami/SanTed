@@ -8,7 +8,7 @@ import java.util.List;
  * * Clase que contendra la informacion de un auditorio en particular
  * @version 1.1.0
  */
-public class Auditorio
+public class Auditorio extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion;
@@ -16,16 +16,30 @@ public class Auditorio
     private HashMap<String, List<String>> informacion;
 
     /**
-     * Constructor de la clase que recibe todos los datos del monumento
+     * Constructor de la clase que recibe todos los datos del auditorio
      * @param nombre El nombre que tiene el monumento
      * @param descripcion La descripcion que tiene el monumento
-     * * @param informacion Fotos, videos o textos que describiran el auditorio
+     *  @param informacion Fotos, videos o textos que describiran el auditorio
      */
     public Auditorio(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
+        super();
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
+
+    }
+
+    /**
+     * Constructor de la clase que recibe nombre y descripcion del auditorio
+     * @param nombre El nombre que tiene el monumento
+     * @param descripcion La descripcion que tiene el monumento
+     */
+    public Auditorio(String nombre, String descripcion)
+    {
+        super();
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     /**

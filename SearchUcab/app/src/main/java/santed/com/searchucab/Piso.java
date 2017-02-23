@@ -12,7 +12,7 @@ import java.util.List;
 public class Piso extends Entidad
 {
     //Atributos de la clase
-    private int nombre;
+    private String nombre;
     private List<String> listaSalones;
     private List<Monumento> listaMonumentos;
     private List<Auditorio> listaAuditorios;
@@ -22,10 +22,10 @@ public class Piso extends Entidad
     private List<Dependencia> listaDependencia;
 
     /**
-     * Constructor que cargara el piso solo con su numero e inicializa la lista de salones
-     * @param nombre El numero del piso
+     * Constructor que cargara el piso con su nombre dependiendo cual inicializa la lista de salones
+     * @param nombre El piso al que nos referimos
      */
-    public Piso (int nombre)
+    public Piso (String nombre)
     {
         super();
         this.nombre = nombre;
@@ -34,10 +34,10 @@ public class Piso extends Entidad
 
     /**
      * Constructor que recibira el numero y los salones deseados
-     * @param nombre El numero del piso
+     * @param nombre El nivel del piso
      * @param listaSalones Lista de salones que tenga ese piso
      */
-    public Piso (int nombre, List<String> listaSalones)
+    public Piso (String nombre, List<String> listaSalones)
     {
         this.nombre = nombre;
         this.listaSalones = listaSalones;
@@ -54,7 +54,7 @@ public class Piso extends Entidad
      * @param listaFacultad Lista de facultades que tenga ese piso
      * @param listaDependencia Lista de dependencias que tenga ese piso
      */
-    public Piso(int nombre, List<String> listaSalones, List<Monumento> listaMonumentos,
+    public Piso(String nombre, List<String> listaSalones, List<Monumento> listaMonumentos,
                 List<Auditorio> listaAuditorios, List<Local> listaLocal, List<Banco> listaBanco,
                 List<Facultad> listaFacultad, List<Dependencia> listaDependencia)
     {
@@ -72,7 +72,7 @@ public class Piso extends Entidad
      * Getter para obtener el numero del piso
      * @return El numero del piso
      */
-    public int getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -80,7 +80,7 @@ public class Piso extends Entidad
      * Setter para establecer el numero del piso
      * @param nombre Numero de piso
      */
-    public void setNombre(int nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 

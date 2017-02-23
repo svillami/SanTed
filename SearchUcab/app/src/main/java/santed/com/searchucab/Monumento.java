@@ -8,22 +8,34 @@ import java.util.List;
  * Clase que contendra la informacion de un monumento en particular
  * @version 1.1.0
  */
-public class Monumento
+public class Monumento extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion;
     private float altitud, latitud;
-    HashMap<String, List<String>> informacion;
+    private HashMap<String, List<String>> informacion;
 
+    /**
+     * Constructor de la clase que recibe nombre y descripcion del monumento
+     * @param nombre El nombre que tiene el monumento
+     * @param descripcion La descripcion que tiene el monumento
+     */
+    public Monumento(String nombre, String descripcion)
+    {
+        super();
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
 
     /**
      * Constructor de la clase que recibe todos los datos del monumento
      * @param nombre El nombre que tiene el monumento
      * @param descripcion La descripcion que tiene el monumento
-     * * @param informacion Fotos, videos o textos que describiran el monumento
+     * @param informacion Fotos, videos o textos que describiran el monumento
      */
     public Monumento(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
+        super();
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;

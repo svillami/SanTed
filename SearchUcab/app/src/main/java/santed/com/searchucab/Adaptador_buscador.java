@@ -3,6 +3,7 @@ package santed.com.searchucab;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -180,6 +181,26 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                         descripcion = area.getDescripcion();
                         lugar = "N/A";
                         break;
+
+                    case 2:
+
+                        //Equivalente al IS en C#
+                        if (data.get(position) instanceof Auditorio)
+                        {
+                            Auditorio auditorio = (Auditorio) data.get(position);
+                            nombre = auditorio.getNombre();
+                            descripcion = auditorio.getDescripcion();
+                            lugar = "N/A";
+                        }
+                        else if(data.get(position) instanceof Banco)
+                        {
+                            Banco banco2 = (Banco) data.get(position);
+                            nombre = banco2.getNombre();
+                            descripcion = banco2.getDescripcion();
+                            lugar = "N/A";
+                        }
+
+                            break;
                 }
                 break;
 
