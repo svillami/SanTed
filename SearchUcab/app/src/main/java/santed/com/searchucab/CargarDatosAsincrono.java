@@ -1009,6 +1009,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                     }*/
                 }
 
+                if(this.nivel == 9)
+                {
+                    this.data.add(nuevaArea);
+                }
+
                 if (this.nivel == 10 && this.tipoEntidad == 0)
                 {
                     this.data.add(nuevaArea);
