@@ -13,7 +13,7 @@ public class Local extends Entidad
 {
     //Atributos de la clase
     private String nombre, especialidad, horaInicio, horaFin;
-    private float altitud, latitud, precioPromedio;
+    private float altitud, latitud, precioPromedio, longitud;
     private HashMap<String, List<String>> informacion;
 
 
@@ -41,6 +41,22 @@ public class Local extends Entidad
         super();
         this.nombre = nombre;
         this.especialidad = especialidad;
+    }
+
+    /**
+     * Getter del atributo Longitud
+     * @return La longitud en la que se encuentra el local de comida
+     */
+    public float getLongitud() {
+        return longitud;
+    }
+
+    /**
+     * Setter para el atributo Longitud
+     * @param longitud El valor de la longitud donde esta el local de comida
+     */
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
     }
 
     /**

@@ -12,7 +12,7 @@ public class Dependencia extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion, horaInicio, horaFin;
-    private float altitud, latitud;
+    private float altitud, latitud, longitud;
     private HashMap<String, List<String>> informacion;
     private boolean administrativo;
 
@@ -62,6 +62,22 @@ public class Dependencia extends Entidad
      */
     public void setAdministrativo(boolean administrativo) {
         this.administrativo = administrativo;
+    }
+
+    /**
+     * Getter del atributo Longitud
+     * @return La longitud en la que se encuentra la dependencia administrativa
+     */
+    public float getLongitud() {
+        return longitud;
+    }
+
+    /**
+     * Setter para el atributo Longitud
+     * @param longitud El valor de la longitud donde esta la dependencia administrativa
+     */
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
     }
 
     /**

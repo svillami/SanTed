@@ -14,7 +14,7 @@ public class Banco extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion, horaInicio, horaFin;
-    private float altitud, latitud;
+    private float altitud, latitud, longitud;
     private HashMap<String, List<String>> informacion;
 
 
@@ -37,6 +37,22 @@ public class Banco extends Entidad
         super();
         this.nombre = nombre;
         this.descripcion = descripcion;
+    }
+
+    /**
+     * Getter del atributo Longitud
+     * @return La longitud en la que se encuentra el banco
+     */
+    public float getLongitud() {
+        return longitud;
+    }
+
+    /**
+     * Setter para el atributo Longitud
+     * @param longitud El valor de la longitud donde esta el banco
+     */
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
     }
 
     /**

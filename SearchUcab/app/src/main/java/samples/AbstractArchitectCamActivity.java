@@ -28,8 +28,14 @@ import com.wikitude.architect.StartupConfiguration;
 import com.wikitude.architect.StartupConfiguration.CameraPosition;
 
 import santed.com.searchucab.Banco;
+import santed.com.searchucab.Dependencia;
 import santed.com.searchucab.Entidad;
+import santed.com.searchucab.Escuela;
+import santed.com.searchucab.Facultad;
+import santed.com.searchucab.Laboratorio;
+import santed.com.searchucab.Local;
 import santed.com.searchucab.R;
+import santed.com.searchucab.Salud;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -88,13 +94,63 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 
 		try{
 
+			//De acuerdo al tipo de entidad que nos referimos obtendremos sus datos
 			JSONObject entidadJson = new JSONObject();
-			if (entidad instanceof Banco){
+			if (entidad instanceof Salud)
+			{
+				Salud miSalud = (Salud) entidad;
+				entidadJson.put("latitud", miSalud.getLatitud());
+				entidadJson.put("longitud", miSalud.getLongitud());
+				entidadJson.put("nombre", miSalud.getNombre());
+				entidadJson.put("descripcion", miSalud.getDescripcion());
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Local){
+				Local miLocal = (Local) entidad;
+				entidadJson.put("latitud", miLocal.getLatitud());
+				entidadJson.put("longitud", miLocal.getLongitud());
+				entidadJson.put("nombre", miLocal.getNombre());
+				entidadJson.put("descripcion", miLocal.getEspecialidad());
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Banco){
 				Banco miBanco = (Banco) entidad;
 				entidadJson.put("latitud", miBanco.getLatitud());
-				entidadJson.put("longitud", miBanco.getAltitud());
+				entidadJson.put("longitud", miBanco.getLongitud());
 				entidadJson.put("nombre", miBanco.getNombre());
 				entidadJson.put("descripcion", miBanco.getDescripcion());
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Dependencia){
+				Dependencia miAdministrativa = (Dependencia) entidad;
+				entidadJson.put("latitud", miAdministrativa.getLatitud());
+				entidadJson.put("longitud", miAdministrativa.getLongitud());
+				entidadJson.put("nombre", miAdministrativa.getNombre());
+				entidadJson.put("descripcion", miAdministrativa.getDescripcion());
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Laboratorio){
+				Laboratorio miLaboratorio = (Laboratorio) entidad;
+				entidadJson.put("latitud", miLaboratorio.getLatitud());
+				entidadJson.put("longitud", miLaboratorio.getLongitud());
+				entidadJson.put("nombre", miLaboratorio.getNombre());
+				entidadJson.put("descripcion", miLaboratorio.getDescripcion());
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Facultad){
+				Facultad miFacultad = (Facultad) entidad;
+				entidadJson.put("latitud", miFacultad.getLatitud());
+				entidadJson.put("longitud", miFacultad.getLongitud());
+				entidadJson.put("nombre", miFacultad.getNombre());
+				entidadJson.put("descripcion", miFacultad.getDescripcion());
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Escuela){
+				Escuela miEscuela = (Escuela) entidad;
+				entidadJson.put("latitud", miEscuela.getLatitud());
+				entidadJson.put("longitud", miEscuela.getLongitud());
+				entidadJson.put("nombre", miEscuela.getNombre());
+				entidadJson.put("descripcion", miEscuela.getDescripcion());
 				jsonArray.put(entidadJson);
 			}
 			return jsonArray;

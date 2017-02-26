@@ -408,6 +408,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                         //  areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
                         // nombre = areaElegida.getNombre();
                         Salud salud = (Salud) data.get(rvBuscador.getChildAdapterPosition(v));
+
+                        verificarGPS(salud);
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
                         con los siguientes subelementos del area seleccionada*/
 
@@ -420,6 +422,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                         Local locales = (Local) data.get(rvBuscador.getChildAdapterPosition(v));
                         //nombre = areaElegida.getNombre();
 
+                        verificarGPS(locales);
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
                         con los siguientes subelementos del area seleccionada*/
                         //nivel = 2;
@@ -449,6 +452,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                         Dependencia dependenciaElegida = (Dependencia)
                                 data.get(rvBuscador.getChildAdapterPosition(v));
+
+                        verificarGPS(dependenciaElegida);
                         //nivel = 2;
                         //cargarDatos.setNivel(nivel);
                         break;
@@ -458,6 +463,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                         Dependencia dependenciaElegidaCliente = (Dependencia)
                                 data.get(rvBuscador.getChildAdapterPosition(v));
+
+                        verificarGPS(dependenciaElegidaCliente);
                         //nivel = 2;
                         //cargarDatos.setNivel(nivel);
                         break;
@@ -466,6 +473,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                     case 6:
 
                         Laboratorio laboratorioElegido = (Laboratorio) data.get(rvBuscador.getChildAdapterPosition(v));
+
+                        verificarGPS(laboratorioElegido);
                         //nivel = 2;
                         //cargarDatos.setNivel(nivel);
                         break;
@@ -474,6 +483,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                     case 7:
 
                         Facultad facultad = (Facultad) data.get(rvBuscador.getChildAdapterPosition(v));
+
+                        verificarGPS(facultad);
                         //nivel = 2;
                         //cargarDatos.setNivel(nivel);
                         break;
@@ -482,6 +493,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                     case 8:
 
                         Escuela escuela = (Escuela) data.get(rvBuscador.getChildAdapterPosition(v));
+
+                        verificarGPS(escuela);
                         //nivel = 2;
                         //cargarDatos.setNivel(nivel);
                         break;

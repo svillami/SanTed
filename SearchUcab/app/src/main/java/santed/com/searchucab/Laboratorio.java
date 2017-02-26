@@ -12,7 +12,7 @@ public class Laboratorio extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion;
-    private float altitud, latitud;
+    private float altitud, latitud, longitud;
     private HashMap<String, List<String>> informacion;
 
     /**
@@ -39,6 +39,22 @@ public class Laboratorio extends Entidad
         super();
         this.nombre = nombre;
         this.descripcion = descripcion;
+    }
+
+    /**
+     * Getter del atributo Longitud
+     * @return La longitud en la que se encuentra el laboratorio
+     */
+    public float getLongitud() {
+        return longitud;
+    }
+
+    /**
+     * Setter para el atributo Longitud
+     * @param longitud El valor de la longitud donde esta el laboratorio
+     */
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
     }
 
     /**
