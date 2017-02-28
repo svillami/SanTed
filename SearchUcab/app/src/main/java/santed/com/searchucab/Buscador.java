@@ -528,7 +528,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                 profundidad = 2;
 
                                 //Obtendremos cada lugar del piso en que nos encontramos
-                                for (int aux2 = 1; aux2 <= 2; aux2++)
+                                for (int aux2 = 1; aux2 <= 10; aux2++)
                                 {
                                     /*Instanciamos de nuevo el AsyncTask
                                     para poder usarlo de nuevo en cada piso */
@@ -568,6 +568,9 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                             case 2:
 
+                                //Obtenemos la entidad y la enviamos directamente a la AR
+                                Entidad entidadElegida = (Entidad) data.get(rvBuscador.getChildAdapterPosition(v));
+                                verificarGPS(entidadElegida);
                                 /*
                                 Obtenemos el area elegida, la url a consultar y aumentamos la profundidad
                                 Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));

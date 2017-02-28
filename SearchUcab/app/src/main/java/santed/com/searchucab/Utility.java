@@ -113,6 +113,15 @@ public class Utility
     }
 
     /**
+     * Metodo para obtener el piso del lugar indicado
+     * @return Ubicacion (/Piso) del lugar
+     */
+    public static final String obtenerPiso(String piso)
+    {
+        return "Piso: " +  piso;
+    }
+
+    /**
      * Obtener el ID de la imagen a ser incorporada en el ImageView
      * @param nombre El nombre del lugar que se desea desplegar
      * @return El id de la imagen a ser desplegada
