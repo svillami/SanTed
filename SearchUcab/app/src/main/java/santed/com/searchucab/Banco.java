@@ -1,6 +1,7 @@
 package santed.com.searchucab;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,7 +9,6 @@ import java.util.List;
  * Created by Teddy J Sears on 25/12/2016.
  * Clase que contendra la informacion de un banco en particular
  * @version 2.1.0
- * @// FIXME: 28/12/2016 ELIMINAR EL CONSTRUCTOR TEMPORAL CREADO
  */
 public class Banco extends Entidad
 {
@@ -22,7 +22,7 @@ public class Banco extends Entidad
      * Constructor de la clase que recibe todos los datos del banco
      * @param nombre El nombre que tiene el banco
      * @param descripcion La descripcion que tiene el banco
-     * * @param informacion Fotos, videos o textos que describiran el banco
+     * @param informacion Fotos, videos o textos que describiran el banco
      */
     public Banco(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
@@ -32,11 +32,20 @@ public class Banco extends Entidad
         this.informacion = informacion;
     }
 
+    /**
+     * Constructor de la clase que recibe los datos principales dle banco
+     * @param nombre El nombre que tiene el banco
+     * @param descripcion La descripcion que tiene el banco
+     */
     public Banco(String nombre, String descripcion)
     {
         super();
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.informacion = new HashMap<>();
+        this.informacion.put("foto", new ArrayList<String>());
+        this.informacion.put("video", new ArrayList<String>());
+        this.informacion.put("texto", new ArrayList<String>());
     }
 
     /**
@@ -137,7 +146,7 @@ public class Banco extends Entidad
      */
     public void setVideosInformacion(String videoInformacion)
     {
-        //Obtenemos la lista, le agregamos la nueva foto y actualizamos el hashmap
+        //Obtenemos la lista, le agregamos el nuevo video y actualizamos el hashmap
         List<String> lista = this.informacion.get("video");
         lista.add(videoInformacion);
         this.informacion.put("video", lista);
@@ -150,11 +159,10 @@ public class Banco extends Entidad
      */
     public void setTextosInformacion(String textoInformacion)
     {
-        //Obtenemos la lista, le agregamos la nueva foto y actualizamos el hashmap
+        //Obtenemos la lista, le agregamos el nuevo texto y actualizamos el hashmap
         List<String> lista = this.informacion.get("texto");
         lista.add(textoInformacion);
         this.informacion.put("texto", lista);
-
     }
 
     /**

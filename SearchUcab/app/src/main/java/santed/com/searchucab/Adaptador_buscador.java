@@ -72,22 +72,23 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
     @Override
     public void onBindViewHolder(Adaptador_buscador.ViewHolder holder, int position)
     {
-        holder.Imagen_Lugar.setImageResource(R.drawable.buscar);
-
         String nombre = null;
         String descripcion = null;
         String lugar = null;
+        int idLugar = 0;
 
         //Aqui casteamos para saber a que no estamos refiriendo
         /*Sino es el primer nivel significa que cada una de las opciones
         tendra subniveles a la misma altura (arbol)*/
         switch(nivel)
         {
+            //Menu Principal
             case -1:
 
                 nombre = (String) data.get(position);
                 descripcion = "";
                 lugar = "";
+                idLugar = Utility.obtenerIDimagen(nombre);
                 break;
 
             //Servicios de salud
@@ -96,7 +97,9 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Salud salud = (Salud) data.get(position);
                 nombre = salud.getNombre();
                 descripcion = salud.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (salud.getTextosInformacion().get(0), salud.getTextosInformacion().get(1));
+                idLugar = Utility.obtenerIDimagen(nombre);
                 break;
 
             //Servicios de comida
@@ -105,7 +108,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Local local = (Local) data.get(position);
                 nombre = local.getNombre();
                 descripcion = local.getEspecialidad();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (local.getTextosInformacion().get(0), local.getTextosInformacion().get(1));
                 break;
 
             //Servicios de deporte
@@ -113,7 +117,9 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Deporte deporte = (Deporte) data.get(position);
                 nombre = deporte.getNombre();
                 descripcion = deporte.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (deporte.getTextosInformacion().get(0),
+                                deporte.getTextosInformacion().get(1));;
                 break;
 
             //Servicios Bancarios
@@ -122,7 +128,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Banco banco = (Banco) data.get(position);
                 nombre = banco.getNombre();
                 descripcion = banco.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (banco.getTextosInformacion().get(0), banco.getTextosInformacion().get(1));
                 break;
 
             //Servicios administrativos
@@ -131,7 +138,9 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Dependencia dependencia = (Dependencia) data.get(position);
                 nombre = dependencia.getNombre();
                 descripcion = dependencia.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (dependencia.getTextosInformacion().get(0),
+                                dependencia.getTextosInformacion().get(1));
                 break;
 
             //Servicios al cliente
@@ -140,7 +149,9 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Dependencia dependenciaCliente = (Dependencia) data.get(position);
                 nombre = dependenciaCliente.getNombre();
                 descripcion = dependenciaCliente.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (dependenciaCliente.getTextosInformacion().get(0),
+                                dependenciaCliente.getTextosInformacion().get(1));;
                 break;
 
             //Laboratorios
@@ -148,7 +159,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Laboratorio laboratorio = (Laboratorio) data.get(position);
                 nombre = laboratorio.getNombre();
                 descripcion = laboratorio.getDescripcion();
-                lugar = "N/A";
+                lugar =  Utility.obtenerUbicacion
+                        (laboratorio.getTextosInformacion().get(0), laboratorio.getTextosInformacion().get(1));
                 break;
 
             //Facultades
@@ -157,16 +169,18 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Facultad facultad = (Facultad) data.get(position);
                 nombre = facultad.getNombre();
                 descripcion = facultad.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (facultad.getTextosInformacion().get(0), facultad.getTextosInformacion().get(1));
                 break;
 
-            //Facultades
+            //Escuela
             case 8:
 
                 Escuela escuela = (Escuela) data.get(position);
                 nombre = escuela.getNombre();
                 descripcion = escuela.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (escuela.getTextosInformacion().get(0), escuela.getTextosInformacion().get(1));
                 break;
 
             //Desgloze areas
@@ -214,39 +228,10 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 break;
         }
 
-        /*
-        if (nivel == -1)
-        {
-           nombre = (String) data.get(position);
-            descripcion = "";
-            lugar = "";
-
-        }
-
-        /*Sino es el primer nivel significa que cada una de las opciones
-         tendra subniveles a la misma altura (arbol)
-        else if (nivel == 1)
-            {
-
-                Area area = (Area) data.get(position);
-                nombre = area.getNombre();
-                descripcion = area.getDescripcion();
-                lugar = "N/A";
-            }
-            else
-            {
-                Banco banco = (Banco) data.get(position);
-                nombre = banco.getNombre();
-                descripcion = banco.getDescripcion();
-                lugar = "N/A";
-            }
-
-        */
-
         holder.Informacion_Principal.setText(nombre);
         holder.Informacion_Secundaria.setText(descripcion);
         holder.Informacion_Terciaria.setText(lugar);
-
+        holder.Imagen_Lugar.setImageResource(idLugar);
     }
 
     /**

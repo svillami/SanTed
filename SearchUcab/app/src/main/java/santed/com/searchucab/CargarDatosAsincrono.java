@@ -404,10 +404,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                             Salud nuevaSalud = new Salud(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"));
-
                             nuevaSalud.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-
                             nuevaSalud.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                            nuevaSalud.setTextosInformacion(objetoJSON.getString("nombreArea"));
+                            nuevaSalud.setTextosInformacion(objetoJSON.getString("piso"));
+                            nuevaSalud.setTextosInformacion(objetoJSON.getString("informacion"));
 
                             data.add(nuevaSalud);
                             break;
@@ -417,10 +418,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                            Local nuevoLocal = new Local(objetoJSON.getString("nombre")
                                    ,objetoJSON.getString("especialidad"));
-
                             nuevoLocal.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-
                             nuevoLocal.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                            nuevoLocal.setTextosInformacion(objetoJSON.getString("nombreArea"));
+                            nuevoLocal.setTextosInformacion(objetoJSON.getString("piso"));
+                            nuevoLocal.setTextosInformacion(objetoJSON.getString("informacion"));
 
                             data.add(nuevoLocal);
                             break;
@@ -430,6 +432,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                             Deporte nuevoDeporte = new Deporte(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"));
+                            nuevoDeporte.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
+                            nuevoDeporte.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                            nuevoDeporte.setTextosInformacion(objetoJSON.getString("nombreArea"));
+                            nuevoDeporte.setTextosInformacion(objetoJSON.getString("piso"));
+                            nuevoDeporte.setTextosInformacion(objetoJSON.getString("informacion"));
 
                             data.add(nuevoDeporte);
                             break;
@@ -439,10 +446,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                             Banco nuevoBanco = new Banco(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"));
-
                             nuevoBanco.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-
                             nuevoBanco.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                            nuevoBanco.setTextosInformacion(objetoJSON.getString("nombreArea"));
+                            nuevoBanco.setTextosInformacion(objetoJSON.getString("piso"));
+                            nuevoBanco.setTextosInformacion(objetoJSON.getString("informacion"));
 
                             data.add(nuevoBanco);
                             break;
@@ -452,10 +460,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                             Dependencia nuevaDependencia = new Dependencia(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"), true);
-
                             nuevaDependencia.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-
                             nuevaDependencia.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                            nuevaDependencia.setTextosInformacion(objetoJSON.getString("nombreArea"));
+                            nuevaDependencia.setTextosInformacion(objetoJSON.getString("piso"));
+                            nuevaDependencia.setTextosInformacion(objetoJSON.getString("informacion"));
 
                             data.add(nuevaDependencia);
                             break;
@@ -465,10 +474,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                             Dependencia nuevaDependenciaCliente = new Dependencia(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"), false);
-
                             nuevaDependenciaCliente.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-
                             nuevaDependenciaCliente.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                            nuevaDependenciaCliente.setTextosInformacion(objetoJSON.getString("nombreArea"));
+                            nuevaDependenciaCliente.setTextosInformacion(objetoJSON.getString("piso"));
+                            nuevaDependenciaCliente.setTextosInformacion(objetoJSON.getString("informacion"));
 
                             data.add(nuevaDependenciaCliente);
                             break;
@@ -477,10 +487,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                             Laboratorio nuevoLaboratorio = new Laboratorio(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"));
-
                             nuevoLaboratorio.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-
                             nuevoLaboratorio.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                            nuevoLaboratorio.setTextosInformacion(objetoJSON.getString("nombreArea"));
+                            nuevoLaboratorio.setTextosInformacion(objetoJSON.getString("piso"));
+                            nuevoLaboratorio.setTextosInformacion(objetoJSON.getString("informacion"));
 
                             data.add(nuevoLaboratorio);
                             break;
@@ -490,10 +501,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                             Facultad nuevaFacultad = new Facultad(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"));
-
                             nuevaFacultad.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-
                             nuevaFacultad.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                            nuevaFacultad.setTextosInformacion(objetoJSON.getString("nombreArea"));
+                            nuevaFacultad.setTextosInformacion(objetoJSON.getString("piso"));
+                            nuevaFacultad.setTextosInformacion(objetoJSON.getString("informacion"));
 
                             data.add(nuevaFacultad);
                             break;
@@ -503,10 +515,11 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                             Escuela nuevaEscuela = new Escuela(objetoJSON.getString("nombre")
                                     ,objetoJSON.getString("descripcion"));
-
                             nuevaEscuela.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-
                             nuevaEscuela.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                            nuevaEscuela.setTextosInformacion(objetoJSON.getString("nombreArea"));
+                            nuevaEscuela.setTextosInformacion(objetoJSON.getString("piso"));
+                            nuevaEscuela.setTextosInformacion(objetoJSON.getString("informacion"));
 
                             data.add(nuevaEscuela);
                             break;
