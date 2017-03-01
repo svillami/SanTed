@@ -64,7 +64,8 @@ var World = {
 				"longitude": parseFloat(poiData[currentPlaceNr].longitud),
 				//"altitude": parseFloat(poiData[currentPlaceNr].altitude),
 				"title": poiData[currentPlaceNr].nombre,
-				"description": poiData[currentPlaceNr].descripcion
+				"description": poiData[currentPlaceNr].descripcion,
+				"information": poiData[currentPlaceNr].informacion
 			};
 
 			World.markerList.push(new Marker(singlePoi));
@@ -113,7 +114,15 @@ var World = {
 	// user clicked "More" button in POI-detail panel -> fire event to open native screen
 	onPoiDetailMoreButtonClicked: function onPoiDetailMoreButtonClickedFn() {
 		var currentMarker = World.currentMarker;
-		var architectSdkUrl = "architectsdk://markerselected?id=" + encodeURIComponent(currentMarker.poiData.id) + "&title=" + encodeURIComponent(currentMarker.poiData.title) + "&description=" + encodeURIComponent(currentMarker.poiData.description);
+		var informaciones = "";
+
+		//for (var i=0; i < currentMarker.poiData.information.length; i++)
+		//{
+			informaciones = currentMarker.poiData.information[1]; //+ "*" + informaciones;
+		//}
+
+
+		var architectSdkUrl = "architectsdk://markerselected?id=" + encodeURIComponent(currentMarker.poiData.id) + "&title=" + encodeURIComponent(currentMarker.poiData.title) + "&description=" + encodeURIComponent(currentMarker.poiData.description) + "&information=" + encodeURIComponent(informaciones);
 		/*
 			The urlListener of the native project intercepts this call and parses the arguments. 
 			This is the only way to pass information from JavaSCript to your native code. 

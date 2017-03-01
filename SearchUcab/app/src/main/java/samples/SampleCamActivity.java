@@ -116,6 +116,7 @@ public class SampleCamActivity extends AbstractArchitectCamActivity {
 					poiDetailIntent.putExtra(SamplePoiDetailActivity.EXTRAS_KEY_POI_ID, String.valueOf(invokedUri.getQueryParameter("id")) );
 					poiDetailIntent.putExtra(SamplePoiDetailActivity.EXTRAS_KEY_POI_TITILE, String.valueOf(invokedUri.getQueryParameter("title")) );
 					poiDetailIntent.putExtra(SamplePoiDetailActivity.EXTRAS_KEY_POI_DESCR, String.valueOf(invokedUri.getQueryParameter("description")) );
+					poiDetailIntent.putExtra(SamplePoiDetailActivity.EXTRAS_KEY_POI_INFOR, String.valueOf(invokedUri.getQueryParameter("information")) );
 					SampleCamActivity.this.startActivity(poiDetailIntent);
 					return true;
 				}
