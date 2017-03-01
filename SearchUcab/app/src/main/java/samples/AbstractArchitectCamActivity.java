@@ -27,13 +27,16 @@ import com.wikitude.architect.ArchitectView.SensorAccuracyChangeListener;
 import com.wikitude.architect.StartupConfiguration;
 import com.wikitude.architect.StartupConfiguration.CameraPosition;
 
+import santed.com.searchucab.Auditorio;
 import santed.com.searchucab.Banco;
 import santed.com.searchucab.Dependencia;
+import santed.com.searchucab.Deporte;
 import santed.com.searchucab.Entidad;
 import santed.com.searchucab.Escuela;
 import santed.com.searchucab.Facultad;
 import santed.com.searchucab.Laboratorio;
 import santed.com.searchucab.Local;
+import santed.com.searchucab.Monumento;
 import santed.com.searchucab.R;
 import santed.com.searchucab.Salud;
 
@@ -96,53 +99,108 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 
 			//De acuerdo al tipo de entidad que nos referimos obtendremos sus datos
 			JSONObject entidadJson = new JSONObject();
-			if (entidad instanceof Salud)
+
+			if (entidad instanceof Auditorio)
 			{
-				Salud miSalud = (Salud) entidad;
-				entidadJson.put("latitud", miSalud.getLatitud());
-				entidadJson.put("longitud", miSalud.getLongitud());
-				entidadJson.put("nombre", miSalud.getNombre());
-				entidadJson.put("descripcion", miSalud.getDescripcion());
+				Auditorio miAuditorio = (Auditorio) entidad;
+				entidadJson.put("latitud", miAuditorio.getLatitud());
+				entidadJson.put("longitud", miAuditorio.getLongitud());
+				entidadJson.put("nombre", miAuditorio.getNombre());
+				entidadJson.put("descripcion", miAuditorio.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miAuditorio.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miAuditorio.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate
+								("informacion", miAuditorio.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
 				jsonArray.put(entidadJson);
 			}
-			else if (entidad instanceof Local){
-				Local miLocal = (Local) entidad;
-				entidadJson.put("latitud", miLocal.getLatitud());
-				entidadJson.put("longitud", miLocal.getLongitud());
-				entidadJson.put("nombre", miLocal.getNombre());
-				entidadJson.put("descripcion", miLocal.getEspecialidad());
-				jsonArray.put(entidadJson);
-			}
-			else if (entidad instanceof Banco){
+			else if (entidad instanceof Banco)
+			{
 				Banco miBanco = (Banco) entidad;
 				entidadJson.put("latitud", miBanco.getLatitud());
 				entidadJson.put("longitud", miBanco.getLongitud());
 				entidadJson.put("nombre", miBanco.getNombre());
 				entidadJson.put("descripcion", miBanco.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miBanco.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miBanco.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate("informacion", miBanco.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
 				jsonArray.put(entidadJson);
 			}
-			else if (entidad instanceof Dependencia){
+			else if (entidad instanceof Dependencia)
+			{
 				Dependencia miAdministrativa = (Dependencia) entidad;
 				entidadJson.put("latitud", miAdministrativa.getLatitud());
 				entidadJson.put("longitud", miAdministrativa.getLongitud());
 				entidadJson.put("nombre", miAdministrativa.getNombre());
 				entidadJson.put("descripcion", miAdministrativa.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miAdministrativa.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miAdministrativa.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate
+								("informacion", miAdministrativa.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
 				jsonArray.put(entidadJson);
 			}
-			else if (entidad instanceof Laboratorio){
-				Laboratorio miLaboratorio = (Laboratorio) entidad;
-				entidadJson.put("latitud", miLaboratorio.getLatitud());
-				entidadJson.put("longitud", miLaboratorio.getLongitud());
-				entidadJson.put("nombre", miLaboratorio.getNombre());
-				entidadJson.put("descripcion", miLaboratorio.getDescripcion());
-				jsonArray.put(entidadJson);
-			}
-			else if (entidad instanceof Facultad){
-				Facultad miFacultad = (Facultad) entidad;
-				entidadJson.put("latitud", miFacultad.getLatitud());
-				entidadJson.put("longitud", miFacultad.getLongitud());
-				entidadJson.put("nombre", miFacultad.getNombre());
-				entidadJson.put("descripcion", miFacultad.getDescripcion());
+			else if (entidad instanceof Deporte)
+			{
+				Deporte miDeporte = (Deporte) entidad;
+				entidadJson.put("latitud", miDeporte.getLatitud());
+				entidadJson.put("longitud", miDeporte.getLongitud());
+				entidadJson.put("nombre", miDeporte.getNombre());
+				entidadJson.put("descripcion", miDeporte.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miDeporte.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miDeporte.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate
+								("informacion", miDeporte.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
 				jsonArray.put(entidadJson);
 			}
 			else if (entidad instanceof Escuela){
@@ -151,8 +209,153 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("longitud", miEscuela.getLongitud());
 				entidadJson.put("nombre", miEscuela.getNombre());
 				entidadJson.put("descripcion", miEscuela.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miEscuela.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miEscuela.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate
+								("informacion", miEscuela.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
 				jsonArray.put(entidadJson);
 			}
+			else if (entidad instanceof Facultad)
+			{
+				Facultad miFacultad = (Facultad) entidad;
+				entidadJson.put("latitud", miFacultad.getLatitud());
+				entidadJson.put("longitud", miFacultad.getLongitud());
+				entidadJson.put("nombre", miFacultad.getNombre());
+				entidadJson.put("descripcion", miFacultad.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miFacultad.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miFacultad.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate
+								("informacion", miFacultad.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Laboratorio)
+			{
+				Laboratorio miLaboratorio = (Laboratorio) entidad;
+				entidadJson.put("latitud", miLaboratorio.getLatitud());
+				entidadJson.put("longitud", miLaboratorio.getLongitud());
+				entidadJson.put("nombre", miLaboratorio.getNombre());
+				entidadJson.put("descripcion", miLaboratorio.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miLaboratorio.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miLaboratorio.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate
+								("informacion", miLaboratorio.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Local)
+			{
+				Local miLocal = (Local) entidad;
+				entidadJson.put("latitud", miLocal.getLatitud());
+				entidadJson.put("longitud", miLocal.getLongitud());
+				entidadJson.put("nombre", miLocal.getNombre());
+				entidadJson.put("descripcion", miLocal.getEspecialidad());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miLocal.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miLocal.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate("informacion", miLocal.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Monumento)
+			{
+				Monumento miMonumento = (Monumento) entidad;
+				entidadJson.put("latitud", miMonumento.getLatitud());
+				entidadJson.put("longitud", miMonumento.getLongitud());
+				entidadJson.put("nombre", miMonumento.getNombre());
+				entidadJson.put("descripcion", miMonumento.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miMonumento.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miMonumento.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate("informacion", miMonumento.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
+				jsonArray.put(entidadJson);
+			}
+			else if (entidad instanceof Salud)
+			{
+				Salud miSalud = (Salud) entidad;
+				entidadJson.put("latitud", miSalud.getLatitud());
+				entidadJson.put("longitud", miSalud.getLongitud());
+				entidadJson.put("nombre", miSalud.getNombre());
+				entidadJson.put("descripcion", miSalud.getDescripcion());
+
+				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
+				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				simplemente no hay informacion relevante*/
+				if(miSalud.getTextosInformacion().size() > 2)
+				{
+					for (int aux = 2; aux < miSalud.getTextosInformacion().size() ; aux ++)
+					{
+						entidadJson.accumulate("informacion", miSalud.getTextosInformacion().get(aux));
+					}
+				}
+				else
+				{
+					entidadJson.put("informacion", "No hay informacion adicional para mostrar");
+				}
+
+				jsonArray.put(entidadJson);
+			}
+
 			return jsonArray;
 
 

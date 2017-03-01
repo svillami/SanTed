@@ -1,5 +1,6 @@
 package santed.com.searchucab;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -55,6 +56,10 @@ public class Salud extends Entidad
         super();
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.informacion = new HashMap<>();
+        this.informacion.put("foto", new ArrayList<String>());
+        this.informacion.put("video", new ArrayList<String>());
+        this.informacion.put("texto", new ArrayList<String>());
     }
 
     /**

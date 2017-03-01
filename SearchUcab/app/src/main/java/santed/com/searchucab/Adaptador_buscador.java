@@ -72,22 +72,24 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
     @Override
     public void onBindViewHolder(Adaptador_buscador.ViewHolder holder, int position)
     {
-        holder.Imagen_Lugar.setImageResource(R.drawable.buscar);
-
         String nombre = null;
         String descripcion = null;
         String lugar = null;
+        int idLugar = 0;
 
         //Aqui casteamos para saber a que no estamos refiriendo
         /*Sino es el primer nivel significa que cada una de las opciones
         tendra subniveles a la misma altura (arbol)*/
         switch(nivel)
         {
+            //Menu Principal
             case -1:
 
                 nombre = (String) data.get(position);
                 descripcion = "";
                 lugar = "";
+                //idLugar = Utility.obtenerIDimagen(nombre);
+
                 break;
 
             //Servicios de salud
@@ -96,7 +98,10 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Salud salud = (Salud) data.get(position);
                 nombre = salud.getNombre();
                 descripcion = salud.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (salud.getTextosInformacion().get(0), salud.getTextosInformacion().get(1));
+                //idLugar = Utility.obtenerIDimagen(nombre);
+
                 break;
 
             //Servicios de comida
@@ -105,7 +110,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Local local = (Local) data.get(position);
                 nombre = local.getNombre();
                 descripcion = local.getEspecialidad();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (local.getTextosInformacion().get(0), local.getTextosInformacion().get(1));
                 break;
 
             //Servicios de deporte
@@ -113,7 +119,9 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Deporte deporte = (Deporte) data.get(position);
                 nombre = deporte.getNombre();
                 descripcion = deporte.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (deporte.getTextosInformacion().get(0),
+                                deporte.getTextosInformacion().get(1));;
                 break;
 
             //Servicios Bancarios
@@ -122,7 +130,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Banco banco = (Banco) data.get(position);
                 nombre = banco.getNombre();
                 descripcion = banco.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (banco.getTextosInformacion().get(0), banco.getTextosInformacion().get(1));
                 break;
 
             //Servicios administrativos
@@ -131,7 +140,9 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Dependencia dependencia = (Dependencia) data.get(position);
                 nombre = dependencia.getNombre();
                 descripcion = dependencia.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (dependencia.getTextosInformacion().get(0),
+                                dependencia.getTextosInformacion().get(1));
                 break;
 
             //Servicios al cliente
@@ -140,7 +151,9 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Dependencia dependenciaCliente = (Dependencia) data.get(position);
                 nombre = dependenciaCliente.getNombre();
                 descripcion = dependenciaCliente.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (dependenciaCliente.getTextosInformacion().get(0),
+                                dependenciaCliente.getTextosInformacion().get(1));;
                 break;
 
             //Laboratorios
@@ -148,7 +161,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Laboratorio laboratorio = (Laboratorio) data.get(position);
                 nombre = laboratorio.getNombre();
                 descripcion = laboratorio.getDescripcion();
-                lugar = "N/A";
+                lugar =  Utility.obtenerUbicacion
+                        (laboratorio.getTextosInformacion().get(0), laboratorio.getTextosInformacion().get(1));
                 break;
 
             //Facultades
@@ -157,16 +171,18 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 Facultad facultad = (Facultad) data.get(position);
                 nombre = facultad.getNombre();
                 descripcion = facultad.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (facultad.getTextosInformacion().get(0), facultad.getTextosInformacion().get(1));
                 break;
 
-            //Facultades
+            //Escuela
             case 8:
 
                 Escuela escuela = (Escuela) data.get(position);
                 nombre = escuela.getNombre();
                 descripcion = escuela.getDescripcion();
-                lugar = "N/A";
+                lugar = Utility.obtenerUbicacion
+                        (escuela.getTextosInformacion().get(0), escuela.getTextosInformacion().get(1));
                 break;
 
             //Desgloze areas
@@ -179,7 +195,7 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                         Area area = (Area) data.get(position);
                         nombre = area.getNombre();
                         descripcion = area.getDescripcion();
-                        lugar = "N/A";
+                        lugar = "";
                         break;
 
                     case 2:
@@ -190,17 +206,73 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                             Auditorio auditorio = (Auditorio) data.get(position);
                             nombre = auditorio.getNombre();
                             descripcion = auditorio.getDescripcion();
-                            lugar = "N/A";
+                            lugar = Utility.obtenerPiso(auditorio.getTextosInformacion().get(0));
                         }
                         else if(data.get(position) instanceof Banco)
                         {
                             Banco banco2 = (Banco) data.get(position);
                             nombre = banco2.getNombre();
                             descripcion = banco2.getDescripcion();
-                            lugar = "N/A";
+                            lugar = Utility.obtenerPiso(banco2.getTextosInformacion().get(0));
+                        }
+                        else if(data.get(position) instanceof Dependencia)
+                        {
+                            Dependencia dependencia2 = (Dependencia) data.get(position);
+                            nombre = dependencia2.getNombre();
+                            descripcion = dependencia2.getDescripcion();
+                            lugar = Utility.obtenerPiso(dependencia2.getTextosInformacion().get(0));
+                        }
+                        else if(data.get(position) instanceof Deporte)
+                        {
+                            Deporte deporte2 = (Deporte) data.get(position);
+                            nombre = deporte2.getNombre();
+                            descripcion = deporte2.getDescripcion();
+                            lugar = Utility.obtenerPiso(deporte2.getTextosInformacion().get(0));
+                        }
+                        else if(data.get(position) instanceof Escuela)
+                        {
+                            Escuela escuela2 = (Escuela) data.get(position);
+                            nombre = escuela2.getNombre();
+                            descripcion = escuela2.getDescripcion();
+                            lugar = Utility.obtenerPiso(escuela2.getTextosInformacion().get(0));
+                        }
+                        else if(data.get(position) instanceof Facultad)
+                        {
+                            Facultad facultad2 = (Facultad) data.get(position);
+                            nombre = facultad2.getNombre();
+                            descripcion = facultad2.getDescripcion();
+                            lugar = Utility.obtenerPiso(facultad2.getTextosInformacion().get(0));
+                        }
+                        else if(data.get(position) instanceof Laboratorio)
+                        {
+                            Laboratorio laboratorio2 = (Laboratorio) data.get(position);
+                            nombre = laboratorio2.getNombre();
+                            descripcion = laboratorio2.getDescripcion();
+                            lugar = Utility.obtenerPiso(laboratorio2.getTextosInformacion().get(0));
+                        }
+                        else if(data.get(position) instanceof Local)
+                        {
+                            Local local2 = (Local) data.get(position);
+                            nombre = local2.getNombre();
+                            descripcion = local2.getEspecialidad();
+                            lugar = Utility.obtenerPiso(local2.getTextosInformacion().get(0));
+                        }
+                        else if(data.get(position) instanceof Monumento)
+                        {
+                            Monumento monumento2 = (Monumento) data.get(position);
+                            nombre = monumento2.getNombre();
+                            descripcion = monumento2.getDescripcion();
+                            lugar = Utility.obtenerPiso(monumento2.getTextosInformacion().get(0));
+                        }
+                        else if(data.get(position) instanceof Salud)
+                        {
+                            Salud salud2 = (Salud) data.get(position);
+                            nombre = salud2.getNombre();
+                            descripcion = salud2.getDescripcion();
+                            lugar = Utility.obtenerPiso(salud2.getTextosInformacion().get(0));
                         }
 
-                            break;
+                        break;
                 }
                 break;
 
@@ -214,39 +286,22 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 break;
         }
 
-        /*
-        if (nivel == -1)
+        //Obtenemos la imagen dependendiendo del nombre de la Entidad
+        idLugar = this.contexto.getResources().getIdentifier
+                (nombre, "drawable", this.contexto.getPackageName());
+
+        /* Si el ID da 0 en la instruccion anterior, quiere decir que no existe una imagen valida
+        * para la entidad (aun no se le ha tomado foto) por lo tanto utilizaremos una foto por
+        * defecto*/
+        if (idLugar == 0)
         {
-           nombre = (String) data.get(position);
-            descripcion = "";
-            lugar = "";
-
+            idLugar = R.drawable.nodisponible;
         }
-
-        /*Sino es el primer nivel significa que cada una de las opciones
-         tendra subniveles a la misma altura (arbol)
-        else if (nivel == 1)
-            {
-
-                Area area = (Area) data.get(position);
-                nombre = area.getNombre();
-                descripcion = area.getDescripcion();
-                lugar = "N/A";
-            }
-            else
-            {
-                Banco banco = (Banco) data.get(position);
-                nombre = banco.getNombre();
-                descripcion = banco.getDescripcion();
-                lugar = "N/A";
-            }
-
-        */
 
         holder.Informacion_Principal.setText(nombre);
         holder.Informacion_Secundaria.setText(descripcion);
         holder.Informacion_Terciaria.setText(lugar);
-
+        holder.Imagen_Lugar.setImageResource(idLugar);
     }
 
     /**

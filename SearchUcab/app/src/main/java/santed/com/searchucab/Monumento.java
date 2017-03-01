@@ -1,5 +1,6 @@
 package santed.com.searchucab;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Monumento extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion;
-    private float altitud, latitud;
+    private float altitud, latitud, longitud;
     private HashMap<String, List<String>> informacion;
 
     /**
@@ -25,6 +26,10 @@ public class Monumento extends Entidad
         super();
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.informacion = new HashMap<>();
+        this.informacion.put("foto", new ArrayList<String>());
+        this.informacion.put("video", new ArrayList<String>());
+        this.informacion.put("texto", new ArrayList<String>());
     }
 
     /**
@@ -40,6 +45,22 @@ public class Monumento extends Entidad
         this.descripcion = descripcion;
         this.informacion = informacion;
     }
+    /**
+     * Getter del atributo Longitud
+     * @return La longitud en la que se encuentra el monumento
+     */
+    public float getLongitud() {
+        return longitud;
+    }
+
+    /**
+     * Setter para el atributo Longitud
+     * @param longitud El valor de la longitud donde esta el monumento
+     */
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
+    }
+
 
     /**
      * Getter del atributo nombre
