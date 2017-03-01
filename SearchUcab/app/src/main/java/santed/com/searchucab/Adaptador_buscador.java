@@ -88,7 +88,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 nombre = (String) data.get(position);
                 descripcion = "";
                 lugar = "";
-                idLugar = Utility.obtenerIDimagen(nombre);
+                //idLugar = Utility.obtenerIDimagen(nombre);
+
                 break;
 
             //Servicios de salud
@@ -99,7 +100,8 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 descripcion = salud.getDescripcion();
                 lugar = Utility.obtenerUbicacion
                         (salud.getTextosInformacion().get(0), salud.getTextosInformacion().get(1));
-                idLugar = Utility.obtenerIDimagen(nombre);
+                //idLugar = Utility.obtenerIDimagen(nombre);
+
                 break;
 
             //Servicios de comida
@@ -282,6 +284,18 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 descripcion = dataSearch.editorial;
                 lugar = dataSearch.nombreautor;
                 break;
+        }
+
+        //Obtenemos la imagen dependendiendo del nombre de la Entidad
+        idLugar = this.contexto.getResources().getIdentifier
+                (nombre, "drawable", this.contexto.getPackageName());
+
+        /* Si el ID da 0 en la instruccion anterior, quiere decir que no existe una imagen valida
+        * para la entidad (aun no se le ha tomado foto) por lo tanto utilizaremos una foto por
+        * defecto*/
+        if (idLugar == 0)
+        {
+            idLugar = R.drawable.nodisponible;
         }
 
         holder.Informacion_Principal.setText(nombre);
