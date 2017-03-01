@@ -19,9 +19,32 @@ Como se muestra en el ejemplo anterior, puedes responder al evento de cancelaci�
 
 Nota: El sistema llama a onDismiss() con cada evento que invoque el método callbackonCancel(). No obstante, si llamas a Dialog.dismiss() o a DialogFragment.dismiss(), el sistema llama a onDismiss() pero no a onCancel(). Por lo tanto, generalmente debes llamar a dismiss() cuando el usuario presiona el botón positivo en tu diálogo para eliminar el diálogo de la vista.</string>
 
+    <!-- TODO: Dialogos para la guia de uso -->
     <string name="dialogo_tips_uno">Disfruta con cada micro tips, estos aparecerán cada vez que entres a la opción de Tips en el menu principal.</string>
     <string name="dialogo_tips_dos"> Proporcionan información rápida y aleatoria sobre el campus, posee documentación que posiblemente no conoces y
     que puede serte útil en algún momento dado.</string>
+
+    <string name="dialogo_busquedanfc_uno">La opción para busqueda por NFC, te permite ubicar de manera puntual, el lugar donde te encuentras en ese momento. </string>
+    <string name="dialogo_busquedanfc_dos">Una vez hayas oprimido el boton, este te mostrará un dialogo, indicando que la app esta esperando por la lectura del NFC. </string>
+    <string name="dialogo_busquedanfc_tres">Cuando la app reconozca el NFC, te indicará que hay cerca de ese punto de referencia, para facilitar tu ubicación y orientación. </string>
+
+    <string name="dialogo_busqueda_lista_uno">Al abrir el app o al tocar el boton buscador del menu, verás una lista de lugares que podrían ser de tu interes, puedes acceder a lo que buscas con un solo click.</string>
+    <string name="dialogo_busqueda_lista_dos">En cada opción se mostraran una breve información del sitio que deseas buscar.</string>
+    <string name="dialogo_busqueda_lista_tres">Al entrar en alguna de las opciones, se levantara la Realidad Aumentada, y te mostrará un punto que hace referencia al sitio en cuestión, de acuerdo a su ubicación geográfica. Recuerda encender tu GPS para disfrutar de la experiencia.</string>
+    <string name="dialogo_busqueda_lista_cuatro">Puedes moverte en diferentes direcciones con tu positivo, siguiendo la dirección que indica la flecha, hasta que logres ver el punto, Si lo tocas, se desplegara una breve información del sitio.</string>
+    <string name="dialogo_busqueda_lista_cinco">Además de la breve información, te mostrará la distancia a la que te encuentras desde el punto donde estas. En el boton Mas, apreciaras información detallada del punto y podrás acceder al boton de AYUDA. </string>
+    <string name="dialogo_busqueda_lista_seis">El boton AYUDA te permite escanear con tu dispositivo diferentes imagenes distintivas, que te indicaran hacia donde debes dirigirte para orientarte mejor.</string>
+
+
+    <string name="dialogo_busqueda_escrito_uno">Puedes hacer una busqueda puntual de lo que quieras encontrar, usa palabras claves tales como: banco mercantil, secretaria o cincuentenario y si consigue coincidencias se desplegará una lista con los sitios que se adecuen a la busqueda.</string>
+    <string name="dialogo_busqueda_escrito_dos">Al entrar en alguna de las opciones, se levantara la Realidad Aumentada, y te mostrará un punto que hace referencia al sitio en cuestión, de acuerdo a su ubicación geográfica. Recuerda encender tu GPS para disfrutar de la experiencia.</string>
+    <string name="dialogo_busqueda_escrito_tres">Puedes moverte en diferentes direcciones con tu positivo, siguiendo la dirección que indica la flecha, hasta que logres ver el punto, Si lo tocas, se desplegará una breve información del sitio.</string>
+    <string name="dialogo_busqueda_escrito_cuatro">Además de la breve información, te mostrará la distancia a la que te encuentras desde el punto donde estas. En el boton Mas, apreciarás información detallada del punto y podrás acceder al boton de AYUDA. </string>
+    <string name="dialogo_busqueda_escrito_cinco">El boton AYUDA te permite escanear con tu dispositivo diferentes imagenes distintivas, que te indicaran hacia donde debes dirigirte para orientarte mejor.</string>
+
+    <string name="dialogo_ar_3d_uno">Esta opción te permite escanear monumentos o foto distintivas, que te desplegaran un material visual ya sea, un video o una foto para darte mayor información.</string>
+    <string name="dialogo_ar_3d_dos">Al entrar en esta opción se accionara la camara y podrás ver una lista de imagenes, si enfocas alguna de ellas se mostrará un video o una imagen que te dará mayor información del sitio o el momumento.</string>
+    <string name="dialogo_ar_3d_tres">Si el video te muestra un boton de información, podrás hacer uso de este, para ir directamente a una página oficial.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

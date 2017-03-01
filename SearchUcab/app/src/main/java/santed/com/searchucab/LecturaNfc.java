@@ -259,7 +259,6 @@ public class LecturaNfc extends AppCompatActivity {
 
             if (result != null) {
 
-
                 if (result.equals("1E")){
                     String titulo= getString(R.string.titulo_1);
                     String derecha= getString(R.string.mensaje_1_derecha);
@@ -288,8 +287,49 @@ public class LecturaNfc extends AppCompatActivity {
                     String izquierda= getString(R.string.mensaje_4_izquierda);
                     String atras= getString(R.string.mensaje_4_atras);
                     createDialogCorrect(titulo,derecha,frente,izquierda,atras);
-                }
-                else {
+                } else if (result.equals("5E")){
+                    String titulo= getString(R.string.titulo_5);
+                    String derecha= getString(R.string.mensaje_5_derecha);
+                    String frente= getString(R.string.mensaje_5_frente);
+                    String izquierda= getString(R.string.mensaje_5_izquierda);
+                    String atras= getString(R.string.mensaje_5_atras);
+                    createDialogCorrect(titulo,derecha,frente,izquierda,atras);
+                } else if (result.equals("6E")){
+                    String titulo= getString(R.string.titulo_6);
+                    String derecha= getString(R.string.mensaje_6_derecha);
+                    String frente= getString(R.string.mensaje_6_frente);
+                    String izquierda= getString(R.string.mensaje_6_izquierda);
+                    String atras= getString(R.string.mensaje_6_atras);
+                    createDialogCorrect(titulo,derecha,frente,izquierda,atras);
+                } else if (result.equals("7E")){
+                    String titulo= getString(R.string.titulo_7);
+                    String derecha= getString(R.string.mensaje_7_derecha);
+                    String frente= getString(R.string.mensaje_7_frente);
+                    String izquierda= getString(R.string.mensaje_7_izquierda);
+                    String atras= getString(R.string.mensaje_7_atras);
+                    createDialogCorrect(titulo,derecha,frente,izquierda,atras);
+                } else if (result.equals("8E")){
+                    String titulo= getString(R.string.titulo_8);
+                    String derecha= getString(R.string.mensaje_8_derecha);
+                    String frente= getString(R.string.mensaje_8_frente);
+                    String izquierda= getString(R.string.mensaje_8_izquierda);
+                    String atras= getString(R.string.mensaje_8_atras);
+                    createDialogCorrect(titulo,derecha,frente,izquierda,atras);
+                } else if (result.equals("9E")){
+                    String titulo= getString(R.string.titulo_9);
+                    String derecha= getString(R.string.mensaje_9_derecha);
+                    String frente= getString(R.string.mensaje_9_frente);
+                    String izquierda= getString(R.string.mensaje_9_izquierda);
+                    String atras= getString(R.string.mensaje_9_atras);
+                    createDialogCorrect(titulo,derecha,frente,izquierda,atras);
+                } else if (result.equals("10E")){
+                    String titulo= getString(R.string.titulo_10);
+                    String derecha= getString(R.string.mensaje_10_derecha);
+                    String frente= getString(R.string.mensaje_10_frente);
+                    String izquierda= getString(R.string.mensaje_10_izquierda);
+                    String atras= getString(R.string.mensaje_10_atras);
+                    createDialogCorrect(titulo,derecha,frente,izquierda,atras);
+                } else {
                     String mensaje= "Por favor verifique que sea un NFC de la Ucab";
                     //Este libro no es el correcto para devolver verifiquelo
                     createSimpleDialog(mensaje, result);
