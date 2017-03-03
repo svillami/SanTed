@@ -115,23 +115,36 @@ var World = {
             			onEnterFieldOfVision: function onEnterFiedOfVisionFn() {
 
 
-            				if (this.video == null)
-            				{
+
 
 								//Video Escuela Informatica
             					if (this.targetName == "1v")
 								{
+
+								if (this.video == null)
+                                            				{
 								  this.video = new AR.VideoDrawable("assets/video.mp4", 0.7, {
 									offsetX: -0.2,
 									offsetY: -0.12,
 									isTransparent: false
 								});
 
+								this.drawables.addCamDrawable(this.video);
+
+								this.video.play(-1);
+								}
+                                            				else
+                                            				{
+                                            					this.video.resume();
+                                            				}
+
 								}
 
 								//Video transparente con la informacion del Monumento
-								else (this.targetName == "1i")
+								else if (this.targetName == "1i")
 								{
+									if (this.video == null)
+                                                                                				{
 									this.video = new AR.VideoDrawable("assets/transparentVideo.mp4", 0.7, {
 										offsetX: -0.2,
 										offsetY: -0.12,
@@ -154,28 +167,71 @@ var World = {
 									});
 
 
+									this.drawables.addCamDrawable(this.video);
+
+									this.video.play(-1);
+
+								}
+                                            				else
+                                            				{
+                                            					this.video.resume();
+                                            				}
 
 								//	this.drawables.cam = [drawableimagen];
 
 
 								}
 
+								//Foto-Informacion en la pared malek Shawarma
+								else if (this.targetName == "1f")
+								{
+									var imagen= new AR.ImageResource("assets/1f.png");
+									this.boton = new AR.ImageDrawable(imagen, 0.8 ,{
 
-								this.drawables.addCamDrawable(this.video);
+										offsetX: 0.1,
+															offsetY: 0.2,
+															zOrder: 1
+
+
+									});
+								}
+
+								//Foto-Informacion Modulo 3
+								else if (this.targetName == "2f")
+								{
+									var imagen= new AR.ImageResource("assets/2f.png");
+									this.boton = new AR.ImageDrawable(imagen, 0.8 ,{
+
+										offsetX: 0.1,
+															offsetY: 0.2,
+															zOrder: 1
+
+
+									});
+
+								}
+
+								//Foto-informacion Laboratorio
+								else if (this.targetName == "3f")
+								{
+									var imagen= new AR.ImageResource("assets/3f.png");
+									this.boton = new AR.ImageDrawable(imagen, 0.8 ,{
+
+										offsetX: 0.1,
+															offsetY: 0.2,
+															zOrder: 1
+
+
+									});
+
+								}
+
+
 								if (this.boton != null)
 								{
 									this.drawables.addCamDrawable(this.boton);
 
 								}
-
-								this.video.play(-1);
-            				}
-            				else
-            				{
-            					this.video.resume();
-            				}
-
-
 
 
             			},
@@ -184,8 +240,6 @@ var World = {
             			}
             		});
 		}
-
-
 
 		//agregado
 		/*var pageOne = new AR.Trackable2DObject(this.tracker, "1*", {
