@@ -104,7 +104,7 @@ public class Utility
     }
 
     /**
-     * Metodo para obtener la ubicacion (area, piso) del lugar indicado
+     * Metodo para obtener la ubicacion (areas, piso) del lugar indicado
      * @return Ubicacion (Area/Piso) del lugar
      */
     public static final String obtenerUbicacion(String area, String piso)
@@ -121,64 +121,5 @@ public class Utility
         return "Piso: " +  piso;
     }
 
-    /**
-     * Obtener el ID de la imagen a ser incorporada en el ImageView
-     * @param nombre El nombre del lugar que se desea desplegar
-     * @return El id de la imagen a ser desplegada
-     */
-    public static final int obtenerIDimagen(String nombre)
-    {
-        int respuesta = -1;
-
-        //Depdendiendo del nombre le daremos una imagen
-        switch (nombre)
-        {
-            case "Servicios de Salud":
-                respuesta = R.drawable.salud;
-                break;
-
-            case "Servicios de Comida":
-                respuesta = R.drawable.comida;
-                break;
-
-            case "Servicios de Deporte":
-                respuesta = R.drawable.deporte;
-                break;
-
-            case "Servicios Bancarios":
-                respuesta = R.drawable.banco;
-                break;
-
-            case "Servicios Administrativos":
-                respuesta = R.drawable.administrativo;
-                break;
-
-            case "Servicios al Cliente":
-                respuesta = R.drawable.cliente;
-                break;
-
-            case "Laboratorios":
-                respuesta = R.drawable.laboratorio;
-                break;
-
-            case "Facultades":
-                respuesta = R.drawable.facultadinformatica;
-                break;
-
-            case "Escuelas":
-                respuesta = R.drawable.escuelainformatica;
-                break;
-
-            case "Areas":
-                respuesta = R.drawable.area;
-                break;
-
-            default:
-                respuesta = R.drawable.nodisponible;
-                break;
-        }
-
-        return respuesta;
-    }
 
 }

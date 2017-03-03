@@ -181,7 +181,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                         data = new ArrayList<Area>();
                         break;
 
-                    /*Todos lo que tendra esa area seran entidades se
+                    /*Todos lo que tendra esa areas seran entidades se
                      debio haber hecho esta instanciacion de una vez en vez de todos los cases (
                      usar entidad en vez del switch*/
                     case 2:
@@ -388,10 +388,10 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                     correspondientes y lo añadimos a la lista*/
                     switch (nivel)
                     {
-                        //Servicios de salud
+                        //Servicios de serviciosdesalud
                         case 0:
 
-                            //Creamos el area con sus datos basicos
+                            //Creamos el areas con sus datos basicos
                            /* nuevaArea = new Area(objetoJSON.getString("nombre"),
                                     objetoJSON.getString("descripcion"));
 
@@ -413,7 +413,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                             data.add(nuevaSalud);
                             break;
 
-                        //Servicios de comida
+                        //Servicios de serviciosdecomida
                         case 1:
 
                            Local nuevoLocal = new Local(objetoJSON.getString("nombre")
@@ -427,7 +427,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                             data.add(nuevoLocal);
                             break;
 
-                        //Servicio de deporte
+                        //Servicio de serviciosdedeporte
                         case 2:
 
                             Deporte nuevoDeporte = new Deporte(objetoJSON.getString("nombre")
@@ -469,7 +469,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                             data.add(nuevaDependencia);
                             break;
 
-                        //Servicios al cliente
+                        //Servicios al serviciosalcliente
                         case 5:
 
                             Dependencia nuevaDependenciaCliente = new Dependencia(objetoJSON.getString("nombre")
@@ -533,7 +533,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                 //Areas en General
                                 case 1:
 
-                                    //Si son diferentes significa que ya no es la misma area y no tenemos que agregarle mas pisos
+                                    //Si son diferentes significa que ya no es la misma areas y no tenemos que agregarle mas pisos
                                     if (IDaux != objetoJSON.getInt("identificacion"))
                                     {
                                         //Evitar que se inserte vacio la primera vez
@@ -546,12 +546,12 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                             PrimeraVez = false;
                                         }
 
-                                        //Creo la nueva area y setteo el ID
+                                        //Creo la nueva areas y setteo el ID
                                         nuevaArea = new Area(objetoJSON.getString("nombre"),
                                                 objetoJSON.getString("descripcion"));
                                         nuevaArea.setId(objetoJSON.getInt("identificacion"));
 
-                                        //Creamos un piso nuevo para esa area y se la agregamos
+                                        //Creamos un piso nuevo para esa areas y se la agregamos
                                         Piso nuevoPiso = new Piso(objetoJSON.getString("piso"));
                                         nuevoPiso.setId(objetoJSON.getInt("identificacionPiso"));
 
@@ -563,7 +563,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                             Log.d("PISO","AGREGO PISOS ARRIBA!!!!!");
                                         }
 
-                                        //Agregamos el piso al area
+                                        //Agregamos el piso al areas
                                         nuevaArea.AgregarPiso(nuevoPiso);
 
                                         //Cambiamos el auxiliar
@@ -573,7 +573,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                     }
                                     else
                                     {
-                                        //Creamos un piso nuevo para esa area y se la agregamos
+                                        //Creamos un piso nuevo para esa areas y se la agregamos
                                         Piso nuevoPiso = new Piso(objetoJSON.getString("piso"));
                                         nuevoPiso.setId(objetoJSON.getInt("identificacionPiso"));
 
@@ -586,14 +586,14 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                                         }
 
-                                        //Agregamos el piso al area
+                                        //Agregamos el piso al areas
                                         nuevaArea.AgregarPiso(nuevoPiso);
 
                                     }
 
                                     break;
 
-                                //Todos los elementos de esa area obtenemos sus datos de acuerdo al que sea
+                                //Todos los elementos de esa areas obtenemos sus datos de acuerdo al que sea
                                 case 2:
 
                                     switch (this.tipoEntidad)

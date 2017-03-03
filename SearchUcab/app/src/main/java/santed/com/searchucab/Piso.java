@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Created by Teddy J Sears on 28/12/2016.
- * Clase que contendra la informacion de un piso en particular en un area
+ * Clase que contendra la informacion de un piso en particular en un areas
  * @version 1.0.0
  * @// TODO: 15/01/2017 Incluir Laboratorio, Salud y Deporte
  */

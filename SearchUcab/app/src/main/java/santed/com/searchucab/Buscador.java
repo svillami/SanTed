@@ -220,7 +220,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
         {
             data = new ArrayList<Area>();
             data.add(new Area("feria", "lugar para comer"));
-            data.add(new Area("laboratorio", "Hogar de las ingenierias"));
+            data.add(new Area("laboratorios", "Hogar de las ingenierias"));
             data.add(new Area("biblioteca", "Espacio de estudio"));
             data.add(new Area("aulas", "Hogar de las demas carreras"));
             data.add(new Area("cincuentenario", "Edificio de clases reciente"));
@@ -323,7 +323,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
                         con los siguientes
-                        subelementos del area seleccionada
+                        subelementos del areas seleccionada
                         y el tipo para saber cual opcion fue la seleccionada*/
                         nivel = rvBuscador.getChildAdapterPosition(v);
                         cargarDatos.setNivel(nivel);
@@ -341,7 +341,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                 url = Utility.WEBSERVICE_LOCALES;
                                 break;
 
-                            //Servicios de deporte
+                            //Servicios de serviciosdedeporte
                             case 2:
                                 url = Utility.WEBSERVICE_DEPORTES;
                                 break;
@@ -411,7 +411,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                         verificarGPS(salud);
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
-                        con los siguientes subelementos del area seleccionada*/
+                        con los siguientes subelementos del areas seleccionada*/
 
                         // cargarDatos.setNivel(nivel);
                         break;
@@ -424,12 +424,12 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                         verificarGPS(locales);
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
-                        con los siguientes subelementos del area seleccionada*/
+                        con los siguientes subelementos del areas seleccionada*/
                         //nivel = 2;
                         //cargarDatos.setNivel(nivel);
                         break;
 
-                    //Servicios de deporte
+                    //Servicios de serviciosdedeporte
                     case 2:
 
                         Deporte deportes = (Deporte) data.get(rvBuscador.getChildAdapterPosition(v));
@@ -515,7 +515,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                             //Areas en general
                             case 1:
 
-                                //Obtenemos el area elegida, la url a consultar y aumentamos la profundidad
+                                //Obtenemos el areas elegida, la url a consultar y aumentamos la profundidad
                                 Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
 
                                 //Iteraremos por cada piso para obtener lugares que contiene
@@ -536,7 +536,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                     cargarDatos.setProfundidad(2);
 
                                     /*Dependiendo del numero sabremos
-                                     que estamos trabajando (1-auditorio, 2-banco, etc.)*/
+                                     que estamos trabajando (1-auditorio, 2-serviciosbancarios, etc.)*/
                                     cargarDatos.setTipoEntidad(aux2);
                                     url = Utility.getWebservice(aux2);
 
@@ -572,7 +572,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                 Entidad entidadElegida = (Entidad) data.get(rvBuscador.getChildAdapterPosition(v));
                                 verificarGPS(entidadElegida);
                                 /*
-                                Obtenemos el area elegida, la url a consultar y aumentamos la profundidad
+                                Obtenemos el areas elegida, la url a consultar y aumentamos la profundidad
                                 Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
 
                                 Iteraremos por cada piso para obtener lugares que contiene
@@ -589,7 +589,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                         adaptador.setProfundidad(2);
 
                                         /*Dependiendo del numero sabremos
-                                         que estamos trabajando (1-auditorio, 2-banco, etc.)
+                                         que estamos trabajando (1-auditorio, 2-serviciosbancarios, etc.)
                                         cargarDatos.setTipoEntidad(aux2);
                                         url = Utility.getWebservice(aux2);
 
@@ -625,7 +625,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                     /*Cambiamos el nivel para indicar que la lista debe llenarse
                     con los siguientes
-                    subelementos del area seleccionada
+                    subelementos del areas seleccionada
                     y el tipo para saber cual opcion fue la seleccionada
 
                     nivel = rvBuscador.getChildAdapterPosition(v);
@@ -640,7 +640,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                         nombre = areaElegida.getNombre();
 
                         /*Cambiamos el nivel para indicar que la lista debe llenarse
-                        con los siguientes subelementos del area seleccionada
+                        con los siguientes subelementos del areas seleccionada
                         nivel = 2;
                         cargarDatos.setNivel(nivel);
                     }*/

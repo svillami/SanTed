@@ -92,7 +92,7 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
 
                 break;
 
-            //Servicios de salud
+            //Servicios de serviciosdesalud
             case 0:
 
                 Salud salud = (Salud) data.get(position);
@@ -104,7 +104,7 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
 
                 break;
 
-            //Servicios de comida
+            //Servicios de serviciosdecomida
             case 1:
 
                 Local local = (Local) data.get(position);
@@ -114,7 +114,7 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                         (local.getTextosInformacion().get(0), local.getTextosInformacion().get(1));
                 break;
 
-            //Servicios de deporte
+            //Servicios de serviciosdedeporte
             case 2:
                 Deporte deporte = (Deporte) data.get(position);
                 nombre = deporte.getNombre();
@@ -145,7 +145,7 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                                 dependencia.getTextosInformacion().get(1));
                 break;
 
-            //Servicios al cliente
+            //Servicios al serviciosalcliente
             case 5:
 
                 Dependencia dependenciaCliente = (Dependencia) data.get(position);
@@ -286,9 +286,24 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                 break;
         }
 
+        //Separamos el nombre
+        String nombreSeparado [] = nombre.split(" ");
+
+        /*Como los nombres en la BD tendran espacios pero no pueden en las fotos que estan en la
+        carpeta drawables, concatenaremos el nombre que se hizo split arriba para luego obtener
+         la imagen*/
+        String nombreConcatenado = "";
+        for (String aux : nombreSeparado)
+        {
+            nombreConcatenado = nombreConcatenado + aux;
+        }
+
+        //Ponemos en minúscula para evitar el problema de mayúscula
+        nombreConcatenado = nombreConcatenado.toLowerCase();
+
         //Obtenemos la imagen dependendiendo del nombre de la Entidad
         idLugar = this.contexto.getResources().getIdentifier
-                (nombre, "drawable", this.contexto.getPackageName());
+                (nombreConcatenado, "drawable", this.contexto.getPackageName());
 
         /* Si el ID da 0 en la instruccion anterior, quiere decir que no existe una imagen valida
         * para la entidad (aun no se le ha tomado foto) por lo tanto utilizaremos una foto por

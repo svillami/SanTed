@@ -109,7 +109,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miAuditorio.getDescripcion());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miAuditorio.getTextosInformacion().size() > 2)
 				{
@@ -135,7 +135,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miBanco.getDescripcion());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miBanco.getTextosInformacion().size() > 2)
 				{
@@ -160,7 +160,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miAdministrativa.getDescripcion());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miAdministrativa.getTextosInformacion().size() > 2)
 				{
@@ -186,7 +186,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miDeporte.getDescripcion());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miDeporte.getTextosInformacion().size() > 2)
 				{
@@ -211,7 +211,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miEscuela.getDescripcion());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miEscuela.getTextosInformacion().size() > 2)
 				{
@@ -237,7 +237,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miFacultad.getDescripcion());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miFacultad.getTextosInformacion().size() > 2)
 				{
@@ -263,7 +263,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miLaboratorio.getDescripcion());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miLaboratorio.getTextosInformacion().size() > 2)
 				{
@@ -289,7 +289,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miLocal.getEspecialidad());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miLocal.getTextosInformacion().size() > 2)
 				{
@@ -314,7 +314,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miMonumento.getDescripcion());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miMonumento.getTextosInformacion().size() > 2)
 				{
@@ -339,7 +339,7 @@ public abstract class AbstractArchitectCamActivity extends AppCompatActivity imp
 				entidadJson.put("descripcion", miSalud.getDescripcion());
 
 				/*Agrego las informaciones que existan en el JSONOBJECT, si es mayor que dos
-				significara que hay informaciones adicionales que no sean ni area/ piso, sino
+				significara que hay informaciones adicionales que no sean ni areas/ piso, sino
 				simplemente no hay informacion relevante*/
 				if(miSalud.getTextosInformacion().size() > 2)
 				{
