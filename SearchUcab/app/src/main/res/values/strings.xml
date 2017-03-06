@@ -59,12 +59,13 @@ Nota: El sistema llama a onDismiss() con cada evento que invoque el método call
     <string name="poi_detail_title">Detalles del Lugar</string>
     <string name="urllauncher_hint_textfield">http://</string>
     <string name="urllauncher_default_value_textfield">http://</string>
-    <string name="poi_name">Nombre</string>
-    <string name="poi_description">Descripcion</string>
+    <string name="poi_name">Nombre:</string>
+    <string name="poi_description">Descripción:</string>
+    <string name="poi_informacion">Información:</string>
     <string name="poi_id">ID</string>
     <string name="title_activity_sample1_poi_detail">Sample 5.1 POI Detail</string>
     <string name="footer">Sample App</string>
-    <string name="informacionAR3D">Si desea apoyo para conseguir el sitio que busca, por favor oprima el boton Ayuda que se encuentra en la parte superior.</string>
+    <string name="informacionAR3D">Si desea apoyo para conseguir el sitio que busca, por favor oprima el boton AYUDA que se encuentra en la parte superior.</string>
 
 
 </resources>

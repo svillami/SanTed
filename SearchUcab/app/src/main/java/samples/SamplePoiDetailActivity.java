@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -54,6 +55,10 @@ public class SamplePoiDetailActivity extends AppCompatActivity  {
 		((TextView)findViewById(R.id.poi_title)).setText( getIntent().getExtras().getString(EXTRAS_KEY_POI_TITILE) );
 		((TextView)findViewById(R.id.poi_description)).setText(getIntent().getExtras().getString(EXTRAS_KEY_POI_DESCR));
 		((TextView)findViewById(R.id.poi_information)).setText(getIntent().getExtras().getString(EXTRAS_KEY_POI_INFOR));
+
+		// Coloca el scroll en el texto de la información
+		TextView tv = (TextView) findViewById(R.id.poi_information);
+		tv.setMovementMethod(new ScrollingMovementMethod());
 	}
 
 	//Menu para implementar los valores del Toolbar
