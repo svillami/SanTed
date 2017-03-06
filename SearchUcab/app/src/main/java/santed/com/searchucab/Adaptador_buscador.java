@@ -271,6 +271,14 @@ public class Adaptador_buscador extends RecyclerView.Adapter<Adaptador_buscador.
                             descripcion = salud2.getDescripcion();
                             lugar = Utility.obtenerPiso(salud2.getTextosInformacion().get(0));
                         }
+                        //Si caemos aqui es porque estamos en la busqueda por area
+                        else if (data.get(position) instanceof Area)
+                        {
+                            Area area2 = (Area) data.get(position);
+                            nombre = area2.getNombre();
+                            descripcion = "HAGA CLICK AQUI SI DESEA UBICAR EL AREA";
+                            lugar = "";
+                        }
 
                         break;
                 }

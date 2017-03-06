@@ -28,10 +28,6 @@ import java.util.concurrent.ExecutionException;
 import samples.MainActivity;
 import samples.SampleCamActivity;
 
-/**
- * @// FIXME: 28/12/2016 ELIMINAR EL CONSTRUCTOR VIEJO DE LA CLASE AREA Y BANCO
- * @// TODO: 09/01/2017 Programar el onbackpressed para regresar a la lista principal 
- */
 public class Buscador extends Fragment implements SearchView.OnQueryTextListener, CargarDatosAsincrono.RecibirRespuesta
 {
 
@@ -49,6 +45,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     private CargarDatosAsincrono cargarDatos;
     private int profundidad;
     public static final String OPCION2 = "OPCION2";
+    private Entidad AreaTemporal;
+    private boolean agrearArea = true;
 
     public Adaptador_buscador getAdaptador() {
         return adaptador;
@@ -161,7 +159,15 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
     @Override
     public void RecibiendoRespuesta(ArrayList respuesta) {
+
+        if(agrearArea)
+        {
+            this.data.add(this.AreaTemporal);
+            this.agrearArea = false;
+        }
+
         this.data.addAll(respuesta);
+
     }
 
 
@@ -518,6 +524,9 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                 //Obtenemos el area elegida, la url a consultar y aumentamos la profundidad
                                 Area areaElegida = (Area) data.get(rvBuscador.getChildAdapterPosition(v));
 
+                                //Almacenamos el area que ayudara a la opcion para luego buscarlo
+                                AreaTemporal = areaElegida;
+
                                 //Iteraremos por cada piso para obtener lugares que contiene
                                 //  for (int aux = 0; aux < areaElegida.getListaPiso().size(); aux++)
                                 //  {
@@ -557,6 +566,9 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                     }*/
 
                                 }
+
+                                //Regresamos a true para que cuando se vuelva a buscar entre
+                                agrearArea = true;
 
                                 //Creamos un cargardatos auxiliar para almacenar la data
                               /*  cargarDatos = new CargarDatosAsincrono(nivel, getActivity());
