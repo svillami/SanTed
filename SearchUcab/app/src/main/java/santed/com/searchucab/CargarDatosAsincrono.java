@@ -37,7 +37,7 @@ import java.util.List;
  * El segundo paramaetro indica el tipo de las unidades de progreso (no se usara)
  * El tercer parametro indica cual sera el tipo de resultado que nos dara el el trabajo que
  * se hizo en el background
- * @// TODO: 05/01/2017 Falta en el onpostexcecute completar el switch para llenar la data de acuerdo a las clases
+ * @// TODO: 06/03/2017 En el case 9 (profundidad 1), al obtener y formar las areas, cambiar la linea de informacion que tiene descripcion por ahora 
  * @version 2.1.0
  */
 public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
@@ -553,6 +553,16 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
 
                                         //Creamos un piso nuevo para esa areas y se la agregamos
                                         Piso nuevoPiso = new Piso(objetoJSON.getString("piso"));
+
+                                        nuevaArea.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
+                                        nuevaArea.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+
+                                        nuevaArea.setTextosInformacion("vacio");
+                                        nuevaArea.setTextosInformacion(objetoJSON.getString("vacio"));
+
+                                        //ESTO DEBE CAMBIARSE POR INFORMACION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                        nuevaArea.setTextosInformacion(objetoJSON.getString("descripcion"));
+
                                         nuevoPiso.setId(objetoJSON.getInt("identificacionPiso"));
 
                                         //Le agregamos un nuevo salon si no viene nulo en el JSON

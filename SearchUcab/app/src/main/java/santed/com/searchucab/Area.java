@@ -13,7 +13,7 @@ public class Area extends Entidad
 {
     //Atributos de la clase
     private String nombre, descripcion;
-    private float altitud, latitud;
+    private float altitud, latitud, longitud;
     private HashMap<String, List<String>> informacion;
     private List<Piso> listaPisos;
 
@@ -53,6 +53,23 @@ public class Area extends Entidad
     {
         return descripcion;
     }
+
+    /**
+     * Getter del atributo Longitud
+     * @return La longitud en la que se encuentra el Area
+     */
+    public float getLongitud() {
+        return longitud;
+    }
+
+    /**
+     * Setter para el atributo Longitud
+     * @param longitud El valor de la longitud donde esta el Area
+     */
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
+    }
+
 
     /**
      * Setter del atributo descripcion

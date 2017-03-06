@@ -50,7 +50,7 @@ public class Banco extends Entidad
 
     /**
      * Getter del atributo Longitud
-     * @return La longitud en la que se encuentra el serviciosbancarios
+     * @return La longitud en la que se encuentra el servicios bancarios
      */
     public float getLongitud() {
         return longitud;
@@ -58,7 +58,7 @@ public class Banco extends Entidad
 
     /**
      * Setter para el atributo Longitud
-     * @param longitud El valor de la longitud donde esta el serviciosbancarios
+     * @param longitud El valor de la longitud donde esta el servicios bancarios
      */
     public void setLongitud(float longitud) {
         this.longitud = longitud;
