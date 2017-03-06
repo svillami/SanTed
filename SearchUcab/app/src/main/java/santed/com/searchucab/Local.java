@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Created by Teddy J Sears on 28/12/2016.
- * Clase que contendra la informacion de un local de comida en particular
+ * Clase que contendra la informacion de un local de serviciosdecomida en particular
  * @version 1.1.0
  * @// TODO: 28/12/2016 Falta agregarle la informacion restante 
  */
@@ -21,7 +21,7 @@ public class Local extends Entidad
     /**
      * Constructor de la clase que recibe todos los datos del local
      * @param nombre El nombre que tiene el local
-     * @param especialidad La especialidad de comida que tiene el local
+     * @param especialidad La especialidad de serviciosdecomida que tiene el local
      * @param informacion Fotos, videos o textos que describiran el local
      */
     public Local(String nombre, String especialidad, HashMap<String, List<String>> informacion)
@@ -35,7 +35,7 @@ public class Local extends Entidad
     /**
      * Constructor de la clase que recibe el nombre y la especialidad del local
      * @param nombre El nombre que tiene el local
-     * @param especialidad La especialidad de comida que tiene el local
+     * @param especialidad La especialidad de serviciosdecomida que tiene el local
      */
     public Local (String nombre, String especialidad)
     {
@@ -50,7 +50,7 @@ public class Local extends Entidad
 
     /**
      * Getter del atributo Longitud
-     * @return La longitud en la que se encuentra el local de comida
+     * @return La longitud en la que se encuentra el local de serviciosdecomida
      */
     public float getLongitud() {
         return longitud;
@@ -58,7 +58,7 @@ public class Local extends Entidad
 
     /**
      * Setter para el atributo Longitud
-     * @param longitud El valor de la longitud donde esta el local de comida
+     * @param longitud El valor de la longitud donde esta el local de serviciosdecomida
      */
     public void setLongitud(float longitud) {
         this.longitud = longitud;

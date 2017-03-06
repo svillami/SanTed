@@ -23,4 +23,42 @@
     <string name="mensaje_4_frente">La Biblioteca</string>
     <string name="mensaje_4_izquierda">Edificio de servicios Generales y Posgrado</string>
     <string name="mensaje_4_atras">Jardines</string>
+
+
+    <!-- Falta Referenciar-->
+    <string name="titulo_5">Usted se Encuenta en el: Area de Biblioteca</string>
+    <string name="mensaje_5_derecha">Banco BOD y Aula Magna/Iglesia</string>
+    <string name="mensaje_5_frente">La Biblioteca</string>
+    <string name="mensaje_5_izquierda">Edificio de servicios Generales y Posgrado</string>
+    <string name="mensaje_5_atras">Jardines</string>
+
+    <string name="titulo_6">Usted se Encuenta en el: Area de Biblioteca</string>
+    <string name="mensaje_6_derecha">Banco BOD y Aula Magna/Iglesia</string>
+    <string name="mensaje_6_frente">La Biblioteca</string>
+    <string name="mensaje_6_izquierda">Edificio de servicios Generales y Posgrado</string>
+    <string name="mensaje_6_atras">Jardines</string>
+
+    <string name="titulo_7">Usted se Encuenta en el: Area de Biblioteca</string>
+    <string name="mensaje_7_derecha">Banco BOD y Aula Magna/Iglesia</string>
+    <string name="mensaje_7_frente">La Biblioteca</string>
+    <string name="mensaje_7_izquierda">Edificio de servicios Generales y Posgrado</string>
+    <string name="mensaje_7_atras">Jardines</string>
+
+    <string name="titulo_8">Usted se Encuenta en el: Area de Biblioteca</string>
+    <string name="mensaje_8_derecha">Banco BOD y Aula Magna/Iglesia</string>
+    <string name="mensaje_8_frente">La Biblioteca</string>
+    <string name="mensaje_8_izquierda">Edificio de servicios Generales y Posgrado</string>
+    <string name="mensaje_8_atras">Jardines</string>
+
+    <string name="titulo_9">Usted se Encuenta en el: Area de Biblioteca</string>
+    <string name="mensaje_9_derecha">Banco BOD y Aula Magna/Iglesia</string>
+    <string name="mensaje_9_frente">La Biblioteca</string>
+    <string name="mensaje_9_izquierda">Edificio de servicios Generales y Posgrado</string>
+    <string name="mensaje_9_atras">Jardines</string>
+
+    <string name="titulo_10">Usted se Encuenta en el: Area de Biblioteca</string>
+    <string name="mensaje_10_derecha">Banco BOD y Aula Magna/Iglesia</string>
+    <string name="mensaje_10_frente">La Biblioteca</string>
+    <string name="mensaje_10_izquierda">Edificio de servicios Generales y Posgrado</string>
+    <string name="mensaje_10_atras">Jardines</string>
 </resources>

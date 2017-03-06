@@ -11,17 +11,22 @@
 
 
     <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dip">
-	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/poi_name" /> 
-	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/poi_title"/>
+	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/poi_name" android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="@color/greentoolbar"/>
+	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/poi_title" android:textColor="@color/black" />
     </LinearLayout>
     
     <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dip">
-	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/poi_description" /> 
-	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/poi_description"/>
+	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/poi_description" android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="@color/greentoolbar"/>
+	    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/poi_description" android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dip">
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/poi_informacion" android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="@color/greentoolbar"/>
+        <TextView android:layout_width="fill_parent" android:layout_height="250dp" android:layout_weight="1" android:id="@+id/poi_information" android:scrollbars = "vertical" android:textColor="@color/black"/>
     </LinearLayout>
 
     <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="30dip">
-        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/informacionAR3D"  android:textColor="@color/black"/>
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/informacionAR3D"  android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="@color/black"/>
     </LinearLayout>
 
 </LinearLayout>

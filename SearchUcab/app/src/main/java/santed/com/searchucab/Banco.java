@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Created by Teddy J Sears on 25/12/2016.
- * Clase que contendra la informacion de un banco en particular
+ * Clase que contendra la informacion de un serviciosbancarios en particular
  * @version 2.1.0
  */
 public class Banco extends Entidad
@@ -19,10 +19,10 @@ public class Banco extends Entidad
 
 
     /**
-     * Constructor de la clase que recibe todos los datos del banco
-     * @param nombre El nombre que tiene el banco
-     * @param descripcion La descripcion que tiene el banco
-     * @param informacion Fotos, videos o textos que describiran el banco
+     * Constructor de la clase que recibe todos los datos del serviciosbancarios
+     * @param nombre El nombre que tiene el serviciosbancarios
+     * @param descripcion La descripcion que tiene el serviciosbancarios
+     * @param informacion Fotos, videos o textos que describiran el serviciosbancarios
      */
     public Banco(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
@@ -33,9 +33,9 @@ public class Banco extends Entidad
     }
 
     /**
-     * Constructor de la clase que recibe los datos principales dle banco
-     * @param nombre El nombre que tiene el banco
-     * @param descripcion La descripcion que tiene el banco
+     * Constructor de la clase que recibe los datos principales dle serviciosbancarios
+     * @param nombre El nombre que tiene el serviciosbancarios
+     * @param descripcion La descripcion que tiene el serviciosbancarios
      */
     public Banco(String nombre, String descripcion)
     {
@@ -50,7 +50,7 @@ public class Banco extends Entidad
 
     /**
      * Getter del atributo Longitud
-     * @return La longitud en la que se encuentra el banco
+     * @return La longitud en la que se encuentra el serviciosbancarios
      */
     public float getLongitud() {
         return longitud;
@@ -58,7 +58,7 @@ public class Banco extends Entidad
 
     /**
      * Setter para el atributo Longitud
-     * @param longitud El valor de la longitud donde esta el banco
+     * @param longitud El valor de la longitud donde esta el serviciosbancarios
      */
     public void setLongitud(float longitud) {
         this.longitud = longitud;
@@ -66,7 +66,7 @@ public class Banco extends Entidad
 
     /**
      * Getter del atributo nombre
-     * @return El nombre del banco
+     * @return El nombre del serviciosbancarios
      */
     public String getNombre()
     {
@@ -75,7 +75,7 @@ public class Banco extends Entidad
 
     /**
      * Setter del atributo nombre
-     * @param nombre El nombre que se le desea asignar al banco
+     * @param nombre El nombre que se le desea asignar al serviciosbancarios
      */
     public void setNombre(String nombre)
     {
@@ -84,7 +84,7 @@ public class Banco extends Entidad
 
     /**
      * Getter del atributo descripcion
-     * @return La descripcion del banco
+     * @return La descripcion del serviciosbancarios
      */
     public String getDescripcion()
     {
@@ -93,7 +93,7 @@ public class Banco extends Entidad
 
     /**
      * Setter del atributo descripcion
-     * @param descripcion La descripcion del banco
+     * @param descripcion La descripcion del serviciosbancarios
      */
     public void setDescripcion(String descripcion)
     {
@@ -102,7 +102,7 @@ public class Banco extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con fotos
-     * @return Lista con todas las fotos que posee este banco
+     * @return Lista con todas las fotos que posee este serviciosbancarios
      */
     public List<String> getFotosInformacion()
     {
@@ -111,7 +111,7 @@ public class Banco extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con videos
-     * @return Lista con todos los videos que posee este banco
+     * @return Lista con todos los videos que posee este serviciosbancarios
      */
     public List<String> getVideosInformacion()
     {
@@ -120,7 +120,7 @@ public class Banco extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con textos
-     * @return Lista con todos los textos que posee este banco
+     * @return Lista con todos los textos que posee este serviciosbancarios
      */
     public List<String> getTextosInformacion()
     {
@@ -128,7 +128,7 @@ public class Banco extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto al banco
+     * Setter para agregar una nueva informacion de tipo foto al serviciosbancarios
      * @param fotoInformacion la nueva foto que se le agregara
      */
     public void setFotosInformacion(String fotoInformacion)
@@ -141,7 +141,7 @@ public class Banco extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo video al banco
+     * Setter para agregar una nueva informacion de tipo video al serviciosbancarios
      * @param videoInformacion el nuevo video que se le agregara
      */
     public void setVideosInformacion(String videoInformacion)
@@ -154,7 +154,7 @@ public class Banco extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto al banco
+     * Setter para agregar una nueva informacion de tipo foto al serviciosbancarios
      * @param textoInformacion el nuevo texto que se le agregara
      */
     public void setTextosInformacion(String textoInformacion)
@@ -167,7 +167,7 @@ public class Banco extends Entidad
 
     /**
      * Getter para obtener la latitud de donde se ubica el Banco
-     * @return Latitud del banco
+     * @return Latitud del serviciosbancarios
      */
     public float getLatitud() {
         return latitud;
@@ -175,7 +175,7 @@ public class Banco extends Entidad
 
     /**
      * Setter para asignar la latitud de donde se ubica el Banco
-     * @param latitud que tendra el banco
+     * @param latitud que tendra el serviciosbancarios
      */
     public void setLatitud(float latitud) {
         this.latitud = latitud;
@@ -183,7 +183,7 @@ public class Banco extends Entidad
 
     /**
      * Getter para obtener la Altitud de donde se ubica el Banco
-     * @return Altitud del banco
+     * @return Altitud del serviciosbancarios
      */
     public float getAltitud() {
         return altitud;
@@ -191,14 +191,14 @@ public class Banco extends Entidad
 
     /**
      * Setter para asignar la altitud de donde se ubica el Banco
-     * @param altitud que tendra el banco
+     * @param altitud que tendra el serviciosbancarios
      */
     public void setAltitud(float altitud) {
         this.altitud = altitud;
     }
 
     /**
-     * Getter para obtener la hora en que inicia la prestación de servicio del banco
+     * Getter para obtener la hora en que inicia la prestación de servicio del serviciosbancarios
      * @return La hora de inicio en que comienza a prestar servicio
      */
     public String getHoraInicio() {
@@ -206,7 +206,7 @@ public class Banco extends Entidad
     }
 
     /**
-     * Setter para indicar la hora en que comienza a prestar servicio el banco
+     * Setter para indicar la hora en que comienza a prestar servicio el serviciosbancarios
      * @param horaInicio La hora en que comienza a prestar servicio
      */
     public void setHoraInicio(String horaInicio) {
@@ -214,16 +214,16 @@ public class Banco extends Entidad
     }
 
     /**
-     * Getter para obtener la hora en que termina la prestación de servicio del banco
-     * @return La hora de cierre del banco
+     * Getter para obtener la hora en que termina la prestación de servicio del serviciosbancarios
+     * @return La hora de cierre del serviciosbancarios
      */
     public String getHoraFin() {
         return horaFin;
     }
 
     /**
-     * Setter para indicar la hora en que termina la prestación de servicio del banco
-     * @param horaFin La hora de cierre del banco
+     * Setter para indicar la hora en que termina la prestación de servicio del serviciosbancarios
+     * @param horaFin La hora de cierre del serviciosbancarios
      */
     public void setHoraFin(String horaFin) {
         this.horaFin = horaFin;

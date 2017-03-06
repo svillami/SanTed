@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Created by Teddy J Sears on 15/01/2017.
- * Clase que contendra la informacion de un servicio de deporte en particular
+ * Clase que contendra la informacion de un servicio de serviciosdedeporte en particular
  * @version 1.0.0
  */
 public class Deporte extends Entidad
@@ -17,10 +17,10 @@ public class Deporte extends Entidad
     private HashMap<String, List<String>> informacion;
 
     /**
-     * Constructor de la clase que recibe todos los datos del servicio de deporte
-     * @param nombre El nombre que tiene el servicio de deporte
-     * @param descripcion La descripcion que tiene el servicio de deporte
-     * @param informacion Fotos, videos o textos que describiran el servicio de deporte
+     * Constructor de la clase que recibe todos los datos del servicio de serviciosdedeporte
+     * @param nombre El nombre que tiene el servicio de serviciosdedeporte
+     * @param descripcion La descripcion que tiene el servicio de serviciosdedeporte
+     * @param informacion Fotos, videos o textos que describiran el servicio de serviciosdedeporte
      */
     public Deporte(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
@@ -31,9 +31,9 @@ public class Deporte extends Entidad
     }
 
     /**
-     * Constructor de la clase que recibe nombre y descripcion del servicio de deporte
+     * Constructor de la clase que recibe nombre y descripcion del servicio de serviciosdedeporte
      * @param nombre El nombre que tiene el laobratorio
-     * @param descripcion La descripcion que tiene el servicio de deporte
+     * @param descripcion La descripcion que tiene el servicio de serviciosdedeporte
      */
     public Deporte(String nombre, String descripcion)
     {
@@ -64,7 +64,7 @@ public class Deporte extends Entidad
 
     /**
      * Getter del atributo nombre
-     * @return El nombre de la servicio de deporte
+     * @return El nombre de la servicio de serviciosdedeporte
      */
     public String getNombre()
     {
@@ -73,7 +73,7 @@ public class Deporte extends Entidad
 
     /**
      * Setter del atributo nombre
-     * @param nombre El nombre que se le desea asignar al servicio de deporte
+     * @param nombre El nombre que se le desea asignar al servicio de serviciosdedeporte
      */
     public void setNombre(String nombre)
     {
@@ -82,7 +82,7 @@ public class Deporte extends Entidad
 
     /**
      * Getter del atributo descripcion
-     * @return La descripcion del servicio de deporte
+     * @return La descripcion del servicio de serviciosdedeporte
      */
     public String getDescripcion()
     {
@@ -91,7 +91,7 @@ public class Deporte extends Entidad
 
     /**
      * Setter del atributo descripcion
-     * @param descripcion La descripcion del servicio de deporte
+     * @param descripcion La descripcion del servicio de serviciosdedeporte
      */
     public void setDescripcion(String descripcion)
     {
@@ -100,7 +100,7 @@ public class Deporte extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con fotos
-     * @return Lista con todas las fotos que posee este servicio de deporte
+     * @return Lista con todas las fotos que posee este servicio de serviciosdedeporte
      */
     public List<String> getFotosInformacion()
     {
@@ -109,7 +109,7 @@ public class Deporte extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con videos
-     * @return Lista con todos los videos que posee este servicio de deporte
+     * @return Lista con todos los videos que posee este servicio de serviciosdedeporte
      */
     public List<String> getVideosInformacion()
     {
@@ -118,7 +118,7 @@ public class Deporte extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con textos
-     * @return Lista con todos los textos que posee este servicio de deporte
+     * @return Lista con todos los textos que posee este servicio de serviciosdedeporte
      */
     public List<String> getTextosInformacion()
     {
@@ -126,7 +126,7 @@ public class Deporte extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto al servicio de deporte
+     * Setter para agregar una nueva informacion de tipo foto al servicio de serviciosdedeporte
      * @param fotoInformacion la nueva foto que se le agregara
      */
     public void setFotosInformacion(String fotoInformacion)
@@ -139,7 +139,7 @@ public class Deporte extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo video al servicio de deporte
+     * Setter para agregar una nueva informacion de tipo video al servicio de serviciosdedeporte
      * @param videoInformacion el nuevo video que se le agregara
      */
     public void setVideosInformacion(String videoInformacion)
@@ -152,7 +152,7 @@ public class Deporte extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto al servicio de deporte
+     * Setter para agregar una nueva informacion de tipo foto al servicio de serviciosdedeporte
      * @param textoInformacion el nuevo texto que se le agregara
      */
     public void setTextosInformacion(String textoInformacion)
@@ -165,32 +165,32 @@ public class Deporte extends Entidad
     }
 
     /**
-     * Getter para obtener la latitud de donde se ubica al servicio de deporte
-     * @return Latitud de la servicio de deporte
+     * Getter para obtener la latitud de donde se ubica al servicio de serviciosdedeporte
+     * @return Latitud de la servicio de serviciosdedeporte
      */
     public float getLatitud() {
         return latitud;
     }
 
     /**
-     * Setter para asignar la latitud de donde se ubica al servicio de deporte
-     * @param latitud que tendra la servicio de deporte
+     * Setter para asignar la latitud de donde se ubica al servicio de serviciosdedeporte
+     * @param latitud que tendra la servicio de serviciosdedeporte
      */
     public void setLatitud(float latitud) {
         this.latitud = latitud;
     }
 
     /**
-     * Getter para obtener la Altitud de donde se ubica al servicio de deporte
-     * @return Altitud de la servicio de deporte
+     * Getter para obtener la Altitud de donde se ubica al servicio de serviciosdedeporte
+     * @return Altitud de la servicio de serviciosdedeporte
      */
     public float getAltitud() {
         return altitud;
     }
 
     /**
-     * Setter para asignar la altitud de donde se ubica al servicio de deporte
-     * @param altitud que tendra la servicio de deporte
+     * Setter para asignar la altitud de donde se ubica al servicio de serviciosdedeporte
+     * @param altitud que tendra la servicio de serviciosdedeporte
      */
     public void setAltitud(float altitud) {
         this.altitud = altitud;

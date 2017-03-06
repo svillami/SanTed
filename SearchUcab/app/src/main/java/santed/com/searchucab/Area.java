@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Created by Teddy J Sears on 19/12/2016.
- * Clase que contendra la informacion de un area en particular
+ * Clase que contendra la informacion de un areas en particular
  * @version 2.1.0
  */
 public class Area extends Entidad
@@ -19,9 +19,9 @@ public class Area extends Entidad
 
     /**
      * Constructor que recibe todos los atributos de la clase
-     * @param nombre Nombre que tendra el area
-     * @param descripcion La descripcion que tendra el area
-     * @param informacion Fotos, videos o textos que describiran el area
+     * @param nombre Nombre que tendra el areas
+     * @param descripcion La descripcion que tendra el areas
+     * @param informacion Fotos, videos o textos que describiran el areas
      */
     public Area(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
@@ -33,9 +33,9 @@ public class Area extends Entidad
     }
 
     /**
-     * Contrustor que recibe los datos basicos del area
-     * @param nombre Nombre que tendra el area
-     * @param descripcion La descripcion que tendra el area
+     * Contrustor que recibe los datos basicos del areas
+     * @param nombre Nombre que tendra el areas
+     * @param descripcion La descripcion que tendra el areas
      */
     public Area(String nombre, String descripcion)
     {
@@ -47,7 +47,7 @@ public class Area extends Entidad
 
     /**
      * Getter del atributo descripcion
-     * @return La descripcion del area
+     * @return La descripcion del areas
      */
     public String getDescripcion()
     {
@@ -56,7 +56,7 @@ public class Area extends Entidad
 
     /**
      * Setter del atributo descripcion
-     * @param descripcion La descripcion que se le desea agregar al area
+     * @param descripcion La descripcion que se le desea agregar al areas
      */
     public void setDescripcion(String descripcion)
     {
@@ -65,7 +65,7 @@ public class Area extends Entidad
 
     /**
      * Getter del atributo nombre
-     * @return El nombre del area
+     * @return El nombre del areas
      */
     public String getNombre()
     {
@@ -74,7 +74,7 @@ public class Area extends Entidad
 
     /**
      * Setter del atributo nombre
-     * @param nombre El nombre del area que se le desea colocar
+     * @param nombre El nombre del areas que se le desea colocar
      */
     public void setNombre(String nombre)
     {
@@ -83,7 +83,7 @@ public class Area extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con fotos
-     * @return Lista con todas las fotos que posee esta area
+     * @return Lista con todas las fotos que posee esta areas
      */
     public List<String> getFotosInformacion()
     {
@@ -92,7 +92,7 @@ public class Area extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con videos
-     * @return Lista con todos los videos que posee esta area
+     * @return Lista con todos los videos que posee esta areas
      */
     public List<String> getVideosInformacion()
     {
@@ -101,7 +101,7 @@ public class Area extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con textos
-     * @return Lista con todos los textos que posee esta area
+     * @return Lista con todos los textos que posee esta areas
      */
     public List<String> getTextosInformacion()
     {
@@ -109,7 +109,7 @@ public class Area extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto al area
+     * Setter para agregar una nueva informacion de tipo foto al areas
      * @param fotoInformacion la nueva foto que se le agregara
      */
     public void setFotosInformacion(String fotoInformacion)
@@ -122,7 +122,7 @@ public class Area extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo video al area
+     * Setter para agregar una nueva informacion de tipo video al areas
      * @param videoInformacion el nuevo video que se le agregara
      */
     public void setVideosInformacion(String videoInformacion)
@@ -135,7 +135,7 @@ public class Area extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto al area
+     * Setter para agregar una nueva informacion de tipo foto al areas
      * @param textoInformacion el nuevo texto que se le agregara
      */
     public void setTextosInformacion(String textoInformacion)
@@ -149,7 +149,7 @@ public class Area extends Entidad
 
     /**
      * Getter para obtener la latitud de donde se ubica el Area
-     * @return Latitud del area
+     * @return Latitud del areas
      */
     public float getLatitud() {
         return latitud;
@@ -157,7 +157,7 @@ public class Area extends Entidad
 
     /**
      * Setter para asignar la latitud de donde se ubica el Area
-     * @param latitud que tendra el area
+     * @param latitud que tendra el areas
      */
     public void setLatitud(float latitud) {
         this.latitud = latitud;
@@ -165,7 +165,7 @@ public class Area extends Entidad
 
     /**
      * Getter para obtener la Altitud de donde se ubica el Area
-     * @return Altitud del area
+     * @return Altitud del areas
      */
     public float getAltitud() {
         return altitud;
@@ -173,7 +173,7 @@ public class Area extends Entidad
 
     /**
      * Setter para asignar la altitud de donde se ubica el Area
-     * @param altitud que tendra el area
+     * @param altitud que tendra el areas
      */
     public void setAltitud(float altitud) {
         this.altitud = altitud;
@@ -181,15 +181,15 @@ public class Area extends Entidad
 
 
     /**
-     * Getter para obtener todos los pisos de esa area
-     * @return Los pisos del area
+     * Getter para obtener todos los pisos de esa areas
+     * @return Los pisos del areas
      */
     public List<Piso> getListaPiso() {
         return listaPisos;
     }
 
     /**
-     * Setter para asignar pisos en particular al area
+     * Setter para asignar pisos en particular al areas
      * @param listaPisos Pisos nuevos que contendra el piso
      */
     public void setListaPisos(List<Piso> listaPisos) {
@@ -197,8 +197,8 @@ public class Area extends Entidad
     }
 
     /**
-     * Setter para asignar un piso en particular al area
-     * @param piso piso nuevo que contendra el area
+     * Setter para asignar un piso en particular al areas
+     * @param piso piso nuevo que contendra el areas
      */
     public void AgregarPiso(Piso piso)
     {

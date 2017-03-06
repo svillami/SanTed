@@ -18,9 +18,9 @@ public class Laboratorio extends Entidad
 
     /**
      * Constructor de la clase que recibe todos los datos del Laboratorio
-     * @param nombre El nombre que tiene el laboratorio
-     * @param descripcion La descripcion que tiene el laboratorio
-     * @param informacion Fotos, videos o textos que describiran el laboratorio
+     * @param nombre El nombre que tiene el laboratorios
+     * @param descripcion La descripcion que tiene el laboratorios
+     * @param informacion Fotos, videos o textos que describiran el laboratorios
      */
     public Laboratorio(String nombre, String descripcion, HashMap<String, List<String>> informacion)
     {
@@ -31,9 +31,9 @@ public class Laboratorio extends Entidad
     }
 
     /**
-     * Constructor de la clase que recibe nombre y descripcion del laboratorio
+     * Constructor de la clase que recibe nombre y descripcion del laboratorios
      * @param nombre El nombre que tiene el laobratorio
-     * @param descripcion La descripcion que tiene el laboratorio
+     * @param descripcion La descripcion que tiene el laboratorios
      */
     public Laboratorio(String nombre, String descripcion)
     {
@@ -48,7 +48,7 @@ public class Laboratorio extends Entidad
 
     /**
      * Getter del atributo Longitud
-     * @return La longitud en la que se encuentra el laboratorio
+     * @return La longitud en la que se encuentra el laboratorios
      */
     public float getLongitud() {
         return longitud;
@@ -56,7 +56,7 @@ public class Laboratorio extends Entidad
 
     /**
      * Setter para el atributo Longitud
-     * @param longitud El valor de la longitud donde esta el laboratorio
+     * @param longitud El valor de la longitud donde esta el laboratorios
      */
     public void setLongitud(float longitud) {
         this.longitud = longitud;
@@ -64,7 +64,7 @@ public class Laboratorio extends Entidad
 
     /**
      * Getter del atributo nombre
-     * @return El nombre de la laboratorio
+     * @return El nombre de la laboratorios
      */
     public String getNombre()
     {
@@ -73,7 +73,7 @@ public class Laboratorio extends Entidad
 
     /**
      * Setter del atributo nombre
-     * @param nombre El nombre que se le desea asignar a la laboratorio
+     * @param nombre El nombre que se le desea asignar a la laboratorios
      */
     public void setNombre(String nombre)
     {
@@ -82,7 +82,7 @@ public class Laboratorio extends Entidad
 
     /**
      * Getter del atributo descripcion
-     * @return La descripcion de la laboratorio
+     * @return La descripcion de la laboratorios
      */
     public String getDescripcion()
     {
@@ -91,7 +91,7 @@ public class Laboratorio extends Entidad
 
     /**
      * Setter del atributo descripcion
-     * @param descripcion La descripcion de la laboratorio
+     * @param descripcion La descripcion de la laboratorios
      */
     public void setDescripcion(String descripcion)
     {
@@ -100,7 +100,7 @@ public class Laboratorio extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con fotos
-     * @return Lista con todas las fotos que posee esta laboratorio
+     * @return Lista con todas las fotos que posee esta laboratorios
      */
     public List<String> getFotosInformacion()
     {
@@ -109,7 +109,7 @@ public class Laboratorio extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con videos
-     * @return Lista con todos los videos que posee esta laboratorio
+     * @return Lista con todos los videos que posee esta laboratorios
      */
     public List<String> getVideosInformacion()
     {
@@ -118,7 +118,7 @@ public class Laboratorio extends Entidad
 
     /**
      * Getter para obtener toda la informacion relacionada con textos
-     * @return Lista con todos los textos que posee esta laboratorio
+     * @return Lista con todos los textos que posee esta laboratorios
      */
     public List<String> getTextosInformacion()
     {
@@ -126,7 +126,7 @@ public class Laboratorio extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto a la laboratorio
+     * Setter para agregar una nueva informacion de tipo foto a la laboratorios
      * @param fotoInformacion la nueva foto que se le agregara
      */
     public void setFotosInformacion(String fotoInformacion)
@@ -139,7 +139,7 @@ public class Laboratorio extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo video a la laboratorio
+     * Setter para agregar una nueva informacion de tipo video a la laboratorios
      * @param videoInformacion el nuevo video que se le agregara
      */
     public void setVideosInformacion(String videoInformacion)
@@ -152,7 +152,7 @@ public class Laboratorio extends Entidad
     }
 
     /**
-     * Setter para agregar una nueva informacion de tipo foto a la laboratorio
+     * Setter para agregar una nueva informacion de tipo foto a la laboratorios
      * @param textoInformacion el nuevo texto que se le agregara
      */
     public void setTextosInformacion(String textoInformacion)
@@ -165,32 +165,32 @@ public class Laboratorio extends Entidad
     }
 
     /**
-     * Getter para obtener la latitud de donde se ubica la laboratorio
-     * @return Latitud de la laboratorio
+     * Getter para obtener la latitud de donde se ubica la laboratorios
+     * @return Latitud de la laboratorios
      */
     public float getLatitud() {
         return latitud;
     }
 
     /**
-     * Setter para asignar la latitud de donde se ubica la laboratorio
-     * @param latitud que tendra la laboratorio
+     * Setter para asignar la latitud de donde se ubica la laboratorios
+     * @param latitud que tendra la laboratorios
      */
     public void setLatitud(float latitud) {
         this.latitud = latitud;
     }
 
     /**
-     * Getter para obtener la Altitud de donde se ubica la laboratorio
-     * @return Altitud de la laboratorio
+     * Getter para obtener la Altitud de donde se ubica la laboratorios
+     * @return Altitud de la laboratorios
      */
     public float getAltitud() {
         return altitud;
     }
 
     /**
-     * Setter para asignar la altitud de donde se ubica la laboratorio
-     * @param altitud que tendra la laboratorio
+     * Setter para asignar la altitud de donde se ubica la laboratorios
+     * @param altitud que tendra la laboratorios
      */
     public void setAltitud(float altitud) {
         this.altitud = altitud;

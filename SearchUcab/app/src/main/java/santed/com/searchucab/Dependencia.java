@@ -22,8 +22,8 @@ public class Dependencia extends Entidad
      * @param nombre El nombre que tiene la dependencia
      * @param descripcion La descripcion que tiene la dependencia
      * @param informacion Fotos, videos o textos que describiran la dependencia
-     * @param administrativo Positivo si la dependencia es de tipo administrativo, falso si es
-     *                       de servicios al cliente
+     * @param administrativo Positivo si la dependencia es de tipo serviciosadministrativos, falso si es
+     *                       de servicios al serviciosalcliente
      */
     public Dependencia(String nombre, String descripcion,
                        HashMap<String, List<String>> informacion, boolean administrativo)
@@ -54,7 +54,7 @@ public class Dependencia extends Entidad
     }
 
     /**
-     * Getter para del atributo administrativo
+     * Getter para del atributo serviciosadministrativos
      * @return El tipo de dependencia que se tiene
      */
     public boolean isAdministrativo() {
@@ -62,8 +62,8 @@ public class Dependencia extends Entidad
     }
 
     /**
-     * Setter para el atributo administrativo
-     * @param administrativo Variable que indica si la dependencia es o no de tipo administrativo
+     * Setter para el atributo serviciosadministrativos
+     * @param administrativo Variable que indica si la dependencia es o no de tipo serviciosadministrativos
      */
     public void setAdministrativo(boolean administrativo) {
         this.administrativo = administrativo;

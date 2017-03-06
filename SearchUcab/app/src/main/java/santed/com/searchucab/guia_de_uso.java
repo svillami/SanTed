@@ -1,6 +1,5 @@
 package santed.com.searchucab;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
@@ -12,7 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class guia_de_uso extends Fragment {
@@ -41,7 +40,8 @@ public class guia_de_uso extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         
         opcion_lista = new ArrayList<>();
-        opcion_lista.add("¿Cómo usar el Buscador?");
+        opcion_lista.add("¿Cómo usar el Buscador Lista?");
+        opcion_lista.add("¿Cómo usar el Buscador Escrito?");
         opcion_lista.add("Usos de la Realidad Aumentada 3D");
         opcion_lista.add("¿Cómo usar la busqueda NFC?");
         opcion_lista.add("¿Qué son los Tips?");
@@ -73,9 +73,11 @@ public class guia_de_uso extends Fragment {
                         createSimpleDialog("¿Cómo usar la busqueda NFC?");
                             } else if (opcion_lista.get(position).toString() == "¿Qué son los Tips?"){
                         createSimpleDialog("¿Qué son los Tips?");
-                                    } else if (opcion_lista.get(position).toString() == "¿Cómo usar el Buscador?"){
-                        createSimpleDialog("¿Cómo usar el Buscador?");
-                                            }
+                                    } else if (opcion_lista.get(position).toString() == "¿Cómo usar el Buscador Lista?"){
+                        createSimpleDialog("¿Cómo usar el Buscador Lista?");
+                                            } else if (opcion_lista.get(position).toString() == "¿Cómo usar el Buscador Escrito?"){
+                        createSimpleDialog("¿Cómo usar el Buscador Escrito?");
+                    }
                 }
 
                 return false;
@@ -113,16 +115,51 @@ public class guia_de_uso extends Fragment {
             builder.show();
             //return builder.create();
 
-        } else if (result.equals("¿Cómo usar el Buscador?")) {
+            // Se implememta la opcion de como usar el buscado lista
+        } else if (result.equals("¿Cómo usar el Buscador Lista?")) {
             LayoutInflater inflater = getActivity().getLayoutInflater();
 
-            View v = inflater.inflate(R.layout.dialog_signin, null);
+            View v = inflater.inflate(R.layout.dialog_buscador_lista, null);
+
+            builder.setView(v);
+
+            builder.show();
+            //return builder.create();
+
+            // Se implememta la opcion de como usar el buscado escrito
+        } else if (result.equals("¿Cómo usar el Buscador Escrito?")) {
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+
+            View v = inflater.inflate(R.layout.dialog_buscador_escrito, null);
+
+            builder.setView(v);
+
+            builder.show();
+            //return builder.create();
+
+            // Se implememta la opcion de como usar la busqueda NFC
+        } else if (result.equals("¿Cómo usar la busqueda NFC?")) {
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+
+            View v = inflater.inflate(R.layout.dialog_busqueda_nfc, null);
+
+            builder.setView(v);
+
+            builder.show();
+            //return builder.create();
+
+            // Se implememta la opcion de la Realidad Aumentada 3D
+        } else if (result.equals("Realidad Aumentada 3D")) {
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+
+            View v = inflater.inflate(R.layout.dialog_ar_3d, null);
 
             builder.setView(v);
 
             builder.show();
             //return builder.create();
         }
+
         return builder.create();
 
     }
