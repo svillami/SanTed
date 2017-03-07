@@ -43,6 +43,10 @@ public class Area extends Entidad
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.listaPisos = new ArrayList<Piso>();
+        this.informacion = new HashMap<>();
+        this.informacion.put("foto", new ArrayList<String>());
+        this.informacion.put("video", new ArrayList<String>());
+        this.informacion.put("texto", new ArrayList<String>());
     }
 
     /**

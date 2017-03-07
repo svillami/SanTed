@@ -558,7 +558,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                         nuevaArea.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
 
                                         nuevaArea.setTextosInformacion("vacio");
-                                        nuevaArea.setTextosInformacion(objetoJSON.getString("vacio"));
+                                        nuevaArea.setTextosInformacion("vacio");
 
                                         //ESTO DEBE CAMBIARSE POR INFORMACION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                         nuevaArea.setTextosInformacion(objetoJSON.getString("descripcion"));
