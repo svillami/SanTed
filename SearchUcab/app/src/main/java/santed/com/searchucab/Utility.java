@@ -12,6 +12,7 @@ public class Utility
 
     public static final String METODO_POST = "POST";
 
+    @Deprecated
     public static final String BUSCADOR_ESCRITO = "http://santedsearch.000webhostapp.com/Buscadorprestamos.php";
 
     @Deprecated
@@ -36,6 +37,10 @@ public class Utility
     public static final String WEBSERVICE_CLIENTES = "https://santedsearch.000webhostapp.com/Clientes.php" ;
 
     public static final String WEBSERVICE_AREAS = "https://santedsearch.000webhostapp.com/Areas.php";
+
+
+    //OJO ESTO TENDRA QUE IR EN UNA FUNCION (COMO LA DE MAS ABAJO) LA CUAL TE RETORNARA LA URL DEPENDIENDO DEL TIPO DE ENTIDAD CORRESPONDIENTE!!!!!!!
+    public static final String AUDITORIO_ESCRITO = "https://santedsearch.000webhostapp.com/EAuditorio.php";
 
     /**
      * Metodo para obtener la URL para el webservice dependiendo de que tipo de lugar estamos buscando

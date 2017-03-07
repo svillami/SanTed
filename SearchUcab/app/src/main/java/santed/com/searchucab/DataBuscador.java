@@ -1,5 +1,8 @@
 package santed.com.searchucab;
 
+/**
+ * @deprecated se eliminara ya que esto esta contra la bd del proyecto viejo
+ */
 public class DataBuscador {
 
     public String titulo;

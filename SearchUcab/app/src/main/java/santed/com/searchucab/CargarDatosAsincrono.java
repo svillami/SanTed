@@ -762,12 +762,36 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                         //Search escrito
                         case 10:
 
+                            /*
                             nuevoBuscador = new DataBuscador();
                             nuevoBuscador.codigo = objetoJSON.getInt("Lb_id");
                             nuevoBuscador.titulo = objetoJSON.getString("Lb_titulo");
                             nuevoBuscador.nombreautor = objetoJSON.getString("Lb_nombre_autor");
                             nuevoBuscador.editorial = objetoJSON.getString("Lb_editorial");
-                            data.add(nuevoBuscador);
+                            data.add(nuevoBuscador);*/
+
+                            //De acuerdo al tipo de entidad sabremos que estamos buscando
+                            switch (this.tipoEntidad)
+                            {
+
+                                case 1:
+
+                                    Auditorio nuevoAuditorio = new Auditorio(objetoJSON.getString("nombre"),
+                                            objetoJSON.getString("descripcion"));
+                                    nuevoAuditorio.setId(objetoJSON.getInt("identificacion"));
+                                    nuevoAuditorio.setTextosInformacion("vacio");
+                                    nuevoAuditorio.setTextosInformacion(objetoJSON.getString("piso"));
+                                    nuevoAuditorio.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
+                                    nuevoAuditorio.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+                                    nuevoAuditorio.setTextosInformacion(objetoJSON.getString("Informacion"));
+
+                                    data.add(nuevoAuditorio);
+                                    break;
+                            }
+
+                            //Le damos la respuesta
+                            this.recibirRespuesta.RecibiendoRespuesta(data);
+
                             break;
                     }
 

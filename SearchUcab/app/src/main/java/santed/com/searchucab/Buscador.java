@@ -129,21 +129,57 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     @Override
     public boolean onQueryTextSubmit(String query)
     {
+
         //Instanciamos un AsyncTask para la consulta escrita
         this.cargarDatos = new CargarDatosAsincrono(10, getActivity());
         this.nivel = 10;
+
+
+        this.cargarDatos.setTipoEntidad(1);
+
+        cargarDatos.setRecibirRespuesta(Buscador.this);
+
 
         //Limpiamos la lista que tiene la informacion vieja
         adaptador.LimpiarData();
 
         //Ejecutamos la consulta
-        this.cargarDatos.execute(Utility.BUSCADOR_ESCRITO, query);
+        this.cargarDatos.execute(Utility.AUDITORIO_ESCRITO, query);
 
         //Linea nueva obtenemos la data
         data = this.cargarDatos.getData();
 
         //Instanciamos el adaptador
         adaptador = new Adaptador_buscador(getActivity(), data, nivel);
+
+
+        //Setteamos el listener
+        adaptador.setOnclickListener(new View.OnClickListener() {
+            /*String que tendra el URL del webservice a consultar y auxiliar para obtener
+             informacion de las areas */
+            String url;
+
+            //Obtenemos el elemento seleccionado
+            @Override
+            public void onClick(View v) {
+                //Lo del string y el par de lineas de casteo abajo se eliminaran junto con el toast ya que son pruebas
+                String nombre = null;
+
+                /*Si es el primer nivel (-1) se trata del menu principal, sino significara
+                que es una opcion del menu y cada opcion tiene subniveles a la misma altura (arbol)*/
+                //En todos los niveles se activara la AR excepto en el -1 y en el 10
+                switch (nivel) {
+
+                    //Search escrito
+                    case 10:
+
+                        Entidad entidadEscrita = (Entidad) data.get(rvBuscador.getChildAdapterPosition(v));
+                        verificarGPS(entidadEscrita);
+                        break;
+                }
+
+            }
+        });
 
         //Setteamos el Adaptador
         rvBuscador.setAdapter(adaptador);
@@ -160,7 +196,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     @Override
     public void RecibiendoRespuesta(ArrayList respuesta) {
 
-        if(agrearArea)
+        //El entrara siempre que el nivel sea distinto a 10 y el area este en true
+        if(agrearArea && this.nivel != 10)
         {
             this.data.add(this.AreaTemporal);
             this.agrearArea = false;
@@ -625,7 +662,8 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                     //Search escrito
                     case 10:
 
-                        DataBuscador dataSearch = (DataBuscador) data.get(rvBuscador.getChildAdapterPosition(v));
+                        Entidad entidadEscrita = (Entidad) data.get(rvBuscador.getChildAdapterPosition(v));
+                        verificarGPS(entidadEscrita);
                         break;
                 }
 
