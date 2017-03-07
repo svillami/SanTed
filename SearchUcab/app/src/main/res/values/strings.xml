@@ -67,6 +67,8 @@ Nota: El sistema llama a onDismiss() con cada evento que invoque el método call
     <string name="footer">Sample App</string>
     <string name="informacionAR3D">Si desea apoyo para conseguir el sitio que busca, por favor oprima el boton AYUDA que se encuentra en la parte superior.</string>
 
+    <string name="msmsearchescritouno">No se encontraron Coincidencias.</string>
+    <string name="msmsearchescritodos">Intente con otra palabra Clave.</string>
 
 </resources>
 

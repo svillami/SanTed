@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -129,28 +130,162 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     @Override
     public boolean onQueryTextSubmit(String query)
     {
-
         //Instanciamos un AsyncTask para la consulta escrita
         this.cargarDatos = new CargarDatosAsincrono(10, getActivity());
         this.nivel = 10;
 
+        if (query.equalsIgnoreCase("aula") || query.equalsIgnoreCase("hermano") ){
+            this.cargarDatos.setTipoEntidad(1);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.AUDITORIO_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
 
-        this.cargarDatos.setTipoEntidad(1);
+        } else if (query.equalsIgnoreCase("banco") || query.equalsIgnoreCase("cajero")){
+            this.cargarDatos.setTipoEntidad(2);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.BANCO_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
 
-        cargarDatos.setRecibirRespuesta(Buscador.this);
+        } else if (query.equalsIgnoreCase("dependencia") || query.equalsIgnoreCase("rectorado")
+                || query.equalsIgnoreCase("secretaria") || query.equalsIgnoreCase("caja")
+                || query.equalsIgnoreCase("archivo") || query.equalsIgnoreCase("taquilla")
+                || query.equalsIgnoreCase("iglesia") || query.equalsIgnoreCase("biblioteca")
+                || query.equalsIgnoreCase("libreria") || query.equalsIgnoreCase("reproduccion")){
 
+            this.cargarDatos.setTipoEntidad(3);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.DEPENDENCIA_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
 
-        //Limpiamos la lista que tiene la informacion vieja
-        adaptador.LimpiarData();
+        } else if (query.equalsIgnoreCase("Deporte") || query.equalsIgnoreCase("canchas")
+                || query.equalsIgnoreCase("centro") || query.equalsIgnoreCase("gimnasio")){
+            this.cargarDatos.setTipoEntidad(4);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.DEPORTE_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
 
-        //Ejecutamos la consulta
-        this.cargarDatos.execute(Utility.AUDITORIO_ESCRITO, query);
+        } else if (query.equalsIgnoreCase("escuela") || query.equalsIgnoreCase("informatica")
+                || query.equalsIgnoreCase("telecomunicaciones") || query.equalsIgnoreCase("derecho")
+                || query.equalsIgnoreCase("psicologia") || query.equalsIgnoreCase("ciencias") ){
+            this.cargarDatos.setTipoEntidad(5);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.ESCUELA_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
 
-        //Linea nueva obtenemos la data
-        data = this.cargarDatos.getData();
+        } else if (query.equalsIgnoreCase("facultad") || query.equalsIgnoreCase("ingenieria")
+                || query.equalsIgnoreCase("derecho") || query.equalsIgnoreCase("psicologia")
+                || query.equalsIgnoreCase("ciencias") ){
+            this.cargarDatos.setTipoEntidad(6);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.FACULTAD_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
 
-        //Instanciamos el adaptador
-        adaptador = new Adaptador_buscador(getActivity(), data, nivel);
+        } else if (query.equalsIgnoreCase("laboratorio") ){
+            this.cargarDatos.setTipoEntidad(7);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.LABORATORIO_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
+
+        } else if (query.equalsIgnoreCase("local") || query.equalsIgnoreCase("comida")){
+            this.cargarDatos.setTipoEntidad(8);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.LOCAL_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
+
+        } else if (query.equalsIgnoreCase("monumento")){
+            this.cargarDatos.setTipoEntidad(9);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.MONUMENTO_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
+
+        } else if (query.equalsIgnoreCase("salud") || query.equalsIgnoreCase("enfermeria") ){
+            this.cargarDatos.setTipoEntidad(10);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.SALUD_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
+
+        } else if (query.equalsIgnoreCase("feria") || query.equalsIgnoreCase("jardines")
+                || query.equalsIgnoreCase("loyola")){
+            this.cargarDatos.setTipoEntidad(0);
+            cargarDatos.setRecibirRespuesta(Buscador.this);
+            //Limpiamos la lista que tiene la informacion vieja
+            adaptador.LimpiarData();
+            //Ejecutamos la consulta
+            this.cargarDatos.execute(Utility.AREA_ESCRITO, query);
+            //Linea nueva obtenemos la data
+            data = this.cargarDatos.getData();
+            //Instanciamos el adaptador
+            adaptador = new Adaptador_buscador(getActivity(), data, nivel);
+
+        } else
+
+            Toast.makeText(getActivity(),"",Toast.LENGTH_SHORT);
+            Toast toast= Toast.makeText(getActivity(),R.string.msmsearchescritouno, Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 100 );
+            toast.show();
+            Toast toast2= Toast.makeText(getActivity(),R.string.msmsearchescritodos, Toast.LENGTH_SHORT);
+            toast2.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 100);
+            toast2.show();
 
 
         //Setteamos el listener

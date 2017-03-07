@@ -12,12 +12,6 @@ public class Utility
 
     public static final String METODO_POST = "POST";
 
-    @Deprecated
-    public static final String BUSCADOR_ESCRITO = "http://santedsearch.000webhostapp.com/Buscadorprestamos.php";
-
-    @Deprecated
-    public static final String BUSCADOR_LISTA = "https://santedsearch.000webhostapp.com/pruebaphp.php";
-
     public static final String WEBSERVICE_BANCO = "https://santedsearch.000webhostapp.com/Bancos.php";
 
     public static final String WEBSERVICE_FACULTAD = "https://santedsearch.000webhostapp.com/Facultades.php";
@@ -38,9 +32,28 @@ public class Utility
 
     public static final String WEBSERVICE_AREAS = "https://santedsearch.000webhostapp.com/Areas.php";
 
-
-    //OJO ESTO TENDRA QUE IR EN UNA FUNCION (COMO LA DE MAS ABAJO) LA CUAL TE RETORNARA LA URL DEPENDIENDO DEL TIPO DE ENTIDAD CORRESPONDIENTE!!!!!!!
+    // URL para el buscador Escrito
     public static final String AUDITORIO_ESCRITO = "https://santedsearch.000webhostapp.com/EAuditorio.php";
+
+    public static final String BANCO_ESCRITO = "https://santedsearch.000webhostapp.com/EBanco.php";
+
+    public static final String DEPENDENCIA_ESCRITO = "https://santedsearch.000webhostapp.com/EDependencia.php";
+
+    public static final String DEPORTE_ESCRITO = "https://santedsearch.000webhostapp.com/EDeporte.php";
+
+    public static final String ESCUELA_ESCRITO = "https://santedsearch.000webhostapp.com/EEscuela.php";
+
+    public static final String FACULTAD_ESCRITO = "https://santedsearch.000webhostapp.com/EFacultad.php";
+
+    public static final String LABORATORIO_ESCRITO = "https://santedsearch.000webhostapp.com/ELaboratorio.php";
+
+    public static final String LOCAL_ESCRITO = "https://santedsearch.000webhostapp.com/ELocal.php";
+
+    public static final String MONUMENTO_ESCRITO = "https://santedsearch.000webhostapp.com/EMonumento.php";
+
+    public static final String SALUD_ESCRITO = "https://santedsearch.000webhostapp.com/ESalud.php";
+
+    public static final String AREA_ESCRITO = "https://santedsearch.000webhostapp.com/EArea.php";
 
     /**
      * Metodo para obtener la URL para el webservice dependiendo de que tipo de lugar estamos buscando

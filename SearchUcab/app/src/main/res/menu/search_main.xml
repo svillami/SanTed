@@ -5,7 +5,7 @@
     <item
         android:name="santed.com.searchucab.Buscador_escrito"
         android:id="@+id/action_search"
-        android:icon="@drawable/buscar"
+        android:icon="@android:drawable/ic_menu_search"
         app:actionViewClass="android.support.v7.widget.SearchView"
         android:title="Buscador de sitios"
         android:layout_width="match_parent"
