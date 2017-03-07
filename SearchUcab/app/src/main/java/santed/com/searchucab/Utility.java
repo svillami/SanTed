@@ -32,28 +32,71 @@ public class Utility
 
     public static final String WEBSERVICE_AREAS = "https://santedsearch.000webhostapp.com/Areas.php";
 
+
     // URL para el buscador Escrito
-    public static final String AUDITORIO_ESCRITO = "https://santedsearch.000webhostapp.com/EAuditorio.php";
+    public static final String getWebserviceSearchEscrito(int opcion)
+    {
+        String URL = "";
 
-    public static final String BANCO_ESCRITO = "https://santedsearch.000webhostapp.com/EBanco.php";
+        switch (opcion)
+        {
+            case 0:
+                URL= "https://santedsearch.000webhostapp.com/EArea.php";
+                break;
+            case 1:
 
-    public static final String DEPENDENCIA_ESCRITO = "https://santedsearch.000webhostapp.com/EDependencia.php";
+                URL = "https://santedsearch.000webhostapp.com/EAuditorio.php";
+                break;
 
-    public static final String DEPORTE_ESCRITO = "https://santedsearch.000webhostapp.com/EDeporte.php";
+            case 2:
 
-    public static final String ESCUELA_ESCRITO = "https://santedsearch.000webhostapp.com/EEscuela.php";
+                URL = "https://santedsearch.000webhostapp.com/EBanco.php";
+                break;
 
-    public static final String FACULTAD_ESCRITO = "https://santedsearch.000webhostapp.com/EFacultad.php";
+            case 3:
 
-    public static final String LABORATORIO_ESCRITO = "https://santedsearch.000webhostapp.com/ELaboratorio.php";
+                URL = "https://santedsearch.000webhostapp.com/EDependencia.php";
+                break;
 
-    public static final String LOCAL_ESCRITO = "https://santedsearch.000webhostapp.com/ELocal.php";
+            case 4:
 
-    public static final String MONUMENTO_ESCRITO = "https://santedsearch.000webhostapp.com/EMonumento.php";
+                URL = "https://santedsearch.000webhostapp.com/EDeporte.php";
+                break;
 
-    public static final String SALUD_ESCRITO = "https://santedsearch.000webhostapp.com/ESalud.php";
+            case 5:
 
-    public static final String AREA_ESCRITO = "https://santedsearch.000webhostapp.com/EArea.php";
+                URL = "https://santedsearch.000webhostapp.com/EEscuela.php";
+                break;
+
+            case 6:
+
+                URL = "https://santedsearch.000webhostapp.com/EFacultad.php";
+                break;
+
+            case 7:
+
+                URL = "https://santedsearch.000webhostapp.com/ELaboratorio.php";
+                break;
+
+            case 8:
+
+                URL = "https://santedsearch.000webhostapp.com/ELocal.php";
+                break;
+
+            case 9:
+
+                URL = "https://santedsearch.000webhostapp.com/EMonumento.php";
+                break;
+
+            case 10:
+
+                URL = "https://santedsearch.000webhostapp.com/ESalud.php";
+                break;
+
+        }
+
+        return URL;
+    }
 
     /**
      * Metodo para obtener la URL para el webservice dependiendo de que tipo de lugar estamos buscando

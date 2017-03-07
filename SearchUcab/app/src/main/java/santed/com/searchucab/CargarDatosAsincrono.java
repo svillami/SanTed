@@ -193,7 +193,7 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                 break;
 
             case 10:
-                data = new ArrayList<DataBuscador>();
+                data = new ArrayList<Entidad>();
                 break;
         }
 
@@ -910,15 +910,26 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
                                     break;
 
                                 case 0:
-                                    Area areaEscrita = new Area(objetoJSON.getString("nombre")
-                                            ,objetoJSON.getString("descripcion"));
-                                    areaEscrita.setId(objetoJSON.getInt("identificacion"));
-                                    areaEscrita.setTextosInformacion("vacio");
-                                    areaEscrita.setTextosInformacion(objetoJSON.getString("piso"));
-                                    areaEscrita.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
-                                    areaEscrita.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
-                                    areaEscrita.setTextosInformacion(objetoJSON.getString("Informacion"));
-                                    data.add(areaEscrita);
+
+                                    nuevaArea = new Area(objetoJSON.getString("nombre"),
+                                            objetoJSON.getString("descripcion"));
+                                    nuevaArea.setId(objetoJSON.getInt("identificacion"));
+
+                                    //Creamos un piso nuevo para esa areas y se la agregamos
+                                    Piso nuevoPiso = new Piso(objetoJSON.getString("piso"));
+
+                                    nuevaArea.setLongitud(Float.parseFloat(objetoJSON.getString("longitud")));
+                                    nuevaArea.setLatitud(Float.parseFloat(objetoJSON.getString("latitud")));
+
+                                    nuevaArea.setTextosInformacion("vacio");
+                                    nuevaArea.setTextosInformacion("vacio");
+
+                                    //ESTO DEBE CAMBIARSE POR INFORMACION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                    nuevaArea.setTextosInformacion(objetoJSON.getString("descripcion"));
+
+                                    nuevoPiso.setId(objetoJSON.getInt("identificacionPiso"));
+
+                                    data.add(nuevaArea);
                                     break;
 
                             }
