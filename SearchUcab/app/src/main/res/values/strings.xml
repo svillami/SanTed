@@ -51,7 +51,7 @@ Nota: El sistema llama a onDismiss() con cada evento que invoque el método call
 
     <string name="main_title_urlLauncher">Launch World via url</string>
     <string name="compass_accuracy_low">Por favor recalibra tu brujula ondeando tu celular en forma de 8.</string>
-    <string name="location_fetching">Tratando de localizar tu Ubicación</string>
+    <string name="location_fetching">Refrescando la Ubicación, sino aparece reintenta desde el menu principal.</string>
     <string name="device_unsupported">Este equipo no soporta</string>
     <string name="videosrawables_fallback">VideoDrawables are rendered fullscreen on this device</string>
     <string name="urllauncher_menu_clear_history">Limpiar Historial</string>

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
@@ -310,17 +311,21 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
         }
         catch (MalformedURLException e)
         {
-            e.printStackTrace();
+            resultadoConsulta.append("vacio");
+
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            resultadoConsulta.append("vacio");
 
         }
 
         catch(JSONException e)
         {
-            e.printStackTrace();
+            //e.printStackTrace();
+            resultadoConsulta.append("vacio");
+
+
         }
 
         return resultadoConsulta.toString();
@@ -963,7 +968,13 @@ public class CargarDatosAsincrono extends AsyncTask<String, Integer, String>
         //Si ha ocurrido un error al crear o manipular el JSON
         catch (JSONException e)
         {
-            e.printStackTrace();
+            pdLoading.dismiss();
+            Toast toast = Toast.makeText
+                    (contexto, "Ha ocurrido un error en su busqueda, por favor intente de nuevo",
+                            Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 100);
+            toast.show();
+            pdLoading.dismiss();
 
         }
     }

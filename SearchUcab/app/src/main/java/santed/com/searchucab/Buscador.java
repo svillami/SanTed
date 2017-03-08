@@ -5,6 +5,8 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
@@ -132,7 +134,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
     {
         this.nivel = 10;
 
-        for (int aux2 = 1; aux2 <= 10; aux2++){
+        for (int aux2 = 0; aux2 < 10; aux2++){
 
 
             //Instanciamos un AsyncTask para la consulta escrita
@@ -150,16 +152,13 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
         }
 
 
-        if (data.isEmpty() ){
-
-            Toast.makeText(getActivity(),"",Toast.LENGTH_SHORT);
+         /*   Toast.makeText(getActivity(),"",Toast.LENGTH_SHORT);
             Toast toast= Toast.makeText(getActivity(),R.string.msmsearchescritouno, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 100 );
             toast.show();
             Toast toast2= Toast.makeText(getActivity(),R.string.msmsearchescritodos, Toast.LENGTH_SHORT);
             toast2.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 100);
-            toast2.show();
-        }
+            toast2.show();*/
 
 
         //Setteamos el listener
@@ -576,15 +575,14 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
                                 //Iteraremos por cada piso para obtener lugares que contiene
                                 //  for (int aux = 0; aux < areaElegida.getListaPiso().size(); aux++)
                                 //  {
-                             //   ArrayList auxiliarData1 = null;
-                               // ArrayList auxiliarData2 = new ArrayList<Entidad>();
+                                //   ArrayList auxiliarData1 = null;
+                                // ArrayList auxiliarData2 = new ArrayList<Entidad>();
                                 adaptador.setProfundidad(2);
 
                                 profundidad = 2;
 
                                 //Obtendremos cada lugar del piso en que nos encontramos
-                                for (int aux2 = 1; aux2 <= 10; aux2++)
-                                {
+                                for (int aux2 = 1; aux2 <= 10; aux2++) {
                                     /*Instanciamos de nuevo el AsyncTask
                                     para poder usarlo de nuevo en cada piso */
                                     cargarDatos = new CargarDatosAsincrono(nivel, getActivity());
@@ -604,7 +602,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                                     //Agregamos la data al auxiliar
                                     //auxiliarData1 = cargarDatos.getData();
-                                  //  auxiliarData2.addAll(auxiliarData1);
+                                    //  auxiliarData2.addAll(auxiliarData1);
 
                                  /*   for (int i = 0; i < cargarDatos.getData().size(); i++)
                                     {
@@ -656,7 +654,7 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
                                     }*/
 
-                               // }
+                                // }
 
                                 //profundidad = 3;
                                 // cargarDatos.setProfundidad(2);
@@ -720,8 +718,15 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
 
      final   LocationManager manager =(LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
 
-        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER) ){
             Toast.makeText(getActivity(), "Enciende el GPS en la configuración, para disfrutar de la AR", Toast.LENGTH_LONG).show();
+
+        } else if (!isNetDisponible()){
+
+            Toast.makeText(getActivity(), "Enciende el servicio de red o conectatec a una red WI-FI", Toast.LENGTH_LONG).show();
+
+        } else if (!isOnlineNet()){
+            Toast.makeText(getActivity(), "Verifica tu plan de datos o el estado de la red WI-FI.", Toast.LENGTH_LONG).show();
 
         } else {
             Intent o = new Intent(Buscador.this.getActivity(), SampleCamActivity.class);
@@ -729,5 +734,32 @@ public class Buscador extends Fragment implements SearchView.OnQueryTextListener
             o.putExtra(OPCION2, "Buscador");
             startActivity(o);
         }
+    }
+
+    private boolean isNetDisponible() {
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo actNetInfo = connectivityManager.getActiveNetworkInfo();
+
+        return (actNetInfo != null && actNetInfo.isConnected());
+    }
+
+    public Boolean isOnlineNet() {
+
+        try {
+            Process p = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.es");
+
+            int val           = p.waitFor();
+            boolean reachable = (val == 0);
+            return reachable;
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Toast.makeText(getActivity(), "Ha ocurrido un error verificando su conectividad, Intente unos minutos más tarde", Toast.LENGTH_LONG).show();
+
+
+        }
+        return false;
     }
 }
