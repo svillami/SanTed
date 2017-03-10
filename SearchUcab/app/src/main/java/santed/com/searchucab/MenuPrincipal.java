@@ -100,8 +100,8 @@ public class MenuPrincipal extends AppCompatActivity implements Buscador.EventLi
                         Context context = getApplicationContext();
                         CharSequence text = "Opcion Buscador";
                         int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.show();
+                        //Toast toast = Toast.makeText(context, text, duration);
+                        //toast.show();
                         updateDisplay(new Buscador());
                     //    updateDisplay(new Buscador_escrito());
                         break;
@@ -112,7 +112,7 @@ public class MenuPrincipal extends AppCompatActivity implements Buscador.EventLi
                          context = getApplicationContext();
                          text = "RA3D";
                          duration = Toast.LENGTH_SHORT;
-                         toast = Toast.makeText(context, text, duration);
+                        Toast  toast = Toast.makeText(context, text, duration);
                        /* updateDisplay(new Buscador_escrito());
                         toast.show();
 

@@ -71,7 +71,7 @@ public class guia_de_uso extends Fragment {
 
                     if (opcion_lista.get(position).toString() == "Usos de la Realidad Aumentada 3D") {
                         createSimpleDialog("Realidad Aumentada 3D");
-                    } else if (opcion_lista.get(position).toString() == "¿Cómo usar la busqueda NFC?"){
+                    } else if (opcion_lista.get(position).toString() == "¿Cómo usar la búsqueda NFC?"){
                         createSimpleDialog("¿Cómo usar la búsqueda NFC?");
                             } else if (opcion_lista.get(position).toString() == "¿Qué son los Tips?"){
                         createSimpleDialog("¿Qué son los Tips?");

@@ -91,9 +91,6 @@ public class LecturaNfc extends AppCompatActivity {
         if (!mNfcAdapter.isEnabled()) {
             //mTextView.setText("NFC esta deshabilitado.");
             Toast.makeText(this, "NFC esta deshabilitado. Enciendalo para ubicarse", Toast.LENGTH_LONG).show();
-        } else {
-            //mTextView.setText(R.string.explanation);
-            Toast.makeText(this, "Nada Sucedio", Toast.LENGTH_LONG).show();
         }
 
         handleIntent(getIntent());
