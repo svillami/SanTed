@@ -7,9 +7,9 @@
     <string name="mensaje_1_atras">Estacionamiento de Edif. Cincuentenario PB</string>
 
     <string name="titulo_2">Usted se Encuenta en el: Area de Laboratorio</string>
-    <string name="mensaje_2_derecha">Estacionamientos</string>
-    <string name="mensaje_2_frente">PB: Facultad de Ingenieria, Cajero Provincial Piso 1: Escuela de Civil Piso 2: Escuela de Informatica y Telecomunicaciones</string>
-    <string name="mensaje_2_izquierda">Solarium</string>
+    <string name="mensaje_2_derecha">Edificio de Modulos</string>
+    <string name="mensaje_2_frente">Edificio de Laboratorios</string>
+    <string name="mensaje_2_izquierda">E/S Hacia el paraiso</string>
     <string name="mensaje_2_atras">Estacionamiento de Laboratorio</string>
 
     <string name="titulo_3">Usted se Encuenta en el: Area de Modulo 1</string>

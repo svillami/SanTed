@@ -31,7 +31,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="120dp"
-                android:src="@drawable/busqueda_nfc_uno" />
+                android:src="@drawable/buscador_ra3d_uno" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="580dp"
-                android:src="@drawable/busqueda_nfc_dos"
+                android:src="@drawable/buscador_ra3d_dos"
                 android:layout_below="@+id/textView3" />
 
             <TextView
@@ -76,7 +76,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="980dp"
-                android:src="@drawable/busqueda_nfc_tres"
+                android:src="@drawable/buscador_ra3d_tres"
                 android:layout_below="@+id/textView5" />
 
             <TextView

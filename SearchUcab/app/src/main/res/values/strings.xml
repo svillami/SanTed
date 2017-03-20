@@ -17,7 +17,7 @@
     <string name="dialogo_busquedanfc_dos">Una vez haya oprimido el botón, este le mostrará un diálogo, indicando que la app está esperando por la lectura del NFC. </string>
     <string name="dialogo_busquedanfc_tres">Cuando la app reconozca el NFC, le indicará qué hay cerca de ese punto de referencia, para facilitar su ubicación y orientación. </string>
 
-    <string name="dialogo_busqueda_lista_uno">Al abrir el app o al tocar el botón buscador del menú, se observará una lista de servicios que podrían ser de su interés, puede acceder a lo que busca con un solo click.</string>
+    <string name="dialogo_busqueda_lista_uno">Al abrir la app o al tocar el botón buscador del menú, se observará una lista de servicios que podrían ser de su interés, puede acceder a lo que busca con un solo click.</string>
     <string name="dialogo_busqueda_lista_dos">En cada opción se mostrará una breve información del sitio que desea buscar, con respecto a ese servicio.</string>
     <string name="dialogo_busqueda_lista_tres">Al entrar en alguna de las opciones, se levantará la Realidad Aumentada, y le mostrará un punto que hace referencia al sitio en cuestión, de acuerdo a su ubicación geográfica. Recuerde encender su GPS para disfrutar de la experiencia.</string>
     <string name="dialogo_busqueda_lista_cuatro">Puede moverse en diferentes direcciones con su dispositivo, siguiendo la dirección que indica la flecha, hasta que logre ver el punto, si lo toca, se desplegará una breve información del sitio.</string>
