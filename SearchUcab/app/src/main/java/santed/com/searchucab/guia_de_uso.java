@@ -43,7 +43,7 @@ public class guia_de_uso extends Fragment {
         opcion_lista.add("¿Cómo usar el Buscador Lista?");
         opcion_lista.add("¿Cómo usar el Buscador Escrito?");
         opcion_lista.add("Usos de la Realidad Aumentada 3D");
-        opcion_lista.add("¿Cómo usar la busqueda NFC?");
+        opcion_lista.add("¿Cómo usar la búsqueda NFC?");
         opcion_lista.add("¿Qué son los Tips?");
         opcion_lista.add("Tipos de Etiquetas para lectura");
         opcion_lista.add("¿Por qué aparecen estos mensajes?");
@@ -72,7 +72,7 @@ public class guia_de_uso extends Fragment {
                     if (opcion_lista.get(position).toString() == "Usos de la Realidad Aumentada 3D") {
                         createSimpleDialog("Realidad Aumentada 3D");
                     } else if (opcion_lista.get(position).toString() == "¿Cómo usar la busqueda NFC?"){
-                        createSimpleDialog("¿Cómo usar la busqueda NFC?");
+                        createSimpleDialog("¿Cómo usar la búsqueda NFC?");
                             } else if (opcion_lista.get(position).toString() == "¿Qué son los Tips?"){
                         createSimpleDialog("¿Qué son los Tips?");
                                     } else if (opcion_lista.get(position).toString() == "¿Cómo usar el Buscador Lista?"){
@@ -145,7 +145,7 @@ public class guia_de_uso extends Fragment {
             //return builder.create();
 
             // Se implememta la opcion de como usar la busqueda NFC
-        } else if (result.equals("¿Cómo usar la busqueda NFC?")) {
+        } else if (result.equals("¿Cómo usar la búsqueda NFC?")) {
             LayoutInflater inflater = getActivity().getLayoutInflater();
 
             View v = inflater.inflate(R.layout.dialog_busqueda_nfc, null);
