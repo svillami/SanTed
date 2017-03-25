@@ -1,0 +1,61 @@
+
+VALIDACIONES (
+TOAST, 
+DUPLICACION,                                            LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+PISO DICE VACIO,                                        LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+EL LOADING PERMANENTE,                                  LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (arreglar lo que se repite muchas veces toast)
+VALIDACION DE SI HAY RED/WIFI,                          LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+VALIDACION CARITAS Y COSAS RARAS EN EL BUSCADOR ESCRITO,LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (arreglar lo que se repite muchas veces toast)
+JARDINES TRES VECES,                                    LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+Y EL MENSAJE DE CUANDO TE LANZA LA AR                   LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+)
+
+
+BUSCADOR ESCRITO (TERMINARLO)                     LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   
+
+TERMINAR LA OPCION DE BUSCAR EL AREA COMO TAL     LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  (falta linea informacion que esta ahorita con la descripcion)       
+
+HACER EL VIDEO                                    LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  (FALTA EDITAR/MONTAR EN LA APP)
+
+INCLUIR 1F,2F,3F AL AR                            LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+HACER LAS IMAGENES COMO TAL DEL 1F,2F,3F          LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+PROGRAMAR ESA PARTE DE LAS FOTOS                  LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+TERMINAR DE INCLUIR LAS IMAGENES EN LA APLICACION EN LOS LISTAR buscador     LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Y EL SPLIT                                        LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+CAMBIAR LA BD PARA QUE LOS NOMBRES CUADREN CON LAS FOTOS EN LA APLICACION  
+
+GUIA DE USO (FOTOS), CASOS DE FALLO E INDICAR CUALES SON LAS CALCOMANIAS DE NFC
+, LAS IMAGENES QUE TE INDICARAN LA DIRECCION Y LAS IMAGENES QUE TE MOSTRARAN VIDEOS O INFORMACION    LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   (FALTAN FOTOS)
+
+LA INTERFAZ DEL DETALLE DEL AR                    LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+IMPRIMIR EL LOGO DE NFC (CALCOMANIAS)             LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+IMPRIMIR LAS FOTOS QUE ESTARAN PEGADAS (TANTO DE INFORMACION COMO DE IMAGEN) LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+MENSAJES EN TERCERA PERSONA                       LISTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (REVISAR UNA VEZ MAS)
+
+PROGRAMAR LA LISTA DE ARRIBA
+
+
+
+
+UNIVERSIDAD:
+----------------------------------
+
+TOMAR FOTOS E INCORPORARLAS
+PROBARLO EN VIVO
+MOSTRARLE A WILMER LA APP Y LO IMPRESO
+PREGUNTARLE LAS COSAS PERTINENTES
+
+ACTUAR EN CUESTION
