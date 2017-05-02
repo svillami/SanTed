@@ -6,38 +6,38 @@
     <string name="openDrawer">open</string>
     <string name="closeDrawer">close</string>
     <string name="informacion">Aplicación destinada al uso del público en general para la ubicación de diferentes sitios
-    de la Universidad Católica Andres Bello. Desarrollada por Tesistas de Ingeniería Informática. </string>
+    de la Universidad Católica Andres Bello. Desarrollada por tesistas de Ingeniería Informática. </string>
 
     <!-- TODO: Dialogos para la guia de uso -->
     <string name="dialogo_tips_uno">Disfrute con cada micro tips, estos aparecerán cada vez que entre a la opción de Tips en el menú principal.</string>
     <string name="dialogo_tips_dos"> Proporcionan información rápida y aleatoria sobre el campus, posee documentación que posiblemente no conozca y
     que pueda serle útil en algún momento dado.</string>
 
-    <string name="dialogo_busquedanfc_uno">La opción para busqueda por NFC, le permite ubicar de manera puntual, el lugar donde se encuentra en ese momento. </string>
+    <string name="dialogo_busquedanfc_uno">La opción para búsqueda por NFC, le permite ubicar de manera puntual, el lugar donde se encuentra en ese momento. </string>
     <string name="dialogo_busquedanfc_dos">Una vez haya oprimido el botón, este le mostrará un diálogo, indicando que la app está esperando por la lectura del NFC. </string>
-    <string name="dialogo_busquedanfc_tres">Cuando la app reconozca el NFC, le indicará que hay cerca de ese punto de referencia, para facilitar su ubicación y orientación. </string>
+    <string name="dialogo_busquedanfc_tres">Cuando la app reconozca el NFC, le indicará qué hay cerca de ese punto de referencia, para facilitar su ubicación y orientación. </string>
 
-    <string name="dialogo_busqueda_lista_uno">Al abrir el app o al tocar el botón buscador del menu, verá una lista de servicios que podrían ser de su interés, puede acceder a lo que busca con un solo click.</string>
+    <string name="dialogo_busqueda_lista_uno">Al abrir el app o al tocar el botón buscador del menú, se observará una lista de servicios que podrían ser de su interés, puede acceder a lo que busca con un solo click.</string>
     <string name="dialogo_busqueda_lista_dos">En cada opción se mostrará una breve información del sitio que desea buscar, con respecto a ese servicio.</string>
     <string name="dialogo_busqueda_lista_tres">Al entrar en alguna de las opciones, se levantará la Realidad Aumentada, y le mostrará un punto que hace referencia al sitio en cuestión, de acuerdo a su ubicación geográfica. Recuerde encender su GPS para disfrutar de la experiencia.</string>
-    <string name="dialogo_busqueda_lista_cuatro">Puede moverse en diferentes direcciones con su dispositivo, siguiendo la dirección que indica la flecha, hasta que logre ver el punto, Si lo toca, se desplegará una breve información del sitio.</string>
-    <string name="dialogo_busqueda_lista_cinco">Además de la breve información, le mostrará la distancia a la que se encuentra desde el punto donde está. En el botón MAS, apreciará información detallada del punto y podrá acceder al botón de AYUDA. </string>
-    <string name="dialogo_busqueda_lista_seis">El botón AYUDA le permite escanear con su dispositivo diferentes imagenes distintivas, que le indicarán hacia donde debe dirigirse para orientarse mejor.</string>
+    <string name="dialogo_busqueda_lista_cuatro">Puede moverse en diferentes direcciones con su dispositivo, siguiendo la dirección que indica la flecha, hasta que logre ver el punto, si lo toca, se desplegará una breve información del sitio.</string>
+    <string name="dialogo_busqueda_lista_cinco">Además de la breve información, le mostrará la distancia a la que se encuentra desde el punto donde está. En el botón MÁS, apreciará información detallada del punto y podrá acceder al botón de AYUDA. </string>
+    <string name="dialogo_busqueda_lista_seis">El botón AYUDA le permite escanear con su dispositivo diferentes imágenes distintivas, que le indicarán hacia dónde debe dirigirse para orientarse mejor.</string>
 
 
-    <string name="dialogo_busqueda_escrito_uno">Puede hacer una busqueda puntual de lo que quiera encontrar, use palabras claves tales como: banco, secretaría o cincuentenario y si consigue coincidencias se desplegará una lista con los sitios que se adecuen a la búsqueda.</string>
+    <string name="dialogo_busqueda_escrito_uno">Puede hacer una búsqueda puntual de lo que quiera encontrar, use palabras claves tales como: banco, Secretaría o Cincuentenario y si consigue coincidencias se desplegará una lista con los sitios que se adecúen a la búsqueda.</string>
     <string name="dialogo_busqueda_escrito_dos">Al entrar en alguna de las opciones, se levantará la Realidad Aumentada, y le mostrará un punto que hace referencia al sitio en cuestión, de acuerdo a su ubicación geográfica. Recuerde encender su GPS para disfrutar de la experiencia.</string>
-    <string name="dialogo_busqueda_escrito_tres">Puede moverse en diferentes direcciones con su dispositivo, siguiendo la dirección que indica la flecha, hasta que logre ver el punto, Si lo toca, se desplegará una breve información del sitio.</string>
-    <string name="dialogo_busqueda_escrito_cuatro">Además de la breve información, le mostrará la distancia a la que se encuentra desde el punto donde está. En el botón MAS, apreciará información detallada del punto y podrá acceder al botón de AYUDA. </string>
+    <string name="dialogo_busqueda_escrito_tres">Puede moverse en diferentes direcciones con su dispositivo, siguiendo la dirección que indica la flecha, hasta que logre ver el punto, si lo toca, se desplegará una breve información del sitio.</string>
+    <string name="dialogo_busqueda_escrito_cuatro">Además de la breve información, le mostrará la distancia a la que se encuentra desde el punto donde está. En el botón MÁS, apreciará información detallada del punto y podrá acceder al botón de AYUDA. </string>
     <string name="dialogo_busqueda_escrito_cinco">El botón AYUDA le permite escanear con su dispositivo diferentes imágenes distintivas, que le indicarán hacia dónde debe dirigirse para orientarse mejor.</string>
 
-    <string name="dialogo_ar_3d_uno">Esta opción le permite escanear monumentos o fotos distintivas, que le desplegarán un material visual ya sea un video o foto.</string>
-    <string name="dialogo_ar_3d_dos">Al entrar en esta opción se accionará la cámara y podrá ver una lista de fotos, si enfoca alguna de ellas se mostrará un video o una imagen que le dará mayor información del sitio.</string>
-    <string name="dialogo_ar_3d_tres">Si el video le muestra un botón de información, podrá hacer uso de este, para ir directamente a una página de referencia.</string>
+    <string name="dialogo_ar_3d_uno">Esta opción le permite escanear monumentos o fotos distintivas, que le desplegarán un material visual ya sea un vídeo o foto.</string>
+    <string name="dialogo_ar_3d_dos">Al entrar en esta opción se accionará la cámara y podrá ver una lista de fotos, si enfoca alguna de ellas se mostrará un vídeo o una imagen que le dará mayor información del sitio.</string>
+    <string name="dialogo_ar_3d_tres">Si el vídeo le muestra un botón de información, podrá hacer uso de este, para ir directamente a una página de referencia.</string>
 
     <string name="dialogo_etiqueta_uno">Las etiquetas con números coloreados, sirven para ser leidas por la opción Realidad Aumentada 3D, estas le mostrarán de forma puntual, dónde se encuentra en ese momento y qué hay a su alrededor. </string>
-    <string name="dialogo_etiqueta_dos">Las etiquetas con fotos, sirven para ser leidas por la opción Realidad Aumentada 3D, estas desplegarán un video informativo del lugar o monumento capturado.</string>
-    <string name="dialogo_etiqueta_tres">Las etiquetas con el indicativo NFC, sirven para ser leidas por la opción denominada: Busqueda NFC, estas leerán el NFC correspondiente y le mostrarán, de forma puntual, donde se encuentra en ese momento y qué hay a su alrededor.</string>
+    <string name="dialogo_etiqueta_dos">Las etiquetas con fotos, sirven para ser leidas por la opción Realidad Aumentada 3D, estas desplegarán un vídeo informativo del lugar o monumento capturado.</string>
+    <string name="dialogo_etiqueta_tres">Las etiquetas con el indicativo NFC, sirven para ser leidas por la opción denominada: Búsqueda NFC, estas leerán el NFC correspondiente y le mostrarán, de forma puntual, dónde se encuentra en ese momento y qué hay a su alrededor.</string>
 
     <string name="dialogo_aviso_uno">Encienda el GPS en la configuración, para distrutar de la AR:</string>
     <string name="dialogo_msm_uno">Este aviso le indica que tiene el GPS de su dispositivo deshabilitado o apagado, una vez que lo haya encendido podrá disfrutar de la experiencia que le ofrece la Realidad Aumentada.</string>
@@ -46,7 +46,7 @@
     <string name="dialogo_aviso_tres">NFC está deshabilitado. Enciéndalo para ubicarse:</string>
     <string name="dialogo_msm_tres">Este aviso le indica que el dispositivo posee una tarjeta integrada para lectura de NFC, pero debe encenderla para poder leer el contenido de las mismas.</string>
     <string name="dialogo_aviso_cuatro">Por favor, Acerque su dispositivo al NFC para su lectura:</string>
-    <string name="dialogo_msm_cuatro">Este aviso le indica que la App está esperando leer el contenido de un NFC, para esto debe acercar su dispositivo a la etiqueta NFC, a una distancia de al menos 1 Centimetro para captar la señal de la etiqueta.</string>
+    <string name="dialogo_msm_cuatro">Este aviso le indica que la App está esperando leer el contenido de un NFC, para esto debe acercar su dispositivo a la etiqueta NFC, a una distancia de al menos 1 centimetro para captar la señal de la etiqueta.</string>
     <string name="dialogo_aviso_cinco">Refrescando la ubicación, sino aparece reintente desde el menú principal:</string>
     <string name="dialogo_msm_cinco">Este aviso le indica que el dispositivo está consultando mediante GPS la ubicación en la que se encuentra, en caso de haber demora intente nuevamente desde el menú principal.</string>
     <string name="dialogo_aviso_seis">Por favor ajuste su radar ondeando su celular en forma de 8:</string>
@@ -57,7 +57,7 @@
     <string name="dialogo_msm_ocho">Este aviso le indica que su dispositivo no tiene encendida la opción de WI-FI ni la del plan de datos. </string>
     <string name="dialogo_aviso_nueve">Verifique su plan de datos o el estado de la red WI-FI:</string>
     <string name="dialogo_msm_nueve">Este aviso indica que su dispositivo está conectado a una red WI-FI o plan de datos pero NO tiene acceso a internet. </string>
-    <string name="dialogo_aviso_diez">Ha ocurrido un error verificando su conectividad, Intente unos minutos más tarde:</string>
+    <string name="dialogo_aviso_diez">Ha ocurrido un error verificando su conectividad, intente unos minutos más tarde:</string>
     <string name="dialogo_msm_diez">Este aviso le indica que ha ocurrido un error inesperado al probar conectividad, por favor intente más tarde. </string>
     <string name="dialogo_aviso_once"></string>
     <string name="dialogo_msm_once"></string>
@@ -71,8 +71,8 @@
     <string name="compass_accuracy_low">Por favor ajuste su radar ondeando su celular en forma de 8.</string>
     <string name="location_fetching">Refrescando la Ubicación, sino aparece reintente desde el menú principal.</string>
     <string name="device_unsupported">Este equipo no soporta</string>
-    <string name="videosrawables_fallback">Los videos son renderizados en pantalla completa en este dispositivo.</string>
-    <string name="urllauncher_menu_clear_history">Limpiar Historial</string>
+    <string name="videosrawables_fallback">Los vídeos son renderizados en pantalla completa en este dispositivo.</string>
+    <string name="urllauncher_menu_clear_history">Limpiar historial</string>
     <string name="urllauncher_button_launch"> Disparar </string>
     <string name="poi_detail_title">Detalles del Lugar</string>
     <string name="urllauncher_hint_textfield">http://</string>
@@ -85,7 +85,7 @@
     <string name="footer">Prueba App</string>
     <string name="informacionAR3D">Si desea apoyo para conseguir el sitio que busca, por favor oprima el botón AYUDA que se encuentra en la parte superior.</string>
 
-    <string name="msmsearchescritouno">No se encontraron Coincidencias.</string>
+    <string name="msmsearchescritouno">No se encontraron coincidencias.</string>
     <string name="msmsearchescritodos">Intente con otra palabra Clave.</string>
 
 </resources>

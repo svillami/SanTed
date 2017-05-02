@@ -16,7 +16,7 @@
         <item
             android:id="@+id/busquedanfc"
             android:icon="@drawable/nfc"
-            android:title="Busqueda NFC" />
+            android:title="Búsqueda NFC" />
 
     </group>
 
@@ -27,7 +27,7 @@
                 <item
                     android:id="@+id/guia"
                     android:icon="@drawable/guiausuario"
-                    android:title="Guia de Usuario" />
+                    android:title="Guía de Usuario" />
 
                 <item
                     android:id="@+id/tips"
